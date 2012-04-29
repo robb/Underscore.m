@@ -123,4 +123,16 @@
     STAssertFalse([hundred isEqualToArray:shuffled], @"Could shuffle the array");
 }
 
+- (void)testEach
+{
+    NSArray *ten = [NSArray __from:0 to:10];
+    NSInteger __block current = 0;
+
+    [ten __each:^(NSNumber *number) {
+        STAssertTrue(current++ == [number integerValue], nil);
+    }];
+
+    STAssertTrue(current == 10, @"Could run 10 tests");
+}
+
 @end

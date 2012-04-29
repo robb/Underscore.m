@@ -95,4 +95,11 @@
     return result;
 }
 
+- (void)__each:(UnderscoreArrayIteratorBlock)block;
+{
+    for (id obj in self) {
+        block(obj);
+    }
+}
+
 @end
