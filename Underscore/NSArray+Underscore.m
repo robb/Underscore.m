@@ -17,7 +17,7 @@
 
 + __from:(NSInteger)start to:(NSInteger)end step:(NSInteger)step
 {
-    NSUInteger length = MAX((end - start) / step, 0);
+    NSInteger length  = fmax(ceil(((double) end - start) / step), 0.0);
     NSInteger current = start;
 
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:length];

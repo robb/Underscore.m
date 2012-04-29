@@ -44,15 +44,15 @@
 
 - (void)testFromToStepAcending
 {
-    NSArray *range = [NSArray __from:0 to:8 step:2];
+    NSArray *range = [NSArray __from:1 to:8 step:2];
     
-    NSArray *expected = [NSArray arrayWithObjects:[NSNumber numberWithInteger:0],
-                                                  [NSNumber numberWithInteger:2],
-                                                  [NSNumber numberWithInteger:4],
-                                                  [NSNumber numberWithInteger:6],
+    NSArray *expected = [NSArray arrayWithObjects:[NSNumber numberWithInteger:1],
+                                                  [NSNumber numberWithInteger:3],
+                                                  [NSNumber numberWithInteger:5],
+                                                  [NSNumber numberWithInteger:7],
                                                   nil];
     
-    STAssertEqualObjects(expected, range, @"Could generate asending range");
+    STAssertEqualObjects(expected, range, @"Could generate ascending range");
 }
 
 - (void)testFromToStepDescending
