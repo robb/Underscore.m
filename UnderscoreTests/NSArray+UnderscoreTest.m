@@ -155,4 +155,28 @@
     STAssertEqualObjects(result, @"Toto", @"Could find Toto");
 }
 
+- (void)testFilter
+{
+    NSArray *ten  = [NSArray __from:0 to:10];
+    NSArray *even = [NSArray __from:0 to:10 step:2];
+
+    UnderscoreArrayTestBlock isEven = ^BOOL(NSNumber *number) {
+        return number.integerValue % 2 == 0;
+    };
+
+    STAssertEqualObjects(even, [ten __filter:isEven], @"Could filter even numbers");
+}
+
+- (void)testReject
+{
+    NSArray *ten = [NSArray __from:0 to:10];
+    NSArray *odd = [NSArray __from:1 to:11 step:2];
+
+    UnderscoreArrayTestBlock isEven = ^BOOL(NSNumber *number) {
+        return number.integerValue % 2 == 0;
+    };
+
+    STAssertEqualObjects(odd, [ten __reject:isEven], @"Could reject even numbers");
+}
+
 @end

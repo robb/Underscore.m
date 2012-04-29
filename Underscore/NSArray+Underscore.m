@@ -124,4 +124,26 @@
     return nil;
 }
 
+- (NSArray *)__filter:(UnderscoreArrayTestBlock)block;
+{
+    NSMutableArray *result = [NSMutableArray array];
+
+    for (id obj in self) {
+        if (block(obj)) {
+            [result addObject:obj];
+        }
+    }
+
+    return result;
+}
+
+- (NSArray *)__reject:(UnderscoreArrayTestBlock)block;
+{
+    UnderscoreArrayTestBlock inverted = ^BOOL(id obj) {
+        return !block(obj);
+    };
+
+    return [self __filter:inverted];
+}
+
 @end
