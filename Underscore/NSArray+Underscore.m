@@ -55,7 +55,7 @@
     return [self subarrayWithRange:range];
 }
 
-- (NSArray *)__flatten;
+- (NSArray *)__flatten
 {
     NSMutableArray *result = [NSMutableArray array];
 
@@ -70,7 +70,7 @@
     return result;
 }
 
-- (NSArray *)__without:(NSArray *)values;
+- (NSArray *)__without:(NSArray *)values
 {
     NSMutableArray *result = [NSMutableArray array];
 
@@ -83,7 +83,7 @@
     return result;
 }
 
-- (NSArray *)__shuffle;
+- (NSArray *)__shuffle
 {
     NSMutableArray *result = [self mutableCopy];
 
@@ -95,14 +95,14 @@
     return result;
 }
 
-- (void)__each:(UnderscoreArrayIteratorBlock)block;
+- (void)__each:(UnderscoreArrayIteratorBlock)block
 {
     for (id obj in self) {
         block(obj);
     }
 }
 
-- (NSArray *)__map:(UnderscoreArrayMapBlock)block;
+- (NSArray *)__map:(UnderscoreArrayMapBlock)block
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
 
