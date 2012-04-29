@@ -146,4 +146,26 @@
     return [self __filter:inverted];
 }
 
+- (BOOL)__all:(UnderscoreArrayTestBlock)block
+{
+    for (id obj in self) {
+        if (!block(obj)) {
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
+- (BOOL)__any:(UnderscoreArrayTestBlock)block
+{
+    for (id obj in self) {
+        if (block(obj)) {
+            return YES;
+        }
+    }
+
+    return NO;
+}
+
 @end

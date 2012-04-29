@@ -179,4 +179,28 @@
     STAssertEqualObjects(odd, [ten __reject:isEven], @"Could reject even numbers");
 }
 
+- (void)testAll
+{
+    NSArray *even = [NSArray __from:0 to:10 step:2];
+    NSArray *odd  = [NSArray __from:1 to:10 step:2];
+
+    UnderscoreArrayTestBlock isEven = ^BOOL(NSNumber *number) {
+        return number.integerValue % 2 == 0;
+    };
+
+    STAssertTrue([even __all:isEven], @"All elements passed");
+    STAssertFalse([odd __all:isEven], @"No element passed");
+}
+
+- (void)testAny
+{
+    NSArray *ten = [NSArray __from:0 to:10];
+
+    UnderscoreArrayTestBlock isEight = ^BOOL(NSNumber *number) {
+        return number.integerValue == 8;
+    };
+
+    STAssertTrue([ten __any:isEight], @"At least one elements passed");
+}
+
 @end
