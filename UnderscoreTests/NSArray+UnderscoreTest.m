@@ -76,5 +76,20 @@
     STAssertNil([[NSArray array] __last], @"Returns nil for empty array");
 }
 
+- (void)testHead
+{
+    NSArray *five  = [NSArray __from:0 to:5];
+    NSArray *range = [[NSArray __from:0 to:9] __head:5];
+
+    STAssertEqualObjects(five, range, @"Could extract the first 5 elements");
+}
+
+- (void)testTail
+{
+    NSArray *five  = [NSArray __from:4 to:9];
+    NSArray *range = [[NSArray __from:0 to:9] __tail:5];
+
+    STAssertEqualObjects(five, range, @"Could extract the last 5 elements");
+}
 
 @end

@@ -39,4 +39,18 @@
     return [self lastObject];
 }
 
+- (NSArray *)__head:(NSUInteger)count
+{
+    NSRange range = NSMakeRange(0, count);
+
+    return [self subarrayWithRange:range];
+}
+
+- (NSArray *)__tail:(NSUInteger)count
+{
+    NSRange range = NSMakeRange(self.count - count, count);
+
+    return [self subarrayWithRange:range];
+}
+
 @end
