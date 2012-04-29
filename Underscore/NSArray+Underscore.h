@@ -21,7 +21,6 @@
 - (NSArray *)__head:(NSUInteger)count;
 - (NSArray *)__tail:(NSUInteger)count;
 
-- (NSArray *)__compact;
 - (NSArray *)__flatten;
 
 - (NSArray *)__without:(NSArray *)values;
