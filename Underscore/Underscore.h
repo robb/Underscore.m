@@ -7,3 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
+typedef void (^UnderscoreArrayIteratorBlock)(id obj);
+typedef id   (^UnderscoreArrayMapBlock)(id obj);
+typedef BOOL (^UnderscoreArrayTestBlock)(id obj);
