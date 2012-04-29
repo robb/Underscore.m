@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
+		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
+		54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD8154DD4BF00387DE3 /* UIKit.framework */; };
+		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
+		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
+		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
+		54A3DCE6154DD4BF00387DE3 /* UnderscoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		54A3DCDB154DD4BF00387DE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54A3DCBC154DD4BF00387DE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54A3DCC4154DD4BF00387DE3;
+			remoteInfo = Underscore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUnderscore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A3DCC8154DD4BF00387DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		54A3DCCC154DD4BF00387DE3 /* Underscore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Underscore-Prefix.pch"; sourceTree = "<group>"; };
+		54A3DCCD154DD4BF00387DE3 /* Underscore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Underscore.h; sourceTree = "<group>"; };
+		54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderscoreTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
+		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54A3DCE4154DD4BF00387DE3 /* UnderscoreTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnderscoreTests.h; sourceTree = "<group>"; };
+		54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnderscoreTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54A3DCC2154DD4BF00387DE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54A3DCD1154DD4BF00387DE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */,
+				54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */,
+				54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */,
+				54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54A3DCBA154DD4BF00387DE3 = {
+			isa = PBXGroup;
+			children = (
+				54A3DCCA154DD4BF00387DE3 /* Underscore */,
+				54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */,
+				54A3DCC7154DD4BF00387DE3 /* Frameworks */,
+				54A3DCC6154DD4BF00387DE3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54A3DCC6154DD4BF00387DE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */,
+				54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54A3DCC7154DD4BF00387DE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCC8154DD4BF00387DE3 /* Foundation.framework */,
+				54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */,
+				54A3DCD8154DD4BF00387DE3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54A3DCCA154DD4BF00387DE3 /* Underscore */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
+				54A3DCCB154DD4BF00387DE3 /* Supporting Files */,
+			);
+			path = Underscore;
+			sourceTree = "<group>";
+		};
+		54A3DCCB154DD4BF00387DE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCCC154DD4BF00387DE3 /* Underscore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCE4154DD4BF00387DE3 /* UnderscoreTests.h */,
+				54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */,
+				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
+			);
+			path = UnderscoreTests;
+			sourceTree = "<group>";
+		};
+		54A3DCDF154DD4BF00387DE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */,
+				54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		54A3DCC3154DD4BF00387DE3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		54A3DCC4154DD4BF00387DE3 /* Underscore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54A3DCE9154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "Underscore" */;
+			buildPhases = (
+				54A3DCC1154DD4BF00387DE3 /* Sources */,
+				54A3DCC2154DD4BF00387DE3 /* Frameworks */,
+				54A3DCC3154DD4BF00387DE3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Underscore;
+			productName = Underscore;
+			productReference = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		54A3DCD4154DD4BF00387DE3 /* UnderscoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54A3DCEC154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "UnderscoreTests" */;
+			buildPhases = (
+				54A3DCD0154DD4BF00387DE3 /* Sources */,
+				54A3DCD1154DD4BF00387DE3 /* Frameworks */,
+				54A3DCD2154DD4BF00387DE3 /* Resources */,
+				54A3DCD3154DD4BF00387DE3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54A3DCDC154DD4BF00387DE3 /* PBXTargetDependency */,
+			);
+			name = UnderscoreTests;
+			productName = UnderscoreTests;
+			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54A3DCBC154DD4BF00387DE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Robert Böhnke";
+			};
+			buildConfigurationList = 54A3DCBF154DD4BF00387DE3 /* Build configuration list for PBXProject "Underscore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 54A3DCBA154DD4BF00387DE3;
+			productRefGroup = 54A3DCC6154DD4BF00387DE3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54A3DCC4154DD4BF00387DE3 /* Underscore */,
+				54A3DCD4154DD4BF00387DE3 /* UnderscoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		54A3DCD2154DD4BF00387DE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54A3DCD3154DD4BF00387DE3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54A3DCC1154DD4BF00387DE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54A3DCD0154DD4BF00387DE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54A3DCE6154DD4BF00387DE3 /* UnderscoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		54A3DCDC154DD4BF00387DE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54A3DCC4154DD4BF00387DE3 /* Underscore */;
+			targetProxy = 54A3DCDB154DD4BF00387DE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54A3DCE2154DD4BF00387DE3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		54A3DCE7154DD4BF00387DE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		54A3DCE8154DD4BF00387DE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54A3DCEA154DD4BF00387DE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Underscore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		54A3DCEB154DD4BF00387DE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Underscore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		54A3DCED154DD4BF00387DE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		54A3DCEE154DD4BF00387DE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54A3DCBF154DD4BF00387DE3 /* Build configuration list for PBXProject "Underscore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54A3DCE7154DD4BF00387DE3 /* Debug */,
+				54A3DCE8154DD4BF00387DE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54A3DCE9154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "Underscore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54A3DCEA154DD4BF00387DE3 /* Debug */,
+				54A3DCEB154DD4BF00387DE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54A3DCEC154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "UnderscoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54A3DCED154DD4BF00387DE3 /* Debug */,
+				54A3DCEE154DD4BF00387DE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 54A3DCBC154DD4BF00387DE3 /* Project object */;
+}
