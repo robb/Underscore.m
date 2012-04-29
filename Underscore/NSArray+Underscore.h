@@ -33,7 +33,7 @@
 
 - (NSArray *)__map:(UnderscoreArrayMapBlock)block;
 
-- (id)_find:(UnderscoreArrayTestBlock)block;
+- (id)__find:(UnderscoreArrayTestBlock)block;
 
 - (NSArray *)__filter:(UnderscoreArrayTestBlock)block;
 - (NSArray *)__reject:(UnderscoreArrayTestBlock)block;
