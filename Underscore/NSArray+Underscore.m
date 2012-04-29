@@ -102,4 +102,15 @@
     }
 }
 
+- (NSArray *)__map:(UnderscoreArrayMapBlock)block;
+{
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
+
+    for (id obj in self) {
+        [result addObject:block(obj)];
+    }
+
+    return result;
+}
+
 @end

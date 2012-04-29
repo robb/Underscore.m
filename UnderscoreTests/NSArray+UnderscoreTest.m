@@ -135,4 +135,14 @@
     STAssertTrue(current == 10, @"Could run 10 tests");
 }
 
+- (void)testMap
+{
+    NSArray *odd  = [NSArray __from:1 to:10 step:2];
+    NSArray *even = [odd __map:^(NSNumber *number) {
+        return [NSNumber numberWithInteger:number.integerValue + 1];
+    }];
+
+    STAssertEqualObjects(even, [NSArray __from:2 to:11 step:2], @"Could apply +1");
+}
+
 @end
