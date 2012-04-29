@@ -68,4 +68,17 @@
     return result;
 }
 
+- (NSArray *)__without:(NSArray *)values;
+{
+    NSMutableArray *result = [NSMutableArray array];
+
+    for (id obj in self) {
+        if (![values containsObject:obj]) {
+            [result addObject:obj];
+        }
+    }
+
+    return result;
+}
+
 @end

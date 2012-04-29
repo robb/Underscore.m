@@ -106,4 +106,13 @@
     STAssertEqualObjects(ten, [complicated __flatten], @"Could flatten the array");
 }
 
+- (void)testWithout
+{
+    NSArray *ten  = [NSArray __from:0 to:10];
+    NSArray *even = [NSArray __from:0 to:10 step:2];
+    NSArray *odd  = [NSArray __from:1 to:10 step:2];
+
+    STAssertEqualObjects(even, [ten __without:odd], @"Could remove odd elements");
+}
+
 @end
