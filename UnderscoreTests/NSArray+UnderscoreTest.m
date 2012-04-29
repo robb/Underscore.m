@@ -145,4 +145,14 @@
     STAssertEqualObjects(even, [NSArray __from:2 to:11 step:2], @"Could apply +1");
 }
 
+- (void)testFind
+{
+    NSArray  *names = [NSArray arrayWithObjects:@"Ullrich", @"Gernot", @"Toto", nil];
+    NSString *result = [names __find:^BOOL(NSString *name) {
+        return name.length == 4;
+    }];
+
+    STAssertEqualObjects(result, @"Toto", @"Could find Toto");
+}
+
 @end

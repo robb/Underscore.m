@@ -113,4 +113,15 @@
     return result;
 }
 
+- (id)__find:(UnderscoreArrayTestBlock)block
+{
+    for (id obj in self) {
+        if (block(obj)) {
+            return obj;
+        }
+    }
+
+    return nil;
+}
+
 @end
