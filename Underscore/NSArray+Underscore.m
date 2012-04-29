@@ -10,4 +10,23 @@
 
 @implementation NSArray (Underscore)
 
++ __from:(NSInteger)start to:(NSInteger)end
+{
+    return [NSArray __from:start to:end step:start < end ? 1 : -1];
+}
+
++ __from:(NSInteger)start to:(NSInteger)end step:(NSInteger)step
+{
+    NSUInteger length = MAX((end - start) / step, 0);
+    NSInteger current = start;
+
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:length];
+    for (NSUInteger i = 0; i < length; i++) {
+        [result addObject:[NSNumber numberWithInteger:current]];
+        current += step;
+    }
+
+    return result;
+}
+
 @end

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54567D90154DD980000F38AC /* NSArray+Underscore.h */; };
+		54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54567D90154DD980000F38AC /* NSArray+Underscore.h */; settings = {ATTRIBUTES = (); }; };
 		54567D93154DD980000F38AC /* NSArray+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D91154DD980000F38AC /* NSArray+Underscore.m */; };
+		54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */; };
+		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (); }; };
+		54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D91154DD980000F38AC /* NSArray+Underscore.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
 		54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD8154DD4BF00387DE3 /* UIKit.framework */; };
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
-		54A3DCE6154DD4BF00387DE3 /* UnderscoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		54567D90154DD980000F38AC /* NSArray+Underscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Underscore.h"; sourceTree = "<group>"; };
 		54567D91154DD980000F38AC /* NSArray+Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Underscore.m"; sourceTree = "<group>"; };
+		54567D95154DDA63000F38AC /* NSArray+UnderscoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UnderscoreTest.h"; sourceTree = "<group>"; };
+		54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UnderscoreTest.m"; sourceTree = "<group>"; };
 		54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUnderscore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A3DCC8154DD4BF00387DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54A3DCCC154DD4BF00387DE3 /* Underscore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Underscore-Prefix.pch"; sourceTree = "<group>"; };
@@ -40,8 +44,6 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54A3DCE4154DD4BF00387DE3 /* UnderscoreTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnderscoreTests.h; sourceTree = "<group>"; };
-		54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnderscoreTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +120,8 @@
 		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				54A3DCE4154DD4BF00387DE3 /* UnderscoreTests.h */,
-				54A3DCE5154DD4BF00387DE3 /* UnderscoreTests.m */,
+				54567D95154DDA63000F38AC /* NSArray+UnderscoreTest.h */,
+				54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */,
 				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
 			);
 			path = UnderscoreTests;
@@ -142,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */,
+				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54A3DCE6154DD4BF00387DE3 /* UnderscoreTests.m in Sources */,
+				54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */,
+				54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
