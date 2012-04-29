@@ -29,4 +29,14 @@
     return result;
 }
 
+- (id)__first
+{
+    return self.count ? [self objectAtIndex:0] : nil;
+}
+
+- (id)__last
+{
+    return [self lastObject];
+}
+
 @end

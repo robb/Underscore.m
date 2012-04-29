@@ -66,4 +66,15 @@
     STAssertEqualObjects(expected, range, @"Could generate descending range");
 }
 
+- (void)testFirst
+{
+    STAssertNil([[NSArray array] __first], @"Returns nil for empty array");
+}
+
+- (void)testLast
+{
+    STAssertNil([[NSArray array] __last], @"Returns nil for empty array");
+}
+
+
 @end
