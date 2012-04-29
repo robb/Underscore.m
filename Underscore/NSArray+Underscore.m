@@ -8,6 +8,8 @@
 
 #import "NSArray+Underscore.h"
 
+#include <stdlib.h>
+
 @implementation NSArray (Underscore)
 
 + __from:(NSInteger)start to:(NSInteger)end
@@ -76,6 +78,18 @@
         if (![values containsObject:obj]) {
             [result addObject:obj];
         }
+    }
+
+    return result;
+}
+
+- (NSArray *)__shuffle;
+{
+    NSMutableArray *result = [self mutableCopy];
+
+    for (NSInteger i = self.count - 1; i > 0; i--) {
+        [result exchangeObjectAtIndex:arc4random() % (i + 1)
+                    withObjectAtIndex:i];
     }
 
     return result;

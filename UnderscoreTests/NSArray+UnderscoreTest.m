@@ -115,4 +115,12 @@
     STAssertEqualObjects(even, [ten __without:odd], @"Could remove odd elements");
 }
 
+- (void)testShuffle
+{
+    NSArray *hundred  = [NSArray __from:0 to:100];
+    NSArray *shuffled = [hundred __shuffle];
+
+    STAssertFalse([hundred isEqualToArray:shuffled], @"Could shuffle the array");
+}
+
 @end
