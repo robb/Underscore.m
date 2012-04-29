@@ -92,4 +92,18 @@
     STAssertEqualObjects(five, range, @"Could extract the last 5 elements");
 }
 
+- (void)testFlatten
+{
+    NSArray *ten = [NSArray __from:0 to:10];
+
+    NSArray *complicated = [NSArray arrayWithObjects:[NSNumber numberWithInteger:0],
+                                                     [NSArray  __from:1 to:4],
+                                                     [NSNumber numberWithInteger:4],
+                                                     [NSArray  arrayWithObject:[NSArray __from:5 to:9]],
+                                                     [NSNumber numberWithInteger:9],
+                                                     nil];
+
+    STAssertEqualObjects(ten, [complicated __flatten], @"Could flatten the array");
+}
+
 @end

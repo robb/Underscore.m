@@ -53,4 +53,19 @@
     return [self subarrayWithRange:range];
 }
 
+- (NSArray *)__flatten;
+{
+    NSMutableArray *result = [NSMutableArray array];
+
+    for (id obj in self) {
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [result addObjectsFromArray:[obj __flatten]];
+        } else {
+            [result addObject:obj];
+        }
+    }
+
+    return result;
+}
+
 @end
