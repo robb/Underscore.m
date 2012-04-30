@@ -124,7 +124,7 @@
     return nil;
 }
 
-- (NSArray *)__filter:(UnderscoreArrayTestBlock)block;
+- (NSArray *)__filter:(UnderscoreArrayTestBlock)block
 {
     NSMutableArray *result = [NSMutableArray array];
 
@@ -137,7 +137,7 @@
     return result;
 }
 
-- (NSArray *)__reject:(UnderscoreArrayTestBlock)block;
+- (NSArray *)__reject:(UnderscoreArrayTestBlock)block
 {
     UnderscoreArrayTestBlock inverted = ^BOOL(id obj) {
         return !block(obj);
