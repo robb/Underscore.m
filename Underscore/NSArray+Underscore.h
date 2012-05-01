@@ -15,8 +15,6 @@ typedef id   (^UnderscoreArrayReduceBlock)(id memo, id obj);
 
 @interface NSArray (Underscore)
 
-# pragma mark - Array specific
-
 + __from:(NSInteger)start to:(NSInteger)end;
 + __from:(NSInteger)start to:(NSInteger)end step:(NSInteger)step;
 
