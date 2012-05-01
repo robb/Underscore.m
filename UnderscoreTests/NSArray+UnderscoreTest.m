@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Robert Böhnke. All rights reserved.
 //
 
-#import "NSArray+UnderscoreTest.h"
+#import "Underscore.h"
 
-#import "NSArray+Underscore.h"
+#import "NSArray+UnderscoreTest.h"
 
 @implementation NSArray_UnderscoreTest
 
