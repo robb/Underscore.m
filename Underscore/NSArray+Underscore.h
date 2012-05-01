@@ -11,7 +11,7 @@
 typedef void (^UnderscoreArrayIteratorBlock)(id obj);
 typedef id   (^UnderscoreArrayMapBlock)(id obj);
 typedef BOOL (^UnderscoreArrayTestBlock)(id obj);
-typedef id   (^UnderscoreReduceBlock)(id memo, id obj);
+typedef id   (^UnderscoreArrayReduceBlock)(id memo, id obj);
 
 @interface NSArray (Underscore)
 
@@ -32,8 +32,8 @@ typedef id   (^UnderscoreReduceBlock)(id memo, id obj);
 
 - (NSArray *)__shuffle;
 
-- (id)__reduce:(UnderscoreReduceBlock)block intialValue:(id)memo;
-- (id)__reduceRight:(UnderscoreReduceBlock)block intialValue:(id)memo;
+- (id)__reduce:(UnderscoreArrayReduceBlock)block intialValue:(id)memo;
+- (id)__reduceRight:(UnderscoreArrayReduceBlock)block intialValue:(id)memo;
 
 - (void)__each:(UnderscoreArrayIteratorBlock)block;
 
