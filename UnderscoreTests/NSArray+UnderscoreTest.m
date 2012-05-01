@@ -123,6 +123,28 @@
     STAssertFalse([hundred isEqualToArray:shuffled], @"Could shuffle the array");
 }
 
+- (void)testReduce
+{
+    NSArray  *ten    = [NSArray __from:0 to:10];
+    NSNumber *result = [ten __reduce:^id(NSNumber *memo, NSNumber *num) {
+        return [NSNumber numberWithInteger:memo.integerValue + num.integerValue];
+    }
+      intialValue:[NSNumber numberWithInteger:0]];
+
+    STAssertTrue(result.integerValue == 45, @"Could sum array");
+}
+
+- (void)testReduceRight
+{
+    NSArray  *ten    = [NSArray __from:0 to:10];
+    NSNumber *result = [ten __reduceRight:^id(NSNumber *memo, NSNumber *num) {
+        return [NSNumber numberWithInteger:memo.integerValue - num.integerValue];
+    }
+                         intialValue:[NSNumber numberWithInteger:0]];
+
+    STAssertTrue(result.integerValue == -45, @"Could sum array");
+}
+
 - (void)testEach
 {
     NSArray *ten = [NSArray __from:0 to:10];

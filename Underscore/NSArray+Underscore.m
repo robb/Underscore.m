@@ -83,6 +83,24 @@
     return result;
 }
 
+- (id)__reduce:(UnderscoreReduceBlock)block intialValue:(id)memo
+{
+    for (id obj in self) {
+        memo = block(memo, obj);
+    }
+
+    return memo;
+}
+
+- (id)__reduceRight:(UnderscoreReduceBlock)block intialValue:(id)memo
+{
+    for (id obj in self.reverseObjectEnumerator) {
+        memo = block(memo, obj);
+    }
+
+    return memo;
+}
+
 - (NSArray *)__shuffle
 {
     NSMutableArray *result = [self mutableCopy];
