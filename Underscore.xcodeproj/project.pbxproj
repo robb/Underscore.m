@@ -18,6 +18,9 @@
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
+		54A53F08155060720048C50E /* NSDictionary+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A53F06155060720048C50E /* NSDictionary+Underscore.h */; };
+		54A53F09155060720048C50E /* NSDictionary+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A53F07155060720048C50E /* NSDictionary+Underscore.m */; };
+		54CC1E831553113100792AC8 /* NSDictionary+UnderscoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,10 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54A53F06155060720048C50E /* NSDictionary+Underscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Underscore.h"; sourceTree = "<group>"; };
+		54A53F07155060720048C50E /* NSDictionary+Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Underscore.m"; sourceTree = "<group>"; };
+		54CC1E811553113100792AC8 /* NSDictionary+UnderscoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UnderscoreTest.h"; sourceTree = "<group>"; };
+		54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UnderscoreTest.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +111,8 @@
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				54567D90154DD980000F38AC /* NSArray+Underscore.h */,
 				54567D91154DD980000F38AC /* NSArray+Underscore.m */,
+				54A53F06155060720048C50E /* NSDictionary+Underscore.h */,
+				54A53F07155060720048C50E /* NSDictionary+Underscore.m */,
 				54A3DCCB154DD4BF00387DE3 /* Supporting Files */,
 			);
 			path = Underscore;
@@ -122,6 +131,8 @@
 			children = (
 				54567D95154DDA63000F38AC /* NSArray+UnderscoreTest.h */,
 				54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */,
+				54CC1E811553113100792AC8 /* NSDictionary+UnderscoreTest.h */,
+				54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */,
 				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
 			);
 			path = UnderscoreTests;
@@ -145,6 +156,7 @@
 			files = (
 				54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */,
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
+				54A53F08155060720048C50E /* NSDictionary+Underscore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D93154DD980000F38AC /* NSArray+Underscore.m in Sources */,
+				54A53F09155060720048C50E /* NSDictionary+Underscore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +269,7 @@
 			files = (
 				54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */,
 				54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */,
+				54CC1E831553113100792AC8 /* NSDictionary+UnderscoreTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
