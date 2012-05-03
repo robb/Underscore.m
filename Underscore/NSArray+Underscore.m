@@ -83,7 +83,7 @@
     return result;
 }
 
-- (id)__reduce:(UnderscoreReduceBlock)block intialValue:(id)memo
+- (id)__reduce:(UnderscoreArrayReduceBlock)block intialValue:(id)memo
 {
     for (id obj in self) {
         memo = block(memo, obj);
@@ -92,7 +92,7 @@
     return memo;
 }
 
-- (id)__reduceRight:(UnderscoreReduceBlock)block intialValue:(id)memo
+- (id)__reduceRight:(UnderscoreArrayReduceBlock)block intialValue:(id)memo
 {
     for (id obj in self.reverseObjectEnumerator) {
         memo = block(memo, obj);
