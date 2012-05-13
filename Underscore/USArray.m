@@ -69,4 +69,21 @@
     };
 }
 
+- (USArray *(^)(NSUInteger))tail;
+{
+    return ^USArray *(NSUInteger count) {
+        NSRange range;
+        if (count > self.array.count) {
+            range = NSMakeRange(0, self.array.count);
+        } else {
+            range = NSMakeRange(self.array.count - count, count);
+        }
+
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        NSArray    *result   = [self.array objectsAtIndexes:indexSet];
+
+        return [[USArray alloc] initWithArray:result];
+    };
+}
+
 @end

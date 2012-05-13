@@ -65,4 +65,20 @@ static NSArray *threeObjects;
                          @"Does not return more elements than available");
 }
 
+- (void)testTail;
+{
+    STAssertEqualObjects(_array(emptyArray).tail(1).unwrap,
+                         emptyArray,
+                         @"Returns an empty array for an empty array");
+
+    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    STAssertEqualObjects(_array(threeObjects).tail(2).unwrap,
+                         subrange,
+                         @"Returns multiple elements if available");
+
+    STAssertEqualObjects(_array(threeObjects).tail(4).unwrap,
+                         threeObjects,
+                         @"Does not return more elements than available");
+}
+
 @end
