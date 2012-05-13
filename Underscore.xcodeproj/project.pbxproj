@@ -7,21 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		544C2404155DB0FC00168139 /* NSDictionary+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A53F07155060720048C50E /* NSDictionary+Underscore.m */; };
-		54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54567D90154DD980000F38AC /* NSArray+Underscore.h */; settings = {ATTRIBUTES = (); }; };
-		54567D93154DD980000F38AC /* NSArray+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D91154DD980000F38AC /* NSArray+Underscore.m */; };
-		54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (); }; };
-		54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D91154DD980000F38AC /* NSArray+Underscore.m */; };
+		54903D13155FF779006854CB /* USArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArray.h */; };
+		54903D14155FF779006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
+		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
 		54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD8154DD4BF00387DE3 /* UIKit.framework */; };
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
-		54A53F08155060720048C50E /* NSDictionary+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A53F06155060720048C50E /* NSDictionary+Underscore.h */; };
-		54A53F09155060720048C50E /* NSDictionary+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A53F07155060720048C50E /* NSDictionary+Underscore.m */; };
-		54CC1E831553113100792AC8 /* NSDictionary+UnderscoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54567D90154DD980000F38AC /* NSArray+Underscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Underscore.h"; sourceTree = "<group>"; };
-		54567D91154DD980000F38AC /* NSArray+Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Underscore.m"; sourceTree = "<group>"; };
-		54567D95154DDA63000F38AC /* NSArray+UnderscoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UnderscoreTest.h"; sourceTree = "<group>"; };
-		54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UnderscoreTest.m"; sourceTree = "<group>"; };
+		54903D11155FF779006854CB /* USArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
+		54903D12155FF779006854CB /* USArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArray.m; sourceTree = "<group>"; };
+		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
+		54903D1A15600A45006854CB /* USArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayTest.m; sourceTree = "<group>"; };
 		54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUnderscore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A3DCC8154DD4BF00387DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54A3DCCC154DD4BF00387DE3 /* Underscore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Underscore-Prefix.pch"; sourceTree = "<group>"; };
@@ -48,10 +43,6 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54A53F06155060720048C50E /* NSDictionary+Underscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Underscore.h"; sourceTree = "<group>"; };
-		54A53F07155060720048C50E /* NSDictionary+Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Underscore.m"; sourceTree = "<group>"; };
-		54CC1E811553113100792AC8 /* NSDictionary+UnderscoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UnderscoreTest.h"; sourceTree = "<group>"; };
-		54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UnderscoreTest.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
-				54567D90154DD980000F38AC /* NSArray+Underscore.h */,
-				54567D91154DD980000F38AC /* NSArray+Underscore.m */,
-				54A53F06155060720048C50E /* NSDictionary+Underscore.h */,
-				54A53F07155060720048C50E /* NSDictionary+Underscore.m */,
+				54903D11155FF779006854CB /* USArray.h */,
+				54903D12155FF779006854CB /* USArray.m */,
 				54A3DCCB154DD4BF00387DE3 /* Supporting Files */,
 			);
 			path = Underscore;
@@ -130,11 +119,9 @@
 		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				54567D95154DDA63000F38AC /* NSArray+UnderscoreTest.h */,
-				54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */,
-				54CC1E811553113100792AC8 /* NSDictionary+UnderscoreTest.h */,
-				54CC1E821553113100792AC8 /* NSDictionary+UnderscoreTest.m */,
 				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
+				54903D1915600A45006854CB /* USArrayTest.h */,
+				54903D1A15600A45006854CB /* USArrayTest.m */,
 			);
 			path = UnderscoreTests;
 			sourceTree = "<group>";
@@ -155,9 +142,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */,
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
-				54A53F08155060720048C50E /* NSDictionary+Underscore.h in Headers */,
+				54903D13155FF779006854CB /* USArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54567D93154DD980000F38AC /* NSArray+Underscore.m in Sources */,
-				54A53F09155060720048C50E /* NSDictionary+Underscore.m in Sources */,
+				54903D14155FF779006854CB /* USArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,10 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */,
-				54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */,
-				54CC1E831553113100792AC8 /* NSDictionary+UnderscoreTest.m in Sources */,
-				544C2404155DB0FC00168139 /* NSDictionary+Underscore.m in Sources */,
+				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
