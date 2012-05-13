@@ -8,7 +8,7 @@
 
 #import "USArrayTest.h"
 
-#import "USArray.h"
+#import "Underscore.h"
 
 static NSArray *emptyArray;
 static NSArray *singleObject;
