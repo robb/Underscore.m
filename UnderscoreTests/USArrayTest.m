@@ -10,41 +10,42 @@
 
 #import "USArray.h"
 
+static NSArray *emptyArray;
+static NSArray *singleObject;
+static NSArray *threeObjects;
+
 @implementation USArrayTest
+
+- (void)setUp;
+{
+    emptyArray   = [NSArray array];
+    singleObject = [NSArray arrayWithObject:@"foo"];
+    threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
+}
 
 - (void)testFirst;
 {
-    NSArray *emptyArray = [NSArray array];
     STAssertNil(_array(emptyArray).first(), @"Returns nil for empty array");
 
-    NSArray *singleObject = [NSArray arrayWithObject:[NSNumber numberWithInt:1]];
     STAssertEqualObjects(_array(singleObject).first(),
-                         [NSNumber numberWithInt:1],
+                         @"foo",
                          @"Can extract only object");
 
-    NSArray *multipleObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],
-                                                         [NSNumber numberWithInt:3],
-                                                         nil];
-    STAssertEqualObjects(_array(multipleObjects).first(),
-                         [NSNumber numberWithInt:2],
+    STAssertEqualObjects(_array(threeObjects).first(),
+                         @"foo",
                          @"Can extract first object");
 }
 
 - (void)testLast;
 {
-    NSArray *emptyArray = [NSArray array];
     STAssertNil(_array(emptyArray).last(), @"Returns nil for empty array");
 
-    NSArray *singleObject = [NSArray arrayWithObject:[NSNumber numberWithInt:1]];
     STAssertEqualObjects(_array(singleObject).last(),
-                         [NSNumber numberWithInt:1],
+                         @"foo",
                          @"Can extract only object");
 
-    NSArray *multipleObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],
-                                [NSNumber numberWithInt:3],
-                                nil];
-    STAssertEqualObjects(_array(multipleObjects).last(),
-                         [NSNumber numberWithInt:3],
+    STAssertEqualObjects(_array(threeObjects).last(),
+                         @"baz",
                          @"Can extract last object");
 }
 
