@@ -28,7 +28,4 @@ typedef id   (^UnderscoreDictionaryReduceBlock)(id memo, id key, id obj);
 - (NSDictionary *)__filter:(UnderscoreDictionaryTestBlock)block;
 - (NSDictionary *)__reject:(UnderscoreDictionaryTestBlock)block;
 
-- (BOOL)__all:(UnderscoreDictionaryTestBlock)block;
-- (BOOL)__any:(UnderscoreDictionaryTestBlock)block;
-
 @end
