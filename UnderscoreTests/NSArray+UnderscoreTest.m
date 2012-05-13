@@ -148,7 +148,7 @@
 - (void)testEach
 {
     NSArray *ten = [NSArray __from:0 to:10];
-    NSInteger __block current = 0;
+    __block NSInteger current = 0;
 
     [ten __each:^(NSNumber *number) {
         STAssertTrue(current++ == [number integerValue], nil);
