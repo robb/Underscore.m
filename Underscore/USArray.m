@@ -163,6 +163,20 @@
     };
 }
 
+- (USArray *(^)(USArrayMapBlock))map;
+{
+    return ^USArray *(USArrayMapBlock block) {
+        NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
+
+        for (id obj in self.array) {
+            [result addObject:block(obj)];
+        }
+
+        return [[USArray alloc] initWithArray:result];
+    };
+}
+
+
 - (USArray *(^)(USArrayTestBlock))filter;
 {
     return ^USArray *(USArrayTestBlock test) {

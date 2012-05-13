@@ -169,32 +169,6 @@ static NSArray *threeObjects;
                          @"Objects are reduced in the correct order");
 }
 
-- (void)testFilter;
-{
-    STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,
-                         emptyArray,
-                         @"Can handle empty arrays");
-
-    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return NO;}).unwrap,
-                         emptyArray,
-                         @"Can remove all objects");
-
-    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return YES;}).unwrap,
-                         threeObjects,
-                         @"Can keep all objects");
-
-    NSArray *result = _array(threeObjects)
-        .filter(^BOOL (NSString *string) {
-            return [string characterAtIndex:0] == 'b';
-        })
-        .unwrap;
-
-    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
-    STAssertEqualObjects(result,
-                         subrange,
-                         @"Can remove matching elements");
-}
-
 - (void)testEach;
 {
     __block NSInteger testRun = 0;
@@ -224,6 +198,50 @@ static NSArray *threeObjects;
     });
 
     STAssertEquals(testRun, 3, @"Ran 3 tests");
+}
+
+- (void)testMap;
+{
+    STAssertEqualObjects(_array(emptyArray).map(^id (id any){return @"test";}).unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
+    NSArray *result      = _array(threeObjects)
+        .map(^NSString *(NSString *string) {
+            return [string capitalizedString];
+        })
+        .unwrap;
+
+    STAssertEqualObjects(capitalized,
+                         result,
+                         @"Can map objects");
+}
+
+- (void)testFilter;
+{
+    STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return NO;}).unwrap,
+                         emptyArray,
+                         @"Can remove all objects");
+
+    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return YES;}).unwrap,
+                         threeObjects,
+                         @"Can keep all objects");
+
+    NSArray *result = _array(threeObjects)
+        .filter(^BOOL (NSString *string) {
+            return [string characterAtIndex:0] == 'b';
+        })
+        .unwrap;
+
+    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    STAssertEqualObjects(result,
+                         subrange,
+                         @"Can remove matching elements");
 }
 
 - (void)testReject;
