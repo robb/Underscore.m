@@ -116,6 +116,20 @@
     };
 }
 
+- (USArray *(^)(void))shuffle;
+{
+    return ^USArray *(void) {
+        NSMutableArray *result = [self.array mutableCopy];
+
+        for (NSInteger i = result.count - 1; i > 0; i--) {
+                [result exchangeObjectAtIndex:arc4random() % (i + 1)
+                            withObjectAtIndex:i];
+        }
+
+        return [[USArray alloc] initWithArray:result];
+    };
+}
+
 - (USArray *(^)(USArrayTestBlock))filter;
 {
     return ^USArray *(USArrayTestBlock test) {

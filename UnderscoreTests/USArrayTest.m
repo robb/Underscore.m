@@ -114,6 +114,21 @@ static NSArray *threeObjects;
                          @"Removing one object returns the rest");
 }
 
+- (void)testShuffle;
+{
+    STAssertEqualObjects(_array(emptyArray).shuffle().unwrap,
+                         emptyArray,
+                         @"Shuffling an empty array results in an empty array");
+
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger i = 1; i < 100; i++) {
+        [array addObject:[NSNumber numberWithUnsignedInteger:i]];
+    }
+
+     STAssertFalse([_array(array).shuffle().unwrap isEqualToArray:array],
+                  @"Can shuffle an array");
+}
+
 - (void)testFilter;
 {
     STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,
