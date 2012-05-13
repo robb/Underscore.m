@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 #import "NSArray+Underscore.h"
+#import "NSDictionary+Underscore.h"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		544C2404155DB0FC00168139 /* NSDictionary+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A53F07155060720048C50E /* NSDictionary+Underscore.m */; };
 		54567D92154DD980000F38AC /* NSArray+Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54567D90154DD980000F38AC /* NSArray+Underscore.h */; settings = {ATTRIBUTES = (); }; };
 		54567D93154DD980000F38AC /* NSArray+Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D91154DD980000F38AC /* NSArray+Underscore.m */; };
 		54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54567D96154DDA63000F38AC /* NSArray+UnderscoreTest.m */; };
@@ -270,6 +271,7 @@
 				54567D97154DDA63000F38AC /* NSArray+UnderscoreTest.m in Sources */,
 				54567D9A154DDF94000F38AC /* NSArray+Underscore.m in Sources */,
 				54CC1E831553113100792AC8 /* NSDictionary+UnderscoreTest.m in Sources */,
+				544C2404155DB0FC00168139 /* NSDictionary+Underscore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
