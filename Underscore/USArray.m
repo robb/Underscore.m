@@ -86,4 +86,25 @@
     };
 }
 
+- (USArray *(^)(void))flatten;
+{
+    __block NSArray *(^flatten)(NSArray *) = ^NSArray *(NSArray *input) {
+        NSMutableArray *result = [NSMutableArray array];
+
+        for (id obj in input) {
+            if ([obj isKindOfClass:[NSArray class]]) {
+                [result addObjectsFromArray:flatten(obj)];
+            } else {
+                [result addObject:obj];
+            }
+        }
+
+        return result;
+    };
+
+    return ^USArray *(void) {
+        return [USArray wrap:flatten(self.array)];
+    };
+}
+
 @end

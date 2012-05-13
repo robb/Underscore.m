@@ -81,4 +81,21 @@ static NSArray *threeObjects;
                          @"Does not return more elements than available");
 }
 
+- (void)testFlatten;
+{
+    STAssertEqualObjects(_array(emptyArray).flatten().unwrap,
+                         emptyArray,
+                         @"Returns an empty array for an empty array");
+
+    STAssertEqualObjects(_array(threeObjects).flatten().unwrap,
+                         threeObjects,
+                         @"Returns a copy for arrays not containing other arrays");
+
+    NSArray *complicated = [NSArray arrayWithObjects:@"foo", threeObjects, nil];
+    NSArray *flattened   = [NSArray arrayWithObjects:@"foo", @"foo", @"bar", @"baz", nil];
+    STAssertEqualObjects(_array(complicated).flatten().unwrap,
+                         flattened,
+                         @"Returns a flattened array when needed");
+}
+
 @end
