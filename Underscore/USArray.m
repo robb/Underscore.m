@@ -130,6 +130,28 @@
     };
 }
 
+- (id (^)(id, USArrayReduceBlock))reduce;
+{
+    return ^USArray *(id memo, USArrayReduceBlock function) {
+        for (id obj in self.array) {
+            memo = function(memo, obj);
+        }
+
+        return memo;
+    };
+}
+
+- (id (^)(id, USArrayReduceBlock))reduceRight;
+{
+    return ^USArray *(id memo, USArrayReduceBlock function) {
+        for (id obj in self.array.reverseObjectEnumerator) {
+            memo = function(memo, obj);
+        }
+
+        return memo;
+    };
+}
+
 - (USArray *(^)(USArrayTestBlock))filter;
 {
     return ^USArray *(USArrayTestBlock test) {

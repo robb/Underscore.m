@@ -129,6 +129,46 @@ static NSArray *threeObjects;
                   @"Can shuffle an array");
 }
 
+- (void)testReduce;
+{
+    NSString *result1 = _array(emptyArray).reduce(@"test", ^id (id memo, id any){
+        return nil;
+    });
+
+    STAssertEqualObjects(result1,
+                         @"test",
+                         @"Reducing an empty array yields the input value");
+
+    NSString *result2 = _array(threeObjects)
+        .reduce(@"the ", ^id (NSString *memo, NSString *current) {
+            return [memo stringByAppendingString:current];
+        });
+
+    STAssertEqualObjects(result2,
+                         @"the foobarbaz",
+                         @"Objects are reduced in the correct order");
+}
+
+- (void)testReduceRight;
+{
+    NSString *result1 = _array(emptyArray).reduceRight(@"test", ^id (id memo, id any){
+        return nil;
+    });
+
+    STAssertEqualObjects(result1,
+                         @"test",
+                         @"Reducing an empty array yields the input value");
+
+    NSString *result2 = _array(threeObjects)
+        .reduceRight(@"the ", ^id (NSString *memo, NSString *current) {
+            return [memo stringByAppendingString:current];
+        });
+
+    STAssertEqualObjects(result2,
+                         @"the bazbarfoo",
+                         @"Objects are reduced in the correct order");
+}
+
 - (void)testFilter;
 {
     STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,
