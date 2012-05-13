@@ -27,6 +27,11 @@
 
 #pragma mark Lifecycle
 
+- (id)init;
+{
+    return [super init];
+}
+
 - (id)initWithArray:(NSArray *)array;
 {
     if (self = [super init]) {
@@ -210,6 +215,40 @@
         return self.filter(^BOOL (id obj){
             return !test(obj);
         });
+    };
+}
+
+- (BOOL (^)(USArrayTestBlock))all;
+{
+    return ^BOOL (USArrayTestBlock test) {
+        BOOL result = YES;
+
+        for (id obj in self.array) {
+            if (!test(obj)) {
+                return NO;
+            }
+        }
+
+        return result;
+    };
+}
+
+- (BOOL (^)(USArrayTestBlock))any;
+{
+    return ^BOOL (USArrayTestBlock test) {
+        if (self.array.count == 0) {
+            return YES;
+        }
+
+        BOOL result = NO;
+
+        for (id obj in self.array) {
+            if (test(obj)) {
+                return YES;
+            }
+        }
+
+        return result;
     };
 }
 

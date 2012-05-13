@@ -286,4 +286,58 @@ static NSArray *threeObjects;
                          @"Can remove matching elements");
 }
 
+- (void)testAll;
+{
+    STAssertTrue(_array(emptyArray).all(^BOOL (id any){return NO;}),
+                 @"Empty array always passes");
+
+    USArrayTestBlock isString = ^BOOL (id obj){
+        return [obj isKindOfClass:[NSString class]];
+    };
+
+    STAssertTrue(_array(threeObjects).all(isString),
+                 @"All elements pass");
+
+    USArrayTestBlock startsWithB = ^BOOL (NSString *string){
+        return [string characterAtIndex:0] == 'b';
+    };
+
+    STAssertFalse(_array(threeObjects).all(startsWithB),
+                  @"Not all elements pass");
+
+    USArrayTestBlock isNumber = ^BOOL (id obj){
+        return [obj isKindOfClass:[NSNumber class]];
+    };
+
+    STAssertFalse(_array(threeObjects).all(isNumber),
+                 @"No element passes");
+}
+
+- (void)testAny;
+{
+    STAssertTrue(_array(emptyArray).any(^BOOL (id any){return NO;}),
+                 @"Empty array always passes");
+
+    USArrayTestBlock isString = ^BOOL (id obj){
+        return [obj isKindOfClass:[NSString class]];
+    };
+
+    STAssertTrue(_array(threeObjects).any(isString),
+                 @"All elements pass");
+
+    USArrayTestBlock startsWithB = ^BOOL (NSString *string){
+        return [string characterAtIndex:0] == 'b';
+    };
+
+    STAssertTrue(_array(threeObjects).any(startsWithB),
+                 @"One element passes");
+
+    USArrayTestBlock isNumber = ^BOOL (id obj){
+        return [obj isKindOfClass:[NSNumber class]];
+    };
+
+    STAssertFalse(_array(threeObjects).any(isNumber),
+                  @"No element passes");
+}
+
 @end
