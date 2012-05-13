@@ -107,4 +107,37 @@
     };
 }
 
+- (USArray *(^)(NSArray *))without;
+{
+    return ^USArray *(NSArray *value) {
+        return self.reject(^(id obj){
+            return [value containsObject:obj];
+        });
+    };
+}
+
+- (USArray *(^)(USArrayTestBlock))filter;
+{
+    return ^USArray *(USArrayTestBlock test) {
+        NSMutableArray *result = [NSMutableArray array];
+
+        for (id obj in self.array) {
+            if (test(obj)) {
+                [result addObject:obj];
+            }
+        }
+
+        return [[USArray alloc] initWithArray:result];
+    };
+}
+
+- (USArray *(^)(USArrayTestBlock))reject;
+{
+    return ^USArray *(USArrayTestBlock test) {
+        return self.filter(^BOOL (id obj){
+            return !test(obj);
+        });
+    };
+}
+
 @end

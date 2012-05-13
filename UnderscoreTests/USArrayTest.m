@@ -98,4 +98,71 @@ static NSArray *threeObjects;
                          @"Returns a flattened array when needed");
 }
 
+- (void)testWithout;
+{
+    STAssertEqualObjects(_array(threeObjects).without(emptyArray).unwrap,
+                         threeObjects,
+                         @"Empty arrays have no effect");
+
+    STAssertEqualObjects(_array(threeObjects).without(threeObjects).unwrap,
+                         emptyArray,
+                         @"Removing the same array returns an empty array");
+
+    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    STAssertEqualObjects(_array(threeObjects).without(singleObject).unwrap,
+                         subrange,
+                         @"Removing one object returns the rest");
+}
+
+- (void)testFilter;
+{
+    STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return NO;}).unwrap,
+                         emptyArray,
+                         @"Can remove all objects");
+
+    STAssertEqualObjects(_array(threeObjects).filter(^BOOL(id any){return YES;}).unwrap,
+                         threeObjects,
+                         @"Can keep all objects");
+
+    NSArray *result = _array(threeObjects)
+        .filter(^BOOL (NSString *string) {
+            return [string characterAtIndex:0] == 'b';
+        })
+        .unwrap;
+
+    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    STAssertEqualObjects(result,
+                         subrange,
+                         @"Can remove matching elements");
+}
+
+- (void)testReject;
+{
+    STAssertEqualObjects(_array(emptyArray).reject(^BOOL(id any){return YES;}).unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    STAssertEqualObjects(_array(threeObjects).reject(^BOOL(id any){return NO;}).unwrap,
+                         threeObjects,
+                         @"Can remove all objects");
+
+    STAssertEqualObjects(_array(threeObjects).reject(^BOOL(id any){return YES;}).unwrap,
+                         emptyArray,
+                         @"Can keep all objects");
+
+    NSArray *result = _array(threeObjects)
+        .reject(^BOOL (NSString *string) {
+            return [string characterAtIndex:0] == 'b';
+        })
+        .unwrap;
+
+    STAssertEqualObjects(result,
+                         singleObject,
+                         @"Can remove matching elements");
+}
+
 @end
