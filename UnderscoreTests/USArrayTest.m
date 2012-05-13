@@ -218,6 +218,23 @@ static NSArray *threeObjects;
                          @"Can map objects");
 }
 
+- (void)testFind;
+{
+    STAssertNil(_array(emptyArray).find(^BOOL(id any){return YES;}),
+                @"Can handle empty arrays");
+
+    STAssertNil(_array(threeObjects).find(^BOOL(id any){return NO;}),
+                @"Returns nil if no object matches");
+
+    NSString *result = _array(threeObjects).find(^BOOL(NSString *string){
+        return [string characterAtIndex:2] == 'z';
+    });
+
+    STAssertEqualObjects(result,
+                         @"baz",
+                         @"Can find objects");
+}
+
 - (void)testFilter;
 {
     STAssertEqualObjects(_array(emptyArray).filter(^BOOL(id any){return YES;}).unwrap,

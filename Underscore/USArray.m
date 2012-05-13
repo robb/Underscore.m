@@ -176,6 +176,18 @@
     };
 }
 
+- (id (^)(USArrayTestBlock))find;
+{
+    return ^id (USArrayTestBlock test) {
+        for (id obj in self.array) {
+            if (test(obj)) {
+                return obj;
+            }
+        }
+
+        return nil;
+    };
+}
 
 - (USArray *(^)(USArrayTestBlock))filter;
 {
