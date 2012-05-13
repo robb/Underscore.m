@@ -18,10 +18,14 @@
 
 @implementation USArray
 
+#pragma mark Class methods
+
 + (USArray *)wrap:(NSArray *)array;
 {
     return [[USArray alloc] initWithArray:array];
 }
+
+#pragma mark Lifecycle
 
 - (id)initWithArray:(NSArray *)array;
 {
@@ -32,6 +36,8 @@
 }
 
 @synthesize array = _array;
+
+#pragma mark Underscore methods
 
 - (id (^)(void))first;
 {
