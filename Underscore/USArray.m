@@ -46,4 +46,11 @@
     };
 }
 
+- (id (^)(void))last;
+{
+    return ^id (void){
+        return self.array.lastObject;
+    };
+}
+
 @end
