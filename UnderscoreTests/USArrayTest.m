@@ -195,6 +195,37 @@ static NSArray *threeObjects;
                          @"Can remove matching elements");
 }
 
+- (void)testEach;
+{
+    __block NSInteger testRun = 0;
+    __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
+
+    _array(threeObjects).each(^(NSString *string) {
+        if ([string isEqualToString:@"foo"]) {
+            STAssertFalse(checkedFoo, @"Did not check foo before");
+            testRun++;
+
+            checkedFoo = YES;
+        }
+
+        if ([string isEqualToString:@"bar"]) {
+            STAssertFalse(checkedBar, @"Did not check bar before");
+            testRun++;
+
+            checkedBar = YES;
+        }
+
+        if ([string isEqualToString:@"baz"]) {
+            STAssertFalse(checkedBaz, @"Did not check baz before");
+            testRun++;
+
+            checkedBaz = YES;
+        }
+    });
+
+    STAssertEquals(testRun, 3, @"Ran 3 tests");
+}
+
 - (void)testReject;
 {
     STAssertEqualObjects(_array(emptyArray).reject(^BOOL(id any){return YES;}).unwrap,

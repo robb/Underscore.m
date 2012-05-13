@@ -152,6 +152,17 @@
     };
 }
 
+- (USArray *(^)(USArrayIteratorBlock))each;
+{
+    return ^USArray *(USArrayIteratorBlock block) {
+        for (id obj in self.array) {
+            block(obj);
+        }
+
+        return self;
+    };
+}
+
 - (USArray *(^)(USArrayTestBlock))filter;
 {
     return ^USArray *(USArrayTestBlock test) {
