@@ -49,4 +49,20 @@ static NSArray *threeObjects;
                          @"Can extract last object");
 }
 
+- (void)testHead;
+{
+    STAssertEqualObjects(_array(emptyArray).head(1).unwrap,
+                         emptyArray,
+                         @"Returns an empty array for an empty array");
+
+    NSArray *subrange = [NSArray arrayWithObjects:@"foo", @"bar", nil];
+    STAssertEqualObjects(_array(threeObjects).head(2).unwrap,
+                         subrange,
+                         @"Returns multiple elements if available");
+
+    STAssertEqualObjects(_array(threeObjects).head(4).unwrap,
+                         threeObjects,
+                         @"Does not return more elements than available");
+}
+
 @end

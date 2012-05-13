@@ -12,7 +12,7 @@
 
 - initWithArray:(NSArray *)array;
 
-@property (readwrite, copy) NSArray *array;
+@property (readwrite, retain) NSArray *array;
 
 @end
 
@@ -22,7 +22,7 @@
 
 + (USArray *)wrap:(NSArray *)array;
 {
-    return [[USArray alloc] initWithArray:array];
+    return [[USArray alloc] initWithArray:[array copy]];
 }
 
 #pragma mark Lifecycle
@@ -37,6 +37,11 @@
 
 @synthesize array = _array;
 
+- (NSArray *)unwrap;
+{
+    return self.array;
+}
+
 #pragma mark Underscore methods
 
 - (id (^)(void))first;
@@ -50,6 +55,17 @@
 {
     return ^id (void){
         return self.array.lastObject;
+    };
+}
+
+- (USArray *(^)(NSUInteger))head;
+{
+    return ^USArray *(NSUInteger count) {
+        NSRange    range     = NSMakeRange(0, MIN(self.array.count, count));
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        NSArray    *result   = [self.array objectsAtIndexes:indexSet];
+
+        return [[USArray alloc] initWithArray:result];
     };
 }
 

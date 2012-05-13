@@ -11,6 +11,7 @@
 		54903D13155FF779006854CB /* USArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArray.h */; };
 		54903D14155FF779006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
 		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
+		54903D2115602003006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
 		54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD8154DD4BF00387DE3 /* UIKit.framework */; };
@@ -254,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
+				54903D2115602003006854CB /* USArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
