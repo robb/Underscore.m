@@ -13,6 +13,8 @@ typedef id   (^USArrayMapBlock)(id obj);
 typedef BOOL (^USArrayTestBlock)(id obj);
 typedef id   (^USArrayReduceBlock)(id memo, id obj);
 
+#define _array(array) [USArray wrap:array]
+
 @interface USArray : NSObject
 
 + (USArray *)wrap:(NSArray *)array;

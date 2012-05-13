@@ -8,6 +8,26 @@
 
 #import "USArrayTest.h"
 
+#import "USArray.h"
+
 @implementation USArrayTest
+
+- (void)testFirst;
+{
+    NSArray *emptyArray = [NSArray array];
+    STAssertNil(_array(emptyArray).first(), @"Returns nil for empty array");
+
+    NSArray *singleObject = [NSArray arrayWithObject:[NSNumber numberWithInt:1]];
+    STAssertEqualObjects(_array(singleObject).first(),
+                         [NSNumber numberWithInt:1],
+                         @"Can extract only object");
+
+    NSArray *multipleObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],
+                                                         [NSNumber numberWithInt:3],
+                                                         nil];
+    STAssertEqualObjects(_array(multipleObjects).first(),
+                         [NSNumber numberWithInt:2],
+                         @"Can extract first object");
+}
 
 @end
