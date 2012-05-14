@@ -8,5 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSArray+Underscore.h"
-#import "NSDictionary+Underscore.h"
+#import "USConstants.h"
+#import "USArray.h"
+#import "USDictionary.h"
+
+@interface Underscore : NSObject
+
++ (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
+
++ (UnderscoreTestBlock)isArray;
++ (UnderscoreTestBlock)isDictionary;
++ (UnderscoreTestBlock)isNull;
++ (UnderscoreTestBlock)isNumber;
++ (UnderscoreTestBlock)isString;
+
+- (id)init __deprecated;
+
+@end
