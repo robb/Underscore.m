@@ -33,9 +33,9 @@
 @property (readonly) USDictionary *(^defaults)(NSDictionary *defaults);
 
 @property (readonly) USDictionary *(^filterKeys)(UnderscoreTestBlock block);
-@property (readonly) USDictionary *(^filterObjects)(UnderscoreTestBlock block);
+@property (readonly) USDictionary *(^filterValues)(UnderscoreTestBlock block);
 
 @property (readonly) USDictionary *(^rejectKeys)(UnderscoreTestBlock block);
-@property (readonly) USDictionary *(^rejectObjects)(UnderscoreTestBlock block);
+@property (readonly) USDictionary *(^rejectValues)(UnderscoreTestBlock block);
 
 @end
