@@ -27,8 +27,6 @@
 @property (readonly) USDictionary *(^each)(UnderscoreDictionaryIteratorBlock block);
 @property (readonly) USDictionary *(^map)(UnderscoreDictionaryMapBlock block);
 
-@property (readonly) id (^find)(UnderscoreTestBlock block);
-
 @property (readonly) USDictionary *(^pick)(NSArray *keys);
 
 @property (readonly) USDictionary *(^extend)(NSDictionary *source);
