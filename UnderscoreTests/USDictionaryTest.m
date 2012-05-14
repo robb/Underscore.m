@@ -99,4 +99,31 @@ static NSDictionary *simpleDictionary;
     STAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
 }
 
+- (void)testMap;
+{
+    __block NSUInteger zero = 0;
+
+    _dict(emptyDictionary).map(^(id key, id obj) {
+        zero++;
+        return obj;
+    });
+
+    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+
+    NSDictionary *result = _dict(simpleDictionary)
+        .map(^(NSString *key, NSString *obj) {
+            return [obj capitalizedString];
+        })
+        .unwrap;
+
+    NSDictionary *capitalized = [NSDictionary dictionaryWithObjectsAndKeys:@"Object1", @"key1",
+                                                                           @"Object2", @"key2",
+                                                                           @"Object3", @"key3",
+                                                                           nil];
+
+    STAssertEqualObjects(result,
+                         capitalized,
+                         @"Can map objects");
+}
+
 @end
