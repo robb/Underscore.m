@@ -83,4 +83,20 @@
     };
 }
 
+- (USDictionary *(^)(NSArray *))pick;
+{
+    return ^USDictionary *(NSArray *keys) {
+        __block NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:keys.count];
+
+        [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if ([keys containsObject:key]) {
+                [result setObject:obj
+                           forKey:key];
+            }
+        }];
+
+        return [[USDictionary alloc] initWithDictionary:result];
+    };
+}
+
 @end

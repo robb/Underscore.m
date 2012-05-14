@@ -126,4 +126,23 @@ static NSDictionary *simpleDictionary;
                          @"Can map objects");
 }
 
+- (void)testPick;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).pick(threeObjects).unwrap,
+                         emptyDictionary,
+                         @"Picking from empty dictionary results in empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).pick(emptyArray).unwrap,
+                         emptyDictionary,
+                         @"Picking with empty array results in empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).pick(threeObjects).unwrap,
+                         emptyDictionary,
+                         @"Picking with array that not contains common keys results in empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).pick([NSArray arrayWithObject:@"key1"]).unwrap,
+                         [NSDictionary dictionaryWithObject:@"object1" forKey:@"key1"],
+                         @"Can pick keys");
+}
+
 @end
