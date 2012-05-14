@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
+		541D18AA1561726C00599033 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A91561726C00599033 /* HelperTest.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54903D13155FF779006854CB /* USArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArray.h */; };
 		54903D14155FF779006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
+		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
+		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
 		54903D11155FF779006854CB /* USArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
 		54903D12155FF779006854CB /* USArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArray.m; sourceTree = "<group>"; };
 		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				54903D1A15600A45006854CB /* USArrayTest.m */,
 				54996B351561576D0016BE94 /* USDictionaryTest.h */,
 				54996B361561576D0016BE94 /* USDictionaryTest.m */,
+				541D18A81561726C00599033 /* HelperTest.h */,
+				541D18A91561726C00599033 /* HelperTest.m */,
 			);
 			path = UnderscoreTests;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				54903D2115602003006854CB /* USArray.m in Sources */,
 				54996B2515614B220016BE94 /* USDictionary.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
+				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

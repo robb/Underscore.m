@@ -16,4 +16,8 @@
 
 + (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
 
++ (UnderscoreTestBlock)isNull;
++ (UnderscoreTestBlock)isNumber;
++ (UnderscoreTestBlock)isString;
+
 @end

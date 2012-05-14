@@ -19,4 +19,25 @@
     };
 }
 
++ (UnderscoreTestBlock)isNull;
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSNull class]];
+    };
+}
+
++ (UnderscoreTestBlock)isNumber;
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSNumber class]];
+    };
+}
+
++ (UnderscoreTestBlock)isString;
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSString class]];
+    };
+}
+
 @end
