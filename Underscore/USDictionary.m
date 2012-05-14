@@ -53,4 +53,15 @@
     return [USArray wrap:self.dictionary.allValues];
 }
 
+- (USDictionary *(^)(UnderscoreDictionaryIteratorBlock))each;
+{
+    return ^USDictionary *(UnderscoreDictionaryIteratorBlock block) {
+        [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            block(key, obj);
+        }];
+
+        return self;
+    };
+}
+
 @end

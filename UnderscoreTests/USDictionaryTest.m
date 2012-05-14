@@ -58,4 +58,45 @@ static NSDictionary *simpleDictionary;
     STAssertTrue([result containsObject:@"object3"], @"Can extract object 'object3'");
 }
 
+- (void)testEach;
+{
+    __block NSUInteger zero = 0;
+
+    _dict(emptyDictionary).each(^(id key, id obj) {
+        zero++;
+    });
+
+    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+
+    __block NSUInteger runs = 0;
+    __block BOOL checked1 = NO, checked2 = NO, checked3 = NO;
+
+    _dict(simpleDictionary).each(^(NSString *key, NSString *obj) {
+        if ([key isEqualToString:@"key1"]) {
+            STAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
+            STAssertFalse(checked1, @"Calls the block only once");
+
+            checked1 = YES;
+        }
+
+        if ([key isEqualToString:@"key2"]) {
+            STAssertEqualObjects(obj, @"object2", @"Calls the block with the correct value");
+            STAssertFalse(checked2, @"Calls the block only once");
+
+            checked2 = YES;
+        }
+
+        if ([key isEqualToString:@"key3"]) {
+            STAssertEqualObjects(obj, @"object3", @"Calls the block with the correct value");
+            STAssertFalse(checked3, @"Calls the block only once");
+
+            checked3 = YES;
+        }
+
+        runs++;
+    });
+
+    STAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
+}
+
 @end
