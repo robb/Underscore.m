@@ -127,9 +127,9 @@
     return [[USArray alloc] initWithArray:result];
 }
 
-- (id (^)(id, USArrayReduceBlock))reduce;
+- (id (^)(id, UnderscoreReduceBlock))reduce;
 {
-    return ^USArray *(id memo, USArrayReduceBlock function) {
+    return ^USArray *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array) {
             memo = function(memo, obj);
         }
@@ -138,9 +138,9 @@
     };
 }
 
-- (id (^)(id, USArrayReduceBlock))reduceRight;
+- (id (^)(id, UnderscoreReduceBlock))reduceRight;
 {
-    return ^USArray *(id memo, USArrayReduceBlock function) {
+    return ^USArray *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array.reverseObjectEnumerator) {
             memo = function(memo, obj);
         }
@@ -149,9 +149,9 @@
     };
 }
 
-- (USArray *(^)(USArrayIteratorBlock))each;
+- (USArray *(^)(UnderscoreIteratorBlock))each;
 {
-    return ^USArray *(USArrayIteratorBlock block) {
+    return ^USArray *(UnderscoreIteratorBlock block) {
         for (id obj in self.array) {
             block(obj);
         }
@@ -160,9 +160,9 @@
     };
 }
 
-- (USArray *(^)(USArrayMapBlock))map;
+- (USArray *(^)(UnderscoreMapBlock))map;
 {
-    return ^USArray *(USArrayMapBlock block) {
+    return ^USArray *(UnderscoreMapBlock block) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
 
         for (id obj in self.array) {
@@ -173,9 +173,9 @@
     };
 }
 
-- (id (^)(USArrayTestBlock))find;
+- (id (^)(UnderscoreTestBlock))find;
 {
-    return ^id (USArrayTestBlock test) {
+    return ^id (UnderscoreTestBlock test) {
         for (id obj in self.array) {
             if (test(obj)) {
                 return obj;
@@ -186,9 +186,9 @@
     };
 }
 
-- (USArray *(^)(USArrayTestBlock))filter;
+- (USArray *(^)(UnderscoreTestBlock))filter;
 {
-    return ^USArray *(USArrayTestBlock test) {
+    return ^USArray *(UnderscoreTestBlock test) {
         NSMutableArray *result = [NSMutableArray array];
 
         for (id obj in self.array) {
@@ -201,18 +201,18 @@
     };
 }
 
-- (USArray *(^)(USArrayTestBlock))reject;
+- (USArray *(^)(UnderscoreTestBlock))reject;
 {
-    return ^USArray *(USArrayTestBlock test) {
+    return ^USArray *(UnderscoreTestBlock test) {
         return self.filter(^BOOL (id obj){
             return !test(obj);
         });
     };
 }
 
-- (BOOL (^)(USArrayTestBlock))all;
+- (BOOL (^)(UnderscoreTestBlock))all;
 {
-    return ^BOOL (USArrayTestBlock test) {
+    return ^BOOL (UnderscoreTestBlock test) {
         BOOL result = YES;
 
         for (id obj in self.array) {
@@ -225,9 +225,9 @@
     };
 }
 
-- (BOOL (^)(USArrayTestBlock))any;
+- (BOOL (^)(UnderscoreTestBlock))any;
 {
-    return ^BOOL (USArrayTestBlock test) {
+    return ^BOOL (UnderscoreTestBlock test) {
         if (self.array.count == 0) {
             return YES;
         }

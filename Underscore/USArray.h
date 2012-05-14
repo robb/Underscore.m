@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^USArrayIteratorBlock)(id obj);
-typedef id   (^USArrayMapBlock)(id obj);
-typedef BOOL (^USArrayTestBlock)(id obj);
-typedef id   (^USArrayReduceBlock)(id memo, id obj);
+#import "USConstants.h"
 
 #define _array(array) [USArray wrap:array]
 
@@ -34,18 +31,18 @@ typedef id   (^USArrayReduceBlock)(id memo, id obj);
 
 @property (readonly) USArray *shuffle;
 
-@property (readonly) id (^reduce)(id memo, USArrayReduceBlock block);
-@property (readonly) id (^reduceRight)(id memo, USArrayReduceBlock block);
+@property (readonly) id (^reduce)(id memo, UnderscoreReduceBlock block);
+@property (readonly) id (^reduceRight)(id memo, UnderscoreReduceBlock block);
 
-@property (readonly) USArray *(^each)(USArrayIteratorBlock block);
-@property (readonly) USArray *(^map)(USArrayMapBlock block);
+@property (readonly) USArray *(^each)(UnderscoreIteratorBlock block);
+@property (readonly) USArray *(^map)(UnderscoreMapBlock block);
 
-@property (readonly) id (^find)(USArrayTestBlock block);
+@property (readonly) id (^find)(UnderscoreTestBlock block);
 
-@property (readonly) USArray *(^filter)(USArrayTestBlock block);
-@property (readonly) USArray *(^reject)(USArrayTestBlock block);
+@property (readonly) USArray *(^filter)(UnderscoreTestBlock block);
+@property (readonly) USArray *(^reject)(UnderscoreTestBlock block);
 
-@property (readonly) BOOL (^all)(USArrayTestBlock block);
-@property (readonly) BOOL (^any)(USArrayTestBlock block);
+@property (readonly) BOOL (^all)(UnderscoreTestBlock block);
+@property (readonly) BOOL (^any)(UnderscoreTestBlock block);
 
 @end
