@@ -48,4 +48,9 @@
     return [USArray wrap:self.dictionary.allKeys];
 }
 
+- (USArray *)values;
+{
+    return [USArray wrap:self.dictionary.allValues];
+}
+
 @end

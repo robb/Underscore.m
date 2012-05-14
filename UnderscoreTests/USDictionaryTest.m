@@ -45,4 +45,17 @@ static NSDictionary *simpleDictionary;
     STAssertTrue([result containsObject:@"key3"], @"Can extract key 'key3'");
 }
 
+- (void)testValues;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).values.unwrap,
+                         emptyArray,
+                         @"An empty dictionary returns an empty values array");
+
+    NSArray *result = _dict(simpleDictionary).values.unwrap;
+
+    STAssertTrue([result containsObject:@"object1"], @"Can extract object 'object1'");
+    STAssertTrue([result containsObject:@"object2"], @"Can extract object 'object2'");
+    STAssertTrue([result containsObject:@"object3"], @"Can extract object 'object3'");
+}
+
 @end
