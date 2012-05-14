@@ -40,7 +40,7 @@ have to worry about side effects.
 
     NSArray *processed = _array(tweets)
         // Let's make sure that we only operate on NSDictionaries, you never
-        // now with these APIs ;-)
+        // know with these APIs ;-)
         .filter(Underscore.isDictionary)
         // Remove all tweets that are in English
         .reject(^BOOL (NSDictionary *tweet) {
