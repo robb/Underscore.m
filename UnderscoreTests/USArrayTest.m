@@ -25,26 +25,26 @@ static NSArray *threeObjects;
 
 - (void)testFirst;
 {
-    STAssertNil(_array(emptyArray).first(), @"Returns nil for empty array");
+    STAssertNil(_array(emptyArray).first, @"Returns nil for empty array");
 
-    STAssertEqualObjects(_array(singleObject).first(),
+    STAssertEqualObjects(_array(singleObject).first,
                          @"foo",
                          @"Can extract only object");
 
-    STAssertEqualObjects(_array(threeObjects).first(),
+    STAssertEqualObjects(_array(threeObjects).first,
                          @"foo",
                          @"Can extract first object");
 }
 
 - (void)testLast;
 {
-    STAssertNil(_array(emptyArray).last(), @"Returns nil for empty array");
+    STAssertNil(_array(emptyArray).last, @"Returns nil for empty array");
 
-    STAssertEqualObjects(_array(singleObject).last(),
+    STAssertEqualObjects(_array(singleObject).last,
                          @"foo",
                          @"Can extract only object");
 
-    STAssertEqualObjects(_array(threeObjects).last(),
+    STAssertEqualObjects(_array(threeObjects).last,
                          @"baz",
                          @"Can extract last object");
 }
@@ -83,17 +83,17 @@ static NSArray *threeObjects;
 
 - (void)testFlatten;
 {
-    STAssertEqualObjects(_array(emptyArray).flatten().unwrap,
+    STAssertEqualObjects(_array(emptyArray).flatten.unwrap,
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
-    STAssertEqualObjects(_array(threeObjects).flatten().unwrap,
+    STAssertEqualObjects(_array(threeObjects).flatten.unwrap,
                          threeObjects,
                          @"Returns a copy for arrays not containing other arrays");
 
     NSArray *complicated = [NSArray arrayWithObjects:@"foo", threeObjects, nil];
     NSArray *flattened   = [NSArray arrayWithObjects:@"foo", @"foo", @"bar", @"baz", nil];
-    STAssertEqualObjects(_array(complicated).flatten().unwrap,
+    STAssertEqualObjects(_array(complicated).flatten.unwrap,
                          flattened,
                          @"Returns a flattened array when needed");
 }
@@ -116,7 +116,7 @@ static NSArray *threeObjects;
 
 - (void)testShuffle;
 {
-    STAssertEqualObjects(_array(emptyArray).shuffle().unwrap,
+    STAssertEqualObjects(_array(emptyArray).shuffle.unwrap,
                          emptyArray,
                          @"Shuffling an empty array results in an empty array");
 
@@ -125,7 +125,7 @@ static NSArray *threeObjects;
         [array addObject:[NSNumber numberWithUnsignedInteger:i]];
     }
 
-     STAssertFalse([_array(array).shuffle().unwrap isEqualToArray:array],
+     STAssertFalse([_array(array).shuffle.unwrap isEqualToArray:array],
                   @"Can shuffle an array");
 }
 

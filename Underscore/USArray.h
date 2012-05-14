@@ -18,20 +18,21 @@ typedef id   (^USArrayReduceBlock)(id memo, id obj);
 @interface USArray : NSObject
 
 + (USArray *)wrap:(NSArray *)array;
-- (NSArray *)unwrap;
 
 - (id)init __attribute__((deprecated("You should +[USArray wrap:] instead")));
 
-@property (readonly) id (^first)(void);
-@property (readonly) id (^last)(void);
+@property (readonly) NSArray *unwrap;
+
+@property (readonly) id first;
+@property (readonly) id last;
 
 @property (readonly) USArray *(^head)(NSUInteger n);
 @property (readonly) USArray *(^tail)(NSUInteger n);
 
-@property (readonly) USArray *(^flatten)(void);
+@property (readonly) USArray *flatten;
 @property (readonly) USArray *(^without)(NSArray *values);
 
-@property (readonly) USArray *(^shuffle)(void);
+@property (readonly) USArray *shuffle;
 
 @property (readonly) id (^reduce)(id memo, USArrayReduceBlock block);
 @property (readonly) id (^reduceRight)(id memo, USArrayReduceBlock block);

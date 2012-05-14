@@ -44,23 +44,19 @@
 
 - (NSArray *)unwrap;
 {
-    return self.array;
+    return [self.array copy];
 }
 
 #pragma mark Underscore methods
 
-- (id (^)(void))first;
+- (id)first;
 {
-    return ^id (void){
-        return self.array.count ? [self.array objectAtIndex:0] : nil;
-    };
+    return self.array.count ? [self.array objectAtIndex:0] : nil;
 }
 
-- (id (^)(void))last;
+- (id)last;
 {
-    return ^id (void){
-        return self.array.lastObject;
-    };
+    return self.array.lastObject;
 }
 
 - (USArray *(^)(NSUInteger))head;
@@ -91,7 +87,7 @@
     };
 }
 
-- (USArray *(^)(void))flatten;
+- (USArray *)flatten;
 {
     __block NSArray *(^flatten)(NSArray *) = ^NSArray *(NSArray *input) {
         NSMutableArray *result = [NSMutableArray array];
@@ -107,9 +103,7 @@
         return result;
     };
 
-    return ^USArray *(void) {
-        return [USArray wrap:flatten(self.array)];
-    };
+    return [USArray wrap:flatten(self.array)];
 }
 
 - (USArray *(^)(NSArray *))without;
@@ -121,18 +115,16 @@
     };
 }
 
-- (USArray *(^)(void))shuffle;
+- (USArray *)shuffle;
 {
-    return ^USArray *(void) {
-        NSMutableArray *result = [self.array mutableCopy];
+    NSMutableArray *result = [self.array mutableCopy];
 
-        for (NSInteger i = result.count - 1; i > 0; i--) {
-                [result exchangeObjectAtIndex:arc4random() % (i + 1)
-                            withObjectAtIndex:i];
-        }
+    for (NSInteger i = result.count - 1; i > 0; i--) {
+        [result exchangeObjectAtIndex:arc4random() % (i + 1)
+                    withObjectAtIndex:i];
+    }
 
-        return [[USArray alloc] initWithArray:result];
-    };
+    return [[USArray alloc] initWithArray:result];
 }
 
 - (id (^)(id, USArrayReduceBlock))reduce;
