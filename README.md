@@ -19,7 +19,8 @@ have to worry about side effects.
       .filter(Underscore.isString)
       .map(^NSString *(NSString *string) {
         return [string capitalizedString];
-      });
+      })
+      .unwrap;
 
 ## Real world example
 
@@ -38,10 +39,14 @@ have to worry about side effects.
     NSArray *tweets = [json valueForKey:@"results"];
 
     NSArray *processed = _array(tweets)
+        // Let's make sure that we only operate on NSDictionaries, you never
+        // now with these APIs ;-)
         .filter(Underscore.isDictionary)
+        // Remove all tweets that are in English
         .reject(^BOOL (NSDictionary *tweet) {
             return [[tweet valueForKey:@"iso_language_code"] isEqualToString:@"en"];
         })
+        // Create a simple string representation for every tweet
         .map(^NSString *(NSDictionary *tweet) {
             NSString *name = [tweet valueForKey:@"from_user_name"];
             NSString *text = [tweet valueForKey:@"text"];
