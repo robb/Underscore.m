@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Robert Böhnke. All rights reserved.
 //
 
+#import "Underscore.h"
+
 #import "USDictionary.h"
 
 @interface USDictionary ()
@@ -148,6 +150,20 @@
         return self.map(^id (id key, id obj) {
             return test(obj) ? obj : nil;
         });
+    };
+}
+
+- (USDictionary *(^)(UnderscoreTestBlock))rejectKeys;
+{
+    return ^USDictionary *(UnderscoreTestBlock test) {
+        return self.filterKeys(Underscore.negate(test));
+    };
+}
+
+- (USDictionary *(^)(UnderscoreTestBlock))rejectValues;
+{
+    return ^USDictionary *(UnderscoreTestBlock test) {
+        return self.filterValues(Underscore.negate(test));
     };
 }
 

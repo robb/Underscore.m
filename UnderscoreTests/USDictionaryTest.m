@@ -253,4 +253,60 @@ static NSDictionary *simpleDictionary;
                          @"Can filter only specific values");
 }
 
+- (void)testRejectKeys;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).rejectKeys(^(id key) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Rejecting keys of an empty dictionary returns an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).rejectKeys(^(id key) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Rejecting everything results in an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).rejectKeys(^(id key) {return NO;}).unwrap,
+                         simpleDictionary,
+                         @"Rejecting nothing results in the original dictionary");
+
+    NSDictionary *result = _dict(simpleDictionary)
+        .rejectKeys(^(NSString *key) {
+            return [key isEqualToString:@"key2"];})
+        .unwrap;
+
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
+                                                                        @"object3", @"key3",
+                                                                        nil];
+
+    STAssertEqualObjects(result,
+                         expected,
+                         @"Can reject only specific keys");
+}
+
+- (void)testRejectValues;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).rejectValues(^(id obj) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Rejecting values of an empty dictionary returns an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).rejectValues(^(id obj) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Rejecting everything results in an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).rejectValues(^(id obj) {return NO;}).unwrap,
+                         simpleDictionary,
+                         @"Rejecting nothing results in the original dictionary");
+
+    NSDictionary *result = _dict(simpleDictionary)
+        .rejectValues(^(NSString *obj) {
+            return [obj isEqualToString:@"object2"];})
+        .unwrap;
+
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
+                                                                        @"object3", @"key3",
+                                                                        nil];
+
+    STAssertEqualObjects(result,
+                         expected,
+                         @"Can reject only specific values");
+}
+
 @end

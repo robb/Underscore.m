@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Robert Böhnke. All rights reserved.
 //
 
-#import "USArray.h"
-
 #import "Underscore.h"
+
+#import "USArray.h"
 
 @interface USArray ()
 
