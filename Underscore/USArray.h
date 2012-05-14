@@ -20,7 +20,7 @@ typedef id   (^USArrayReduceBlock)(id memo, id obj);
 + (USArray *)wrap:(NSArray *)array;
 - (NSArray *)unwrap;
 
-- (id)init __deprecated;
+- (id)init __attribute__((deprecated("You should +[USArray wrap:] instead")));
 
 @property (readonly) id (^first)(void);
 @property (readonly) id (^last)(void);
