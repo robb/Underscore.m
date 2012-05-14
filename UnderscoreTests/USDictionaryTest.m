@@ -172,4 +172,33 @@ static NSDictionary *simpleDictionary;
                          @"Extending non-empty dictionary with non-empty dictionary overwrites keys where necessary");
 }
 
+- (void)testDefaults;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).defaults(emptyDictionary).unwrap,
+                         emptyDictionary,
+                         @"Applying defaults from an empty dictionary to an empty dictionary results in an empty dictionary");
+
+    STAssertEqualObjects(_dict(emptyDictionary).defaults(simpleDictionary).unwrap,
+                         simpleDictionary,
+                         @"Applying defaults from a non-empty dictionary to an empty dictionary copies over all key-values pairs");
+
+    STAssertEqualObjects(_dict(simpleDictionary).defaults(emptyDictionary).unwrap,
+                         simpleDictionary,
+                         @"Applying defaults from an empty dictionary to a non-empty dictionary copies over all key-values pairs");
+
+    NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNull null], @"key3",
+                                                                        @"object4",    @"key4",
+                                                                        nil];
+
+    NSDictionary *fourKeys = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
+                                                                        @"object2", @"key2",
+                                                                        @"object3", @"key3",
+                                                                        @"object4", @"key4",
+                                                                        nil];
+
+    STAssertEqualObjects(_dict(simpleDictionary).defaults(defaults).unwrap,
+                         fourKeys,
+                         @"Applying defaults from a non-empty dictionary to a non-empty dictionary copies over all key-values pairs not existant in the latter");
+}
+
 @end
