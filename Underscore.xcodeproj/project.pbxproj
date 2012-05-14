@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54903D13155FF779006854CB /* USArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArray.h */; };
 		54903D14155FF779006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		54903D11155FF779006854CB /* USArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
 		54903D12155FF779006854CB /* USArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArray.m; sourceTree = "<group>"; };
 		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
+				541D18A515616E2400599033 /* Underscore.m */,
 				54903D11155FF779006854CB /* USArray.h */,
 				54903D12155FF779006854CB /* USArray.m */,
 				54996B2115614B220016BE94 /* USDictionary.h */,
@@ -265,6 +268,7 @@
 			files = (
 				54903D14155FF779006854CB /* USArray.m in Sources */,
 				54996B2415614B220016BE94 /* USDictionary.m in Sources */,
+				541D18A615616E2400599033 /* Underscore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

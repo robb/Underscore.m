@@ -8,6 +8,8 @@
 
 #import "USArray.h"
 
+#import "Underscore.h"
+
 @interface USArray ()
 
 - initWithArray:(NSArray *)array;
@@ -204,9 +206,7 @@
 - (USArray *(^)(UnderscoreTestBlock))reject;
 {
     return ^USArray *(UnderscoreTestBlock test) {
-        return self.filter(^BOOL (id obj){
-            return !test(obj);
-        });
+        return self.filter(Underscore.negate(test));
     };
 }
 

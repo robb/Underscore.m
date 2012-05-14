@@ -8,5 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "USConstants.h"
 #import "USArray.h"
 #import "USDictionary.h"
+
+@interface Underscore : NSObject
+
++ (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
+
+@end
