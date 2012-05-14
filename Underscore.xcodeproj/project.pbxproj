@@ -12,6 +12,9 @@
 		54903D14155FF779006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
 		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
 		54903D2115602003006854CB /* USArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArray.m */; };
+		54996B2315614B220016BE94 /* USDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2115614B220016BE94 /* USDictionary.h */; };
+		54996B2415614B220016BE94 /* USDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionary.m */; };
+		54996B2515614B220016BE94 /* USDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionary.m */; };
 		54996B2D15614F900016BE94 /* USConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2C15614F900016BE94 /* USConstants.h */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
@@ -36,6 +39,8 @@
 		54903D12155FF779006854CB /* USArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArray.m; sourceTree = "<group>"; };
 		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
 		54903D1A15600A45006854CB /* USArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayTest.m; sourceTree = "<group>"; };
+		54996B2115614B220016BE94 /* USDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDictionary.h; sourceTree = "<group>"; };
+		54996B2215614B220016BE94 /* USDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USDictionary.m; sourceTree = "<group>"; };
 		54996B2C15614F900016BE94 /* USConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USConstants.h; sourceTree = "<group>"; };
 		54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUnderscore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A3DCC8154DD4BF00387DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +111,8 @@
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				54903D11155FF779006854CB /* USArray.h */,
 				54903D12155FF779006854CB /* USArray.m */,
+				54996B2115614B220016BE94 /* USDictionary.h */,
+				54996B2215614B220016BE94 /* USDictionary.m */,
 				54996B2C15614F900016BE94 /* USConstants.h */,
 				54A3DCCB154DD4BF00387DE3 /* Supporting Files */,
 			);
@@ -148,6 +155,7 @@
 			files = (
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
 				54903D13155FF779006854CB /* USArray.h in Headers */,
+				54996B2315614B220016BE94 /* USDictionary.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54903D14155FF779006854CB /* USArray.m in Sources */,
+				54996B2415614B220016BE94 /* USDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +269,7 @@
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
 				54903D2115602003006854CB /* USArray.m in Sources */,
+				54996B2515614B220016BE94 /* USDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

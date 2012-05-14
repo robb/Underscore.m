@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^UnderscoreIteratorBlock)(id obj);
-typedef id   (^UnderscoreMapBlock)(id obj);
 typedef BOOL (^UnderscoreTestBlock)(id obj);
 typedef id   (^UnderscoreReduceBlock)(id memo, id obj);
+
+typedef void (^UnderscoreArrayIteratorBlock)(id obj);
+typedef id   (^UnderscoreArrayMapBlock)(id obj);
+
+typedef void (^UnderscoreDictionaryIteratorBlock)(id key, id obj);
+typedef id   (^UnderscoreDictionaryMapBlock)(id key, id obj);

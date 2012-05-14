@@ -34,8 +34,8 @@
 @property (readonly) id (^reduce)(id memo, UnderscoreReduceBlock block);
 @property (readonly) id (^reduceRight)(id memo, UnderscoreReduceBlock block);
 
-@property (readonly) USArray *(^each)(UnderscoreIteratorBlock block);
-@property (readonly) USArray *(^map)(UnderscoreMapBlock block);
+@property (readonly) USArray *(^each)(UnderscoreArrayIteratorBlock block);
+@property (readonly) USArray *(^map)(UnderscoreArrayMapBlock block);
 
 @property (readonly) id (^find)(UnderscoreTestBlock block);
 

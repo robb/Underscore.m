@@ -149,9 +149,9 @@
     };
 }
 
-- (USArray *(^)(UnderscoreIteratorBlock))each;
+- (USArray *(^)(UnderscoreArrayIteratorBlock))each;
 {
-    return ^USArray *(UnderscoreIteratorBlock block) {
+    return ^USArray *(UnderscoreArrayIteratorBlock block) {
         for (id obj in self.array) {
             block(obj);
         }
@@ -160,9 +160,9 @@
     };
 }
 
-- (USArray *(^)(UnderscoreMapBlock))map;
+- (USArray *(^)(UnderscoreArrayMapBlock))map;
 {
-    return ^USArray *(UnderscoreMapBlock block) {
+    return ^USArray *(UnderscoreArrayMapBlock block) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
 
         for (id obj in self.array) {
