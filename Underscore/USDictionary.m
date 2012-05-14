@@ -99,4 +99,18 @@
     };
 }
 
+- (USDictionary *(^)(NSDictionary *))extend;
+{
+    return ^USDictionary *(NSDictionary *source) {
+        __block NSMutableDictionary *result = [self.dictionary mutableCopy];
+
+        [source enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [result setObject:obj
+                       forKey:key];
+        }];
+
+        return [[USDictionary alloc] initWithDictionary:result];
+    };
+}
+
 @end

@@ -145,4 +145,31 @@ static NSDictionary *simpleDictionary;
                          @"Can pick keys");
 }
 
+- (void)testExtend;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).extend(emptyDictionary).unwrap,
+                         emptyDictionary,
+                         @"Extending empty dictionary with empty dictionary results in empty dictionary");
+
+    STAssertEqualObjects(_dict(emptyDictionary).extend(simpleDictionary).unwrap,
+                         simpleDictionary,
+                         @"Extending empty dictionary with non-empty dictionary copies over all key-values pairs");
+
+    STAssertEqualObjects(_dict(simpleDictionary).extend(emptyDictionary).unwrap,
+                         simpleDictionary,
+                         @"Extending non-empty dictionary with empty dictionary leaves all key-values pairs unchanged");
+
+    NSDictionary *dictionary1 = [NSDictionary dictionaryWithObjectsAndKeys:@"object1",    @"key1",
+                                                                           [NSNull null], @"key2",
+                                                                           nil];
+
+    NSDictionary *dictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:@"object2", @"key2",
+                                                                           @"object3", @"key3",
+                                                                           nil];
+
+    STAssertEqualObjects(_dict(dictionary1).extend(dictionary2).unwrap,
+                         simpleDictionary,
+                         @"Extending non-empty dictionary with non-empty dictionary overwrites keys where necessary");
+}
+
 @end
