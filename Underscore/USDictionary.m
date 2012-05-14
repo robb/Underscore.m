@@ -75,8 +75,12 @@
         NSMutableDictionary *result = [NSMutableDictionary dictionary];
 
         [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [result setObject:block(key, obj)
-                       forKey:key];
+            id mapped = block(key, obj);
+
+            if (mapped) {
+                [result setObject:mapped
+                           forKey:key];
+            }
         }];
 
         return [[USDictionary alloc] initWithDictionary:result];
@@ -126,6 +130,24 @@
         }];
 
         return [[USDictionary alloc] initWithDictionary:result];
+    };
+}
+
+- (USDictionary *(^)(UnderscoreTestBlock))filterKeys;
+{
+    return ^USDictionary *(UnderscoreTestBlock test) {
+        return self.map(^id (id key, id obj) {
+            return test(key) ? obj : nil;
+        });
+    };
+}
+
+- (USDictionary *(^)(UnderscoreTestBlock))filterValues;
+{
+    return ^USDictionary *(UnderscoreTestBlock test) {
+        return self.map(^id (id key, id obj) {
+            return test(obj) ? obj : nil;
+        });
     };
 }
 

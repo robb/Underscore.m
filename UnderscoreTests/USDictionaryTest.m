@@ -110,6 +110,10 @@ static NSDictionary *simpleDictionary;
 
     STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
+    STAssertEqualObjects(_dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
+                         emptyDictionary,
+                         @"Returning nil in the map block removes the key value pair");
+
     NSDictionary *result = _dict(simpleDictionary)
         .map(^(NSString *key, NSString *obj) {
             return [obj capitalizedString];
@@ -199,6 +203,54 @@ static NSDictionary *simpleDictionary;
     STAssertEqualObjects(_dict(simpleDictionary).defaults(defaults).unwrap,
                          fourKeys,
                          @"Applying defaults from a non-empty dictionary to a non-empty dictionary copies over all key-values pairs not existant in the latter");
+}
+
+- (void)testFilterKeys;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).filterKeys(^(id key) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Filtering an empty dictionary returns an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).filterKeys(^(id key) {return YES;}).unwrap,
+                         simpleDictionary,
+                         @"Filtering everything results in the original dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).filterKeys(^(id key) {return NO;}).unwrap,
+                         emptyDictionary,
+                         @"Filtering nothing results in the original dictionary");
+
+    NSDictionary *result = _dict(simpleDictionary)
+        .filterKeys(^(NSString *key) {
+            return [key isEqualToString:@"key2"];})
+        .unwrap;
+
+    STAssertEqualObjects(result,
+                         [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
+                         @"Can filter only specific keys");
+}
+
+- (void)testFilterValues;
+{
+    STAssertEqualObjects(_dict(emptyDictionary).filterValues(^(id obj) {return YES;}).unwrap,
+                         emptyDictionary,
+                         @"Filtering an empty dictionary returns an empty dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).filterValues(^(id obj) {return YES;}).unwrap,
+                         simpleDictionary,
+                         @"Filtering everything results in the original dictionary");
+
+    STAssertEqualObjects(_dict(simpleDictionary).filterValues(^(id obj) {return NO;}).unwrap,
+                         emptyDictionary,
+                         @"Filtering nothing results in the original dictionary");
+
+    NSDictionary *result = _dict(simpleDictionary)
+        .filterValues(^(NSString *obj) {
+            return [obj isEqualToString:@"object2"];})
+        .unwrap;
+
+    STAssertEqualObjects(result,
+                         [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
+                         @"Can filter only specific values");
 }
 
 @end
