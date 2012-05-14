@@ -40,4 +40,9 @@
     };
 }
 
+- (id)init;
+{
+    return [super init];
+}
+
 @end

@@ -20,4 +20,6 @@
 + (UnderscoreTestBlock)isNumber;
 + (UnderscoreTestBlock)isString;
 
+- (id)init __deprecated;
+
 @end
