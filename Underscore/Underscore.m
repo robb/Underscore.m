@@ -19,6 +19,20 @@
     };
 }
 
++ (UnderscoreTestBlock)isArray;
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSArray class]];
+    };
+}
+
++ (UnderscoreTestBlock)isDictionary;
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSDictionary class]];
+    };
+}
+
 + (UnderscoreTestBlock)isNull;
 {
     return ^BOOL (id obj) {

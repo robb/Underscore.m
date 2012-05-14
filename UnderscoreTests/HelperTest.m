@@ -27,6 +27,20 @@
     STAssertTrue(Underscore.negate(noBlock)(nil), @"Can negate block");
 }
 
+- (void)testIsArray;
+{
+    STAssertTrue(Underscore.isArray([NSArray array]), @"Returns true for NSArray");
+
+    STAssertFalse(Underscore.isArray([[NSObject alloc] init]), @"Returns false for NSObject");
+}
+
+- (void)testIsDictionary;
+{
+    STAssertTrue(Underscore.isDictionary([NSDictionary dictionary]), @"Returns true for NSDictionary");
+
+    STAssertFalse(Underscore.isDictionary([[NSObject alloc] init]), @"Returns false for NSObject");
+}
+
 - (void)testIsNull;
 {
     STAssertTrue(Underscore.isNull([NSNull null]), @"Returns true for NSNull");

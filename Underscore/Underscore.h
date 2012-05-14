@@ -16,6 +16,8 @@
 
 + (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
 
++ (UnderscoreTestBlock)isArray;
++ (UnderscoreTestBlock)isDictionary;
 + (UnderscoreTestBlock)isNull;
 + (UnderscoreTestBlock)isNumber;
 + (UnderscoreTestBlock)isString;
