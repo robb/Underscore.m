@@ -206,6 +206,10 @@ static NSArray *threeObjects;
                          emptyArray,
                          @"Can handle empty arrays");
 
+    STAssertEqualObjects(_array(threeObjects).map(^id (id any){return nil;}).unwrap,
+                         emptyArray,
+                         @"Returning nil in the map block removes the object pair");
+
     NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
     NSArray *result      = _array(threeObjects)
         .map(^NSString *(NSString *string) {

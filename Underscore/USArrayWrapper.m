@@ -168,7 +168,11 @@
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
 
         for (id obj in self.array) {
-            [result addObject:block(obj)];
+            id mapped = block(obj);
+
+            if (mapped) {
+                [result addObject:mapped];
+            }
         }
 
         return [[USArrayWrapper alloc] initWithArray:result];
@@ -191,15 +195,9 @@
 - (USArrayWrapper *(^)(UnderscoreTestBlock))filter;
 {
     return ^USArrayWrapper *(UnderscoreTestBlock test) {
-        NSMutableArray *result = [NSMutableArray array];
-
-        for (id obj in self.array) {
-            if (test(obj)) {
-                [result addObject:obj];
-            }
-        }
-
-        return [[USArrayWrapper alloc] initWithArray:result];
+        return self.map(^id (id obj) {
+            return test(obj) ? obj : nil;
+        });
     };
 }
 
