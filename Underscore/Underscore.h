@@ -15,6 +15,7 @@
 @interface Underscore : NSObject
 
 + (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
++ (UnderscoreTestBlock(^)(id obj))isEqual;
 
 + (UnderscoreTestBlock)isArray;
 + (UnderscoreTestBlock)isDictionary;

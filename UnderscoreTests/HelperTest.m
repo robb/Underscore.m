@@ -27,6 +27,12 @@
     STAssertTrue(Underscore.negate(noBlock)(nil), @"Can negate block");
 }
 
+- (void)testIsEqual;
+{
+    STAssertTrue(Underscore.isEqual(@"foo")(@"foo"), @"Performs equality check");
+    STAssertFalse(Underscore.isEqual(@"foo")(@"bar"), @"Performs equality check");
+}
+
 - (void)testIsArray;
 {
     STAssertTrue(Underscore.isArray([NSArray array]), @"Returns true for NSArray");

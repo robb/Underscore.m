@@ -19,6 +19,15 @@
     };
 }
 
++ (UnderscoreTestBlock(^)(id obj))isEqual;
+{
+    return ^UnderscoreTestBlock (id obj) {
+        return ^BOOL (id other) {
+            return [obj isEqual:other];
+        };
+    };
+}
+
 + (UnderscoreTestBlock)isArray;
 {
     return ^BOOL (id obj) {
