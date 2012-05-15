@@ -1,5 +1,5 @@
 //
-//  USArray.m
+//  USArrayWrapper.m
 //  Underscore
 //
 //  Created by Robert Böhnke on 5/13/12.
@@ -8,9 +8,9 @@
 
 #import "Underscore.h"
 
-#import "USArray.h"
+#import "USArrayWrapper.h"
 
-@interface USArray ()
+@interface USArrayWrapper ()
 
 - initWithArray:(NSArray *)array;
 
@@ -18,13 +18,13 @@
 
 @end
 
-@implementation USArray
+@implementation USArrayWrapper
 
 #pragma mark Class methods
 
-+ (USArray *)wrap:(NSArray *)array;
++ (USArrayWrapper *)wrap:(NSArray *)array;
 {
-    return [[USArray alloc] initWithArray:[array copy]];
+    return [[USArrayWrapper alloc] initWithArray:[array copy]];
 }
 
 #pragma mark Lifecycle
@@ -61,20 +61,20 @@
     return self.array.lastObject;
 }
 
-- (USArray *(^)(NSUInteger))head;
+- (USArrayWrapper *(^)(NSUInteger))head;
 {
-    return ^USArray *(NSUInteger count) {
+    return ^USArrayWrapper *(NSUInteger count) {
         NSRange    range     = NSMakeRange(0, MIN(self.array.count, count));
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
         NSArray    *result   = [self.array objectsAtIndexes:indexSet];
 
-        return [[USArray alloc] initWithArray:result];
+        return [[USArrayWrapper alloc] initWithArray:result];
     };
 }
 
-- (USArray *(^)(NSUInteger))tail;
+- (USArrayWrapper *(^)(NSUInteger))tail;
 {
-    return ^USArray *(NSUInteger count) {
+    return ^USArrayWrapper *(NSUInteger count) {
         NSRange range;
         if (count > self.array.count) {
             range = NSMakeRange(0, self.array.count);
@@ -85,11 +85,11 @@
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
         NSArray    *result   = [self.array objectsAtIndexes:indexSet];
 
-        return [[USArray alloc] initWithArray:result];
+        return [[USArrayWrapper alloc] initWithArray:result];
     };
 }
 
-- (USArray *)flatten;
+- (USArrayWrapper *)flatten;
 {
     __block NSArray *(^flatten)(NSArray *) = ^NSArray *(NSArray *input) {
         NSMutableArray *result = [NSMutableArray array];
@@ -105,19 +105,19 @@
         return result;
     };
 
-    return [USArray wrap:flatten(self.array)];
+    return [USArrayWrapper wrap:flatten(self.array)];
 }
 
-- (USArray *(^)(NSArray *))without;
+- (USArrayWrapper *(^)(NSArray *))without;
 {
-    return ^USArray *(NSArray *value) {
+    return ^USArrayWrapper *(NSArray *value) {
         return self.reject(^(id obj){
             return [value containsObject:obj];
         });
     };
 }
 
-- (USArray *)shuffle;
+- (USArrayWrapper *)shuffle;
 {
     NSMutableArray *result = [self.array mutableCopy];
 
@@ -126,12 +126,12 @@
                     withObjectAtIndex:i];
     }
 
-    return [[USArray alloc] initWithArray:result];
+    return [[USArrayWrapper alloc] initWithArray:result];
 }
 
 - (id (^)(id, UnderscoreReduceBlock))reduce;
 {
-    return ^USArray *(id memo, UnderscoreReduceBlock function) {
+    return ^USArrayWrapper *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array) {
             memo = function(memo, obj);
         }
@@ -142,7 +142,7 @@
 
 - (id (^)(id, UnderscoreReduceBlock))reduceRight;
 {
-    return ^USArray *(id memo, UnderscoreReduceBlock function) {
+    return ^USArrayWrapper *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array.reverseObjectEnumerator) {
             memo = function(memo, obj);
         }
@@ -151,9 +151,9 @@
     };
 }
 
-- (USArray *(^)(UnderscoreArrayIteratorBlock))each;
+- (USArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
-    return ^USArray *(UnderscoreArrayIteratorBlock block) {
+    return ^USArrayWrapper *(UnderscoreArrayIteratorBlock block) {
         for (id obj in self.array) {
             block(obj);
         }
@@ -162,16 +162,16 @@
     };
 }
 
-- (USArray *(^)(UnderscoreArrayMapBlock))map;
+- (USArrayWrapper *(^)(UnderscoreArrayMapBlock))map;
 {
-    return ^USArray *(UnderscoreArrayMapBlock block) {
+    return ^USArrayWrapper *(UnderscoreArrayMapBlock block) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
 
         for (id obj in self.array) {
             [result addObject:block(obj)];
         }
 
-        return [[USArray alloc] initWithArray:result];
+        return [[USArrayWrapper alloc] initWithArray:result];
     };
 }
 
@@ -188,9 +188,9 @@
     };
 }
 
-- (USArray *(^)(UnderscoreTestBlock))filter;
+- (USArrayWrapper *(^)(UnderscoreTestBlock))filter;
 {
-    return ^USArray *(UnderscoreTestBlock test) {
+    return ^USArrayWrapper *(UnderscoreTestBlock test) {
         NSMutableArray *result = [NSMutableArray array];
 
         for (id obj in self.array) {
@@ -199,13 +199,13 @@
             }
         }
 
-        return [[USArray alloc] initWithArray:result];
+        return [[USArrayWrapper alloc] initWithArray:result];
     };
 }
 
-- (USArray *(^)(UnderscoreTestBlock))reject;
+- (USArrayWrapper *(^)(UnderscoreTestBlock))reject;
 {
-    return ^USArray *(UnderscoreTestBlock test) {
+    return ^USArrayWrapper *(UnderscoreTestBlock test) {
         return self.filter(Underscore.negate(test));
     };
 }

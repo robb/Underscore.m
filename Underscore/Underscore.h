@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #import "USConstants.h"
-#import "USArray.h"
-#import "USDictionary.h"
+#import "USArrayWrapper.h"
+#import "USDictionaryWrapper.h"
 
 @interface Underscore : NSObject
 

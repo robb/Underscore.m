@@ -7,8 +7,8 @@ Underscore.m is an Objective-C library inspired by [underscore.js][js].
 First, you wrap your `NSDictionary` and `NSArray` using the provided macros.
 
     // e.g.
-    NSDictionary *dictionary = [NSDictionary dictionaryWithAllKindsOfStuff];
-    USDictionary *wrapper    = _dict(dictionary);
+    NSDictionary *dictionary     = [NSDictionary dictionaryWithAllKindsOfStuff];
+    USDictionaryWrapper *wrapper = _dict(dictionary);
 
 Now, you can manipulate the dictionary using Underscore.m's various methods.
 For each step, Underscore.m will create a copy of the data type, so you don't
