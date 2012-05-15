@@ -162,6 +162,8 @@ _To facilitate chaining, all methods that return a dictionary automatically wrap
 
 ### etc.
 
+_Convenient helpers, these are all class methods of `Underscore`_
+
 - `negate(UnderscoreTestBlock block)`  
   Negates the `block` it is passed.
 
