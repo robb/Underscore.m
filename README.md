@@ -172,16 +172,16 @@ _Convenient helpers, these are all class methods of `Underscore`_
   to `obj`.
 
 - `isArray`  
-  A block that returns `YES` if is called with an NSArray.
+  A block that returns `YES` if it is called with an NSArray.
 
 - `isDictionary`  
-  A block that returns `YES` if is called with an NSDictionary.
+  A block that returns `YES` if it is called with an NSDictionary.
 
 - `isNull`  
-  A block that returns `YES` if is called with an NSNull.
+  A block that returns `YES` if it is called with an NSNull.
 
 - `isNumber`  
-  A block that returns `YES` if is called with an NSNumber.
+  A block that returns `YES` if it is called with an NSNumber.
 
 - `isString`  
-  A block that returns `YES` if is called with an NSString.
+  A block that returns `YES` if it is called with an NSString.
