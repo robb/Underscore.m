@@ -22,7 +22,7 @@ have to worry about side effects.
       })
       .unwrap;
 
-[js]: documentcloud.github.com/underscore
+[js]: http://documentcloud.github.com/underscore
 
 ## Real world example
 
