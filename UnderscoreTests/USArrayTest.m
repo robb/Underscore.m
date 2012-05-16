@@ -292,8 +292,8 @@ static NSArray *threeObjects;
 
 - (void)testAll;
 {
-    STAssertTrue(_array(emptyArray).all(^BOOL (id any){return NO;}),
-                 @"Empty array always passes");
+    STAssertFalse(_array(emptyArray).all(Underscore.isNull),
+                  @"Empty array never passes");
 
     UnderscoreTestBlock isString = ^BOOL (id obj){
         return [obj isKindOfClass:[NSString class]];
@@ -319,8 +319,8 @@ static NSArray *threeObjects;
 
 - (void)testAny;
 {
-    STAssertTrue(_array(emptyArray).any(^BOOL (id any){return NO;}),
-                 @"Empty array always passes");
+    STAssertFalse(_array(emptyArray).any(Underscore.isNull),
+                  @"Empty array never passes");
 
     UnderscoreTestBlock isString = ^BOOL (id obj){
         return [obj isKindOfClass:[NSString class]];

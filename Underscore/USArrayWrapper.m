@@ -229,6 +229,10 @@
 - (BOOL (^)(UnderscoreTestBlock))all;
 {
     return ^BOOL (UnderscoreTestBlock test) {
+        if (self.array.count == 0) {
+            return NO;
+        }
+
         BOOL result = YES;
 
         for (id obj in self.array) {
@@ -244,10 +248,6 @@
 - (BOOL (^)(UnderscoreTestBlock))any;
 {
     return ^BOOL (UnderscoreTestBlock test) {
-        if (self.array.count == 0) {
-            return YES;
-        }
-
         BOOL result = NO;
 
         for (id obj in self.array) {
