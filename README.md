@@ -99,6 +99,10 @@ _To facilitate chaining, all methods that return an array automatically wrap it.
   If the block returns `nil`, the object is removed from the array, otherwise
   the return-value replaces the object.
 
+- `pluck(NSString *keyPath)`  
+  Returns an array containing the objects' values for the for the given key
+  path.
+
 - `find(UnderscoreTestBlock test)`  
   Returns the first object in the array that passes the `test`.
 
