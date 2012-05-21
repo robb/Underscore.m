@@ -70,12 +70,12 @@ _To facilitate chaining, all methods that return an array automatically wrap it.
   Returns the last element of the array or `nil` if it is empty
 
 - `head(NSUInteger n)`  
-  Returns the first `n` elements or all of them, or all of them if there a less
-  than `n` elements in the array.  
+  Returns the first `n` elements or all of them, if there are less than `n`
+  elements in the array.  
 
 - `tail(NSUInteger n)`  
-  Returns the last `n` elements or all of them, or all of them if there a less
-  than `n` elements in the array.  
+  Returns the last `n` elements or all of them, if there are less than `n`
+  elements in the array.  
 
 - `flatten`  
   Flattens the array.  
