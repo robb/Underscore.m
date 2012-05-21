@@ -55,6 +55,8 @@
 @property (readonly) USArrayWrapper *(^each)(UnderscoreArrayIteratorBlock block);
 @property (readonly) USArrayWrapper *(^map)(UnderscoreArrayMapBlock block);
 
+@property (readonly) USArrayWrapper *(^pluck)(NSString *keyPath);
+
 @property (readonly) id (^find)(UnderscoreTestBlock block);
 
 @property (readonly) USArrayWrapper *(^filter)(UnderscoreTestBlock block);

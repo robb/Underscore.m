@@ -222,6 +222,22 @@ static NSArray *threeObjects;
                          @"Can map objects");
 }
 
+- (void)testPluck;
+{
+    STAssertEqualObjects(_array(emptyArray).pluck(@"description").unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    NSArray *lengths = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
+                                                 [NSNumber numberWithInt:3],
+                                                 [NSNumber numberWithInt:3],
+                                                 nil];
+
+    STAssertEqualObjects(_array(threeObjects).pluck(@"length").unwrap,
+                         lengths,
+                         @"Can extract values for the key path");
+}
+
 - (void)testFind;
 {
     STAssertNil(_array(emptyArray).find(^BOOL(id any){return YES;}),

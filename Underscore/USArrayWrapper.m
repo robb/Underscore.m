@@ -197,6 +197,15 @@
     };
 }
 
+- (USArrayWrapper *(^)(NSString *))pluck;
+{
+    return ^USArrayWrapper *(NSString *keyPath) {
+        return self.map(^id (id obj) {
+            return [obj valueForKeyPath:keyPath];
+        });
+    };
+}
+
 - (id (^)(UnderscoreTestBlock))find;
 {
     return ^id (UnderscoreTestBlock test) {
