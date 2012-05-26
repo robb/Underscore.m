@@ -1,0 +1,67 @@
+body {
+  overflow: hidden;
+}
+
+#index {
+  position: fixed;
+  top:    0;
+  bottom: 0;
+  left:   0;
+
+  z-index: 999;
+
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 24px 12px 24px 24px;
+  width:   216px;
+
+  background: -webkit-linear-gradient(right,
+                                      rgba(155,155,155,0.55) 0,
+                                      rgba(155,155,155,0.25) 1px,
+                                      rgba(155,155,155,0.15) 5px,
+                                      rgba(155,155,155,0.00) 12px)
+              #EEE;
+}
+
+#index h3 {
+  display: none;
+}
+
+#index .item {
+  font-weight: bold;
+}
+
+#index li {
+  list-style-type: none;
+}
+
+#index li:before {
+  content: "\00BB \0020";
+}
+
+#index a {
+  color: #222;
+  text-decoration: none;
+}
+
+#index a:hover {
+  text-decoration: underline;
+}
+
+#wrapper {
+  position: fixed;
+  top:    0;
+  right:  0;
+  bottom: 0;
+  left:   216px;
+
+  overflow: scroll;
+
+  padding: 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#wrapper > * {
+  max-width: 808px;
+}

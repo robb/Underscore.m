@@ -1,0 +1,563 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Underscore.m</title>
+  <meta name="description" content="Underscore.m is a small utility library to facilitate working with common data structures in Objective-C.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/iphone.css" media="screen and (max-width: 480px)">
+  <link rel="stylesheet" href="css/ipad.css" media="screen and (min-width: 481px)">
+
+  <link  rel="stylesheet" href="css/prettify.css" />
+
+  <script type="text/javascript" src="http://use.typekit.com/jgi2evu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <script type="text/javascript" src="js/prettify.js"></script>
+</head>
+<body>
+
+<section id="index">
+  <p><a class="item" href="#about">About Underscore.m</a></p>
+  <!-- populated using js -->
+</section>
+
+
+<!-- Content -->
+<div id="wrapper">
+<header>
+  <h1>Underscore.m</h1>
+  <h2>A utility library for Objective-C</h2>
+</header>
+
+<section id="about">
+  <!-- <h3>About Underscore.m</h3> -->
+  <p>
+    Underscore.m is a small utility library to facilitate working with common
+    data structures in Objective-C. It tries to encourage chaining by eschewing
+    the square bracket]]]]]].<br>
+    It is inspired by the awesome
+    <a href="http://underscorejs.org">underscore.js</a>.
+  </p>
+  <p>
+    Underscore.m was written by <a href="http://robb.is/">Robert Böhnke</a>,
+    it is MIT licensed.
+  </p>
+  <h3>Download</h3>
+  <p>
+    You can download Underscore.m from
+    <a href="https://github.com/robb/Underscore.m">the github repository</a>.
+  </p>
+</section>
+
+<section id="documentation">
+  <section id="nsarray" class="category">
+    <h3>NSArray</h3>
+    <p>
+      The following methods can be used with NSArrays and NSMutableArrays.
+      Methods that return an array automatically wrap it to facilitate chaining.
+    </p>
+
+    <section id="_array">
+      <h4>_array(NSArray *)</h4>
+      <p>
+        Wraps an array in Underscore.m's USArrayWrapper. This is crucial in order
+        to use the other methods.
+      </p>
+<pre>
+USArrayWrapper *wrapper = _array(array);
+</pre>
+      <p>
+        As Underscore.m encourages chainging, you will probably not need to keep
+        a reference to the wrapper.
+      </p>
+    </section>
+
+  <section id="first">
+    <h4>first</h4>
+      <p>
+        Returns the first element of the array or <code>nil</code> if it is empty.
+      </p>
+<pre>
+id first = _array(array).first;
+</pre>
+    </section>
+
+    <section id="last">
+      <h4>last</h4>
+      <p>
+        Returns the last element of the array or <code>nil</code> if it is empty.
+      </p>
+<pre>
+id last = _array(array).last;
+</pre>
+    </section>
+
+    <section id="head">
+      <h4>head(NSUInterger n)</h4>
+      <p>
+        Returns the first <code>n</code> elements or all of them, if there are
+        less than <code>n</code> elements in the array.
+      </p>
+<pre>
+NSArray *firstThree = _array(array).head(3).unwrap;
+</pre>
+    </section>
+
+    <section id="tail">
+      <h4>tail(NSUInterger n)</h4>
+      <p>
+        Returns the last <code>n</code> elements or all of them, if there are less
+        than <code>n</code> elements in the array.
+      </p>
+<pre>
+NSArray *lastThree = _array(array).tail(3).unwrap;
+</pre>
+  </section>
+
+    <section id="flatten">
+      <h4 id="flatten">flatten</h4>
+      <p>
+        Recursively flattens the array.
+      </p>
+<pre>
+NSArray *arrayOfArrays = @[@[@1, @2], @[@3, @4], @[@5, @6]];
+NSArray *oneToSix      = _array(arrayOfArrays).flatten.unwrap;
+</pre>
+    </section>
+
+    <section id="without">
+      <h4>without(NSArray *values)</h4>
+      <p>
+        Returns all elements not contained in <code>values</code>.
+      </p>
+<pre>
+NSArray *oddNumbers = _array(numbers).without(evenNumbers).unwrap;
+</pre>
+    </section>
+
+    <section id="shuffle">
+      <h4>shuffle</h4>
+      <p>
+        Shuffles the array using the Fisher-Yates-Shuffle.
+      </p>
+<pre>
+NSArray *shuffled = _array(array).shuffle.unwrap;
+</pre>
+    </section>
+
+    <section id="reduce">
+      <h4>
+        reduce(id memo, UnderscoreReduceBlock block) and <br>
+        reduceRight(id memo, UnderscoreReduceBlock block)
+      </h4>
+      <p>
+        Reduces the array to a single values using the <code>block</code>.
+      </p>
+<pre>
+NSArray  *numbers = @[@1, @2, @3, @4, @5, @6, @7, @8, @9];
+
+NSNumber *sum = _array(numbers)
+                  .reduce(@0, ^NSNumber *(NSNumber *x, NSNumber *y) {
+                    return @(x.integerValue + y.integerValue);
+                  })
+                  .unwrap;
+</pre>
+    </section>
+
+    <section id="each-array">
+      <h4>each(UnderscoreArrayIteratorBlock block)</h4>
+      <p>
+        Calls <code>block</code> once with every member of the array.<br />
+        This method returns the same array again, to facilitate chaining.
+      </p>
+<pre>
+_array(array).each(^(id obj) {
+  NSLog(@"%@", obj);
+});
+</pre>
+    </section>
+
+    <section id="map-array">
+      <h4>map(UnderscoreArrayMapBlock block)</h4>
+      <p>
+        Calls <code>block</code> once with every element of the array.
+        If the block returns <code>nil</code>, the object is removed from the
+        array. Otherwise, the return-value replaces the object.
+      </p>
+<pre>
+_array(strings).map(^NSString *(NSString *string) {
+  return string.capitalizedString;
+});
+</pre>
+    </section>
+
+    <section id="pluck">
+      <h4>pluck(NSString *keyPath)</h4>
+      <p>
+        Returns an array containing the objects' values for the given key path.
+      </p>
+<pre>
+NSString *names = _array(users).pluck(@"name").unwrap;
+</pre>
+    </section>
+
+    <section id="find">
+      <h4>find(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns an object from the array that passes the <code>test</code> or
+        <code>nil</code> if none of the elements match.
+      </p>
+<pre>
+User *admin = _array(users)
+                .find(^BOOL (User *user) {
+                  return user.isAdmin;
+                });
+</pre>
+    </section>
+
+    <section id="filter">
+      <h4>filter(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns all elements that pass the <code>test</code>.
+      </p>
+<pre>
+NSArray *dictionaries = _array(objects).filter(Underscore.isDictionary).unwrap;
+</pre>
+    </section>
+
+    <section id="reject">
+      <h4>reject(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns all elements that fail the <code>test</code>.
+      </p>
+<pre>
+NSArray *dictionaries = _array(objects).reject(Underscore.isNull).unwrap;
+</pre>
+    </section>
+
+    <section id="all">
+      <h4>all(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns <code>YES</code> if all elements pass the <code>test</code>.
+      </p>
+<pre>
+BOOL onlyStrings = _array(array).all(Underscore.isString);
+</pre>
+    </section>
+
+    <section id="any">
+      <h4>any(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns <code>YES</code> if any of the elements passes the
+        <code>test</code>.
+      </p>
+<pre>
+BOOL containsNull = _array(array).any(Underscore.isNull);
+</pre>
+    </section>
+
+    <section id="unwrap-array">
+      <h4>unwrap</h4>
+      <p>
+        Returns the contents of the USArrayWrapper.
+      </p>
+<pre>
+NSArray  *copy = _array(array).unwrap;
+</pre>
+    </section>
+  </section>
+
+  <section id="nsdictionary" class="category">
+    <h3>NSDictionary</h2>
+    <p>
+      The following methods can be used with NSDictionary and NSMutableDictionary
+      instances. Methods that return arrays or dictionaries automatically wrap them
+      to facilitate chaining.
+    </p>
+
+    <section id="_dict">
+      <h4>_dict(NSDictionary *)</h4>
+      <p>
+        Wraps a dictionary in Underscore.m's USDictionaryWrapper. This is crucial
+        in order to use the other methods.
+      </p>
+<pre>
+USDictionaryWrapper *wrapper = _dict(dictionary);
+</pre>
+    </section>
+
+    <section id="keys">
+      <h4>keys</h4>
+      <p>
+        Returns a wrapped array containing all the dictionary's keys.
+      </p>
+<pre>
+NSArray *keys = _dict(dictionary).keys.unwrap;
+</pre>
+    </section>
+
+    <section id="values">
+      <h4>values</h4>
+      <p>
+        Returns a wrapped array containing all the dictionary's values.
+      </p>
+<pre>
+NSArray *values = _dict(dictionary).values.unwrap;
+</pre>
+    </section>
+
+    <section id="each-dictionary">
+      <h4>each(UnderscoreDictionaryIteratorBlock block)</h4>
+      <p>
+        Calls <code>block</code> once with every key-value-pair of the dictionary.<br>
+        This method returns the same dictionary again, to facilitate chaining.
+      </p>
+<pre>
+_dict(dictionary).each(^(id key, id obj) {
+  NSLog(@"%@: %@", key, obj);
+});
+</pre>
+    </section>
+
+    <section id="map-dictionary">
+      <h4>map(UnderscoreDictionaryMapBlock block)</h4>
+      <p>
+        Calls <code>block</code> once with every key-value-pair of the dictionary.<br>
+        If the block returns <code>nil</code>, the key-value-pair is removed from
+        the dictionary. Otherwise, the return-value replaces the value.
+      </p>
+<pre>
+NSDictionary *user = _dict(data)
+  .map(^id (id key, id obj) {
+    if ([obj isKindOfClass:[NSString class]]) {
+      return [(NSString *)obj capitalizedString];
+    } else {
+      return obj;
+    }
+  })
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="pick">
+      <h4>pick(NSArray *keys)</h4>
+      <p>
+        Returns a dictionary that only contains the keys contained in <code>keys</code>.
+      </p>
+<pre>
+NSDictionary *subset = _dict(dictionary)
+  .pick(@[@"name", @"email", @"address"])
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="extend">
+      <h4>extend(NSDictionary *source)</h4>
+      <p>
+        Returns a dictionary that contains all key-value-pairs of this dictionary
+        and <code>source</code>. Key-value-pairs of <code>source</code> will
+        have precedence over those from this dictionary.
+      </p>
+<pre>
+NSDictionary *dictionary = _dict(@{@"name": @"moe"})
+  .extend(@{@"age": @50})
+  .unwrap
+</pre>
+    </section>
+
+    <section id="defaults">
+      <h4>defaults(NSDictionary *defaults)</h4>
+      <p>
+        Returns a dictionary that contains all key-value-pairs of this dictionary
+        and <code>defaults</code>. Key-value-pairs of this dictionary will have
+        precedence over those from <code>defaults</code>.
+      </p>
+<pre>
+NSDictionary *user = _dict(data)
+  .rejectValues(Underscore.isNull)
+  .defaults(@{
+    @"avatar":          kDefaultAvatar,
+    @"backgroundColor": kDefaultBackgroundColor
+  })
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="filterKeys">
+      <h4>filterKeys(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns a dictionary that only contains the key-value-pairs whose keys
+        pass <code>test</code>
+      </p>
+<pre>
+NSDictionary *soundcloudRelated = _dict(data)
+  .filterKeys(^BOOL (NSString *key) {
+    return [key hasPrefix:@"soundcloud-"];
+  })
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="filterObjects">
+      <h4>filterObjects(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns a dictionary that only contains the key-value-pairs whose values
+        pass <code>test</code>
+      </p>
+<pre>
+NSDictionary *numericValues = _dict(data)
+  .filterObjects(Underscore.isNumber)
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="rejectKeys">
+      <h4>rejectKeys(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns a dictionary that only contains the key-value-pairs whose keys
+        fail <code>test</code>
+      </p>
+<pre>
+NSDictionary *safe = _dict(data)
+  .rejectKeys(^BOOL (NSString *key) {
+    return [blackList containsObject:key];
+  })
+  .unwrap;
+</pre>
+    </section>
+
+    <section id="rejectObjects">
+      <h4>rejectObjects(UnderscoreTestBlock test)</h4>
+      <p>
+        Returns a dictionary that only contains the key-value-pairs whose values
+        fail <code>test</code>
+      </p>
+<pre>
+NSDictionary *noNulls = _dict(data)
+  .rejectObjects(Underscore.isNull)
+  .unwrap;
+</pre>
+    </section>
+
+    <section  id="unwrap-dictionary">
+      <h4>unwrap</h4>
+      <p>
+        Returns the contents of the USDictionaryWrapper.
+      </p>
+<pre>
+NSArray *dictionary = _dict(dictionary).unwrap;
+</pre>
+    </section>
+  </section>
+
+  <section id="helpers" class="category">
+    <h3>Helpers</h2>
+
+    <section id="negate">
+      <h4>negate(UnderscoreTestBlock block)</h4>
+      <p>
+        Returns a block that negates <code>block</code>
+      </p>
+<pre>
+id notNull = _array(array).find(Underscore.negate(Underscore.isNull));
+</pre>
+    </section>
+
+    <section id="isEqual">
+      <h4>isEqual(id obj)</h4>
+      <p>
+        Returns a block that returns <code>YES</code> whenever it is called with
+        an object equal to <code>obj</code>.
+      </p>
+<pre>
+BOOL containsNeedle = _array(haystack).any(Underscore.isEqual(@"needle"));
+</pre>
+    </section>
+
+    <section id="isArray">
+      <h4>isArray</h4>
+      <p>
+        A block that returns <code>YES</code> if it is called with an NSArray.
+      </p>
+    </section>
+
+    <section id="isDictionary">
+      <h4>isDictionary</h4>
+      <p>
+        A block that returns <code>YES</code> if it is called with an NSDictionary.
+      </p>
+    </section>
+
+    <section id="isNull">
+      <h4>isNull</h4>
+      <p>
+        A block that returns <code>YES</code> if it is called with an NSNull.
+      </p>
+    </section>
+
+    <section id="isNumber">
+      <h4>isNumber</h4>
+      <p>
+        A block that returns <code>YES</code> if it is called with an NSNumber.
+      </p>
+    </section>
+
+    <section id="isString">
+      <h4>isString</h4>
+      <p>
+        A block that returns <code>YES</code> if it is called with an NSString.
+      </p>
+    </section>
+  </section>
+</section>
+
+<footer>
+  <p>
+    Underscore was written by Robert Böhnke.</br>
+    Underscore.m is licensed under the MIT License.
+  </p>
+</footer>
+</div>
+
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+<!-- Create an index -->
+<script type="text/javascript">
+  $(function() {
+    var index = $('#index');
+
+    $('#documentation .category').each(function() {
+      var id    = this.id;
+      var title = $(this).children('h3').text();
+      index.append('<p><a class="item" href="#' + id + '">' + title +'</a></p>');
+
+      var list = $('<ul></ul>');
+
+      $(this).children('section').each(function() {
+        var id   = this.id;
+        var name = $(this).children('h4').text().match(/([_a-zA-Z]+)/)[1];
+
+        list.append('<li><a href="#' + id + '">' + name + '</a></li>');
+      })
+
+      index.append(list);
+    });
+  });
+</script>
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-20850973-7'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
