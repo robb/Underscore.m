@@ -201,7 +201,7 @@ _array(strings).map(^NSString *(NSString *string) {
         Returns an array containing the objects' values for the given key path.
       </p>
 <pre>
-NSString *names = _array(users).pluck(@"name").unwrap;
+NSArray *names = _array(users).pluck(@"name").unwrap;
 </pre>
     </section>
 
