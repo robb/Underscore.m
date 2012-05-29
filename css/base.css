@@ -46,6 +46,24 @@ header h2 {
   font:    28px/36px "HelveticaNeue", "Helvetica Neue", Helvetica, sans-serif;
 }
 
+#social {
+  height: 24px;
+  margin: 12px 0;
+}
+
+#social .button {
+  height: 24px;
+  float:  left;
+  width:  auto;
+  border-left:  1px solid #EEE;
+  padding-left: 10px;
+}
+
+#social .button:first-child {
+  border-left:  none;
+  padding-left: 0px;
+}
+
 /* Code */
 code, pre {
   border: 1px solid #E2E2E2;

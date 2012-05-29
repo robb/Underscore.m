@@ -29,6 +29,15 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+<div id="fb-root"></div>
+<!-- Facebook -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <section id="index">
   <p><a class="item" href="#about">About Underscore.m</a></p>
@@ -57,16 +66,36 @@
     it is MIT licensed.
   </p>
   <section id="social">
-    <div id="fb-root"></div>
-    <script>
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <div class="github button">
+      <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=robb&repo=Underscore.m&type=watch"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="0"
+              width="70px"
+              height="20px">
+      </iframe>
+    </div>
+    <div class="facebook button fb-like" data-href="http://underscorem.org"
+                         data-send="false"
+                         data-layout="button_count"
+                         data-width="70"
+                         data-show-faces="true"
+                         data-action="recommend"
+                         data-font="lucida grande">
+          </div>
+    <div class="twitter button">
+      <a href="https://twitter.com/share"
+         class="twitter-share-button"
+         data-count="horizontal"
+         data-url="http://underscorem.org"
+         data-text="Underscore.m, a utility library for Objective-C"
+         data-hashtags="objective-c"
+         data-dnt="true"
+         data-related="ceterum_censeo:The creator of Underscore.m,jashkenas:The creator of underscore.js">
+         Tweet
+       </a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
   </section>
 
   <h3>Download</h3>
