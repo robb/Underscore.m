@@ -42,6 +42,8 @@
 
 <section id="index">
   <p><a class="item" href="#about">About Underscore.m</a></p>
+  <p><a class="item" href="#examples">Examples</a></p>
+  <p><a class="item" href="#download">Download</a></p>
   <!-- populated using js -->
 </section>
 
@@ -98,7 +100,71 @@
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
   </section>
+</section>
+<section id="examples">
+  <h3>Examples</h3>
+  <p>
+    First, wrap your <code>NSArray</code> or <code>NSDictionary</code> using the
+    provided macros.
+  </p>
+<pre>
+// e.g.
+NSDictionary *dictionary     = [NSDictionary dictionaryWithAllKindsOfStuff];
+USDictionaryWrapper *wrapper = _dict(dictionary);
+</pre>
 
+  <p>
+    Now, you can manipulate the dictionary using Underscore.m's various methods.
+  </p>
+<pre>
+NSArray *capitalized = _dict(dictionary)
+  .values
+  .filter(Underscore.isString)
+  .map(^NSString *(NSString *string) {
+    return [string capitalizedString];
+  })
+  .unwrap;
+</pre>
+
+  <p>
+    Underscore.m is especially useful, if you are working with structured data
+    from web APIs.
+  </p>
+<pre>
+// First, let's compose a twitter search request
+NSString *twitter = @"http://search.twitter.com/search.json?q=@SoundCloud&rpp=100";
+NSURL    *twitterSearch = [NSURL URLWithString:twitter];
+
+// ... then we fetch us some json ...
+NSData *data = [NSData dataWithContentsOfURL:twitterSearch];
+
+// ... and parse it.
+NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                     options:kNilOptions
+                                                       error:NULL];
+
+// This is where the fun starts!
+NSArray *tweets = [json valueForKey:@"results"];
+
+NSArray *processed = _array(tweets)
+    // Let's make sure that we only operate on NSDictionaries, you never
+    // know with these APIs ;-)
+    .filter(Underscore.isDictionary)
+    // Remove all tweets that are in English
+    .reject(^BOOL (NSDictionary *tweet) {
+        return [[tweet valueForKey:@"iso_language_code"] isEqualToString:@"en"];
+    })
+    // Create a simple string representation for every tweet
+    .map(^NSString *(NSDictionary *tweet) {
+        NSString *name = [tweet valueForKey:@"from_user_name"];
+        NSString *text = [tweet valueForKey:@"text"];
+
+        return [NSString stringWithFormat:@"%@: %@", name, text];
+    })
+    .unwrap;
+</pre>
+</section>
+<section id="download">
   <h3>Download</h3>
   <p>
     You can download Underscore.m from
