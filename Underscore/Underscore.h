@@ -30,6 +30,10 @@
 #import "USArrayWrapper.h"
 #import "USDictionaryWrapper.h"
 
+#if !__has_feature(objc_arc)
+# error Underscore.m requires Automatic Reference Counting to be enabled
+#endif
+
 @interface Underscore : NSObject
 
 + (UnderscoreTestBlock(^)(UnderscoreTestBlock))negate;
