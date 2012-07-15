@@ -48,3 +48,5 @@
 - (id)init __deprecated;
 
 @end
+
+#import "Underscore+Shortcuts.h"

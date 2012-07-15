@@ -10,6 +10,9 @@
 		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
 		541D18AA1561726C00599033 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A91561726C00599033 /* HelperTest.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		547C44DB15B30ADD004698B8 /* Underscore+Shortcuts.h in Headers */ = {isa = PBXBuildFile; fileRef = 547C44D915B30ADC004698B8 /* Underscore+Shortcuts.h */; };
+		547C44DC15B30ADD004698B8 /* Underscore+Shortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Shortcuts.m */; };
+		547C44DD15B30B8D004698B8 /* Underscore+Shortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Shortcuts.m */; };
 		54903D13155FF779006854CB /* USArrayWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArrayWrapper.h */; };
 		54903D14155FF779006854CB /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArrayWrapper.m */; };
 		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
@@ -41,6 +44,8 @@
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
+		547C44D915B30ADC004698B8 /* Underscore+Shortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Underscore+Shortcuts.h"; sourceTree = "<group>"; };
+		547C44DA15B30ADD004698B8 /* Underscore+Shortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Underscore+Shortcuts.m"; sourceTree = "<group>"; };
 		54903D11155FF779006854CB /* USArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayWrapper.h; sourceTree = "<group>"; };
 		54903D12155FF779006854CB /* USArrayWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayWrapper.m; sourceTree = "<group>"; };
 		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
@@ -118,6 +123,8 @@
 			children = (
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
+				547C44D915B30ADC004698B8 /* Underscore+Shortcuts.h */,
+				547C44DA15B30ADD004698B8 /* Underscore+Shortcuts.m */,
 				54903D11155FF779006854CB /* USArrayWrapper.h */,
 				54903D12155FF779006854CB /* USArrayWrapper.m */,
 				54996B2115614B220016BE94 /* USDictionaryWrapper.h */,
@@ -170,6 +177,7 @@
 				54903D13155FF779006854CB /* USArrayWrapper.h in Headers */,
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
+				547C44DB15B30ADD004698B8 /* Underscore+Shortcuts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +282,7 @@
 				54903D14155FF779006854CB /* USArrayWrapper.m in Sources */,
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
+				547C44DC15B30ADD004698B8 /* Underscore+Shortcuts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +295,7 @@
 				54996B2515614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
+				547C44DD15B30B8D004698B8 /* Underscore+Shortcuts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
