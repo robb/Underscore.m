@@ -174,7 +174,7 @@ static NSArray *threeObjects;
     __block NSInteger testRun = 0;
     __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
 
-    _.array(threeObjects).each(^(NSString *string) {
+    _.arrayEach(threeObjects, ^(NSString *string) {
         if ([string isEqualToString:@"foo"]) {
             STAssertFalse(checkedFoo, @"Did not check foo before");
             testRun++;
@@ -202,20 +202,18 @@ static NSArray *threeObjects;
 
 - (void)testMap;
 {
-    STAssertEqualObjects(_.array(emptyArray).map(^id (id any){return @"test";}).unwrap,
+    STAssertEqualObjects(_.arrayMap(emptyArray, ^id (id any){return @"test";}),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.array(threeObjects).map(^id (id any){return nil;}).unwrap,
+    STAssertEqualObjects(_.arrayMap(threeObjects, ^id (id any){return nil;}),
                          emptyArray,
                          @"Returning nil in the map block removes the object pair");
 
     NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
-    NSArray *result      = _.array(threeObjects)
-        .map(^NSString *(NSString *string) {
-            return [string capitalizedString];
-        })
-        .unwrap;
+    NSArray *result      = _.arrayMap(threeObjects, ^NSString *(NSString *string) {
+        return [string capitalizedString];
+    });
 
     STAssertEqualObjects(capitalized,
                          result,

@@ -82,6 +82,20 @@
     };
 }
 
++ (void (^)(NSArray *, UnderscoreArrayIteratorBlock))arrayEach;
+{
+    return ^(NSArray *array, UnderscoreArrayIteratorBlock block) {
+        Underscore.array(array).each(block);
+    };
+}
+
++ (NSArray *(^)(NSArray *array, UnderscoreArrayMapBlock block))arrayMap;
+{
+    return ^(NSArray *array, UnderscoreArrayMapBlock block) {
+        return Underscore.array(array).map(block).unwrap;
+    };
+}
+
 + (NSArray *(^)(NSArray *, NSString *))pluck;
 {
     return ^(NSArray *array, NSString *keyPath) {

@@ -28,6 +28,9 @@
 + (id (^)(NSArray *array, id memo, UnderscoreReduceBlock block))reduce;
 + (id (^)(NSArray *array, id memo, UnderscoreReduceBlock block))reduceRight;
 
++ (void (^)(NSArray *array, UnderscoreArrayIteratorBlock block))arrayEach;
++ (NSArray *(^)(NSArray *array, UnderscoreArrayMapBlock block))arrayMap;
+
 + (NSArray *(^)(NSArray *array, NSString *keyPath))pluck;
 
 + (id (^)(NSArray *array, UnderscoreTestBlock block))find;
