@@ -48,6 +48,9 @@
 + (NSArray *(^)(NSDictionary *dictionary))keys;
 + (NSArray *(^)(NSDictionary *dictionary))values;
 
++ (void (^)(NSDictionary *dictionary, UnderscoreDictionaryIteratorBlock block))dictEach;
++ (NSDictionary *(^)(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block))dictMap;
+
 + (NSDictionary *(^)(NSDictionary *dictionary, NSArray *keys))pick;
 
 + (NSDictionary *(^)(NSDictionary *dictionary, NSDictionary *source))extend;

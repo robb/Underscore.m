@@ -158,6 +158,20 @@
     };
 }
 
++ (void (^)(NSDictionary *, UnderscoreDictionaryIteratorBlock))dictEach;
+{
+    return ^(NSDictionary *dictionary, UnderscoreDictionaryIteratorBlock block) {
+        Underscore.dict(dictionary).each(block);
+    };
+}
+
++ (NSDictionary *(^)(NSDictionary *, UnderscoreDictionaryMapBlock))dictMap;
+{
+    return ^(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block) {
+        return Underscore.dict(dictionary).map(block).unwrap;
+    };
+}
+
 + (NSDictionary *(^)(NSDictionary *, NSArray *))pick;
 {
     return ^(NSDictionary *dictionary, NSArray *keys) {
