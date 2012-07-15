@@ -17,6 +17,8 @@ static NSArray *threeObjects;
 static NSDictionary *emptyDictionary;
 static NSDictionary *simpleDictionary;
 
+#define _ Underscore
+
 @implementation USDictionaryTest
 
 - (void)setUp;
@@ -34,11 +36,11 @@ static NSDictionary *simpleDictionary;
 
 - (void)testKeys;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).keys.unwrap,
+    STAssertEqualObjects(_.keys(emptyDictionary),
                          emptyArray,
                          @"An empty dictionary returns an empty keys array");
 
-    NSArray *result = _dict(simpleDictionary).keys.unwrap;
+    NSArray *result = _.keys(simpleDictionary);
 
     STAssertTrue([result containsObject:@"key1"], @"Can extract key 'key1'");
     STAssertTrue([result containsObject:@"key2"], @"Can extract key 'key2'");
@@ -47,11 +49,11 @@ static NSDictionary *simpleDictionary;
 
 - (void)testValues;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).values.unwrap,
+    STAssertEqualObjects(_.values(emptyDictionary),
                          emptyArray,
                          @"An empty dictionary returns an empty values array");
 
-    NSArray *result = _dict(simpleDictionary).values.unwrap;
+    NSArray *result = _.values(simpleDictionary);
 
     STAssertTrue([result containsObject:@"object1"], @"Can extract object 'object1'");
     STAssertTrue([result containsObject:@"object2"], @"Can extract object 'object2'");
@@ -62,7 +64,7 @@ static NSDictionary *simpleDictionary;
 {
     __block NSUInteger zero = 0;
 
-    _dict(emptyDictionary).each(^(id key, id obj) {
+    _.dict(emptyDictionary).each(^(id key, id obj) {
         zero++;
     });
 
@@ -71,7 +73,7 @@ static NSDictionary *simpleDictionary;
     __block NSUInteger runs = 0;
     __block BOOL checked1 = NO, checked2 = NO, checked3 = NO;
 
-    _dict(simpleDictionary).each(^(NSString *key, NSString *obj) {
+    _.dict(simpleDictionary).each(^(NSString *key, NSString *obj) {
         if ([key isEqualToString:@"key1"]) {
             STAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
             STAssertFalse(checked1, @"Calls the block only once");
@@ -103,18 +105,18 @@ static NSDictionary *simpleDictionary;
 {
     __block NSUInteger zero = 0;
 
-    _dict(emptyDictionary).map(^(id key, id obj) {
+    _.dict(emptyDictionary).map(^(id key, id obj) {
         zero++;
         return obj;
     });
 
     STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
-    STAssertEqualObjects(_dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
+    STAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
                          emptyDictionary,
                          @"Returning nil in the map block removes the key value pair");
 
-    NSDictionary *result = _dict(simpleDictionary)
+    NSDictionary *result = _.dict(simpleDictionary)
         .map(^(NSString *key, NSString *obj) {
             return [obj capitalizedString];
         })
@@ -132,34 +134,34 @@ static NSDictionary *simpleDictionary;
 
 - (void)testPick;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).pick(threeObjects).unwrap,
+    STAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
                          emptyDictionary,
                          @"Picking from empty dictionary results in empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).pick(emptyArray).unwrap,
+    STAssertEqualObjects(_.pick(simpleDictionary, emptyArray),
                          emptyDictionary,
                          @"Picking with empty array results in empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).pick(threeObjects).unwrap,
+    STAssertEqualObjects(_.pick(simpleDictionary, threeObjects),
                          emptyDictionary,
                          @"Picking with array that not contains common keys results in empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).pick([NSArray arrayWithObject:@"key1"]).unwrap,
+    STAssertEqualObjects(_.pick(simpleDictionary, [NSArray arrayWithObject:@"key1"]),
                          [NSDictionary dictionaryWithObject:@"object1" forKey:@"key1"],
                          @"Can pick keys");
 }
 
 - (void)testExtend;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).extend(emptyDictionary).unwrap,
+    STAssertEqualObjects(_.extend(emptyDictionary, emptyDictionary),
                          emptyDictionary,
                          @"Extending empty dictionary with empty dictionary results in empty dictionary");
 
-    STAssertEqualObjects(_dict(emptyDictionary).extend(simpleDictionary).unwrap,
+    STAssertEqualObjects(_.extend(emptyDictionary, simpleDictionary),
                          simpleDictionary,
                          @"Extending empty dictionary with non-empty dictionary copies over all key-values pairs");
 
-    STAssertEqualObjects(_dict(simpleDictionary).extend(emptyDictionary).unwrap,
+    STAssertEqualObjects(_.extend(simpleDictionary, emptyDictionary),
                          simpleDictionary,
                          @"Extending non-empty dictionary with empty dictionary leaves all key-values pairs unchanged");
 
@@ -171,22 +173,22 @@ static NSDictionary *simpleDictionary;
                                                                            @"object3", @"key3",
                                                                            nil];
 
-    STAssertEqualObjects(_dict(dictionary1).extend(dictionary2).unwrap,
+    STAssertEqualObjects(_.extend(dictionary1, dictionary2),
                          simpleDictionary,
                          @"Extending non-empty dictionary with non-empty dictionary overwrites keys where necessary");
 }
 
 - (void)testDefaults;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).defaults(emptyDictionary).unwrap,
+    STAssertEqualObjects(_.defaults(emptyDictionary, emptyDictionary),
                          emptyDictionary,
                          @"Applying defaults from an empty dictionary to an empty dictionary results in an empty dictionary");
 
-    STAssertEqualObjects(_dict(emptyDictionary).defaults(simpleDictionary).unwrap,
+    STAssertEqualObjects(_.defaults(emptyDictionary, simpleDictionary),
                          simpleDictionary,
                          @"Applying defaults from a non-empty dictionary to an empty dictionary copies over all key-values pairs");
 
-    STAssertEqualObjects(_dict(simpleDictionary).defaults(emptyDictionary).unwrap,
+    STAssertEqualObjects(_.defaults(simpleDictionary, emptyDictionary),
                          simpleDictionary,
                          @"Applying defaults from an empty dictionary to a non-empty dictionary copies over all key-values pairs");
 
@@ -200,29 +202,28 @@ static NSDictionary *simpleDictionary;
                                                                         @"object4", @"key4",
                                                                         nil];
 
-    STAssertEqualObjects(_dict(simpleDictionary).defaults(defaults).unwrap,
+    STAssertEqualObjects(_.defaults(simpleDictionary, defaults),
                          fourKeys,
                          @"Applying defaults from a non-empty dictionary to a non-empty dictionary copies over all key-values pairs not existant in the latter");
 }
 
 - (void)testFilterKeys;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).filterKeys(^(id key) {return YES;}).unwrap,
+    STAssertEqualObjects(_.filterKeys(emptyDictionary, ^(id key) {return YES;}),
                          emptyDictionary,
                          @"Filtering an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).filterKeys(^(id key) {return YES;}).unwrap,
+    STAssertEqualObjects(_.filterKeys(simpleDictionary, ^(id key) {return YES;}),
                          simpleDictionary,
                          @"Filtering everything results in the original dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).filterKeys(^(id key) {return NO;}).unwrap,
+    STAssertEqualObjects(_.filterKeys(simpleDictionary, ^(id key) {return NO;}),
                          emptyDictionary,
                          @"Filtering nothing results in the original dictionary");
 
-    NSDictionary *result = _dict(simpleDictionary)
-        .filterKeys(^(NSString *key) {
-            return [key isEqualToString:@"key2"];})
-        .unwrap;
+    NSDictionary *result = _.filterKeys(simpleDictionary, ^(NSString *key) {
+        return [key isEqualToString:@"key2"];
+    });
 
     STAssertEqualObjects(result,
                          [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
@@ -231,22 +232,21 @@ static NSDictionary *simpleDictionary;
 
 - (void)testFilterValues;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).filterValues(^(id obj) {return YES;}).unwrap,
+    STAssertEqualObjects(_.filterValues(emptyDictionary, ^(id obj) {return YES;}),
                          emptyDictionary,
                          @"Filtering an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).filterValues(^(id obj) {return YES;}).unwrap,
+    STAssertEqualObjects(_.filterValues(simpleDictionary, ^(id obj) {return YES;}),
                          simpleDictionary,
                          @"Filtering everything results in the original dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).filterValues(^(id obj) {return NO;}).unwrap,
+    STAssertEqualObjects(_.filterValues(simpleDictionary, ^(id obj) {return NO;}),
                          emptyDictionary,
                          @"Filtering nothing results in the original dictionary");
 
-    NSDictionary *result = _dict(simpleDictionary)
-        .filterValues(^(NSString *obj) {
-            return [obj isEqualToString:@"object2"];})
-        .unwrap;
+    NSDictionary *result = _.filterValues(simpleDictionary, ^(NSString *obj) {
+        return [obj isEqualToString:@"object2"];
+    });
 
     STAssertEqualObjects(result,
                          [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
@@ -255,22 +255,21 @@ static NSDictionary *simpleDictionary;
 
 - (void)testRejectKeys;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).rejectKeys(^(id key) {return YES;}).unwrap,
+    STAssertEqualObjects(_.rejectKeys(emptyDictionary, ^(id key) {return YES;}),
                          emptyDictionary,
                          @"Rejecting keys of an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).rejectKeys(^(id key) {return YES;}).unwrap,
+    STAssertEqualObjects(_.rejectKeys(simpleDictionary, ^(id key) {return YES;}),
                          emptyDictionary,
                          @"Rejecting everything results in an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).rejectKeys(^(id key) {return NO;}).unwrap,
+    STAssertEqualObjects(_.rejectKeys(simpleDictionary, ^(id key) {return NO;}),
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
-    NSDictionary *result = _dict(simpleDictionary)
-        .rejectKeys(^(NSString *key) {
-            return [key isEqualToString:@"key2"];})
-        .unwrap;
+    NSDictionary *result = _.rejectKeys(simpleDictionary, ^(NSString *key) {
+        return [key isEqualToString:@"key2"];
+    });
 
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
                                                                         @"object3", @"key3",
@@ -283,22 +282,21 @@ static NSDictionary *simpleDictionary;
 
 - (void)testRejectValues;
 {
-    STAssertEqualObjects(_dict(emptyDictionary).rejectValues(^(id obj) {return YES;}).unwrap,
+    STAssertEqualObjects(_.rejectValues(emptyDictionary, ^(id obj) {return YES;}),
                          emptyDictionary,
                          @"Rejecting values of an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).rejectValues(^(id obj) {return YES;}).unwrap,
+    STAssertEqualObjects(_.rejectValues(simpleDictionary, ^(id obj) {return YES;}),
                          emptyDictionary,
                          @"Rejecting everything results in an empty dictionary");
 
-    STAssertEqualObjects(_dict(simpleDictionary).rejectValues(^(id obj) {return NO;}).unwrap,
+    STAssertEqualObjects(_.rejectValues(simpleDictionary, ^(id obj) {return NO;}),
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
-    NSDictionary *result = _dict(simpleDictionary)
-        .rejectValues(^(NSString *obj) {
-            return [obj isEqualToString:@"object2"];})
-        .unwrap;
+    NSDictionary *result = _.rejectValues(simpleDictionary, ^(NSString *obj) {
+        return [obj isEqualToString:@"object2"];
+    });
 
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
                                                                         @"object3", @"key3",
