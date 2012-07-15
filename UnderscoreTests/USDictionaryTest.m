@@ -73,7 +73,7 @@ static NSDictionary *simpleDictionary;
     __block NSUInteger runs = 0;
     __block BOOL checked1 = NO, checked2 = NO, checked3 = NO;
 
-    _.dict(simpleDictionary).each(^(NSString *key, NSString *obj) {
+    _.dictEach(simpleDictionary, ^(NSString *key, NSString *obj) {
         if ([key isEqualToString:@"key1"]) {
             STAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
             STAssertFalse(checked1, @"Calls the block only once");
@@ -105,22 +105,20 @@ static NSDictionary *simpleDictionary;
 {
     __block NSUInteger zero = 0;
 
-    _.dict(emptyDictionary).map(^(id key, id obj) {
+    _.dictMap(emptyDictionary, ^(id key, id obj) {
         zero++;
         return obj;
     });
 
     STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
-    STAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
+    STAssertEqualObjects(_.dictMap(simpleDictionary, ^id (id key, id obj) {return nil;}),
                          emptyDictionary,
                          @"Returning nil in the map block removes the key value pair");
 
-    NSDictionary *result = _.dict(simpleDictionary)
-        .map(^(NSString *key, NSString *obj) {
-            return [obj capitalizedString];
-        })
-        .unwrap;
+    NSDictionary *result = _.dictMap(simpleDictionary, ^(NSString *key, NSString *obj) {
+        return [obj capitalizedString];
+    });
 
     NSDictionary *capitalized = [NSDictionary dictionaryWithObjectsAndKeys:@"Object1", @"key1",
                                                                            @"Object2", @"key2",
