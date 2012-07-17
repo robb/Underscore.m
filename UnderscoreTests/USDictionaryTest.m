@@ -17,6 +17,9 @@ static NSArray *threeObjects;
 static NSDictionary *emptyDictionary;
 static NSDictionary *simpleDictionary;
 
+static UnderscoreTestBlock allPass  = ^BOOL(id any) {return YES; };
+static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
+
 #define _ Underscore
 
 #define USAssertEqualObjects(shortcut, wrapper) \
@@ -325,8 +328,6 @@ static NSDictionary *simpleDictionary;
 
 - (void)testFilterKeys;
 {
-    UnderscoreTestBlock allPass    = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass   = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock key2Passes = ^(NSString *key) {
         return [key isEqualToString:@"key2"];
     };
@@ -359,8 +360,6 @@ static NSDictionary *simpleDictionary;
 
 - (void)testFilterValues;
 {
-    UnderscoreTestBlock allPass       = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass      = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock object2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"object2"];
     };
@@ -393,8 +392,6 @@ static NSDictionary *simpleDictionary;
 
 - (void)testRejectKeys;
 {
-    UnderscoreTestBlock allPass    = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass   = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock key2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"key2"];
     };
@@ -431,8 +428,6 @@ static NSDictionary *simpleDictionary;
 
 - (void)testRejectValues;
 {
-    UnderscoreTestBlock allPass       = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass      = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock object2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"object2"];
     };

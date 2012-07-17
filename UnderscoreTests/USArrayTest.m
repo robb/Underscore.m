@@ -14,6 +14,9 @@ static NSArray *emptyArray;
 static NSArray *singleObject;
 static NSArray *threeObjects;
 
+static UnderscoreTestBlock allPass  = ^BOOL(id any) {return YES; };
+static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
+
 #define _ Underscore
 
 #define USAssertEqualObjects(shortcut, wrapper) \
@@ -336,8 +339,6 @@ static NSArray *threeObjects;
 
 - (void)testFind;
 {
-    UnderscoreTestBlock allPass  = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock endsOnZ  = ^BOOL(NSString *string) {
         return [string characterAtIndex:2] == 'z';
     };
@@ -362,8 +363,6 @@ static NSArray *threeObjects;
 
 - (void)testFilter;
 {
-    UnderscoreTestBlock allPass     = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass    = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
         return [string characterAtIndex:0] == 'b';
     };
@@ -398,8 +397,6 @@ static NSArray *threeObjects;
 
 - (void)testReject;
 {
-    UnderscoreTestBlock allPass     = ^BOOL(id any) {return YES; };
-    UnderscoreTestBlock nonePass    = ^BOOL(id any) {return NO; };
     UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
         return [string characterAtIndex:0] == 'b';
     };
