@@ -2,29 +2,9 @@
 
 ## About Underscore.m
 
-Underscore.m is an Objective-C library inspired by [underscore.js][js].
-
-First, you wrap your `NSDictionary` and `NSArray` using the provided macros.
-
-```objective-c
-// e.g.
-NSDictionary *dictionary     = [NSDictionary dictionaryWithAllKindsOfStuff];
-USDictionaryWrapper *wrapper = _dict(dictionary);
-```
-
-Now, you can manipulate the dictionary using Underscore.m's various methods.
-For each step, Underscore.m will create a copy of the data type, so you don't
-have to worry about side effects.
-
-```objective-c
-NSArray *capitalized = _dict(dictionary)
-  .values
-  .filter(Underscore.isString)
-  .map(^NSString *(NSString *string) {
-    return [string capitalizedString];
-  })
-  .unwrap;
-```
+Underscore.m is a small utility library to facilitate working with common data structures in Objective-C.  
+It tries to encourage chaining by eschewing the square bracket]]]]]].  
+It is inspired by the awesome [underscore.js][js].
 
 [js]: http://documentcloud.github.com/underscore
 
