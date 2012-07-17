@@ -16,6 +16,12 @@ static NSArray *threeObjects;
 
 #define _ Underscore
 
+#define USAssertEqualObjects(shortcut, wrapper) \
+        STAssertEqualObjects(shortcut, wrapper, @"Wrapper and Shortcut behave equally");
+
+#define USAssertEqualPrimitives(shortcut, wrapper) \
+        STAssertTrue(shortcut == wrapper, @"Wrapper and Shortcut behave equally");
+
 @implementation USArrayTest
 
 - (void)setUp;
@@ -36,6 +42,10 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.first(threeObjects),
                          @"foo",
                          @"Can extract first object");
+
+    USAssertEqualObjects(_.first(emptyArray),   _.array(emptyArray).first);
+    USAssertEqualObjects(_.first(singleObject), _.array(singleObject).first);
+    USAssertEqualObjects(_.first(threeObjects), _.array(threeObjects).first);
 }
 
 - (void)testLast;
@@ -49,6 +59,10 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.last(threeObjects),
                          @"baz",
                          @"Can extract last object");
+
+    USAssertEqualObjects(_.last(emptyArray),   _.array(emptyArray).last);
+    USAssertEqualObjects(_.last(singleObject), _.array(singleObject).last);
+    USAssertEqualObjects(_.last(threeObjects), _.array(threeObjects).last);
 }
 
 - (void)testHead;
@@ -65,6 +79,10 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.head(threeObjects, 4),
                          threeObjects,
                          @"Does not return more elements than available");
+
+    USAssertEqualObjects(_.head(emptyArray, 1),   _.array(emptyArray).head(1).unwrap);
+    USAssertEqualObjects(_.head(threeObjects, 2), _.array(threeObjects).head(2).unwrap);
+    USAssertEqualObjects(_.head(threeObjects, 4), _.array(threeObjects).head(4).unwrap);
 }
 
 - (void)testTail;
@@ -81,6 +99,10 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.tail(threeObjects, 4),
                          threeObjects,
                          @"Does not return more elements than available");
+
+    USAssertEqualObjects(_.tail(emptyArray, 1),   _.array(emptyArray).tail(1).unwrap);
+    USAssertEqualObjects(_.tail(threeObjects, 2), _.array(threeObjects).tail(2).unwrap);
+    USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4).unwrap);
 }
 
 - (void)testFlatten;
@@ -98,6 +120,13 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.flatten(complicated),
                          flattened,
                          @"Returns a flattened array when needed");
+
+    USAssertEqualObjects(_.flatten(emptyArray),
+                         _.array(emptyArray).flatten.unwrap);
+    USAssertEqualObjects(_.flatten(threeObjects),
+                         _.array(threeObjects).flatten.unwrap);
+    USAssertEqualObjects(_.flatten(complicated),
+                         _.array(complicated).flatten.unwrap);
 }
 
 - (void)testWithout;
@@ -114,6 +143,13 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.without(threeObjects, singleObject),
                          subrange,
                          @"Removing one object returns the rest");
+
+    USAssertEqualObjects(_.without(threeObjects, emptyArray),
+                         _.array(threeObjects).without(emptyArray).unwrap);
+    USAssertEqualObjects(_.without(threeObjects, threeObjects),
+                         _.array(threeObjects).without(threeObjects).unwrap);
+    USAssertEqualObjects(_.without(threeObjects, singleObject),
+                         _.array(threeObjects).without(singleObject).unwrap);
 }
 
 - (void)testShuffle;
@@ -122,6 +158,8 @@ static NSArray *threeObjects;
                          emptyArray,
                          @"Shuffling an empty array results in an empty array");
 
+    USAssertEqualObjects(_.shuffle(emptyArray), _.array(emptyArray).shuffle.unwrap);
+
     NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger i = 1; i < 100; i++) {
         [array addObject:[NSNumber numberWithUnsignedInteger:i]];
@@ -129,47 +167,60 @@ static NSArray *threeObjects;
 
      STAssertFalse([_.shuffle(array) isEqualToArray:array],
                   @"Can shuffle an array");
+
+     STAssertFalse([_.array(emptyArray).shuffle.unwrap isEqualToArray:array],
+                  @"Can shuffle an array");
 }
 
 - (void)testReduce;
 {
-    NSString *result1 = _.reduce(emptyArray, @"test", ^id (id memo, id any){
+    UnderscoreReduceBlock block1 = ^id (id memo, id any) {
         return nil;
-    });
+    };
 
-    STAssertEqualObjects(result1,
+    UnderscoreReduceBlock block2 = ^id (NSString *memo, NSString *current) {
+        return [memo stringByAppendingString:current];
+    };
+
+    STAssertEqualObjects(_.reduce(emptyArray, @"test", block1),
                          @"test",
                          @"Reducing an empty array yields the input value");
 
-    NSString *result2 = _.reduce(threeObjects, @"the ", ^id (NSString *memo, NSString *current) {
-            return [memo stringByAppendingString:current];
-        });
-
-    STAssertEqualObjects(result2,
+    STAssertEqualObjects(_.reduce(threeObjects, @"the ", block2),
                          @"the foobarbaz",
                          @"Objects are reduced in the correct order");
+
+    USAssertEqualObjects(_.reduce(emptyArray, @"test", block1),
+                         _.array(emptyArray).reduce(@"test", block1));
+    USAssertEqualObjects(_.reduce(threeObjects, @"the ", block2),
+                         _.array(threeObjects).reduce(@"the ", block2));
 }
 
 - (void)testReduceRight;
 {
-    NSString *result1 = _.reduceRight(emptyArray, @"test", ^id (id memo, id any){
+    UnderscoreReduceBlock block1 = ^id (id memo, id any) {
         return nil;
-    });
+    };
 
-    STAssertEqualObjects(result1,
+    UnderscoreReduceBlock block2 = ^id (NSString *memo, NSString *current) {
+        return [memo stringByAppendingString:current];
+    };
+
+    STAssertEqualObjects(_.reduceRight(emptyArray, @"test", block1),
                          @"test",
                          @"Reducing an empty array yields the input value");
 
-    NSString *result2 = _.reduceRight(threeObjects, @"the ", ^id (NSString *memo, NSString *current) {
-        return [memo stringByAppendingString:current];
-    });
-
-    STAssertEqualObjects(result2,
+    STAssertEqualObjects(_.reduceRight(threeObjects, @"the ", block2),
                          @"the bazbarfoo",
                          @"Objects are reduced in the correct order");
+
+    USAssertEqualObjects(_.reduceRight(emptyArray, @"test", block1),
+                         _.array(emptyArray).reduceRight(@"test", block1));
+    USAssertEqualObjects(_.reduceRight(threeObjects, @"the ", block2),
+                         _.array(threeObjects).reduceRight(@"the ", block2));
 }
 
-- (void)testEach;
+- (void)testEachFunctional;
 {
     __block NSInteger testRun = 0;
     __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
@@ -200,24 +251,66 @@ static NSArray *threeObjects;
     STAssertEquals(testRun, 3, @"Ran 3 tests");
 }
 
+- (void)testEachWrapping;
+{
+    __block NSInteger testRun = 0;
+    __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
+
+    _.array(threeObjects).each(^(NSString *string) {
+        if ([string isEqualToString:@"foo"]) {
+            STAssertFalse(checkedFoo, @"Did not check foo before");
+            testRun++;
+
+            checkedFoo = YES;
+        }
+
+        if ([string isEqualToString:@"bar"]) {
+            STAssertFalse(checkedBar, @"Did not check bar before");
+            testRun++;
+
+            checkedBar = YES;
+        }
+
+        if ([string isEqualToString:@"baz"]) {
+            STAssertFalse(checkedBaz, @"Did not check baz before");
+            testRun++;
+
+            checkedBaz = YES;
+        }
+    });
+
+    STAssertEquals(testRun, 3, @"Ran 3 tests");
+}
+
 - (void)testMap;
 {
-    STAssertEqualObjects(_.arrayMap(emptyArray, ^id (id any){return @"test";}),
+    UnderscoreArrayMapBlock returnTest = ^id (id any){ return @"test"; };
+    UnderscoreArrayMapBlock returnNil  = ^id (id any){ return nil; };
+    UnderscoreArrayMapBlock capitalize = ^NSString *(NSString *string) {
+        return [string capitalizedString];
+    };
+
+    STAssertEqualObjects(_.arrayMap(emptyArray, returnTest),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.arrayMap(threeObjects, ^id (id any){return nil;}),
+    STAssertEqualObjects(_.arrayMap(threeObjects, returnNil),
                          emptyArray,
                          @"Returning nil in the map block removes the object pair");
 
     NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
-    NSArray *result      = _.arrayMap(threeObjects, ^NSString *(NSString *string) {
-        return [string capitalizedString];
-    });
+    NSArray *result      = _.arrayMap(threeObjects, capitalize);
 
     STAssertEqualObjects(capitalized,
                          result,
                          @"Can map objects");
+
+    USAssertEqualObjects(_.arrayMap(emptyArray, returnTest),
+                         _.array(emptyArray).map(returnTest).unwrap);
+    USAssertEqualObjects(_.arrayMap(threeObjects, returnNil),
+                         _.array(threeObjects).map(returnNil).unwrap);
+    USAssertEqualObjects(_.arrayMap(threeObjects, capitalize),
+                         _.array(threeObjects).map(capitalize).unwrap);
 }
 
 - (void)testPluck;
@@ -234,70 +327,107 @@ static NSArray *threeObjects;
     STAssertEqualObjects(_.pluck(threeObjects, @"length"),
                          lengths,
                          @"Can extract values for the key path");
+
+    USAssertEqualObjects(_.pluck(emptyArray, @"description"),
+                          _.array(emptyArray).pluck(@"description").unwrap);
+    USAssertEqualObjects(_.pluck(threeObjects, @"length"),
+                          _.array(threeObjects).pluck(@"length").unwrap);
 }
 
 - (void)testFind;
 {
-    STAssertNil(_.find(emptyArray, ^BOOL(id any){return YES;}),
+    UnderscoreTestBlock allPass  = ^BOOL(id any) {return YES; };
+    UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
+    UnderscoreTestBlock endsOnZ  = ^BOOL(NSString *string) {
+        return [string characterAtIndex:2] == 'z';
+    };
+
+    STAssertNil(_.find(emptyArray, allPass),
                 @"Can handle empty arrays");
 
-    STAssertNil(_.find(threeObjects, ^BOOL(id any){return NO;}),
+    STAssertNil(_.find(threeObjects, nonePass),
                 @"Returns nil if no object matches");
 
-    NSString *result = _.find(threeObjects, ^BOOL(NSString *string){
-        return [string characterAtIndex:2] == 'z';
-    });
-
-    STAssertEqualObjects(result,
+    STAssertEqualObjects(_.find(threeObjects, endsOnZ),
                          @"baz",
                          @"Can find objects");
+
+    USAssertEqualObjects(_.find(emptyArray, allPass),
+                         _.array(emptyArray).find(allPass));
+    USAssertEqualObjects(_.find(threeObjects, nonePass),
+                         _.array(threeObjects).find(nonePass));
+    USAssertEqualObjects(_.find(threeObjects, endsOnZ),
+                         _.array(threeObjects).find(endsOnZ));
 }
 
 - (void)testFilter;
 {
-    STAssertEqualObjects(_.filter(emptyArray, ^BOOL(id any){return YES;}),
+    UnderscoreTestBlock allPass     = ^BOOL(id any) {return YES; };
+    UnderscoreTestBlock nonePass    = ^BOOL(id any) {return NO; };
+    UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
+        return [string characterAtIndex:0] == 'b';
+    };
+
+    STAssertEqualObjects(_.filter(emptyArray, allPass),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.filter(threeObjects, ^BOOL(id any){return NO;}),
+    STAssertEqualObjects(_.filter(threeObjects, nonePass),
                          emptyArray,
                          @"Can remove all objects");
 
-    STAssertEqualObjects(_.filter(threeObjects, ^BOOL(id any){return YES;}),
+    STAssertEqualObjects(_.filter(threeObjects, allPass),
                          threeObjects,
                          @"Can keep all objects");
 
-    NSArray *result = _.filter(threeObjects, ^BOOL (NSString *string) {
-        return [string characterAtIndex:0] == 'b';
-    });
-
     NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
-    STAssertEqualObjects(result,
+
+    STAssertEqualObjects(_.filter(threeObjects, startsWithB),
                          subrange,
                          @"Can remove matching elements");
+
+    USAssertEqualObjects(_.filter(emptyArray, allPass),
+                         _.array(emptyArray).filter(allPass).unwrap);
+    USAssertEqualObjects(_.filter(threeObjects, nonePass),
+                         _.array(threeObjects).filter(nonePass).unwrap);
+    USAssertEqualObjects(_.filter(threeObjects, allPass),
+                         _.array(threeObjects).filter(allPass).unwrap);
+    USAssertEqualObjects(_.filter(threeObjects, startsWithB),
+                         _.array(threeObjects).filter(startsWithB).unwrap);
 }
 
 - (void)testReject;
 {
-    STAssertEqualObjects(_.reject(emptyArray, ^BOOL(id any){return YES;}),
+    UnderscoreTestBlock allPass     = ^BOOL(id any) {return YES; };
+    UnderscoreTestBlock nonePass    = ^BOOL(id any) {return NO; };
+    UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
+        return [string characterAtIndex:0] == 'b';
+    };
+
+    STAssertEqualObjects(_.reject(emptyArray, allPass),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.reject(threeObjects, ^BOOL(id any){return NO;}),
+    STAssertEqualObjects(_.reject(threeObjects, nonePass),
                          threeObjects,
                          @"Can remove all objects");
 
-    STAssertEqualObjects(_.reject(threeObjects, ^BOOL(id any){return YES;}),
+    STAssertEqualObjects(_.reject(threeObjects, allPass),
                          emptyArray,
                          @"Can keep all objects");
 
-    NSArray *result = _.reject(threeObjects, ^BOOL (NSString *string) {
-        return [string characterAtIndex:0] == 'b';
-    });
-
-    STAssertEqualObjects(result,
+    STAssertEqualObjects(_.reject(threeObjects, startsWithB),
                          singleObject,
                          @"Can remove matching elements");
+
+    USAssertEqualObjects(_.reject(emptyArray, allPass),
+                         _.array(emptyArray).reject(allPass).unwrap);
+    USAssertEqualObjects(_.reject(threeObjects, nonePass),
+                         _.array(threeObjects).reject(nonePass).unwrap);
+    USAssertEqualObjects(_.reject(threeObjects, allPass),
+                         _.array(threeObjects).reject(allPass).unwrap);
+    USAssertEqualObjects(_.reject(threeObjects, startsWithB),
+                         _.array(threeObjects).reject(startsWithB).unwrap);
 }
 
 - (void)testAll;
@@ -305,11 +435,7 @@ static NSArray *threeObjects;
     STAssertFalse(_.all(emptyArray, _.isNull),
                   @"Empty array never passes");
 
-    UnderscoreTestBlock isString = ^BOOL (id obj){
-        return [obj isKindOfClass:[NSString class]];
-    };
-
-    STAssertTrue(_.all(threeObjects, isString),
+    STAssertTrue(_.all(threeObjects, _.isString),
                  @"All elements pass");
 
     UnderscoreTestBlock startsWithB = ^BOOL (NSString *string){
@@ -319,12 +445,17 @@ static NSArray *threeObjects;
     STAssertFalse(_.all(threeObjects, startsWithB),
                   @"Not all elements pass");
 
-    UnderscoreTestBlock isNumber = ^BOOL (id obj){
-        return [obj isKindOfClass:[NSNumber class]];
-    };
-
-    STAssertFalse(_.all(threeObjects, isNumber),
+    STAssertFalse(_.all(threeObjects, _.isNumber),
                   @"No element passes");
+
+    USAssertEqualPrimitives(_.all(emptyArray, _.isNull),
+                            _.array(emptyArray).all(_.isNull));
+    USAssertEqualPrimitives(_.all(threeObjects, _.isString),
+                            _.array(threeObjects).all(_.isString));
+    USAssertEqualPrimitives(_.all(threeObjects, startsWithB),
+                            _.array(threeObjects).all(startsWithB));
+    USAssertEqualPrimitives(_.all(threeObjects, _.isNumber),
+                            _.array(threeObjects).all(_.isNumber));
 }
 
 - (void)testAny;
@@ -344,6 +475,15 @@ static NSArray *threeObjects;
 
     STAssertFalse(_.any(threeObjects, _.isNumber),
                   @"No element passes");
+
+    USAssertEqualPrimitives(_.any(emptyArray, _.isNull),
+                            _.array(emptyArray).any(_.isNull));
+    USAssertEqualPrimitives(_.any(threeObjects, _.isString),
+                            _.array(threeObjects).any(_.isString));
+    USAssertEqualPrimitives(_.any(threeObjects, startsWithB),
+                            _.array(threeObjects).any(startsWithB));
+    USAssertEqualPrimitives(_.any(threeObjects, _.isNumber),
+                            _.array(threeObjects).any(_.isNumber));
 }
 
 @end
