@@ -49,4 +49,4 @@
 
 @end
 
-#import "Underscore+Shortcuts.h"
+#import "Underscore+Functional.h"

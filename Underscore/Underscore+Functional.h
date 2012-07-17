@@ -1,5 +1,5 @@
 //
-//  Underscore+Shortcuts.h
+//  Underscore+Functional.h
 //  Underscore
 //
 //  Created by Robert Böhnke on 7/15/12.
@@ -26,9 +26,9 @@
 
 #import "Underscore.h"
 
-@interface Underscore (Shortcuts)
+@interface Underscore (FunctionalStyle)
 
-#pragma mark NSArray shortcuts
+#pragma mark NSArray functional style methods
 
 + (USArrayWrapper *(^)(NSArray *))array;
 
@@ -59,7 +59,7 @@
 + (BOOL (^)(NSArray *array, UnderscoreTestBlock block))all;
 + (BOOL (^)(NSArray *array, UnderscoreTestBlock block))any;
 
-#pragma mark NSDictionary shortcuts
+#pragma mark NSDictionary style methods
 
 + (USDictionaryWrapper *(^)(NSDictionary *dictionary))dict;
 

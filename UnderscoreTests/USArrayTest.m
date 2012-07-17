@@ -19,11 +19,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 #define _ Underscore
 
-#define USAssertEqualObjects(shortcut, wrapper) \
-        STAssertEqualObjects(shortcut, wrapper, @"Wrapper and Shortcut behave equally");
+#define USAssertEqualObjects(functional, wrapper) \
+        STAssertEqualObjects(functional, wrapper, @"Wrapper and Shortcut behave equally");
 
-#define USAssertEqualPrimitives(shortcut, wrapper) \
-        STAssertTrue(shortcut == wrapper, @"Wrapper and Shortcut behave equally");
+#define USAssertEqualPrimitives(functional, wrapper) \
+        STAssertTrue(functional == wrapper, @"Wrapper and Shortcut behave equally");
 
 @implementation USArrayTest
 

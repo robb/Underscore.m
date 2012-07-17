@@ -1,5 +1,5 @@
 //
-//  Underscore+Shortcuts.m
+//  Underscore+Functional.m
 //  Underscore
 //
 //  Created by Robert Böhnke on 7/15/12.
@@ -24,9 +24,9 @@
 //  IN THE SOFTWARE.
 //
 
-#import "Underscore+Shortcuts.h"
+#import "Underscore+Functional.h"
 
-@implementation Underscore (Shortcuts)
+@implementation Underscore (Functional)
 
 #pragma mark NSArray shortcuts
 
