@@ -28,13 +28,11 @@
 
 #import "USConstants.h"
 
-#define _array(array) [USArrayWrapper wrap:array]
-
 @interface USArrayWrapper : NSObject
 
 + (USArrayWrapper *)wrap:(NSArray *)array;
 
-- (id)init __attribute__((deprecated("You should +[USArrayWrapper wrap:] instead")));
+- (id)init __attribute__((deprecated("You should Underscore.array() instead")));
 
 @property (readonly) NSArray *unwrap;
 

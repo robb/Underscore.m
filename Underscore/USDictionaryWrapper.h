@@ -32,12 +32,10 @@
 
 @interface USDictionaryWrapper : NSObject
 
-#define _dict(dictionary) [USDictionaryWrapper wrap:dictionary]
-
 + (USDictionaryWrapper *)wrap:(NSDictionary *)dictionary;
 - (NSDictionary *)unwrap;
 
-- (id)init __attribute__((deprecated("You should +[USDictionaryWrapper wrap:] instead")));
+- (id)init __attribute__((deprecated("You should Underscore.dict() instead")));
 
 @property (readonly) USArrayWrapper *keys;
 @property (readonly) USArrayWrapper *values;
