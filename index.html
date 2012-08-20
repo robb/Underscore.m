@@ -109,7 +109,10 @@
   </p>
 <pre>
 // e.g.
-NSDictionary *dictionary     = [NSDictionary dictionaryWithAllKindsOfStuff];
+NSDictionary *dictionary = @{
+  @"en": @"Hello world!", @"sv": @"Hej världen!", @"de": @"Hallo Welt!"
+}
+
 USDictionaryWrapper *wrapper = _dict(dictionary);
 </pre>
 
