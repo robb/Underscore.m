@@ -37,21 +37,21 @@
 
 - (id)init __attribute__((deprecated("You should Underscore.dict() instead")));
 
-@property (readonly) USArrayWrapper *keys;
-@property (readonly) USArrayWrapper *values;
+- (USArrayWrapper *)keys;
+- (USArrayWrapper *)values;
 
-@property (readonly) USDictionaryWrapper *(^each)(UnderscoreDictionaryIteratorBlock block);
-@property (readonly) USDictionaryWrapper *(^map)(UnderscoreDictionaryMapBlock block);
+- (USDictionaryWrapper *(^)(UnderscoreDictionaryIteratorBlock))each;
+- (USDictionaryWrapper *(^)(UnderscoreDictionaryMapBlock))map;
 
-@property (readonly) USDictionaryWrapper *(^pick)(NSArray *keys);
+- (USDictionaryWrapper *(^)(NSArray *))pick;
 
-@property (readonly) USDictionaryWrapper *(^extend)(NSDictionary *source);
-@property (readonly) USDictionaryWrapper *(^defaults)(NSDictionary *defaults);
+- (USDictionaryWrapper *(^)(NSDictionary *))extend;
+- (USDictionaryWrapper *(^)(NSDictionary *))defaults;
 
-@property (readonly) USDictionaryWrapper *(^filterKeys)(UnderscoreTestBlock block);
-@property (readonly) USDictionaryWrapper *(^filterValues)(UnderscoreTestBlock block);
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterKeys;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterValues;
 
-@property (readonly) USDictionaryWrapper *(^rejectKeys)(UnderscoreTestBlock block);
-@property (readonly) USDictionaryWrapper *(^rejectValues)(UnderscoreTestBlock block);
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectKeys;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectValues;
 
 @end
