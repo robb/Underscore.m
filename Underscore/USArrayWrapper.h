@@ -34,35 +34,35 @@
 
 - (id)init __attribute__((deprecated("You should Underscore.array() instead")));
 
-@property (readonly) NSArray *unwrap;
+- (NSArray *)unwrap;
 
-@property (readonly) id first;
-@property (readonly) id last;
+- (id)first;
+- (id)last;
 
-@property (readonly) USArrayWrapper *(^head)(NSUInteger n);
-@property (readonly) USArrayWrapper *(^tail)(NSUInteger n);
+- (USArrayWrapper *(^)(NSUInteger n))head;
+- (USArrayWrapper *(^)(NSUInteger n))tail;
 
-@property (readonly) NSUInteger (^indexOf)(id obj);
+- (NSUInteger (^)(id obj))indexOf;
 
-@property (readonly) USArrayWrapper *flatten;
-@property (readonly) USArrayWrapper *(^without)(NSArray *values);
+- (USArrayWrapper *)flatten;
+- (USArrayWrapper *(^)(NSArray *value))without;
 
-@property (readonly) USArrayWrapper *shuffle;
+- (USArrayWrapper *)shuffle;
 
-@property (readonly) id (^reduce)(id memo, UnderscoreReduceBlock block);
-@property (readonly) id (^reduceRight)(id memo, UnderscoreReduceBlock block);
+- (id (^)(id, UnderscoreReduceBlock block))reduce;
+- (id (^)(id, UnderscoreReduceBlock block))reduceRight;
 
-@property (readonly) USArrayWrapper *(^each)(UnderscoreArrayIteratorBlock block);
-@property (readonly) USArrayWrapper *(^map)(UnderscoreArrayMapBlock block);
+- (USArrayWrapper *(^)(UnderscoreArrayIteratorBlock block))each;
+- (USArrayWrapper *(^)(UnderscoreArrayMapBlock block))map;
 
-@property (readonly) USArrayWrapper *(^pluck)(NSString *keyPath);
+- (USArrayWrapper *(^)(NSString *keyPath))pluck;
 
-@property (readonly) id (^find)(UnderscoreTestBlock block);
+- (id (^)(UnderscoreTestBlock block))find;
 
-@property (readonly) USArrayWrapper *(^filter)(UnderscoreTestBlock block);
-@property (readonly) USArrayWrapper *(^reject)(UnderscoreTestBlock block);
+- (USArrayWrapper *(^)(UnderscoreTestBlock block))filter;
+- (USArrayWrapper *(^)(UnderscoreTestBlock block))reject;
 
-@property (readonly) BOOL (^all)(UnderscoreTestBlock block);
-@property (readonly) BOOL (^any)(UnderscoreTestBlock block);
+- (BOOL (^)(UnderscoreTestBlock block))all;
+- (BOOL (^)(UnderscoreTestBlock block))any;
 
 @end
