@@ -107,6 +107,13 @@
     };
 }
 
+- (NSUInteger (^)(id))indexOf;
+{
+    return ^NSUInteger (id obj) {
+        return [self.array indexOfObject:obj];
+    };
+}
+
 - (USArrayWrapper *)flatten;
 {
     __block NSArray *(^flatten)(NSArray *) = ^NSArray *(NSArray *input) {

@@ -108,6 +108,22 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4).unwrap);
 }
 
+- (void)testIndexOf;
+{
+    STAssertTrue(_.indexOf(emptyArray, @1) == NSNotFound,
+                 @"Returns NSNotFound when searching in an empty array");
+
+    STAssertTrue(_.indexOf(threeObjects, @1) == NSNotFound,
+                 @"Returns NSNotFound when the element cannot be found");
+
+    STAssertTrue(_.indexOf(threeObjects, @"foo") == 0,
+                 @"Returns the index of the element");
+
+    NSArray *arrayWithDuplicates = @[ @"foo", @"bar", @"baz", @"bar" ];
+    STAssertTrue(_.indexOf(arrayWithDuplicates, @"bar") == 1,
+                 @"Returns the index of the first occurrence");
+}
+
 - (void)testFlatten;
 {
     STAssertEqualObjects(_.flatten(emptyArray),
