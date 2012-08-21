@@ -42,6 +42,8 @@
 @property (readonly) USArrayWrapper *(^head)(NSUInteger n);
 @property (readonly) USArrayWrapper *(^tail)(NSUInteger n);
 
+@property (readonly) NSUInteger (^indexOf)(id obj);
+
 @property (readonly) USArrayWrapper *flatten;
 @property (readonly) USArrayWrapper *(^without)(NSArray *values);
 

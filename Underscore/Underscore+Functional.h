@@ -38,6 +38,8 @@
 + (NSArray *(^)(NSArray *array, NSUInteger n))head;
 + (NSArray *(^)(NSArray *array, NSUInteger n))tail;
 
++ (NSUInteger (^)(NSArray *array, id obj))indexOf;
+
 + (NSArray *(^)(NSArray *array))flatten;
 + (NSArray *(^)(NSArray *array, NSArray *values))without;
 
