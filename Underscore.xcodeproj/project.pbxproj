@@ -28,6 +28,9 @@
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
+		54DA00A215E4091E00A5814E /* USAsyncArrayWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DA00A015E4091E00A5814E /* USAsyncArrayWrapper.h */; };
+		54DA00A315E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */; };
+		54DA00A415E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,8 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54DA00A015E4091E00A5814E /* USAsyncArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USAsyncArrayWrapper.h; sourceTree = "<group>"; };
+		54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USAsyncArrayWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,8 @@
 				547C44DA15B30ADD004698B8 /* Underscore+Functional.m */,
 				54903D11155FF779006854CB /* USArrayWrapper.h */,
 				54903D12155FF779006854CB /* USArrayWrapper.m */,
+				54DA00A015E4091E00A5814E /* USAsyncArrayWrapper.h */,
+				54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */,
 				54996B2115614B220016BE94 /* USDictionaryWrapper.h */,
 				54996B2215614B220016BE94 /* USDictionaryWrapper.m */,
 				54996B2C15614F900016BE94 /* USConstants.h */,
@@ -178,6 +185,7 @@
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
+				54DA00A215E4091E00A5814E /* USAsyncArrayWrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +291,7 @@
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
+				54DA00A315E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +305,7 @@
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 				547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */,
+				54DA00A415E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

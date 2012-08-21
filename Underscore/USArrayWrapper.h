@@ -28,6 +28,8 @@
 
 #import "USConstants.h"
 
+#import "USAsyncArrayWrapper.h"
+
 @interface USArrayWrapper : NSObject
 
 + (USArrayWrapper *)wrap:(NSArray *)array;
@@ -64,5 +66,7 @@
 
 - (BOOL (^)(UnderscoreTestBlock block))all;
 - (BOOL (^)(UnderscoreTestBlock block))any;
+
+- (USAsyncArrayWrapper *(^)(NSOperationQueue *))on;
 
 @end
