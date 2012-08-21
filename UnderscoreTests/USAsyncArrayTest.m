@@ -14,6 +14,8 @@ static NSArray *emptyArray;
 static NSArray *singleObject;
 static NSArray *threeObjects;
 
+static NSOperationQueue *backgroundQueue;
+
 #define _ Underscore
 
 @implementation USAsyncArrayTest
@@ -23,6 +25,8 @@ static NSArray *threeObjects;
     emptyArray   = [NSArray array];
     singleObject = [NSArray arrayWithObject:@"foo"];
     threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
+
+    backgroundQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)testAsyncUnwrap;
@@ -31,6 +35,21 @@ static NSArray *threeObjects;
         .on(NSOperationQueue.mainQueue)
         .unwrap(^(NSArray *array) {
             STAssertEqualObjects(array, singleObject, @"Can unwrap arrays");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testSwitchingQueues;
+{
+    _.array(singleObject)
+        .on(backgroundQueue)
+        .unwrap(^(NSArray *array) {
+            STAssertEqualObjects(NSOperationQueue.currentQueue,
+                                 backgroundQueue,
+                                 @"Can switch queues");
+
             [self notify:SenAsyncTestCaseStatusSucceeded];
         });
 
