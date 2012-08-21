@@ -14,7 +14,9 @@
 
 - (id)init __attribute__((deprecated("You should Underscore.array() instead")));
 
-- (NSArray *)unwrap;
+- (USAsyncArrayWrapper *)initWithArray:(NSArray *)array queue:(NSOperationQueue *)queue;
+
+- (void (^)(UnderscoreCallbackBlock(NSArray *result)))unwrap;
 
 - (void (^)(UnderscoreCallbackBlock(id result)))first;
 - (void (^)(UnderscoreCallbackBlock(id result)))last;

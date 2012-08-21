@@ -31,6 +31,8 @@
 		54DA00A215E4091E00A5814E /* USAsyncArrayWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DA00A015E4091E00A5814E /* USAsyncArrayWrapper.h */; };
 		54DA00A315E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */; };
 		54DA00A415E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */; };
+		54DA00AE15E421BC00A5814E /* USAsyncArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00AD15E421BC00A5814E /* USAsyncArrayTest.m */; };
+		54DA00B215E427A900A5814E /* SenAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DA00B115E427A900A5814E /* SenAsyncTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,10 @@
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54DA00A015E4091E00A5814E /* USAsyncArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USAsyncArrayWrapper.h; sourceTree = "<group>"; };
 		54DA00A115E4091E00A5814E /* USAsyncArrayWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USAsyncArrayWrapper.m; sourceTree = "<group>"; };
+		54DA00AC15E421BC00A5814E /* USAsyncArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USAsyncArrayTest.h; sourceTree = "<group>"; };
+		54DA00AD15E421BC00A5814E /* USAsyncArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USAsyncArrayTest.m; sourceTree = "<group>"; };
+		54DA00B015E427A900A5814E /* SenAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenAsyncTestCase.h; sourceTree = "<group>"; };
+		54DA00B115E427A900A5814E /* SenAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenAsyncTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,8 @@
 				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
 				54903D1915600A45006854CB /* USArrayTest.h */,
 				54903D1A15600A45006854CB /* USArrayTest.m */,
+				54DA00AC15E421BC00A5814E /* USAsyncArrayTest.h */,
+				54DA00AD15E421BC00A5814E /* USAsyncArrayTest.m */,
 				54996B351561576D0016BE94 /* USDictionaryTest.h */,
 				54996B361561576D0016BE94 /* USDictionaryTest.m */,
 				541D18A81561726C00599033 /* HelperTest.h */,
@@ -167,6 +175,8 @@
 		54A3DCDF154DD4BF00387DE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				54DA00B015E427A900A5814E /* SenAsyncTestCase.h */,
+				54DA00B115E427A900A5814E /* SenAsyncTestCase.m */,
 				54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */,
 				54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */,
 			);
@@ -306,6 +316,8 @@
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 				547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */,
 				54DA00A415E4091E00A5814E /* USAsyncArrayWrapper.m in Sources */,
+				54DA00AE15E421BC00A5814E /* USAsyncArrayTest.m in Sources */,
+				54DA00B215E427A900A5814E /* SenAsyncTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

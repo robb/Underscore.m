@@ -276,4 +276,14 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(NSOperationQueue *))on;
+{
+    return ^USAsyncArrayWrapper *(NSOperationQueue *queue) {
+        USAsyncArrayWrapper *wrapper = [[USAsyncArrayWrapper alloc] initWithArray:self.array.copy
+                                                                            queue:queue];
+
+        return wrapper;
+    };
+}
+
 @end
