@@ -109,6 +109,24 @@
     return self;
 }
 
+- (void (^)(id, UnderscoreReduceBlock, void (^)(id)))reduce;
+{
+    return ^(id memo, UnderscoreReduceBlock block, void (^callback)(id)) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).reduce(memo, block));
+        }];
+    };
+}
+
+- (void (^)(id, UnderscoreReduceBlock, void (^)(id)))reduceRight;
+{
+    return ^(id memo, UnderscoreReduceBlock block, void (^callback)(id)) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).reduceRight(memo, block));
+        }];
+    };
+}
+
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {

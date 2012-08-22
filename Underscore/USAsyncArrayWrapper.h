@@ -31,8 +31,8 @@
 
 - (USAsyncArrayWrapper *)shuffle;
 
-- (void (^)(id, UnderscoreReduceBlock block, UnderscoreCallbackBlock(id result)))reduce;
-- (void (^)(id, UnderscoreReduceBlock block, UnderscoreCallbackBlock(id result)))reduceRight;
+- (void (^)(id memo, UnderscoreReduceBlock block, UnderscoreCallbackBlock(id result)))reduce;
+- (void (^)(id memo, UnderscoreReduceBlock block, UnderscoreCallbackBlock(id result)))reduceRight;
 
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock block))each;
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayMapBlock block))map;

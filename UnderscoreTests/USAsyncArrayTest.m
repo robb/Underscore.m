@@ -20,6 +20,10 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
     return [string characterAtIndex:0] == 'f';
 };
 
+static UnderscoreReduceBlock const concatenate = ^NSString *(NSString *a, NSString *b) {
+    return [a stringByAppendingString:b];
+};
+
 #define _ Underscore
 
 @implementation USAsyncArrayTest
@@ -162,6 +166,34 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
         .unwrap(^void (NSArray *array) {
             STAssertFalse([array isEqualToArray:numbers],
                           @"Can perform shuffle asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncReduce;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .reduce(@"the ", concatenate, ^(NSString *result) {
+            STAssertEqualObjects(result,
+                                 @"the foobarbaz",
+                                 @"Can perform reduce asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncReduceRight;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .reduceRight(@"the ", concatenate, ^(NSString *result) {
+            STAssertEqualObjects(result,
+                                 @"the bazbarfoo",
+                                 @"Can perform reduceRight asynchronously");
             [self notify:SenAsyncTestCaseStatusSucceeded];
         });
 
