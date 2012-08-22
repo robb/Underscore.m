@@ -115,6 +115,25 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncFlatten;
+{
+    NSArray *arrayOfArrays = @[
+        @[ @1, @2, @3 ], @4, @[ @5, @[ @6 ] ], @[ @7 ]
+    ];
+
+    _.array(arrayOfArrays)
+        .on(backgroundQueue)
+        .flatten
+        .unwrap(^void (NSArray *array) {
+            STAssertEqualObjects(array,
+                                 (@[ @1, @2, @3, @4, @5, @6, @7 ]),
+                                 @"Can perform flatten asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncEach;
 {
     __block NSUInteger counter = 0;

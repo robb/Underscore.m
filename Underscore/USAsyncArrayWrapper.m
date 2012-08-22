@@ -80,6 +80,15 @@
     };
 }
 
+- (USAsyncArrayWrapper *)flatten;
+{
+    [self enqueueBlock:^{
+        self.array = Underscore.array(self.array).flatten.unwrap;
+    }];
+
+    return self;
+}
+
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {
