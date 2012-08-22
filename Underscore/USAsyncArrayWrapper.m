@@ -71,7 +71,7 @@
     };
 }
 
-- (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock block))each;
+- (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {
         [self enqueueBlock:^{
@@ -82,7 +82,7 @@
     };
 }
 
-- (USAsyncArrayWrapper *(^)(UnderscoreArrayMapBlock block))map;
+- (USAsyncArrayWrapper *(^)(UnderscoreArrayMapBlock))map;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayMapBlock block) {
         [self enqueueBlock:^{
