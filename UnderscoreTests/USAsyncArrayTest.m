@@ -134,6 +134,21 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncWithout;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .without(singleObject)
+        .unwrap(^void (NSArray *array) {
+            STAssertEqualObjects(array,
+                                 (@[ @"bar", @"baz" ]),
+                                 @"Can perform without asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncShuffle;
 {
     NSMutableArray *numbers = [NSMutableArray array];

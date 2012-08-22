@@ -89,6 +89,17 @@
     return self;
 }
 
+- (USAsyncArrayWrapper *(^)(NSArray *))without;
+{
+    return ^USAsyncArrayWrapper *(NSArray *values) {
+        [self enqueueBlock:^{
+            self.array = Underscore.array(self.array).without(values).unwrap;
+        }];
+
+        return self;
+    };
+}
+
 - (USAsyncArrayWrapper *)shuffle;
 {
     [self enqueueBlock:^{
