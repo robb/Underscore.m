@@ -82,6 +82,17 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(UnderscoreArrayMapBlock block))map;
+{
+    return ^USAsyncArrayWrapper *(UnderscoreArrayMapBlock block) {
+        [self enqueueBlock:^{
+            self.array = Underscore.array(self.array).map(block).unwrap;
+        }];
+
+        return self;
+    };
+}
+
 - (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
 {
     return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {

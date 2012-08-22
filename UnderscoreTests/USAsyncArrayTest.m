@@ -116,6 +116,25 @@ static NSOperationQueue *backgroundQueue;
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncMap;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .map(^NSString *(NSString *string) {
+            return string.capitalizedString;
+        })
+        .on(NSOperationQueue.mainQueue)
+        .unwrap(^(NSArray *array) {
+            STAssertEqualObjects(array,
+                                 (@[ @"Foo", @"Bar", @"Baz" ]),
+                                 @"Can perform map asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncAll;
 {
     _.array(threeObjects)
