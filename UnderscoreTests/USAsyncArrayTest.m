@@ -134,6 +134,25 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncShuffle;
+{
+    NSMutableArray *numbers = [NSMutableArray array];
+    for (NSUInteger i = 1; i < 100; i++) {
+        [numbers addObject:@(i)];
+    }
+
+    _.array(numbers)
+        .on(backgroundQueue)
+        .shuffle
+        .unwrap(^void (NSArray *array) {
+            STAssertFalse([array isEqualToArray:numbers],
+                          @"Can perform shuffle asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncEach;
 {
     __block NSUInteger counter = 0;

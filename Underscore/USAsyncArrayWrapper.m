@@ -89,6 +89,15 @@
     return self;
 }
 
+- (USAsyncArrayWrapper *)shuffle;
+{
+    [self enqueueBlock:^{
+        self.array = Underscore.array(self.array).shuffle.unwrap;
+    }];
+
+    return self;
+}
+
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {
