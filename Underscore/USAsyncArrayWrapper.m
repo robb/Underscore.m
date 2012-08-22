@@ -18,7 +18,7 @@
 @property (readwrite) NSArray *operations;
 @property (readwrite) NSArray *array;
 
-- (void)enqueueOperation:(NSOperation *)operation inQueue:(NSOperationQueue *)queue;
+- (void)enqueueBlock:(void (^)(void))block;
 
 @end
 
