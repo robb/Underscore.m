@@ -65,7 +65,7 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
                                  NSOperationQueue.mainQueue,
                                  @"Can switch queues");
 
-            STAssertTrue(counter == 1, @"Executes on different queues");
+            STAssertEquals(counter, 1u, @"Executes on different queues");
 
             counter++;
 
@@ -74,7 +74,7 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
 
     [self waitForTimeout:1];
 
-    STAssertTrue(counter == 2, @"Executes on different queues");
+    STAssertEquals(counter, 2u, @"Executes on different queues");
 }
 
 - (void)testAsyncHead;
@@ -125,7 +125,7 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
             counter++;
         })
         .unwrap(^(NSArray *array) {
-            STAssertTrue(counter == 3, @"Can perform each asynchronously");
+            STAssertEquals(counter, 3u, @"Can perform each asynchronously");
             [self notify:SenAsyncTestCaseStatusSucceeded];
         });
 
