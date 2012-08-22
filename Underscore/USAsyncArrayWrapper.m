@@ -93,6 +93,17 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(NSString *))pluck;
+{
+    return ^USAsyncArrayWrapper *(NSString *keyPath) {
+        [self enqueueBlock:^{
+            self.array = Underscore.array(self.array).pluck(keyPath).unwrap;
+        }];
+
+        return self;
+    };
+}
+
 - (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
 {
     return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {

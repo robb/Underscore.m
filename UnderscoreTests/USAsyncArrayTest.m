@@ -135,6 +135,22 @@ static NSOperationQueue *backgroundQueue;
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncPluck;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .pluck(@"length")
+        .unwrap(^(id array) {
+            STAssertEqualObjects(array,
+                                 (@[ @3, @3, @3]),
+                                 @"Can perform pluck asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncAll;
 {
     _.array(threeObjects)
