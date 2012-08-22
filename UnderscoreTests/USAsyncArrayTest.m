@@ -27,6 +27,7 @@ static NSOperationQueue *backgroundQueue;
     threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
 
     backgroundQueue = [[NSOperationQueue alloc] init];
+    backgroundQueue.name = @"Background Queue";
 }
 
 - (void)testAsyncUnwrap;
@@ -43,17 +44,33 @@ static NSOperationQueue *backgroundQueue;
 
 - (void)testSwitchingQueues;
 {
+    __block NSUInteger counter = 0;
+
     _.array(singleObject)
         .on(backgroundQueue)
-        .unwrap(^(NSArray *array) {
+        .each(^(id obj) {
             STAssertEqualObjects(NSOperationQueue.currentQueue,
                                  backgroundQueue,
                                  @"Can switch queues");
+
+            counter++;
+        })
+        .on(NSOperationQueue.mainQueue)
+        .unwrap(^(NSArray *array) {
+            STAssertEqualObjects(NSOperationQueue.currentQueue,
+                                 NSOperationQueue.mainQueue,
+                                 @"Can switch queues");
+
+            STAssertTrue(counter == 1, @"Executes on different queues");
+
+            counter++;
 
             [self notify:SenAsyncTestCaseStatusSucceeded];
         });
 
     [self waitForTimeout:1];
+
+    STAssertTrue(counter == 2, @"Executes on different queues");
 }
 
 - (void)testAsyncHead;

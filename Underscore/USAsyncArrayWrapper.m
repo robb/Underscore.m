@@ -112,6 +112,14 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(NSOperationQueue *))on;
+{
+    return ^USAsyncArrayWrapper *(NSOperationQueue *queue) {
+        self.operationQueue = queue;
+        return self;
+    };
+}
+
 #pragma mark - Private
 
 - (void)enqueueOperation:(NSOperation *)operation;
