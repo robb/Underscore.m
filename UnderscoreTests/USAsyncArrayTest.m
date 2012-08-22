@@ -16,6 +16,10 @@ static NSArray *threeObjects;
 
 static NSOperationQueue *backgroundQueue;
 
+static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
+    return [string characterAtIndex:0] == 'f';
+};
+
 #define _ Underscore
 
 @implementation USAsyncArrayTest
@@ -155,17 +159,45 @@ static NSOperationQueue *backgroundQueue;
 {
     _.array(threeObjects)
         .on(backgroundQueue)
-        .find(^BOOL(NSString *string) {
-                return [string characterAtIndex:0] == 'f';
-            },
-            ^(NSString *result) {
-                STAssertEqualObjects(result,
-                                     @"foo",
-                                     @"Can perform find asynchronously");
+        .find(startsWithF, ^(NSString *result) {
+            STAssertEqualObjects(result,
+                                 @"foo",
+                                 @"Can perform find asynchronously");
 
-                [self notify:SenAsyncTestCaseStatusSucceeded];
-            }
-        );
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncFilter;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .filter(startsWithF)
+        .unwrap(^(NSArray *array) {
+            STAssertEqualObjects(array,
+                                 (@[@"foo"]),
+                                 @"Can perform filter asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncReject;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .reject(startsWithF)
+        .unwrap(^(NSArray *array) {
+            STAssertEqualObjects(array,
+                                 (@[ @"bar", @"baz" ]),
+                                 @"Can perform reject asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
 
     [self waitForTimeout:1];
 }

@@ -113,6 +113,28 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(UnderscoreTestBlock))filter;
+{
+    return ^USAsyncArrayWrapper *(UnderscoreTestBlock block) {
+        [self enqueueBlock:^{
+            self.array = Underscore.array(self.array).filter(block).unwrap;
+        }];
+
+        return self;
+    };
+}
+
+- (USAsyncArrayWrapper *(^)(UnderscoreTestBlock))reject;
+{
+    return ^USAsyncArrayWrapper *(UnderscoreTestBlock block) {
+        [self enqueueBlock:^{
+            self.array = Underscore.array(self.array).reject(block).unwrap;
+        }];
+
+        return self;
+    };
+}
+
 - (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
 {
     return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {
