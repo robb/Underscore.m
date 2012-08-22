@@ -77,6 +77,19 @@
     };
 }
 
+- (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock block))each;
+{
+    return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {
+        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+            self.array = Underscore.array(self.array).each(block).unwrap;
+        }];
+
+        [self enqueueOperation:operation];
+
+        return self;
+    };
+}
+
 - (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
 {
     return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {

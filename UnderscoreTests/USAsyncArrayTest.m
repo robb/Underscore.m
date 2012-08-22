@@ -82,6 +82,23 @@ static NSOperationQueue *backgroundQueue;
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncEach;
+{
+    __block NSUInteger counter = 0;
+
+    _.array(threeObjects)
+        .on(NSOperationQueue.mainQueue)
+        .each(^(NSString *string) {
+            counter++;
+        })
+        .unwrap(^(NSArray *array) {
+            STAssertTrue(counter == 3, @"Can perform each asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncAll;
 {
     _.array(threeObjects)
