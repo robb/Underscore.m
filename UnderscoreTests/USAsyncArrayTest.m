@@ -140,7 +140,7 @@ static NSOperationQueue *backgroundQueue;
     _.array(threeObjects)
         .on(backgroundQueue)
         .pluck(@"length")
-        .unwrap(^(id array) {
+        .unwrap(^(NSArray *array) {
             STAssertEqualObjects(array,
                                  (@[ @3, @3, @3]),
                                  @"Can perform pluck asynchronously");
