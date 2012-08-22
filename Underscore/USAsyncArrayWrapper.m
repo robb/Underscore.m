@@ -71,6 +71,15 @@
     };
 }
 
+- (void (^)(id, void (^)(NSUInteger)))indexOf;
+{
+    return ^(id obj, void (^callback)(NSUInteger)) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).indexOf(obj));
+        }];
+    };
+}
+
 - (USAsyncArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
 {
     return ^USAsyncArrayWrapper *(UnderscoreArrayIteratorBlock block) {

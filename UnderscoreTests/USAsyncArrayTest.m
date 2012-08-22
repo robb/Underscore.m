@@ -93,6 +93,18 @@ static UnderscoreTestBlock const startsWithF = ^BOOL (NSString *string) {
 - (void)testAsyncTail;
 {
     _.array(threeObjects)
+        .on(backgroundQueue)
+        .indexOf(@"bar", ^(NSUInteger index) {
+            STAssertEquals(index, 1u, @"Can perform indexOf asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncIndexOf;
+{
+    _.array(threeObjects)
         .on(NSOperationQueue.mainQueue)
         .tail(1)
         .unwrap(^(NSArray *array) {
