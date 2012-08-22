@@ -82,4 +82,28 @@ static NSOperationQueue *backgroundQueue;
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncAll;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .all(_.isString, ^(BOOL result) {
+            STAssertTrue(result, @"Can perform all asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncAny;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .any(_.isEqual(@"baz"), ^(BOOL result) {
+            STAssertTrue(result, @"Can perform any asynchronously");
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 @end

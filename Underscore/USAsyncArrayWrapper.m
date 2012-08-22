@@ -77,6 +77,30 @@
     };
 }
 
+- (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
+{
+    return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {
+        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+            callback(Underscore.array(self.array).all(block));
+        }];
+
+        [self enqueueOperation:operation];
+    };
+}
+
+- (void (^)(UnderscoreTestBlock, void (^)(BOOL)))any;
+{
+    return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {
+        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+            callback(Underscore.array(self.array).any(block));
+        }];
+
+        [self enqueueOperation:operation];
+    };
+}
+
+#pragma mark - Private
+
 - (void)enqueueOperation:(NSOperation *)operation;
 {
     if (self.lastOperation) {
