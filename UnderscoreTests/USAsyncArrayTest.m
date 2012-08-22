@@ -81,6 +81,32 @@ static UnderscoreReduceBlock const concatenate = ^NSString *(NSString *a, NSStri
     STAssertEquals(counter, 2u, @"Executes on different queues");
 }
 
+- (void)testAsyncFirst;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .first(^(NSString *first) {
+            STAssertEqualObjects(first, @"foo", @"Can perform first asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
+- (void)testAsyncLast;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .last(^(NSString *last) {
+            STAssertEqualObjects(last, @"baz", @"Can perform last asynchronously");
+
+            [self notify:SenAsyncTestCaseStatusSucceeded];
+        });
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncHead;
 {
     _.array(threeObjects)

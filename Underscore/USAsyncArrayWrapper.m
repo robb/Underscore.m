@@ -48,6 +48,23 @@
     };
 }
 
+- (void (^)(void (^)(id)))first;
+{
+    return ^(void (^callback)()) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).first);
+        }];
+    };
+}
+
+- (void (^)(void (^)(id)))last;
+{
+    return ^(void (^callback)()) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).last);
+        }];
+    };
+}
 
 - (USAsyncArrayWrapper *(^)(NSUInteger))head;
 {
