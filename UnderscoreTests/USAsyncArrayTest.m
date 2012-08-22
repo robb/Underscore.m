@@ -151,6 +151,25 @@ static NSOperationQueue *backgroundQueue;
     [self waitForTimeout:1];
 }
 
+- (void)testAsyncFind;
+{
+    _.array(threeObjects)
+        .on(backgroundQueue)
+        .find(^BOOL(NSString *string) {
+                return [string characterAtIndex:0] == 'f';
+            },
+            ^(NSString *result) {
+                STAssertEqualObjects(result,
+                                     @"foo",
+                                     @"Can perform find asynchronously");
+
+                [self notify:SenAsyncTestCaseStatusSucceeded];
+            }
+        );
+
+    [self waitForTimeout:1];
+}
+
 - (void)testAsyncAll;
 {
     _.array(threeObjects)

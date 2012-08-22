@@ -104,6 +104,15 @@
     };
 }
 
+- (void (^)(UnderscoreTestBlock, void (^)(id)))find;
+{
+    return ^(UnderscoreTestBlock block, void (^callback)(id)) {
+        [self enqueueBlock:^{
+            callback(Underscore.array(self.array).find(block));
+        }];
+    };
+}
+
 - (void (^)(UnderscoreTestBlock, void (^)(BOOL)))all;
 {
     return ^(UnderscoreTestBlock block, void (^callback)(BOOL)) {
