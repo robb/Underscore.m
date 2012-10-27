@@ -104,23 +104,22 @@
 <section id="examples">
   <h3>Examples</h3>
   <p>
-    First, wrap your <code>NSArray</code> or <code>NSDictionary</code> using the
-    provided macros.
+    Underscore.m helps you write consise code when dealing with common operations
+    on data structures.
+  </p>
+  <p>
+    There are two ways to use Underscore.m. You can either directly apply an
+    operation:
   </p>
 <pre>
-// e.g.
-NSDictionary *dictionary = @{
-  @"en": @"Hello world!", @"sv": @"Hej världen!", @"de": @"Hallo Welt!"
-}
-
-USDictionaryWrapper *wrapper = _dict(dictionary);
+NSArray *uniques = Underscore.uniq(values);
 </pre>
 
   <p>
-    Now, you can manipulate the dictionary using Underscore.m's various methods.
+    or chain multiple operations together to form powerful expressions:
   </p>
 <pre>
-NSArray *capitalized = _dict(dictionary)
+NSArray *capitalized = Underscore.dict(dictionary)
   .values
   .filter(Underscore.isString)
   .map(^NSString *(NSString *string) {
@@ -149,7 +148,7 @@ NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
 // This is where the fun starts!
 NSArray *tweets = [json valueForKey:@"results"];
 
-NSArray *processed = _array(tweets)
+NSArray *processed = Underscore.array(tweets)
     // Let's make sure that we only operate on NSDictionaries, you never
     // know with these APIs ;-)
     .filter(Underscore.isDictionary)
@@ -165,6 +164,16 @@ NSArray *processed = _array(tweets)
         return [NSString stringWithFormat:@"%@: %@", name, text];
     })
     .unwrap;
+</pre>
+
+  <p>
+    It is recommended that you alias `Underscore` to `_` to make your code more
+    consise.
+  </p>
+
+<pre>
+#define _ Underscore
+NSNumber *first = _.first(numbers);
 </pre>
 </section>
 <section id="download">
