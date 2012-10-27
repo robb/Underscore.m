@@ -213,6 +213,14 @@
     };
 }
 
+- (USArrayWrapper *)uniq;
+{
+    NSSet* uniqSet = [NSSet setWithArray:self.array];
+    NSArray* result = [uniqSet allObjects];
+
+    return [[USArrayWrapper alloc] initWithArray:result];
+}
+
 - (id (^)(UnderscoreTestBlock))find;
 {
     return ^id (UnderscoreTestBlock test) {

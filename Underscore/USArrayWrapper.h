@@ -57,6 +57,8 @@
 
 @property (readonly) USArrayWrapper *(^pluck)(NSString *keyPath);
 
+@property (readonly) USArrayWrapper *uniq;
+
 @property (readonly) id (^find)(UnderscoreTestBlock block);
 
 @property (readonly) USArrayWrapper *(^filter)(UnderscoreTestBlock block);

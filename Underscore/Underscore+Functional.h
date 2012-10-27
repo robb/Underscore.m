@@ -53,6 +53,8 @@
 
 + (NSArray *(^)(NSArray *array, NSString *keyPath))pluck;
 
++ (NSArray *(^)(NSArray *array))uniq;
+
 + (id (^)(NSArray *array, UnderscoreTestBlock block))find;
 
 + (NSArray *(^)(NSArray *array, UnderscoreTestBlock block))filter;
