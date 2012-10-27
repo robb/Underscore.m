@@ -348,6 +348,16 @@ NSArray *names = _array(users).pluck(@"name").unwrap;
 </pre>
     </section>
 
+    <section id="uniq">
+      <h4>uniq</h4>
+      <p>
+        Returns an array containing only mutually distinct objects.
+      </p>
+<pre>
+NSArray *uniqes = _array(values).uniq.unwrap;
+</pre>
+    </section>
+
     <section id="find">
       <h4>find(UnderscoreTestBlock test)</h4>
       <p>
