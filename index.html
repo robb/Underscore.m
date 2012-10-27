@@ -193,14 +193,14 @@ NSNumber *first = _.first(numbers);
       Methods that return an array automatically wrap it to facilitate chaining.
     </p>
 
-    <section id="_array">
-      <h4>_array(NSArray *)</h4>
+    <section id="array">
+      <h4>array(NSArray *)</h4>
       <p>
         Wraps an array in Underscore.m's USArrayWrapper. This is crucial in order
         to use the other methods.
       </p>
 <pre>
-USArrayWrapper *wrapper = _array(array);
+USArrayWrapper *wrapper = Underscore.array(array);
 </pre>
       <p>
         As Underscore.m encourages chainging, you will probably not need to keep
@@ -214,7 +214,7 @@ USArrayWrapper *wrapper = _array(array);
         Returns the first element of the array or <code>nil</code> if it is empty.
       </p>
 <pre>
-id first = _array(array).first;
+id first = Underscore.array(array).first;
 </pre>
     </section>
 
@@ -224,7 +224,7 @@ id first = _array(array).first;
         Returns the last element of the array or <code>nil</code> if it is empty.
       </p>
 <pre>
-id last = _array(array).last;
+id last = Underscore.array(array).last;
 </pre>
     </section>
 
@@ -235,7 +235,7 @@ id last = _array(array).last;
         less than <code>n</code> elements in the array.
       </p>
 <pre>
-NSArray *firstThree = _array(array).head(3).unwrap;
+NSArray *firstThree = Underscore.array(array).head(3).unwrap;
 </pre>
     </section>
 
@@ -246,7 +246,7 @@ NSArray *firstThree = _array(array).head(3).unwrap;
         than <code>n</code> elements in the array.
       </p>
 <pre>
-NSArray *lastThree = _array(array).tail(3).unwrap;
+NSArray *lastThree = Underscore.array(array).tail(3).unwrap;
 </pre>
   </section>
 
@@ -257,7 +257,7 @@ NSArray *lastThree = _array(array).tail(3).unwrap;
         <code>NSNotFound</code> if the object is not in the array.
       </p>
 <pre>
-NSUInteger index = _array(haystack).indexOf(needle);
+NSUInteger index = Underscore.array(haystack).indexOf(needle);
 </pre>
   </section>
 
@@ -268,7 +268,7 @@ NSUInteger index = _array(haystack).indexOf(needle);
       </p>
 <pre>
 NSArray *arrayOfArrays = @[@[@1, @2], @[@3, @4], @[@5, @6]];
-NSArray *oneToSix      = _array(arrayOfArrays).flatten.unwrap;
+NSArray *oneToSix      = Underscore.array(arrayOfArrays).flatten.unwrap;
 </pre>
     </section>
 
@@ -278,7 +278,7 @@ NSArray *oneToSix      = _array(arrayOfArrays).flatten.unwrap;
         Returns all elements not contained in <code>values</code>.
       </p>
 <pre>
-NSArray *oddNumbers = _array(numbers).without(evenNumbers).unwrap;
+NSArray *oddNumbers = Underscore.array(numbers).without(evenNumbers).unwrap;
 </pre>
     </section>
 
@@ -288,7 +288,7 @@ NSArray *oddNumbers = _array(numbers).without(evenNumbers).unwrap;
         Shuffles the array using the Fisher-Yates-Shuffle.
       </p>
 <pre>
-NSArray *shuffled = _array(array).shuffle.unwrap;
+NSArray *shuffled = Underscore.array(array).shuffle.unwrap;
 </pre>
     </section>
 
@@ -303,7 +303,7 @@ NSArray *shuffled = _array(array).shuffle.unwrap;
 <pre>
 NSArray  *numbers = @[@1, @2, @3, @4, @5, @6, @7, @8, @9];
 
-NSNumber *sum = _array(numbers)
+NSNumber *sum = Underscore.array(numbers)
                   .reduce(@0, ^NSNumber *(NSNumber *x, NSNumber *y) {
                     return @(x.integerValue + y.integerValue);
                   })
@@ -318,7 +318,7 @@ NSNumber *sum = _array(numbers)
         This method returns the same array again, to facilitate chaining.
       </p>
 <pre>
-_array(array).each(^(id obj) {
+Underscore.array(array).each(^(id obj) {
   NSLog(@"%@", obj);
 });
 </pre>
@@ -332,7 +332,7 @@ _array(array).each(^(id obj) {
         array. Otherwise, the return-value replaces the object.
       </p>
 <pre>
-_array(strings).map(^NSString *(NSString *string) {
+Underscore.array(strings).map(^NSString *(NSString *string) {
   return string.capitalizedString;
 });
 </pre>
@@ -344,7 +344,7 @@ _array(strings).map(^NSString *(NSString *string) {
         Returns an array containing the objects' values for the given key path.
       </p>
 <pre>
-NSArray *names = _array(users).pluck(@"name").unwrap;
+NSArray *names = Underscore.array(users).pluck(@"name").unwrap;
 </pre>
     </section>
 
@@ -354,7 +354,7 @@ NSArray *names = _array(users).pluck(@"name").unwrap;
         Returns an array containing only mutually distinct objects.
       </p>
 <pre>
-NSArray *uniqes = _array(values).uniq.unwrap;
+NSArray *uniqes = Underscore.array(values).uniq.unwrap;
 </pre>
     </section>
 
@@ -365,7 +365,7 @@ NSArray *uniqes = _array(values).uniq.unwrap;
         <code>nil</code> if none of the elements match.
       </p>
 <pre>
-User *admin = _array(users)
+User *admin = Underscore.array(users)
                 .find(^BOOL (User *user) {
                   return user.isAdmin;
                 });
@@ -378,7 +378,7 @@ User *admin = _array(users)
         Returns all elements that pass the <code>test</code>.
       </p>
 <pre>
-NSArray *dictionaries = _array(objects).filter(Underscore.isDictionary).unwrap;
+NSArray *dictionaries = Underscore.array(objects).filter(Underscore.isDictionary).unwrap;
 </pre>
     </section>
 
@@ -388,7 +388,7 @@ NSArray *dictionaries = _array(objects).filter(Underscore.isDictionary).unwrap;
         Returns all elements that fail the <code>test</code>.
       </p>
 <pre>
-NSArray *dictionaries = _array(objects).reject(Underscore.isNull).unwrap;
+NSArray *dictionaries = Underscore.array(objects).reject(Underscore.isNull).unwrap;
 </pre>
     </section>
 
@@ -398,7 +398,7 @@ NSArray *dictionaries = _array(objects).reject(Underscore.isNull).unwrap;
         Returns <code>YES</code> if all elements pass the <code>test</code>.
       </p>
 <pre>
-BOOL onlyStrings = _array(array).all(Underscore.isString);
+BOOL onlyStrings = Underscore.array(array).all(Underscore.isString);
 </pre>
     </section>
 
@@ -409,7 +409,7 @@ BOOL onlyStrings = _array(array).all(Underscore.isString);
         <code>test</code>.
       </p>
 <pre>
-BOOL containsNull = _array(array).any(Underscore.isNull);
+BOOL containsNull = Underscore.array(array).any(Underscore.isNull);
 </pre>
     </section>
 
@@ -419,7 +419,7 @@ BOOL containsNull = _array(array).any(Underscore.isNull);
         Returns the contents of the USArrayWrapper.
       </p>
 <pre>
-NSArray *empty = _array(@[]).unwrap;
+NSArray *empty = Underscore.array(@[]).unwrap;
 </pre>
     </section>
   </section>
@@ -432,14 +432,14 @@ NSArray *empty = _array(@[]).unwrap;
       to facilitate chaining.
     </p>
 
-    <section id="_dict">
-      <h4>_dict(NSDictionary *)</h4>
+    <section id="dict">
+      <h4>dict(NSDictionary *)</h4>
       <p>
         Wraps a dictionary in Underscore.m's USDictionaryWrapper. This is crucial
         in order to use the other methods.
       </p>
 <pre>
-USDictionaryWrapper *wrapper = _dict(dictionary);
+USDictionaryWrapper *wrapper = Underscore.dict(dictionary);
 </pre>
     </section>
 
@@ -449,7 +449,7 @@ USDictionaryWrapper *wrapper = _dict(dictionary);
         Returns a wrapped array containing all the dictionary's keys.
       </p>
 <pre>
-NSArray *keys = _dict(dictionary).keys.unwrap;
+NSArray *keys = Underscore.dict(dictionary).keys.unwrap;
 </pre>
     </section>
 
@@ -459,7 +459,7 @@ NSArray *keys = _dict(dictionary).keys.unwrap;
         Returns a wrapped array containing all the dictionary's values.
       </p>
 <pre>
-NSArray *values = _dict(dictionary).values.unwrap;
+NSArray *values = Underscore.dict(dictionary).values.unwrap;
 </pre>
     </section>
 
@@ -470,7 +470,7 @@ NSArray *values = _dict(dictionary).values.unwrap;
         This method returns the same dictionary again, to facilitate chaining.
       </p>
 <pre>
-_dict(dictionary).each(^(id key, id obj) {
+Underscore.dict(dictionary).each(^(id key, id obj) {
   NSLog(@"%@: %@", key, obj);
 });
 </pre>
@@ -484,7 +484,7 @@ _dict(dictionary).each(^(id key, id obj) {
         the dictionary. Otherwise, the return-value replaces the value.
       </p>
 <pre>
-NSDictionary *user = _dict(data)
+NSDictionary *user = Underscore.dict(data)
   .map(^id (id key, id obj) {
     if ([obj isKindOfClass:[NSString class]]) {
       return [(NSString *)obj capitalizedString];
@@ -502,7 +502,7 @@ NSDictionary *user = _dict(data)
         Returns a dictionary that only contains the keys contained in <code>keys</code>.
       </p>
 <pre>
-NSDictionary *subset = _dict(dictionary)
+NSDictionary *subset = Underscore.dict(dictionary)
   .pick(@[@"name", @"email", @"address"])
   .unwrap;
 </pre>
@@ -516,7 +516,7 @@ NSDictionary *subset = _dict(dictionary)
         have precedence over those from this dictionary.
       </p>
 <pre>
-NSDictionary *dictionary = _dict(@{@"name": @"moe"})
+NSDictionary *dictionary = Underscore.dict(@{@"name": @"moe"})
   .extend(@{@"age": @50})
   .unwrap
 </pre>
@@ -530,7 +530,7 @@ NSDictionary *dictionary = _dict(@{@"name": @"moe"})
         precedence over those from <code>defaults</code>.
       </p>
 <pre>
-NSDictionary *user = _dict(data)
+NSDictionary *user = Underscore.dict(data)
   .rejectValues(Underscore.isNull)
   .defaults(@{
     @"avatar":          kDefaultAvatar,
@@ -547,7 +547,7 @@ NSDictionary *user = _dict(data)
         pass <code>test</code>
       </p>
 <pre>
-NSDictionary *soundcloudRelated = _dict(data)
+NSDictionary *soundcloudRelated = Underscore.dict(data)
   .filterKeys(^BOOL (NSString *key) {
     return [key hasPrefix:@"soundcloud-"];
   })
@@ -562,7 +562,7 @@ NSDictionary *soundcloudRelated = _dict(data)
         pass <code>test</code>
       </p>
 <pre>
-NSDictionary *numericValues = _dict(data)
+NSDictionary *numericValues = Underscore.dict(data)
   .filterObjects(Underscore.isNumber)
   .unwrap;
 </pre>
@@ -575,7 +575,7 @@ NSDictionary *numericValues = _dict(data)
         fail <code>test</code>
       </p>
 <pre>
-NSDictionary *safe = _dict(data)
+NSDictionary *safe = Underscore.dict(data)
   .rejectKeys(^BOOL (NSString *key) {
     return [blackList containsObject:key];
   })
@@ -590,7 +590,7 @@ NSDictionary *safe = _dict(data)
         fail <code>test</code>
       </p>
 <pre>
-NSDictionary *noNulls = _dict(data)
+NSDictionary *noNulls = Underscore.dict(data)
   .rejectObjects(Underscore.isNull)
   .unwrap;
 </pre>
@@ -602,7 +602,7 @@ NSDictionary *noNulls = _dict(data)
         Returns the contents of the USDictionaryWrapper.
       </p>
 <pre>
-NSArray *dictionary = _dict(dictionary).unwrap;
+NSArray *dictionary = Underscore.dict(dictionary).unwrap;
 </pre>
     </section>
   </section>
@@ -616,7 +616,7 @@ NSArray *dictionary = _dict(dictionary).unwrap;
         Returns a block that negates <code>block</code>
       </p>
 <pre>
-id notNull = _array(array).find(Underscore.negate(Underscore.isNull));
+id notNull = Underscore.array(array).find(Underscore.negate(Underscore.isNull));
 </pre>
     </section>
 
@@ -627,7 +627,7 @@ id notNull = _array(array).find(Underscore.negate(Underscore.isNull));
         an object equal to <code>obj</code>.
       </p>
 <pre>
-BOOL containsNeedle = _array(haystack).any(Underscore.isEqual(@"needle"));
+BOOL containsNeedle = Underscore.array(haystack).any(Underscore.isEqual(@"needle"));
 </pre>
     </section>
 
