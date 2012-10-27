@@ -79,6 +79,13 @@
     };
 }
 
++ (NSArray *(^)(NSArray *))uniq;
+{
+    return ^(NSArray *array) {
+        return Underscore.array(array).uniq.unwrap;
+    };
+}
+
 + (NSArray *(^)(NSArray *, NSArray *))without;
 {
     return ^(NSArray *array, NSArray *values) {
