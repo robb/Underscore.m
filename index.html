@@ -250,6 +250,17 @@ NSArray *lastThree = _array(array).tail(3).unwrap;
 </pre>
   </section>
 
+      <section id="indexOf">
+      <h4>indexOf(id obj)</h4>
+      <p>
+        Returns the position of the first occurrence of <code>obj</code> or
+        <code>NSNotFound</code> if the object is not in the array.
+      </p>
+<pre>
+NSUInteger index = _array(haystack).indexOf(needle);
+</pre>
+  </section>
+
     <section id="flatten">
       <h4>flatten</h4>
       <p>
