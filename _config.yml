@@ -1,0 +1,6 @@
+auto:       false
+server:     false
+permalink:  /:categories/:title
+markdown:   kramdown
+pygments:   true
+paginate:   4
