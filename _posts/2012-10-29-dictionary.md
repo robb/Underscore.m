@@ -15,7 +15,13 @@ chain multiple operations together. You will need to call `unwrap` to extract
 the result.
 
 {% highlight objectivec %}
-
+NSDictionary *user = Underscore.dict(data)
+    .rejectValues(Underscore.isNull)
+    .defaults(@{
+        @"avatar":          kDefaultAvatar,
+        @"backgroundColor": kDefaultBackgroundColor
+    })
+    .unwrap;
 {% endhighlight %}
 
 Since `dict` is meant for chaining, you probably don't need to keep a
