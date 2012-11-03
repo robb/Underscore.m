@@ -18,7 +18,7 @@ the result.
 
 {% endhighlight %}
 
-Since `dict` is meant for chainging, you probably don't need to keep a
+Since `dict` is meant for chaining, you probably don't need to keep a
 reference to the `USDictionaryWrapper`.
 
 ### unwrap `wrapper.unwrap`
@@ -60,6 +60,7 @@ id value = Underscore.dict(dictionary)
 {% endhighlight %}
 
 ### each     `wrapper.each(UnderscoreDictionaryIteratorBlock block)`
+
 ### dictEach `Underscore.each(NSDictionary *dictionary, UnderscoreDictionaryIteratorBlock block)`
 
 Calls `block` once with every key-value pair of the dictionary.
@@ -83,6 +84,7 @@ Underscore.dict(objects)
 {% endhighlight %}
 
 ### map     `wrapper.map(UnderscoreDictionaryMapBlock block)`
+
 ### dictMap `Underscore.map(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block)`
 
 Calls `block` once with every key-value pair of he dictionary.
