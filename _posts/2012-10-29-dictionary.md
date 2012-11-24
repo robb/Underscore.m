@@ -1,14 +1,15 @@
 ---
-title: NSDictionary
+title:    NSDictionary
+category: documentation
 ---
 
-## NSDictionary
+### NSDictionary
 
 The following methods can be used with `NSDictionary` and `NSMutableDictionary`
 instances. With Underscore.m's dictionary methods can use a functional-style
 syntax as well as chaining to create powerful expressions.
 
-### dict `Underscore.dict(NSDictionary *dictionary)`
+#### dict `_.dict(NSDictionary *dictionary)`
 
 Wraps a dictionary in an `USDictionaryWrapper`. Use this method if you want to
 chain multiple operations together. You will need to call `unwrap` to extract
@@ -27,11 +28,11 @@ NSDictionary *user = Underscore.dict(data)
 Since `dict` is meant for chaining, you probably don't need to keep a
 reference to the `USDictionaryWrapper`.
 
-### unwrap `wrapper.unwrap`
+#### unwrap `wrapper.unwrap`
 
 Extracts the dictionary of an `USDictionaryWrapper`.
 
-### keys `Underscore.keys(NSDictionary *dictionary)`
+#### keys `_.keys(NSDictionary *dictionary)`
 
 Returns the keys of a dictionary.
 
@@ -48,7 +49,7 @@ id key = Underscore.dict(dictionary)
     .first;
 {% endhighlight %}
 
-### values `Underscore.values(NSDictionary *dictionary)`
+#### values `_.values(NSDictionary *dictionary)`
 
 Returns the values of a dictionary.
 
@@ -65,9 +66,9 @@ id value = Underscore.dict(dictionary)
     .first;
 {% endhighlight %}
 
-### each     `wrapper.each(UnderscoreDictionaryIteratorBlock block)`
+#### each     `wrapper.each(UnderscoreDictionaryIteratorBlock block)`
 
-### dictEach `Underscore.each(NSDictionary *dictionary, UnderscoreDictionaryIteratorBlock block)`
+#### dictEach `_.each(NSDictionary *dictionary, UnderscoreDictionaryIteratorBlock block)`
 
 Calls `block` once with every key-value pair of the dictionary.
 This method returns the same dictionary again, to facilitate chaining.
@@ -89,9 +90,9 @@ Underscore.dict(objects)
     });
 {% endhighlight %}
 
-### map     `wrapper.map(UnderscoreDictionaryMapBlock block)`
+#### map     `wrapper.map(UnderscoreDictionaryMapBlock block)`
 
-### dictMap `Underscore.map(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block)`
+#### dictMap `_.map(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block)`
 
 Calls `block` once with every key-value pair of he dictionary.
 If the block returns `nil`, the key-value-pair is removed from the dictionary.
@@ -123,7 +124,7 @@ Underscore.dict(dictionary)
     });
 {% endhighlight %}
 
-### pick `Underscore.pick(NSDictionary *dictionary, NSArray *keys)`
+#### pick `_.pick(NSDictionary *dictionary, NSArray *keys)`
 
 Returns a copy of `dictionary` that contains only the keys contained in `keys`.
 
@@ -131,7 +132,7 @@ Returns a copy of `dictionary` that contains only the keys contained in `keys`.
 NSDictionary *subset = Underscore.pick(info, @[ @"name", @"email", @"address" ]);
 {% endhighlight %}
 
-### extend `Underscore.extend(NSDictionary *destination, NSDictionary *source)`
+#### extend `_.extend(NSDictionary *destination, NSDictionary *source)`
 
 Returns a dictionary that contains a union of key-value-pairs of `destination`
 and `source`. Key-value-pairs of `source` will have precedence over those taken
@@ -141,7 +142,7 @@ from `destination`.
 NSDictionary *dictionary = Underscore.extend(user, @{ @"age": @50 });
 {% endhighlight %}
 
-### defaults `Underscore.defaults(NSDictionary *dictionary, NSDictionary *defaults)`
+#### defaults `_.defaults(NSDictionary *dictionary, NSDictionary *defaults)`
 
 Returns a dictionary that contains a union of key-value-pairs of `dictionary`
 and `defaults`. Key-value-pairs of `destination` will have precedence over those
@@ -163,7 +164,7 @@ NSDictionary *user = Underscore.dict(data)
     .unwrap;
 {% endhighlight %}
 
-### filterKeys `Underscore.filterKeys(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### filterKeys `_.filterKeys(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairs whose keys pass
 `test`.
@@ -174,7 +175,7 @@ NSDictionary *soundcloudRelated = Underscore.filterKeys(data, ^BOOL (NSString *k
 });
 {% endhighlight %}
 
-### filterObjects `Underscore.filterObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### filterObjects `_.filterObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairse whose values pass
 `test`.
@@ -183,7 +184,7 @@ Returns a dictionary that only contains the key-value-pairse whose values pass
 NSDictionary *numericValues = Underscore.filterObjects(data, Underscore.isNumber);
 {% endhighlight %}
 
-### rejectKeys `Underscore.rejectKeys(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### rejectKeys `_.rejectKeys(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairs whose keys fail
 `test`.
@@ -194,7 +195,7 @@ NSDictionary *safe = Underscore.rejectKeys(data, ^BOOL (NSString *key) {
 });
 {% endhighlight %}
 
-### rejectObjects `Underscore.rejectObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### rejectObjects `_.rejectObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairs whose values fail
 `test`.
