@@ -40,19 +40,19 @@
 
 #pragma mark Class methods
 
-+ (USArrayWrapper *)wrap:(NSArray *)array;
++ (USArrayWrapper *)wrap:(NSArray *)array
 {
     return [[USArrayWrapper alloc] initWithArray:[array copy]];
 }
 
 #pragma mark Lifecycle
 
-- (id)init;
+- (id)init
 {
     return [super init];
 }
 
-- (id)initWithArray:(NSArray *)array;
+- (id)initWithArray:(NSArray *)array
 {
     if (self = [super init]) {
         self.array = array;
@@ -62,24 +62,24 @@
 
 @synthesize array = _array;
 
-- (NSArray *)unwrap;
+- (NSArray *)unwrap
 {
     return [self.array copy];
 }
 
 #pragma mark Underscore methods
 
-- (id)first;
+- (id)first
 {
     return self.array.count ? [self.array objectAtIndex:0] : nil;
 }
 
-- (id)last;
+- (id)last
 {
     return self.array.lastObject;
 }
 
-- (USArrayWrapper *(^)(NSUInteger))head;
+- (USArrayWrapper *(^)(NSUInteger))head
 {
     return ^USArrayWrapper *(NSUInteger count) {
         NSRange    range     = NSMakeRange(0, MIN(self.array.count, count));
@@ -90,7 +90,7 @@
     };
 }
 
-- (USArrayWrapper *(^)(NSUInteger))tail;
+- (USArrayWrapper *(^)(NSUInteger))tail
 {
     return ^USArrayWrapper *(NSUInteger count) {
         NSRange range;
@@ -107,14 +107,14 @@
     };
 }
 
-- (NSUInteger (^)(id))indexOf;
+- (NSUInteger (^)(id))indexOf
 {
     return ^NSUInteger (id obj) {
         return [self.array indexOfObject:obj];
     };
 }
 
-- (USArrayWrapper *)flatten;
+- (USArrayWrapper *)flatten
 {
     __block NSArray *(^flatten)(NSArray *) = ^NSArray *(NSArray *input) {
         NSMutableArray *result = [NSMutableArray array];
@@ -133,7 +133,7 @@
     return [USArrayWrapper wrap:flatten(self.array)];
 }
 
-- (USArrayWrapper *(^)(NSArray *))without;
+- (USArrayWrapper *(^)(NSArray *))without
 {
     return ^USArrayWrapper *(NSArray *value) {
         return self.reject(^(id obj){
@@ -142,7 +142,7 @@
     };
 }
 
-- (USArrayWrapper *)shuffle;
+- (USArrayWrapper *)shuffle
 {
     NSMutableArray *result = [self.array mutableCopy];
 
@@ -154,7 +154,7 @@
     return [[USArrayWrapper alloc] initWithArray:result];
 }
 
-- (id (^)(id, UnderscoreReduceBlock))reduce;
+- (id (^)(id, UnderscoreReduceBlock))reduce
 {
     return ^USArrayWrapper *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array) {
@@ -165,7 +165,7 @@
     };
 }
 
-- (id (^)(id, UnderscoreReduceBlock))reduceRight;
+- (id (^)(id, UnderscoreReduceBlock))reduceRight
 {
     return ^USArrayWrapper *(id memo, UnderscoreReduceBlock function) {
         for (id obj in self.array.reverseObjectEnumerator) {
@@ -176,7 +176,7 @@
     };
 }
 
-- (USArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each;
+- (USArrayWrapper *(^)(UnderscoreArrayIteratorBlock))each
 {
     return ^USArrayWrapper *(UnderscoreArrayIteratorBlock block) {
         for (id obj in self.array) {
@@ -187,7 +187,7 @@
     };
 }
 
-- (USArrayWrapper *(^)(UnderscoreArrayMapBlock))map;
+- (USArrayWrapper *(^)(UnderscoreArrayMapBlock))map
 {
     return ^USArrayWrapper *(UnderscoreArrayMapBlock block) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
@@ -204,7 +204,7 @@
     };
 }
 
-- (USArrayWrapper *(^)(NSString *))pluck;
+- (USArrayWrapper *(^)(NSString *))pluck
 {
     return ^USArrayWrapper *(NSString *keyPath) {
         return self.map(^id (id obj) {
@@ -213,7 +213,7 @@
     };
 }
 
-- (USArrayWrapper *)uniq;
+- (USArrayWrapper *)uniq
 {
     NSSet* uniqSet = [NSSet setWithArray:self.array];
     NSArray* result = [uniqSet allObjects];
@@ -221,7 +221,7 @@
     return [[USArrayWrapper alloc] initWithArray:result];
 }
 
-- (id (^)(UnderscoreTestBlock))find;
+- (id (^)(UnderscoreTestBlock))find
 {
     return ^id (UnderscoreTestBlock test) {
         for (id obj in self.array) {
@@ -234,7 +234,7 @@
     };
 }
 
-- (USArrayWrapper *(^)(UnderscoreTestBlock))filter;
+- (USArrayWrapper *(^)(UnderscoreTestBlock))filter
 {
     return ^USArrayWrapper *(UnderscoreTestBlock test) {
         return self.map(^id (id obj) {
@@ -243,14 +243,14 @@
     };
 }
 
-- (USArrayWrapper *(^)(UnderscoreTestBlock))reject;
+- (USArrayWrapper *(^)(UnderscoreTestBlock))reject
 {
     return ^USArrayWrapper *(UnderscoreTestBlock test) {
         return self.filter(Underscore.negate(test));
     };
 }
 
-- (BOOL (^)(UnderscoreTestBlock))all;
+- (BOOL (^)(UnderscoreTestBlock))all
 {
     return ^BOOL (UnderscoreTestBlock test) {
         if (self.array.count == 0) {
@@ -269,7 +269,7 @@
     };
 }
 
-- (BOOL (^)(UnderscoreTestBlock))any;
+- (BOOL (^)(UnderscoreTestBlock))any
 {
     return ^BOOL (UnderscoreTestBlock test) {
         BOOL result = NO;

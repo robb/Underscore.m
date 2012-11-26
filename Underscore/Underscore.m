@@ -28,7 +28,7 @@
 
 @implementation Underscore
 
-+ (UnderscoreTestBlock (^)(UnderscoreTestBlock))negate;
++ (UnderscoreTestBlock (^)(UnderscoreTestBlock))negate
 {
     return ^UnderscoreTestBlock (UnderscoreTestBlock test) {
         return ^BOOL (id obj) {
@@ -37,7 +37,7 @@
     };
 }
 
-+ (UnderscoreTestBlock(^)(id obj))isEqual;
++ (UnderscoreTestBlock(^)(id obj))isEqual
 {
     return ^UnderscoreTestBlock (id obj) {
         return ^BOOL (id other) {
@@ -46,42 +46,42 @@
     };
 }
 
-+ (UnderscoreTestBlock)isArray;
++ (UnderscoreTestBlock)isArray
 {
     return ^BOOL (id obj) {
         return [obj isKindOfClass:[NSArray class]];
     };
 }
 
-+ (UnderscoreTestBlock)isDictionary;
++ (UnderscoreTestBlock)isDictionary
 {
     return ^BOOL (id obj) {
         return [obj isKindOfClass:[NSDictionary class]];
     };
 }
 
-+ (UnderscoreTestBlock)isNull;
++ (UnderscoreTestBlock)isNull
 {
     return ^BOOL (id obj) {
         return [obj isKindOfClass:[NSNull class]];
     };
 }
 
-+ (UnderscoreTestBlock)isNumber;
++ (UnderscoreTestBlock)isNumber
 {
     return ^BOOL (id obj) {
         return [obj isKindOfClass:[NSNumber class]];
     };
 }
 
-+ (UnderscoreTestBlock)isString;
++ (UnderscoreTestBlock)isString
 {
     return ^BOOL (id obj) {
         return [obj isKindOfClass:[NSString class]];
     };
 }
 
-- (id)init;
+- (id)init
 {
     return [super init];
 }

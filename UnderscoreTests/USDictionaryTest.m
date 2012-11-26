@@ -27,7 +27,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 @implementation USDictionaryTest
 
-- (void)setUp;
+- (void)setUp
 {
     emptyArray   = [NSArray array];
     singleObject = [NSArray arrayWithObject:@"foo"];
@@ -40,7 +40,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                   nil];
 }
 
-- (void)testKeys;
+- (void)testKeys
 {
     STAssertEqualObjects(_.keys(emptyDictionary),
                          emptyArray,
@@ -58,7 +58,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).keys.unwrap);
 }
 
-- (void)testValues;
+- (void)testValues
 {
     STAssertEqualObjects(_.values(emptyDictionary),
                          emptyArray,
@@ -76,7 +76,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).values.unwrap);
 }
 
-- (void)testEachFunctional;
+- (void)testEachFunctional
 {
     __block NSUInteger zero = 0;
 
@@ -118,7 +118,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 }
 
 
-- (void)testEachWrapping;
+- (void)testEachWrapping
 {
     __block NSUInteger zero = 0;
 
@@ -159,7 +159,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     STAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
 }
 
-- (void)testMapFunctional;
+- (void)testMapFunctional
 {
     __block NSUInteger zero = 0;
 
@@ -188,7 +188,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can map objects");
 }
 
-- (void)testMapWrapping;
+- (void)testMapWrapping
 {
     __block NSUInteger zero = 0;
 
@@ -219,7 +219,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can map objects");
 }
 
-- (void)testPick;
+- (void)testPick
 {
     STAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
                          emptyDictionary,
@@ -249,7 +249,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).pick(key1).unwrap);
 }
 
-- (void)testExtend;
+- (void)testExtend
 {
     STAssertEqualObjects(_.extend(emptyDictionary, emptyDictionary),
                          emptyDictionary,
@@ -285,7 +285,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(dictionary1).extend(dictionary2).unwrap);
 }
 
-- (void)testDefaults;
+- (void)testDefaults
 {
     STAssertEqualObjects(_.defaults(emptyDictionary, emptyDictionary),
                          emptyDictionary,
@@ -323,7 +323,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).defaults(defaults).unwrap);
 }
 
-- (void)testFilterKeys;
+- (void)testFilterKeys
 {
     UnderscoreTestBlock key2Passes = ^(NSString *key) {
         return [key isEqualToString:@"key2"];
@@ -355,7 +355,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).filterKeys(key2Passes).unwrap);
 }
 
-- (void)testFilterValues;
+- (void)testFilterValues
 {
     UnderscoreTestBlock object2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"object2"];
@@ -387,7 +387,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).filterValues(object2Passes).unwrap);
 }
 
-- (void)testRejectKeys;
+- (void)testRejectKeys
 {
     UnderscoreTestBlock key2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"key2"];
@@ -423,7 +423,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.dict(simpleDictionary).rejectKeys(key2Passes).unwrap);
 }
 
-- (void)testRejectValues;
+- (void)testRejectValues
 {
     UnderscoreTestBlock object2Passes = ^(NSString *obj) {
         return [obj isEqualToString:@"object2"];

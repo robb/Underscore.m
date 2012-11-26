@@ -40,19 +40,19 @@
 
 #pragma mark Class methods
 
-+ (USDictionaryWrapper *)wrap:(NSDictionary *)dictionary;
++ (USDictionaryWrapper *)wrap:(NSDictionary *)dictionary
 {
     return [[USDictionaryWrapper alloc] initWithDictionary:[dictionary copy]];
 }
 
 #pragma mark Lifecycle
 
-- (id)init;
+- (id)init
 {
     return [super init];
 }
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {
         self.dictionary = dictionary;
@@ -61,24 +61,24 @@
 }
 @synthesize dictionary = _dictionary;
 
-- (NSDictionary *)unwrap;
+- (NSDictionary *)unwrap
 {
     return [self.dictionary copy];
 }
 
 #pragma mark Underscore methods
 
-- (USArrayWrapper *)keys;
+- (USArrayWrapper *)keys
 {
     return [USArrayWrapper wrap:self.dictionary.allKeys];
 }
 
-- (USArrayWrapper *)values;
+- (USArrayWrapper *)values
 {
     return [USArrayWrapper wrap:self.dictionary.allValues];
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreDictionaryIteratorBlock))each;
+- (USDictionaryWrapper *(^)(UnderscoreDictionaryIteratorBlock))each
 {
     return ^USDictionaryWrapper *(UnderscoreDictionaryIteratorBlock block) {
         [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -89,7 +89,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreDictionaryMapBlock))map;
+- (USDictionaryWrapper *(^)(UnderscoreDictionaryMapBlock))map
 {
     return ^USDictionaryWrapper *(UnderscoreDictionaryMapBlock block) {
         NSMutableDictionary *result = [NSMutableDictionary dictionary];
@@ -107,7 +107,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(NSArray *))pick;
+- (USDictionaryWrapper *(^)(NSArray *))pick
 {
     return ^USDictionaryWrapper *(NSArray *keys) {
         __block NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:keys.count];
@@ -123,7 +123,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(NSDictionary *))extend;
+- (USDictionaryWrapper *(^)(NSDictionary *))extend
 {
     return ^USDictionaryWrapper *(NSDictionary *source) {
         __block NSMutableDictionary *result = [self.dictionary mutableCopy];
@@ -137,7 +137,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(NSDictionary *))defaults;
+- (USDictionaryWrapper *(^)(NSDictionary *))defaults
 {
     return ^USDictionaryWrapper *(NSDictionary *source) {
         __block NSMutableDictionary *result = [self.dictionary mutableCopy];
@@ -153,7 +153,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterKeys;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterKeys
 {
     return ^USDictionaryWrapper *(UnderscoreTestBlock test) {
         return self.map(^id (id key, id obj) {
@@ -162,7 +162,7 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterValues;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))filterValues
 {
     return ^USDictionaryWrapper *(UnderscoreTestBlock test) {
         return self.map(^id (id key, id obj) {
@@ -171,14 +171,14 @@
     };
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectKeys;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectKeys
 {
     return ^USDictionaryWrapper *(UnderscoreTestBlock test) {
         return self.filterKeys(Underscore.negate(test));
     };
 }
 
-- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectValues;
+- (USDictionaryWrapper *(^)(UnderscoreTestBlock))rejectValues
 {
     return ^USDictionaryWrapper *(UnderscoreTestBlock test) {
         return self.filterValues(Underscore.negate(test));

@@ -27,14 +27,14 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 @implementation USArrayTest
 
-- (void)setUp;
+- (void)setUp
 {
     emptyArray   = [NSArray array];
     singleObject = [NSArray arrayWithObject:@"foo"];
     threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
 }
 
-- (void)testFirst;
+- (void)testFirst
 {
     STAssertNil(_.first(emptyArray), @"Returns nil for empty array");
 
@@ -51,7 +51,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.first(threeObjects), _.array(threeObjects).first);
 }
 
-- (void)testLast;
+- (void)testLast
 {
     STAssertNil(_.last(emptyArray), @"Returns nil for empty array");
 
@@ -68,7 +68,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.last(threeObjects), _.array(threeObjects).last);
 }
 
-- (void)testHead;
+- (void)testHead
 {
     STAssertEqualObjects(_.head(emptyArray, 1),
                          emptyArray,
@@ -88,7 +88,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.head(threeObjects, 4), _.array(threeObjects).head(4).unwrap);
 }
 
-- (void)testTail;
+- (void)testTail
 {
     STAssertEqualObjects(_.tail(emptyArray, 1),
                          emptyArray,
@@ -108,7 +108,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4).unwrap);
 }
 
-- (void)testIndexOf;
+- (void)testIndexOf
 {
     STAssertTrue(_.indexOf(emptyArray, @1) == NSNotFound,
                  @"Returns NSNotFound when searching in an empty array");
@@ -124,7 +124,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                  @"Returns the index of the first occurrence");
 }
 
-- (void)testFlatten;
+- (void)testFlatten
 {
     STAssertEqualObjects(_.flatten(emptyArray),
                          emptyArray,
@@ -148,7 +148,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(complicated).flatten.unwrap);
 }
 
-- (void)testWithout;
+- (void)testWithout
 {
     STAssertEqualObjects(_.without(threeObjects, emptyArray),
                          threeObjects,
@@ -171,7 +171,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).without(singleObject).unwrap);
 }
 
-- (void)testShuffle;
+- (void)testShuffle
 {
     STAssertEqualObjects(_.shuffle(emptyArray),
                          emptyArray,
@@ -191,7 +191,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                   @"Can shuffle an array");
 }
 
-- (void)testReduce;
+- (void)testReduce
 {
     UnderscoreReduceBlock block1 = ^id (id memo, id any) {
         return nil;
@@ -215,7 +215,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).reduce(@"the ", block2));
 }
 
-- (void)testReduceRight;
+- (void)testReduceRight
 {
     UnderscoreReduceBlock block1 = ^id (id memo, id any) {
         return nil;
@@ -239,7 +239,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).reduceRight(@"the ", block2));
 }
 
-- (void)testEachFunctional;
+- (void)testEachFunctional
 {
     __block NSInteger testRun = 0;
     __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
@@ -270,7 +270,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     STAssertEquals(testRun, 3, @"Ran 3 tests");
 }
 
-- (void)testEachWrapping;
+- (void)testEachWrapping
 {
     __block NSInteger testRun = 0;
     __block BOOL checkedFoo = NO, checkedBar = NO, checkedBaz = NO;
@@ -301,7 +301,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     STAssertEquals(testRun, 3, @"Ran 3 tests");
 }
 
-- (void)testMap;
+- (void)testMap
 {
     UnderscoreArrayMapBlock returnTest = ^id (id any){ return @"test"; };
     UnderscoreArrayMapBlock returnNil  = ^id (id any){ return nil; };
@@ -332,7 +332,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).map(capitalize).unwrap);
 }
 
-- (void)testPluck;
+- (void)testPluck
 {
     STAssertEqualObjects(_.pluck(emptyArray, @"description"),
                          emptyArray,
@@ -354,7 +354,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 }
 
 
-- (void)testUniq;
+- (void)testUniq
 {
     STAssertEqualObjects(_.uniq(emptyArray),
                          emptyArray,
@@ -382,7 +382,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 }
 
 
-- (void)testFind;
+- (void)testFind
 {
     UnderscoreTestBlock endsOnZ  = ^BOOL(NSString *string) {
         return [string characterAtIndex:2] == 'z';
@@ -406,7 +406,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).find(endsOnZ));
 }
 
-- (void)testFilter;
+- (void)testFilter
 {
     UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
         return [string characterAtIndex:0] == 'b';
@@ -440,7 +440,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).filter(startsWithB).unwrap);
 }
 
-- (void)testReject;
+- (void)testReject
 {
     UnderscoreTestBlock startsWithB = ^BOOL(NSString *string) {
         return [string characterAtIndex:0] == 'b';
@@ -472,7 +472,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).reject(startsWithB).unwrap);
 }
 
-- (void)testAll;
+- (void)testAll
 {
     STAssertFalse(_.all(emptyArray, _.isNull),
                   @"Empty array never passes");
@@ -500,7 +500,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                             _.array(threeObjects).all(_.isNumber));
 }
 
-- (void)testAny;
+- (void)testAny
 {
     STAssertFalse(_.any(emptyArray, _.isNull),
                   @"Empty array never passes");
