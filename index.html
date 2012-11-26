@@ -2,6 +2,31 @@
 layout: default
 ---
 
-{% for post in site.posts %}
-  {% include post.html %}
+<header id="intro">
+  <h1>Underscore.m</h1>
+  <h2>a functional toolbelt for Objective-C</h2>
+</header>
+
+<section>
+  <p>
+    Underscore.m is a small utility library to facilitate working with common
+    data structures in Objective-C.
+  </p>
+
+  <p>
+    It tries to encourage chaining by eschewing the square bracket]]]]]].
+  </p>
+
+  <p>
+    It is inspired by the awesome
+    <a href="http://underscorejs.org">underscore.js</a>.
+    Underscore.m was written by Robert Böhnke, it is MIT licensed.
+  </p>
+</section>
+
+{% for post in site.categories.documentation %}
+  <section id="{{ post.title | downcase }}"
+           data-colorscheme="{{ post.title | downcase }}">
+    {{ post.content | markdownify }}
+  </section>
 {% endfor %}

@@ -1,0 +1,73 @@
+pre .hll { background-color: #ffffcc }
+pre .err { color: #F00000; background-color: #F0A0A0 } /* Error */
+
+pre .k  { color: #208090; font-weight: bold } /* Keyword */
+pre .c  { color: #606060; font-style: italic } /* Comment */
+pre .o  { color: #303030 } /* Operator */
+pre .cm { color: #606060; font-style: italic } /* Comment.Multiline */
+pre .cp { color: #63381F } /* Comment.Preproc */
+pre .c1 { color: #007400; font-style: italic } /* Comment.Single */
+pre .cs { color: #007400; font-weight: bold; font-style: italic } /* Comment.Special */
+pre .gd { color: #A00000 } /* Generic.Deleted */
+pre .ge { font-style: italic } /* Generic.Emph */
+pre .gr { color: #FF0000 } /* Generic.Error */
+pre .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+pre .gi { color: #00A000 } /* Generic.Inserted */
+pre .go { color: #808080 } /* Generic.Output */
+pre .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+pre .gs { font-weight: bold } /* Generic.Strong */
+pre .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+pre .gt { color: #0040D0 } /* Generic.Traceback */
+pre .k  { color: #A90D91}
+pre .kc { color: #A90D91; font-weight: bold } /* Keyword.Constant */
+pre .kd { color: #A90D91; font-weight: bold } /* Keyword.Declaration */
+pre .kn { color: #A90D91; font-weight: bold } /* Keyword.Namespace */
+pre .kp { color: #A90D91; font-weight: bold } /* Keyword.Pseudo */
+pre .kr { color: #A90D91; font-weight: bold } /* Keyword.Reserved */
+pre .kt { color: #A90D91; font-weight: bold } /* Keyword.Type */
+pre .m  { color: #6000E0; font-weight: bold } /* Literal.Number */
+pre .na { color: #000070 } /* Name.Attribute */
+pre .nb { color: #A90D91 } /* Name.Builtin */
+pre .nc { color: #3E6D74; font-weight: bold } /* Name.Class */
+pre .no { color: #3E6D74; font-weight: bold } /* Name.Constant */
+pre .nd { color: #505050; font-weight: bold } /* Name.Decorator */
+pre .ni { color: #800000 } /* Name.Entity */
+pre .ne { color: #F00000; font-weight: bold } /* Name.Exception */
+pre .nf { color: #3E6D74; font-weight: bold } /* Name.Function */
+pre .nl { color: #3E6D74; font-weight: bold } /* Name.Label */
+pre .nn { color: #3E6D74; font-weight: bold } /* Name.Namespace */
+pre .nt { color: #007000 } /* Name.Tag */
+pre .nv { color: #003060 } /* Name.Variable */
+pre .ow { color: #000000; font-weight: bold } /* Operator.Word */
+pre .w  { color: #bbbbbb } /* Text.Whitespace */
+pre .mf { color: #1C00CE; font-weight: bold } /* Literal.Number.Float */
+pre .mh { color: #1C00CE; font-weight: bold } /* Literal.Number.Hex */
+pre .mi { color: #1C00CE; font-weight: bold } /* Literal.Number.Integer */
+pre .mo { color: #1C00CE; font-weight: bold } /* Literal.Number.Oct */
+pre .s  { color: #C41A15 }
+pre .sc { color: #1C00CE } /* Literal.String.Char */
+pre .sd { color: #1C00CE } /* Literal.String.Doc */
+pre .se { color: #C41A15; font-weight: bold; } /* Literal.String.Escape */
+pre .sh { background-color: #C41A15 } /* Literal.String.Heredoc */
+pre .si { background-color: #e0e0e0 } /* Literal.String.Interpol */
+pre .sx { color: #C41A15; } /* Literal.String.Other */
+pre .sr { color: #C41A15; } /* Literal.String.Regex */
+pre .ss { color: #C41A15 } /* Literal.String.Symbol */
+pre .bp { color: #007020 } /* Name.Builtin.Pseudo */
+pre .vc { color: #c0c0f0 } /* Name.Variable.Class */
+pre .vg { color: #f08040 } /* Name.Variable.Global */
+pre .vi { color: #a0a0f0 } /* Name.Variable.Instance */
+pre .il { color: #6060f0; font-weight: bold } /* Literal.Number.Integer.Long */
+
+/* Objective-C specific overrides */
+
+/* Non-string literals are detected as errors :-/ */
+.objectivec .err {
+  color: #1C00CE;
+  background-color: transparent;
+}
+
+/* YES and NO are not really labels… */
+.objectivec .err + .nl {
+  color: #A90D91;
+}

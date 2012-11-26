@@ -1,0 +1,163 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+
+  padding: 0;
+  margin:  0;
+}
+
+p, pre, h1, h2, h3, h4, h5 {
+  margin-bottom: 0.5rem;
+}
+
+body {
+  color: white;
+  background-color: #4E5678;
+
+  font-family: "ff-meta-web-pro", sans-serif;
+
+  line-height: 1.8rem;
+
+  margin:  0;
+  padding: 0;
+
+  -webkit-transition: color 0.2s ease-in,
+                      background-color 0.2s ease-in;
+}
+
+#content {
+  position: absolute;
+  top:    0rem;
+  right:  0rem;
+  bottom: 0rem;
+  left:   18rem;
+
+  max-width: 60rem;
+
+  padding: 2rem 4rem 4rem 2rem;
+}
+
+aside {
+  position: absolute;
+  top:    8rem;
+  left:   0rem;
+
+  width:  20rem;
+
+  padding: 2rem;
+}
+
+aside.fixed {
+  position: fixed;
+  top:    4rem;
+  left:   0rem;
+}
+
+#navigation ul {
+  list-style-type: none;
+}
+
+#navigation li {
+  margin-bottom: 0.25rem;
+}
+
+.button {
+  display: block;
+
+  font-family: "brandon-grotesque";
+  font-size:   1.5rem;
+  line-height: 1.5rem;
+
+  padding: 1rem;
+
+  text-decoration: none;
+
+  border-radius: 0.25rem;
+
+  color: #4E5678;
+  background-color: #8D94C2;
+}
+
+.button:hover {
+  background-color: #DDDFED;
+}
+
+header {
+  height: 8rem;
+}
+
+section {
+  padding: 0 0 2rem 0;
+}
+
+section + section {
+  padding: 2rem 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "brandon-grotesque";
+}
+
+h1 {
+  font-size:   4rem;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size:   2rem;
+  line-height: 2rem;
+}
+
+h3 {
+  font-size:   2rem;
+  line-height: 2rem;
+
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size:   1.4rem;
+  line-height: 1.4rem;
+
+  margin-bottom: 1rem;
+
+  margin-top: 3rem;
+}
+
+h4:first-child, h4 + h4 {
+  margin-top: 0;
+}
+
+h4 code {
+  display: block;
+
+  font-family: inherit !important;
+  font-size:   1rem !important;
+  color: rgba(255, 255, 255, 0.333);
+}
+
+pre, tt, code, kbd, samp {
+  font-family: Menlo, "droid-sans-mono", monospace;
+  font-size:   0.95rem;
+}
+
+pre, p code {
+  border-radius: 0.2rem;
+
+  background-color: #DDDFED;
+  font-size: 0.9rem;
+}
+
+pre {
+  padding: 0.5rem;
+
+  overflow: auto;
+
+  color: black;
+}
+
+p code {
+  padding: 0.2rem 0.3rem;
+  color: black;
+}

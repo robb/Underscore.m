@@ -15,25 +15,61 @@
   <meta property="og:description" content="Underscore.m is a small utility library that facilitates working with common data structures in Objective-C. It is inspired by the awesome underscore.js" />
   <meta property="fb:admins" content="1623421444" />
 
-  <!-- Homescreen icons -->
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon-iphone.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-ipad.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-iphone4.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-ipad3.png" />
-
-  <script type="text/javascript" src="http://use.typekit.com/jgi2evu.js"></script>
+  <script type="text/javascript" src="//use.typekit.net/vuy5neu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/pygments.css" />
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var body       = document.getElementsByTagName('body')[0];
+      var navigation = document.getElementById('navigation');
+      var sections   = document.getElementsByTagName('section');
+
+      var init  = document.getElementById('intro').clientHeight;
+      var fixed = false;
+
+      var updateNavigation = function() {
+        var scrollDistance = document.body.scrollTop ||
+                             document.documentElement.scrollTop;
+
+        if (!fixed && (navigation.offsetTop - scrollDistance < 0)) {
+          navigation.style.top      = 0;
+          navigation.style.position = 'fixed';
+          navigation.className      = 'fixed';
+          fixed = true;
+        } else if (fixed && scrollDistance <= init) {
+          navigation.style.position = 'absolute';
+          navigation.style.top = init + 'px';
+          navigation.className = navigation.className.replace('fixed', '');
+          fixed = false;
+        }
+      };
+
+      window.onscroll = updateNavigation;
+
+      updateNavigation();
+
+      ['nsarray', 'nsdictionary', 'helpers'].forEach(function(id) {
+        var section   = document.getElementById(id);
+        var headlines = section.getElementsByTagName('h4');
+        var listItem  = document.getElementById('nav-' + id);
+
+        for (var i = 0; i < headlines.length; i++) {
+          var headline = headlines[0];
+
+          console.log(headline.text);
+        }
+      });
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Underscore.m</h1>
-  </header>
-  <section>
+  <div id="content">
     {{ content }}
-  </section>
-  <footer>
-    Underscore.m is being maintained by
-    <a href="http://robb.is">Robert Böhnke</a>, it is MIT licensed.
-  </footer>
+  </div>
+
+  {% include navigation.html %}
 </body>
 </html>
