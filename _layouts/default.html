@@ -18,51 +18,31 @@
   <script type="text/javascript" src="//use.typekit.net/vuy5neu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
   <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/default.css" />
   <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/pygments.css" />
 
   <script type="text/javascript">
-    window.onload = function () {
-      var body       = document.getElementsByTagName('body')[0];
-      var navigation = document.getElementById('navigation');
-      var sections   = document.getElementsByTagName('section');
-
-      var init  = document.getElementById('intro').clientHeight;
-      var fixed = false;
-
-      var updateNavigation = function() {
-        var scrollDistance = document.body.scrollTop ||
-                             document.documentElement.scrollTop;
-
-        if (!fixed && (navigation.offsetTop - scrollDistance < 0)) {
-          navigation.style.top      = 0;
-          navigation.style.position = 'fixed';
-          navigation.className      = 'fixed';
-          fixed = true;
-        } else if (fixed && scrollDistance <= init) {
-          navigation.style.position = 'absolute';
-          navigation.style.top = init + 'px';
-          navigation.className = navigation.className.replace('fixed', '');
-          fixed = false;
-        }
-      };
-
-      window.onscroll = updateNavigation;
-
-      updateNavigation();
-
+    $(function () {
       ['nsarray', 'nsdictionary', 'helpers'].forEach(function(id) {
-        var section   = document.getElementById(id);
-        var headlines = section.getElementsByTagName('h4');
-        var listItem  = document.getElementById('nav-' + id);
+        var section   = $('#' + id),
+            headlines = section.children('h4'),
+            list      = $('#nav-' + id);
 
-        for (var i = 0; i < headlines.length; i++) {
-          var headline = headlines[0];
+        var sublist = $('<ul/>');
 
-          console.log(headline.text);
-        }
+        headlines.each(function(i, el) {
+          var text   = $(el).text(),
+              title  = text.match('^([A-Za-z0-9]+)')[0],
+              anchor = $(el).attr('id');
+
+          sublist.append('<li><a href="#' + anchor + '">' + title +'</a></li>');
+        });
+
+        list.after(sublist);
       });
-    }
+    });
   </script>
 </head>
 <body>

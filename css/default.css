@@ -13,74 +13,49 @@ p, pre, h1, h2, h3, h4, h5 {
 
 body {
   color: white;
-  background-color: #4E5678;
+  background-color: #147CCE;
 
   font-family: "ff-meta-web-pro", sans-serif;
 
-  line-height: 1.8rem;
+  font-size:   1.0rem;
+  line-height: 1.5rem;
 
   margin:  0;
   padding: 0;
+}
 
-  -webkit-transition: color 0.2s ease-in,
-                      background-color 0.2s ease-in;
+a {
+  color: white;
 }
 
 #content {
-  position: absolute;
-  top:    0rem;
-  right:  0rem;
-  bottom: 0rem;
-  left:   18rem;
+  display: block;
 
-  max-width: 60rem;
+  padding: 2rem 4rem 4rem 16rem;
+}
 
-  padding: 2rem 4rem 4rem 2rem;
+#content > * {
+  /*max-width: 60rem;*/
 }
 
 aside {
-  position: absolute;
-  top:    8rem;
-  left:   0rem;
+  position: fixed;
+  top:      0rem;
+  left:     0rem;
+  bottom:   0rem;
 
-  width:  20rem;
+  width:  14rem;
 
   padding: 2rem;
-}
 
-aside.fixed {
-  position: fixed;
-  top:    4rem;
-  left:   0rem;
-}
+  overflow: scroll;
 
-#navigation ul {
-  list-style-type: none;
-}
-
-#navigation li {
-  margin-bottom: 0.25rem;
-}
-
-.button {
-  display: block;
-
-  font-family: "brandon-grotesque";
-  font-size:   1.5rem;
-  line-height: 1.5rem;
-
-  padding: 1rem;
-
-  text-decoration: none;
-
-  border-radius: 0.25rem;
-
-  color: #4E5678;
-  background-color: #8D94C2;
-}
-
-.button:hover {
-  background-color: #DDDFED;
+  background: -webkit-linear-gradient(right,
+                                      rgba(15, 15, 25, 0.65) 0,
+                                      rgba(25, 25, 35, 0.55) 1px,
+                                      rgba(35, 35, 45, 0.25) 3px,
+                                      rgba(45, 45, 55, 0.00) 12px)
+              rgba(255, 255, 255, 0.1);
 }
 
 header {
@@ -120,13 +95,12 @@ h4 {
   font-size:   1.4rem;
   line-height: 1.4rem;
 
-  margin-bottom: 1rem;
-
-  margin-top: 3rem;
+  padding-top:    2rem;
+  padding-bottom: 1rem;
 }
 
 h4:first-child, h4 + h4 {
-  margin-top: 0;
+  padding-top: 0;
 }
 
 h4 code {
