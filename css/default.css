@@ -87,7 +87,11 @@ h4 code {
   color: rgba(0, 0, 0, 0.5);
 }
 
-p, nav {
+nav {
+  margin-bottom: 1rem;
+}
+
+p {
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -155,6 +159,8 @@ p code {
 
 .button:hover {
   background: rgba(0, 0, 0, 0.5);
+
+  color: inherit;
 }
 
 .button:active {
