@@ -81,7 +81,6 @@ h4 code {
   display: block;
 
   font-family: Menlo, "droid-sans-mono", monospace;
-  /*font-family: inherit !important;*/
   font-size:   0.9rem !important;
   line-height: 1rem;
   color: rgba(0, 0, 0, 0.5);
@@ -180,6 +179,7 @@ nav.methods li {
 nav.methods li:after {
   content: ",";
   margin-right: 0.2rem;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 nav.methods li:last-child:after {
