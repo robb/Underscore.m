@@ -39,6 +39,11 @@ header .inner, section .inner, footer .inner {
   color:      #3390AB;
 }
 
+.helpers {
+  background: #AB9033;
+  color:      #AB9033;
+}
+
 h1, h2, h3, h4, h5 {
   font-family: "brandon-grotesque";
   color: rgba(255, 255, 255, 0.8);
