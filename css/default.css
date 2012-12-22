@@ -87,7 +87,7 @@ h4 code {
   color: rgba(0, 0, 0, 0.5);
 }
 
-p {
+p, nav {
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -98,6 +98,10 @@ p + p {
 
 a {
   color: rgba(255, 255, 255, 0.9);
+}
+
+a:hover {
+  color: white;
 }
 
 pre, h2, h3, h4, h5 {
@@ -159,48 +163,19 @@ p code {
   box-shadow: none;
 }
 
-aside {
-  display: none;
-
-  position: fixed;
-  top:      0rem;
-  left:     0rem;
-  bottom:   0rem;
-
-  width:  14rem;
-
-  padding: 2rem;
-
-  overflow: scroll;
-
-  background: -webkit-linear-gradient(right,
-                                      rgba(15, 15, 25, 0.65) 0,
-                                      rgba(25, 25, 35, 0.55) 1px,
-                                      rgba(35, 35, 45, 0.25) 3px,
-                                      rgba(45, 45, 55, 0.00) 12px)
-              rgba(255, 255, 255, 0.2);
+p + nav.methods {
+  margin-top: -1rem;
 }
 
-li {
-  list-style: none;
-  line-height: 1.5rem;
+nav.methods li {
+  display: inline-block;
 }
 
-ul li a {
-  font-size: 1.2rem;
-  font-weight: bold;
+nav.methods li:after {
+  content: ",";
+  margin-right: 0.2rem;
 }
 
-ul ul li a {
-  font-size: 1rem;
-  font-weight: normal;
-  text-decoration: none;
-}
-
-ul ul li:hover {
-  text-decoration: underline;
-}
-
-ul ul li a:before {
-  content: "- ";
+nav.methods li:last-child:after {
+  content: ""
 }

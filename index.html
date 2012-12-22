@@ -9,7 +9,8 @@ layout: default
 </header>
 
 {% for post in site.categories.documentation %}
-  <section class="{{ post.title | downcase }}">
+  <section id="section-{{post.title | downcase}}"
+           class="{{ post.title | downcase }}">
     <div class="inner">
       {{ post.content | markdownify }}
     </div>

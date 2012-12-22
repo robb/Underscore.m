@@ -9,6 +9,12 @@ The following methods can be used with `NSDictionary` and `NSMutableDictionary`
 instances. With Underscore.m's dictionary methods can use a functional-style
 syntax as well as chaining to create powerful expressions.
 
+Underscore.m supports the following methods to manipulate dictionaries:
+
+<nav class="methods">
+  <!-- will be populated using JS -->
+</nav>
+
 #### dict `Underscore.dict(NSDictionary *dictionary)`
 
 Wraps a dictionary in an `USDictionaryWrapper`. Use this method if you want to

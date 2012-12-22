@@ -26,21 +26,23 @@
   <script type="text/javascript">
     $(function () {
       ['nsarray', 'nsdictionary', 'helpers'].forEach(function(id) {
-        var section   = $('#' + id),
-            headlines = section.children('h4'),
-            list      = $('#nav-' + id);
+        var section    = $('#section-' + id),
+            headlines  = section.find('h4'),
+            navigation = section.find('nav');
 
-        var sublist = $('<ul/>');
+        var list = $('<ul/>');
 
         headlines.each(function(i, el) {
           var text   = $(el).text(),
               title  = text.match('^([A-Za-z0-9]+)')[0],
               anchor = $(el).attr('id');
 
-          sublist.append('<li><a href="#' + anchor + '">' + title +'</a></li>');
+          list.append('<li><a href="#' + anchor + '">' + title +'</a></li>');
         });
 
-        list.after(sublist);
+        console.log(navigation);
+
+        navigation.append(list);
       });
     });
   </script>
@@ -49,7 +51,5 @@
   <div id="content">
     {{ content }}
   </div>
-
-  {% include navigation.html %}
 </body>
 </html>
