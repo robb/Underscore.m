@@ -87,12 +87,6 @@
     };
 }
 
-+ (UnderscoreSortBlock)sortDescending {
-    return ^NSComparisonResult(id a, id b){
-        return [b compare:a];
-    };
-}
-
 - (id)init
 {
     return [super init];

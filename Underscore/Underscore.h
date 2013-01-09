@@ -46,7 +46,6 @@
 + (UnderscoreTestBlock)isString;
 
 + (UnderscoreSortBlock)sortAscending;
-+ (UnderscoreSortBlock)sortDescending;
 
 - (id)init __deprecated;
 
