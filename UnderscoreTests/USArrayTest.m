@@ -530,11 +530,19 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testSort
 {
-    NSArray *expectedResult = [NSArray arrayWithObjects:@"foo", @"baz", @"bar", nil];
-    USAssertEqualObjects(_.sort(threeObjects, _.sortDescending), expectedResult);
+    NSArray *notSorted = @[ @3, @1, @2 ];
+    NSArray *sorted    = @[ @1, @2, @3 ];
 
-    USAssertEqualObjects(_.sort(threeObjects, _.sortAscending),
-                         _.array(threeObjects).sort(_.sortAscending).unwrap);
+    UnderscoreSortBlock numericalSort = ^(NSNumber *a, NSNumber *b) {
+        return [a compare:b];
+    };
+
+    STAssertEqualObjects(_.sort(notSorted, numericalSort),
+                         sorted,
+                         @"Can sort elements");
+
+    USAssertEqualObjects(_.sort(notSorted, numericalSort),
+                         _.array(notSorted).sort(numericalSort).unwrap);
 }
 
 @end
