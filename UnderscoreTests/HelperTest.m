@@ -68,4 +68,14 @@
     STAssertFalse(Underscore.isString([[NSObject alloc] init]), @"Returns false for NSObject");
 }
 
+- (void)testCompare
+{
+    STAssertEquals(Underscore.compare(@"a", @"b"), NSOrderedAscending,  @"Can compare correctly");
+    STAssertEquals(Underscore.compare(@"a", @"a"), NSOrderedSame,       @"Can compare correctly");
+    STAssertEquals(Underscore.compare(@"b", @"a"), NSOrderedDescending, @"Can compare correctly");
+
+    STAssertThrows(Underscore.compare(@{}, @{}),
+                   @"Comparing objects that don't respond to compare: throws an exception");
+}
+
 @end

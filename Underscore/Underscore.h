@@ -45,7 +45,7 @@
 + (UnderscoreTestBlock)isNumber;
 + (UnderscoreTestBlock)isString;
 
-+ (UnderscoreSortBlock)sortAscending;
++ (UnderscoreSortBlock)compare;
 
 - (id)init __deprecated;
 
