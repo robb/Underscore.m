@@ -168,6 +168,13 @@
     };
 }
 
++ (NSArray *(^)(NSArray *, UnderscoreSortBlock))sort
+{
+    return ^(NSArray *array, UnderscoreSortBlock block) {
+        return Underscore.array(array).sort(block).unwrap;
+    };
+}
+
 #pragma mark NSDictionary shortcuts
 
 + (USDictionaryWrapper *(^)(NSDictionary *))dict

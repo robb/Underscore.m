@@ -284,4 +284,12 @@
     };
 }
 
+- (USArrayWrapper *(^)(UnderscoreSortBlock))sort
+{
+    return ^USArrayWrapper *(UnderscoreSortBlock block) {
+        NSArray *result = [self.array sortedArrayUsingComparator:block];
+        return [[USArrayWrapper alloc] initWithArray:result];
+    };
+}
+
 @end
