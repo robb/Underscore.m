@@ -26,6 +26,10 @@
 
 #import "Underscore.h"
 
+#if !__has_feature(objc_arc)
+# error Underscore.m requires Automatic Reference Counting to be enabled
+#endif
+
 @implementation Underscore
 
 + (UnderscoreTestBlock (^)(UnderscoreTestBlock))negate
