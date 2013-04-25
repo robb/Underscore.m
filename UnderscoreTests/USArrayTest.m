@@ -360,25 +360,44 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Can handle empty arrays");
 
-    NSArray *samesObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
-                                                      [NSNumber numberWithInt:3],
-                                                      [NSNumber numberWithInt:3],
-                                                      nil];
+    NSArray *sameObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
+                                                     [NSNumber numberWithInt:3],
+                                                     [NSNumber numberWithInt:3],
+                                                     nil];
 
     STAssertEquals(_.uniq(threeObjects).count,
-                            (NSUInteger)3,
-                            @"Can extract 3 unique values");
-    STAssertEquals(_.uniq(samesObjects).count,
-                            (NSUInteger)1,
-                            @"Can extract 1 unique value");
+                   (NSUInteger)3,
+                   @"Can extract 3 unique values");
+
+    STAssertEquals(_.uniq(sameObjects).count,
+                   (NSUInteger)1,
+                   @"Can extract 1 unique value");
+
+    NSArray *ordered = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],
+                                                 [NSNumber numberWithInt:2],
+                                                 [NSNumber numberWithInt:2],
+                                                 [NSNumber numberWithInt:3],
+                                                 [NSNumber numberWithInt:3],
+                                                 [NSNumber numberWithInt:4],
+                                                 nil];
+
+    NSArray *oneToFour = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],
+                                                   [NSNumber numberWithInt:2],
+                                                   [NSNumber numberWithInt:3],
+                                                   [NSNumber numberWithInt:4],
+                                                   nil];
+
+    STAssertEqualObjects(_.uniq(ordered),
+                         oneToFour,
+                         @"Preserves order");
 
     USAssertEqualObjects(_.uniq(emptyArray),
                          _.array(emptyArray).uniq.unwrap);
 
     USAssertEqualObjects(_.uniq(threeObjects),
                          _.array(threeObjects).uniq.unwrap);
-    USAssertEqualObjects(_.uniq(samesObjects),
-                         _.array(samesObjects).uniq.unwrap);
+    USAssertEqualObjects(_.uniq(sameObjects),
+                         _.array(sameObjects).uniq.unwrap);
 }
 
 

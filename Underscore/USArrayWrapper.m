@@ -225,10 +225,9 @@
 
 - (USArrayWrapper *)uniq
 {
-    NSSet* uniqSet = [NSSet setWithArray:self.array];
-    NSArray* result = [uniqSet allObjects];
+    NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:self.array];
 
-    return [[USArrayWrapper alloc] initWithArray:result];
+    return [[USArrayWrapper alloc] initWithArray:[set array]];
 }
 
 - (id (^)(UnderscoreTestBlock))find
