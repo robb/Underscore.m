@@ -29,15 +29,16 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)setUp
 {
-    emptyArray   = [NSArray array];
-    singleObject = [NSArray arrayWithObject:@"foo"];
-    threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
+    emptyArray   = @[];
+    singleObject = @[ @"foo"];
+    threeObjects = @[ @"foo", @"bar", @"baz" ];
 
-    emptyDictionary  = [NSDictionary dictionary];
-    simpleDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
-                                                                  @"object2", @"key2",
-                                                                  @"object3", @"key3",
-                                                                  nil];
+    emptyDictionary  = @{};
+    simpleDictionary = @{
+        @"key1": @"object1",
+        @"key2": @"object2",
+        @"key3": @"object3"
+    };
 }
 
 - (void)testKeys
@@ -178,10 +179,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [obj capitalizedString];
     });
 
-    NSDictionary *capitalized = [NSDictionary dictionaryWithObjectsAndKeys:@"Object1", @"key1",
-                                                                           @"Object2", @"key2",
-                                                                           @"Object3", @"key3",
-                                                                           nil];
+    NSDictionary *capitalized = @{
+        @"key1": @"Object1",
+        @"key2": @"Object2",
+        @"key3": @"Object3"
+    };
 
     STAssertEqualObjects(result,
                          capitalized,
@@ -209,10 +211,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         })
         .unwrap;
 
-    NSDictionary *capitalized = [NSDictionary dictionaryWithObjectsAndKeys:@"Object1", @"key1",
-                                                                           @"Object2", @"key2",
-                                                                           @"Object3", @"key3",
-                                                                           nil];
+    NSDictionary *capitalized = @{
+        @"key1": @"Object1",
+        @"key2": @"Object2",
+        @"key3": @"Object3"
+    };
 
     STAssertEqualObjects(result,
                          capitalized,
@@ -233,10 +236,10 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyDictionary,
                          @"Picking with array that not contains common keys results in empty dictionary");
 
-    NSArray *key1 = [NSArray arrayWithObject:@"key1"];
+    NSArray *key1 = @[ @"key1" ];
 
     STAssertEqualObjects(_.pick(simpleDictionary, key1),
-                         [NSDictionary dictionaryWithObject:@"object1" forKey:@"key1"],
+                         @{ @"key1": @"object1" },
                          @"Can pick keys");
 
     USAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
@@ -263,13 +266,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          simpleDictionary,
                          @"Extending non-empty dictionary with empty dictionary leaves all key-values pairs unchanged");
 
-    NSDictionary *dictionary1 = [NSDictionary dictionaryWithObjectsAndKeys:@"object1",    @"key1",
-                                                                           [NSNull null], @"key2",
-                                                                           nil];
+    NSDictionary *dictionary1 = @{
+        @"key1": @"object1",
+        @"key2": [NSNull null]
+    };
 
-    NSDictionary *dictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:@"object2", @"key2",
-                                                                           @"object3", @"key3",
-                                                                           nil];
+    NSDictionary *dictionary2 = @{
+        @"key2": @"object2",
+        @"key3": @"object3"
+    };
 
     STAssertEqualObjects(_.extend(dictionary1, dictionary2),
                          simpleDictionary,
@@ -299,15 +304,17 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          simpleDictionary,
                          @"Applying defaults from an empty dictionary to a non-empty dictionary copies over all key-values pairs");
 
-    NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNull null], @"key3",
-                                                                        @"object4",    @"key4",
-                                                                        nil];
+    NSDictionary *defaults = @{
+        @"key3": [NSNull null],
+        @"key4": @"object4"
+    };
 
-    NSDictionary *fourKeys = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
-                                                                        @"object2", @"key2",
-                                                                        @"object3", @"key3",
-                                                                        @"object4", @"key4",
-                                                                        nil];
+    NSDictionary *fourKeys = @{
+        @"key1": @"object1",
+        @"key2": @"object2",
+        @"key3": @"object3",
+        @"key4": @"object4"
+    };
 
     STAssertEqualObjects(_.defaults(simpleDictionary, defaults),
                          fourKeys,
@@ -342,7 +349,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Filtering nothing results in the original dictionary");
 
     STAssertEqualObjects(_.filterKeys(simpleDictionary, key2Passes),
-                         [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
+                         @{ @"key2": @"object2" },
                          @"Can filter only specific keys");
 
     USAssertEqualObjects(_.filterKeys(emptyDictionary, allPass),
@@ -374,7 +381,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Filtering nothing results in the original dictionary");
 
     STAssertEqualObjects(_.filterValues(simpleDictionary, object2Passes),
-                         [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
+                         @{ @"key2": @"object2" },
                          @"Can filter only specific values");
 
     USAssertEqualObjects(_.filterValues(emptyDictionary, allPass),
@@ -405,9 +412,10 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
-    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
-                                                                        @"object3", @"key3",
-                                                                        nil];
+    NSDictionary *expected = @{
+        @"key1": @"object1",
+        @"key3": @"object3"
+    };
 
     STAssertEqualObjects(_.rejectKeys(simpleDictionary, key2Passes),
                          expected,
@@ -441,9 +449,10 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
-    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"object1", @"key1",
-                                                                        @"object3", @"key3",
-                                                                        nil];
+    NSDictionary *expected = @{
+        @"key1": @"object1",
+        @"key3": @"object3"
+    };
 
     STAssertEqualObjects(_.rejectValues(simpleDictionary, object2Passes),
                          expected,

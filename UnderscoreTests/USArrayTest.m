@@ -29,9 +29,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)setUp
 {
-    emptyArray   = [NSArray array];
-    singleObject = [NSArray arrayWithObject:@"foo"];
-    threeObjects = [NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil];
+    emptyArray   = @[];
+    singleObject = @[ @"foo" ];
+    threeObjects = @[ @"foo", @"bar", @"baz" ];
 }
 
 - (void)testFirst
@@ -74,7 +74,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
-    NSArray *subrange = [NSArray arrayWithObjects:@"foo", @"bar", nil];
+    NSArray *subrange = @[ @"foo", @"bar" ];
     STAssertEqualObjects(_.head(threeObjects, 2),
                          subrange,
                          @"Returns multiple elements if available");
@@ -94,7 +94,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
-    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    NSArray *subrange = @[ @"bar", @"baz" ];
     STAssertEqualObjects(_.tail(threeObjects, 2),
                          subrange,
                          @"Returns multiple elements if available");
@@ -134,8 +134,8 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          threeObjects,
                          @"Returns a copy for arrays not containing other arrays");
 
-    NSArray *complicated = [NSArray arrayWithObjects:@"foo", threeObjects, nil];
-    NSArray *flattened   = [NSArray arrayWithObjects:@"foo", @"foo", @"bar", @"baz", nil];
+    NSArray *complicated = @[ @"foo", threeObjects ];
+    NSArray *flattened   = @[ @"foo", @"foo", @"bar", @"baz" ];
     STAssertEqualObjects(_.flatten(complicated),
                          flattened,
                          @"Returns a flattened array when needed");
@@ -158,7 +158,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Removing the same array returns an empty array");
 
-    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    NSArray *subrange = @[ @"bar", @"baz" ];
     STAssertEqualObjects(_.without(threeObjects, singleObject),
                          subrange,
                          @"Removing one object returns the rest");
@@ -181,7 +181,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
     NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger i = 1; i < 100; i++) {
-        [array addObject:[NSNumber numberWithUnsignedInteger:i]];
+        [array addObject:@(i)];
     }
 
      STAssertFalse([_.shuffle(array) isEqualToArray:array],
@@ -317,7 +317,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Returning nil in the map block removes the object pair");
 
-    NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
+    NSArray *capitalized = @[ @"Foo", @"Bar", @"Baz" ];
     NSArray *result      = _.arrayMap(threeObjects, capitalize);
 
     STAssertEqualObjects(capitalized,
@@ -338,10 +338,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Can handle empty arrays");
 
-    NSArray *lengths = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
-                                                 [NSNumber numberWithInt:3],
-                                                 [NSNumber numberWithInt:3],
-                                                 nil];
+    NSArray *lengths = @[ @3, @3, @3 ];
 
     STAssertEqualObjects(_.pluck(threeObjects, @"length"),
                          lengths,
@@ -360,10 +357,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Can handle empty arrays");
 
-    NSArray *sameObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
-                                                     [NSNumber numberWithInt:3],
-                                                     [NSNumber numberWithInt:3],
-                                                     nil];
+    NSArray *sameObjects = @[ @3, @3, @3 ];
 
     STAssertEquals(_.uniq(threeObjects).count,
                    (NSUInteger)3,
@@ -373,19 +367,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                    (NSUInteger)1,
                    @"Can extract 1 unique value");
 
-    NSArray *ordered = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],
-                                                 [NSNumber numberWithInt:2],
-                                                 [NSNumber numberWithInt:2],
-                                                 [NSNumber numberWithInt:3],
-                                                 [NSNumber numberWithInt:3],
-                                                 [NSNumber numberWithInt:4],
-                                                 nil];
+    NSArray *ordered = @[ @1, @2, @2, @3, @3, @3, @4, @4 ];
 
-    NSArray *oneToFour = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],
-                                                   [NSNumber numberWithInt:2],
-                                                   [NSNumber numberWithInt:3],
-                                                   [NSNumber numberWithInt:4],
-                                                   nil];
+    NSArray *oneToFour = @[ @1, @2, @3, @4 ];
 
     STAssertEqualObjects(_.uniq(ordered),
                          oneToFour,
@@ -443,7 +427,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          threeObjects,
                          @"Can keep all objects");
 
-    NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
+    NSArray *subrange = @[ @"bar", @"baz" ];
 
     STAssertEqualObjects(_.filter(threeObjects, startsWithB),
                          subrange,
