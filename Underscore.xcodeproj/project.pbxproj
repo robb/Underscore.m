@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
 		541D18AA1561726C00599033 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A91561726C00599033 /* HelperTest.m */; };
+		544C6FC917390BD400AC87CB /* USArrayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 544C6FC717390BD400AC87CB /* USArrayProxy.h */; };
+		544C6FCA17390BD400AC87CB /* USArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 544C6FC817390BD400AC87CB /* USArrayProxy.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 547C44D915B30ADC004698B8 /* Underscore+Functional.h */; };
 		547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Functional.m */; };
@@ -45,6 +47,8 @@
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
 		544C6FCB17390C3800AC87CB /* USArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
+		544C6FC717390BD400AC87CB /* USArrayProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayProxy.h; sourceTree = "<group>"; };
+		544C6FC817390BD400AC87CB /* USArrayProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayProxy.m; sourceTree = "<group>"; };
 		547C44D915B30ADC004698B8 /* Underscore+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Underscore+Functional.h"; sourceTree = "<group>"; };
 		547C44DA15B30ADD004698B8 /* Underscore+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Underscore+Functional.m"; sourceTree = "<group>"; };
 		54903D11155FF779006854CB /* USArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayWrapper.h; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
 				544C6FCB17390C3800AC87CB /* USArray.h */,
+				544C6FC717390BD400AC87CB /* USArrayProxy.h */,
+				544C6FC817390BD400AC87CB /* USArrayProxy.m */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
 				547C44DA15B30ADD004698B8 /* Underscore+Functional.m */,
 				54903D11155FF779006854CB /* USArrayWrapper.h */,
@@ -180,6 +186,7 @@
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
+				544C6FC917390BD400AC87CB /* USArrayProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +292,7 @@
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
+				544C6FCA17390BD400AC87CB /* USArrayProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
