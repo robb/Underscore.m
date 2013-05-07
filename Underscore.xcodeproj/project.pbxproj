@@ -44,6 +44,7 @@
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
+		544C6FCB17390C3800AC87CB /* USArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
 		547C44D915B30ADC004698B8 /* Underscore+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Underscore+Functional.h"; sourceTree = "<group>"; };
 		547C44DA15B30ADD004698B8 /* Underscore+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Underscore+Functional.m"; sourceTree = "<group>"; };
 		54903D11155FF779006854CB /* USArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayWrapper.h; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 			children = (
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
+				544C6FCB17390C3800AC87CB /* USArray.h */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
 				547C44DA15B30ADD004698B8 /* Underscore+Functional.m */,
 				54903D11155FF779006854CB /* USArrayWrapper.h */,
