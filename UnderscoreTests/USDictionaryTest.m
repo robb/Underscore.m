@@ -53,9 +53,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     STAssertTrue([result containsObject:@"key3"], @"Can extract key 'key3'");
 
     USAssertEqualObjects(_.keys(emptyDictionary) ,
-                         _.dict(emptyDictionary).keys.unwrap);
+                         _.dict(emptyDictionary).keys);
     USAssertEqualObjects(_.keys(simpleDictionary),
-                         _.dict(simpleDictionary).keys.unwrap);
+                         _.dict(simpleDictionary).keys);
 }
 
 - (void)testValues
@@ -71,9 +71,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     STAssertTrue([result containsObject:@"object3"], @"Can extract object 'object3'");
 
     USAssertEqualObjects(_.values(emptyDictionary) ,
-                         _.dict(emptyDictionary).values.unwrap);
+                         _.dict(emptyDictionary).values);
     USAssertEqualObjects(_.values(simpleDictionary),
-                         _.dict(simpleDictionary).values.unwrap);
+                         _.dict(simpleDictionary).values);
 }
 
 - (void)testEachFunctional
@@ -199,7 +199,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
     STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
-    STAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
+    STAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}),
                          emptyDictionary,
                          @"Returning nil in the map block removes the key value pair");
 
@@ -207,7 +207,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         .map(^(NSString *key, NSString *obj) {
             return [obj capitalizedString];
         })
-        .unwrap;
+        ;
 
     NSDictionary *capitalized = [NSDictionary dictionaryWithObjectsAndKeys:@"Object1", @"key1",
                                                                            @"Object2", @"key2",
@@ -240,13 +240,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can pick keys");
 
     USAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
-                         _.dict(emptyDictionary).pick(threeObjects).unwrap);
+                         _.dict(emptyDictionary).pick(threeObjects));
     USAssertEqualObjects(_.pick(simpleDictionary, emptyArray),
-                         _.dict(simpleDictionary).pick(emptyArray).unwrap);
+                         _.dict(simpleDictionary).pick(emptyArray));
     USAssertEqualObjects(_.pick(simpleDictionary, threeObjects),
-                         _.dict(simpleDictionary).pick(threeObjects).unwrap);
+                         _.dict(simpleDictionary).pick(threeObjects));
     USAssertEqualObjects(_.pick(simpleDictionary, key1),
-                         _.dict(simpleDictionary).pick(key1).unwrap);
+                         _.dict(simpleDictionary).pick(key1));
 }
 
 - (void)testExtend
@@ -276,13 +276,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Extending non-empty dictionary with non-empty dictionary overwrites keys where necessary");
 
     USAssertEqualObjects(_.extend(emptyDictionary, emptyDictionary),
-                         _.dict(emptyDictionary).extend(emptyDictionary).unwrap);
+                         _.dict(emptyDictionary).extend(emptyDictionary));
     USAssertEqualObjects(_.extend(emptyDictionary, simpleDictionary),
-                         _.dict(emptyDictionary).extend(simpleDictionary).unwrap);
+                         _.dict(emptyDictionary).extend(simpleDictionary));
     USAssertEqualObjects(_.extend(simpleDictionary, emptyDictionary),
-                         _.dict(simpleDictionary).extend(emptyDictionary).unwrap);
+                         _.dict(simpleDictionary).extend(emptyDictionary));
     USAssertEqualObjects(_.extend(dictionary1, dictionary2),
-                         _.dict(dictionary1).extend(dictionary2).unwrap);
+                         _.dict(dictionary1).extend(dictionary2));
 }
 
 - (void)testDefaults
@@ -314,13 +314,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Applying defaults from a non-empty dictionary to a non-empty dictionary copies over all key-values pairs not existant in the latter");
 
     USAssertEqualObjects(_.defaults(emptyDictionary, emptyDictionary),
-                         _.dict(emptyDictionary).defaults(emptyDictionary).unwrap);
+                         _.dict(emptyDictionary).defaults(emptyDictionary));
     USAssertEqualObjects(_.defaults(emptyDictionary, simpleDictionary),
-                         _.dict(emptyDictionary).defaults(simpleDictionary).unwrap);
+                         _.dict(emptyDictionary).defaults(simpleDictionary));
     USAssertEqualObjects(_.defaults(simpleDictionary, emptyDictionary),
-                         _.dict(simpleDictionary).defaults(emptyDictionary).unwrap);
+                         _.dict(simpleDictionary).defaults(emptyDictionary));
     USAssertEqualObjects(_.defaults(simpleDictionary, defaults),
-                         _.dict(simpleDictionary).defaults(defaults).unwrap);
+                         _.dict(simpleDictionary).defaults(defaults));
 }
 
 - (void)testFilterKeys
@@ -346,13 +346,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can filter only specific keys");
 
     USAssertEqualObjects(_.filterKeys(emptyDictionary, allPass),
-                         _.dict(emptyDictionary).filterKeys(allPass).unwrap);
+                         _.dict(emptyDictionary).filterKeys(allPass));
     USAssertEqualObjects(_.filterKeys(simpleDictionary, allPass),
-                         _.dict(simpleDictionary).filterKeys(allPass).unwrap);
+                         _.dict(simpleDictionary).filterKeys(allPass));
     USAssertEqualObjects(_.filterKeys(simpleDictionary, nonePass),
-                         _.dict(simpleDictionary).filterKeys(nonePass).unwrap);
+                         _.dict(simpleDictionary).filterKeys(nonePass));
     USAssertEqualObjects(_.filterKeys(simpleDictionary, key2Passes),
-                         _.dict(simpleDictionary).filterKeys(key2Passes).unwrap);
+                         _.dict(simpleDictionary).filterKeys(key2Passes));
 }
 
 - (void)testFilterValues
@@ -378,13 +378,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can filter only specific values");
 
     USAssertEqualObjects(_.filterValues(emptyDictionary, allPass),
-                         _.dict(emptyDictionary).filterValues(allPass).unwrap);
+                         _.dict(emptyDictionary).filterValues(allPass));
     USAssertEqualObjects(_.filterValues(simpleDictionary, allPass),
-                         _.dict(simpleDictionary).filterValues(allPass).unwrap);
+                         _.dict(simpleDictionary).filterValues(allPass));
     USAssertEqualObjects(_.filterValues(simpleDictionary, nonePass),
-                         _.dict(simpleDictionary).filterValues(nonePass).unwrap);
+                         _.dict(simpleDictionary).filterValues(nonePass));
     USAssertEqualObjects(_.filterValues(simpleDictionary, object2Passes),
-                         _.dict(simpleDictionary).filterValues(object2Passes).unwrap);
+                         _.dict(simpleDictionary).filterValues(object2Passes));
 }
 
 - (void)testRejectKeys
@@ -414,13 +414,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can reject only specific keys");
 
     USAssertEqualObjects(_.rejectKeys(emptyDictionary, allPass),
-                         _.dict(emptyDictionary).rejectKeys(allPass).unwrap);
+                         _.dict(emptyDictionary).rejectKeys(allPass));
     USAssertEqualObjects(_.rejectKeys(simpleDictionary, allPass),
-                         _.dict(simpleDictionary).rejectKeys(allPass).unwrap);
+                         _.dict(simpleDictionary).rejectKeys(allPass));
     USAssertEqualObjects(_.rejectKeys(simpleDictionary, nonePass),
-                         _.dict(simpleDictionary).rejectKeys(nonePass).unwrap);
+                         _.dict(simpleDictionary).rejectKeys(nonePass));
     USAssertEqualObjects(_.rejectKeys(simpleDictionary, key2Passes),
-                         _.dict(simpleDictionary).rejectKeys(key2Passes).unwrap);
+                         _.dict(simpleDictionary).rejectKeys(key2Passes));
 }
 
 - (void)testRejectValues
@@ -450,13 +450,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can reject only specific values");
 
     USAssertEqualObjects(_.rejectValues(emptyDictionary, allPass),
-                         _.dict(emptyDictionary).rejectValues(allPass).unwrap);
+                         _.dict(emptyDictionary).rejectValues(allPass));
     USAssertEqualObjects(_.rejectValues(simpleDictionary, allPass),
-                         _.dict(simpleDictionary).rejectValues(allPass).unwrap);
+                         _.dict(simpleDictionary).rejectValues(allPass));
     USAssertEqualObjects(_.rejectValues(simpleDictionary, nonePass),
-                         _.dict(simpleDictionary).rejectValues(nonePass).unwrap);
+                         _.dict(simpleDictionary).rejectValues(nonePass));
     USAssertEqualObjects(_.rejectValues(simpleDictionary, object2Passes),
-                         _.dict(simpleDictionary).rejectValues(object2Passes).unwrap);
+                         _.dict(simpleDictionary).rejectValues(object2Passes));
 }
 
 @end

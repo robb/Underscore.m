@@ -27,8 +27,8 @@
 #import <Foundation/Foundation.h>
 
 #import "USConstants.h"
-#import "USArrayWrapper.h"
-#import "USDictionaryWrapper.h"
+#import "USArray.h"
+#import "USDictionary.h"
 
 @interface Underscore : NSObject
 

@@ -17,13 +17,7 @@
 		547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 547C44D915B30ADC004698B8 /* Underscore+Functional.h */; };
 		547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Functional.m */; };
 		547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Functional.m */; };
-		54903D13155FF779006854CB /* USArrayWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArrayWrapper.h */; };
-		54903D14155FF779006854CB /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArrayWrapper.m */; };
 		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
-		54903D2115602003006854CB /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArrayWrapper.m */; };
-		54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2115614B220016BE94 /* USDictionaryWrapper.h */; };
-		54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionaryWrapper.m */; };
-		54996B2515614B220016BE94 /* USDictionaryWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionaryWrapper.m */; };
 		54996B2D15614F900016BE94 /* USConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2C15614F900016BE94 /* USConstants.h */; };
 		54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B361561576D0016BE94 /* USDictionaryTest.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
@@ -56,12 +50,8 @@
 		544C6FCB17390C3800AC87CB /* USArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USArray.h; sourceTree = "<group>"; };
 		547C44D915B30ADC004698B8 /* Underscore+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Underscore+Functional.h"; sourceTree = "<group>"; };
 		547C44DA15B30ADD004698B8 /* Underscore+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Underscore+Functional.m"; sourceTree = "<group>"; };
-		54903D11155FF779006854CB /* USArrayWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayWrapper.h; sourceTree = "<group>"; };
-		54903D12155FF779006854CB /* USArrayWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayWrapper.m; sourceTree = "<group>"; };
 		54903D1915600A45006854CB /* USArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USArrayTest.h; sourceTree = "<group>"; };
 		54903D1A15600A45006854CB /* USArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USArrayTest.m; sourceTree = "<group>"; };
-		54996B2115614B220016BE94 /* USDictionaryWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDictionaryWrapper.h; sourceTree = "<group>"; };
-		54996B2215614B220016BE94 /* USDictionaryWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USDictionaryWrapper.m; sourceTree = "<group>"; };
 		54996B2C15614F900016BE94 /* USConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USConstants.h; sourceTree = "<group>"; };
 		54996B351561576D0016BE94 /* USDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDictionaryTest.h; sourceTree = "<group>"; };
 		54996B361561576D0016BE94 /* USDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USDictionaryTest.m; sourceTree = "<group>"; };
@@ -141,10 +131,6 @@
 				54182948173910D800BDF8B0 /* USDictionaryProxy.m */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
 				547C44DA15B30ADD004698B8 /* Underscore+Functional.m */,
-				54903D11155FF779006854CB /* USArrayWrapper.h */,
-				54903D12155FF779006854CB /* USArrayWrapper.m */,
-				54996B2115614B220016BE94 /* USDictionaryWrapper.h */,
-				54996B2215614B220016BE94 /* USDictionaryWrapper.m */,
 				54996B2C15614F900016BE94 /* USConstants.h */,
 				54A3DCCB154DD4BF00387DE3 /* Supporting Files */,
 			);
@@ -190,8 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
-				54903D13155FF779006854CB /* USArrayWrapper.h in Headers */,
-				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
 				544C6FC917390BD400AC87CB /* USArrayProxy.h in Headers */,
@@ -297,8 +281,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54903D14155FF779006854CB /* USArrayWrapper.m in Sources */,
-				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
 				544C6FCA17390BD400AC87CB /* USArrayProxy.m in Sources */,
@@ -311,8 +293,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
-				54903D2115602003006854CB /* USArrayWrapper.m in Sources */,
-				54996B2515614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 				547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */,

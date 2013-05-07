@@ -40,7 +40,7 @@ NSArray *processed = _array(tweets)
 
         return [NSString stringWithFormat:@"%@: %@", name, text];
     })
-    .unwrap;
+    ;
 ```
 
 ## Documentation

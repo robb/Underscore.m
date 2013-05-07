@@ -10,6 +10,8 @@
 
 #import "USArray.h"
 
+@protocol USArray;
+
 @protocol USDictionary <NSObject>
 
 @property (readonly) NSArray<USArray> *keys;

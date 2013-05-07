@@ -24,16 +24,19 @@
 //  IN THE SOFTWARE.
 //
 
+#import "USArrayProxy.h"
+#import "USDictionaryProxy.h"
+
 #import "Underscore+Functional.h"
 
 @implementation Underscore (Functional)
 
 #pragma mark NSArray shortcuts
 
-+ (USArrayWrapper *(^)(NSArray *))array
++ (NSArray<USArray> *(^)(NSArray *))array
 {
     return ^(NSArray *array) {
-        return [USArrayWrapper wrap:array];
+        return [USArrayProxy wrap:array];
     };
 }
 
@@ -54,14 +57,14 @@
 + (NSArray *(^)(NSArray *, NSUInteger))head
 {
     return ^(NSArray *array, NSUInteger n) {
-        return Underscore.array(array).head(n).unwrap;
+        return Underscore.array(array).head(n);
     };
 }
 
 + (NSArray *(^)(NSArray *, NSUInteger))tail
 {
     return ^(NSArray *array, NSUInteger n) {
-        return Underscore.array(array).tail(n).unwrap;
+        return Underscore.array(array).tail(n);
     };
 }
 
@@ -75,28 +78,28 @@
 + (NSArray *(^)(NSArray *))flatten
 {
     return ^(NSArray *array) {
-        return Underscore.array(array).flatten.unwrap;
+        return Underscore.array(array).flatten;
     };
 }
 
 + (NSArray *(^)(NSArray *))uniq
 {
     return ^(NSArray *array) {
-        return Underscore.array(array).uniq.unwrap;
+        return Underscore.array(array).uniq;
     };
 }
 
 + (NSArray *(^)(NSArray *, NSArray *))without
 {
     return ^(NSArray *array, NSArray *values) {
-        return Underscore.array(array).without(values).unwrap;
+        return Underscore.array(array).without(values);
     };
 }
 
 + (NSArray *(^)(NSArray *))shuffle
 {
     return ^(NSArray *array) {
-        return Underscore.array(array).shuffle.unwrap;
+        return Underscore.array(array).shuffle;
     };
 }
 
@@ -124,14 +127,14 @@
 + (NSArray *(^)(NSArray *array, UnderscoreArrayMapBlock block))arrayMap
 {
     return ^(NSArray *array, UnderscoreArrayMapBlock block) {
-        return Underscore.array(array).map(block).unwrap;
+        return Underscore.array(array).map(block);
     };
 }
 
 + (NSArray *(^)(NSArray *, NSString *))pluck
 {
     return ^(NSArray *array, NSString *keyPath) {
-        return Underscore.array(array).pluck(keyPath).unwrap;
+        return Underscore.array(array).pluck(keyPath);
     };
 }
 
@@ -145,13 +148,13 @@
 + (NSArray *(^)(NSArray *, UnderscoreTestBlock))filter
 {
     return ^(NSArray *array, UnderscoreTestBlock block) {
-        return Underscore.array(array).filter(block).unwrap;
+        return Underscore.array(array).filter(block);
     };
 }
 + (NSArray *(^)(NSArray *, UnderscoreTestBlock))reject
 {
     return ^(NSArray *array, UnderscoreTestBlock block) {
-        return Underscore.array(array).reject(block).unwrap;
+        return Underscore.array(array).reject(block);
     };
 }
 
@@ -171,29 +174,29 @@
 + (NSArray *(^)(NSArray *, UnderscoreSortBlock))sort
 {
     return ^(NSArray *array, UnderscoreSortBlock block) {
-        return Underscore.array(array).sort(block).unwrap;
+        return Underscore.array(array).sort(block);
     };
 }
 
 #pragma mark NSDictionary shortcuts
 
-+ (USDictionaryWrapper *(^)(NSDictionary *))dict
++ (NSDictionary<USDictionary> *(^)(NSDictionary *))dict
 {
     return ^(NSDictionary *dictionary) {
-        return [USDictionaryWrapper wrap:dictionary];
+        return [USDictionaryProxy wrap:dictionary];
     };
 }
 
 + (NSArray *(^)(NSDictionary *))keys
 {
     return ^(NSDictionary *dictionary) {
-        return [USDictionaryWrapper wrap:dictionary].keys.unwrap;
+        return [USDictionaryProxy wrap:dictionary].keys;
     };
 }
 + (NSArray *(^)(NSDictionary *))values
 {
     return ^(NSDictionary *dictionary) {
-        return [USDictionaryWrapper wrap:dictionary].values.unwrap;
+        return [USDictionaryProxy wrap:dictionary].values;
     };
 }
 
@@ -207,54 +210,54 @@
 + (NSDictionary *(^)(NSDictionary *, UnderscoreDictionaryMapBlock))dictMap
 {
     return ^(NSDictionary *dictionary, UnderscoreDictionaryMapBlock block) {
-        return Underscore.dict(dictionary).map(block).unwrap;
+        return Underscore.dict(dictionary).map(block);
     };
 }
 
 + (NSDictionary *(^)(NSDictionary *, NSArray *))pick
 {
     return ^(NSDictionary *dictionary, NSArray *keys) {
-        return [USDictionaryWrapper wrap:dictionary].pick(keys).unwrap;
+        return [USDictionaryProxy wrap:dictionary].pick(keys);
     };
 }
 
 + (NSDictionary *(^)(NSDictionary *, NSDictionary *))extend
 {
     return ^(NSDictionary *dictionary, NSDictionary *source) {
-        return [USDictionaryWrapper wrap:dictionary].extend(source).unwrap;
+        return [USDictionaryProxy wrap:dictionary].extend(source);
     };
 }
 + (NSDictionary *(^)(NSDictionary *, NSDictionary *))defaults
 {
     return ^(NSDictionary *dictionary, NSDictionary *defaults) {
-        return [USDictionaryWrapper wrap:dictionary].defaults(defaults).unwrap;
+        return [USDictionaryProxy wrap:dictionary].defaults(defaults);
     };
 }
 
 + (NSDictionary *(^)(NSDictionary *, UnderscoreTestBlock))filterKeys
 {
     return ^(NSDictionary *dictionary, UnderscoreTestBlock block) {
-        return [USDictionaryWrapper wrap:dictionary].filterKeys(block).unwrap;
+        return [USDictionaryProxy wrap:dictionary].filterKeys(block);
     };
 }
 + (NSDictionary *(^)(NSDictionary *, UnderscoreTestBlock))filterValues
 {
     return ^(NSDictionary *dictionary, UnderscoreTestBlock block) {
-        return [USDictionaryWrapper wrap:dictionary].filterValues(block).unwrap;
+        return [USDictionaryProxy wrap:dictionary].filterValues(block);
     };
 }
 
 + (NSDictionary *(^)(NSDictionary *, UnderscoreTestBlock))rejectKeys
 {
     return ^(NSDictionary *dictionary, UnderscoreTestBlock block) {
-        return [USDictionaryWrapper wrap:dictionary].rejectKeys(block).unwrap;
+        return [USDictionaryProxy wrap:dictionary].rejectKeys(block);
     };
 }
 
 + (NSDictionary *(^)(NSDictionary *, UnderscoreTestBlock))rejectValues
 {
     return ^(NSDictionary *dictionary, UnderscoreTestBlock block) {
-        return [USDictionaryWrapper wrap:dictionary].rejectValues(block).unwrap;
+        return [USDictionaryProxy wrap:dictionary].rejectValues(block);
     };
 }
 

@@ -26,11 +26,14 @@
 
 #import "Underscore.h"
 
+@protocol USArray;
+@protocol USDictionary;
+
 @interface Underscore (FunctionalStyle)
 
 #pragma mark NSArray functional style methods
 
-+ (USArrayWrapper *(^)(NSArray *))array;
++ (NSArray<USArray> *(^)(NSArray *))array;
 
 + (id (^)(NSArray *))first;
 + (id (^)(NSArray *))last;
@@ -67,7 +70,7 @@
 
 #pragma mark NSDictionary style methods
 
-+ (USDictionaryWrapper *(^)(NSDictionary *dictionary))dict;
++ (NSDictionary<USDictionary> *(^)(NSDictionary *dictionary))dict;
 
 + (NSArray *(^)(NSDictionary *dictionary))keys;
 + (NSArray *(^)(NSDictionary *dictionary))values;

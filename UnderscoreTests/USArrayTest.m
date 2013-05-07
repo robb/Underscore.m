@@ -83,9 +83,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          threeObjects,
                          @"Does not return more elements than available");
 
-    USAssertEqualObjects(_.head(emptyArray, 1),   _.array(emptyArray).head(1).unwrap);
-    USAssertEqualObjects(_.head(threeObjects, 2), _.array(threeObjects).head(2).unwrap);
-    USAssertEqualObjects(_.head(threeObjects, 4), _.array(threeObjects).head(4).unwrap);
+    USAssertEqualObjects(_.head(emptyArray, 1),   _.array(emptyArray).head(1));
+    USAssertEqualObjects(_.head(threeObjects, 2), _.array(threeObjects).head(2));
+    USAssertEqualObjects(_.head(threeObjects, 4), _.array(threeObjects).head(4));
 }
 
 - (void)testTail
@@ -103,9 +103,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          threeObjects,
                          @"Does not return more elements than available");
 
-    USAssertEqualObjects(_.tail(emptyArray, 1),   _.array(emptyArray).tail(1).unwrap);
-    USAssertEqualObjects(_.tail(threeObjects, 2), _.array(threeObjects).tail(2).unwrap);
-    USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4).unwrap);
+    USAssertEqualObjects(_.tail(emptyArray, 1),   _.array(emptyArray).tail(1));
+    USAssertEqualObjects(_.tail(threeObjects, 2), _.array(threeObjects).tail(2));
+    USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4));
 }
 
 - (void)testIndexOf
@@ -141,11 +141,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Returns a flattened array when needed");
 
     USAssertEqualObjects(_.flatten(emptyArray),
-                         _.array(emptyArray).flatten.unwrap);
+                         _.array(emptyArray).flatten);
     USAssertEqualObjects(_.flatten(threeObjects),
-                         _.array(threeObjects).flatten.unwrap);
+                         _.array(threeObjects).flatten);
     USAssertEqualObjects(_.flatten(complicated),
-                         _.array(complicated).flatten.unwrap);
+                         _.array(complicated).flatten);
 }
 
 - (void)testWithout
@@ -164,11 +164,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Removing one object returns the rest");
 
     USAssertEqualObjects(_.without(threeObjects, emptyArray),
-                         _.array(threeObjects).without(emptyArray).unwrap);
+                         _.array(threeObjects).without(emptyArray));
     USAssertEqualObjects(_.without(threeObjects, threeObjects),
-                         _.array(threeObjects).without(threeObjects).unwrap);
+                         _.array(threeObjects).without(threeObjects));
     USAssertEqualObjects(_.without(threeObjects, singleObject),
-                         _.array(threeObjects).without(singleObject).unwrap);
+                         _.array(threeObjects).without(singleObject));
 }
 
 - (void)testShuffle
@@ -177,7 +177,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          emptyArray,
                          @"Shuffling an empty array results in an empty array");
 
-    USAssertEqualObjects(_.shuffle(emptyArray), _.array(emptyArray).shuffle.unwrap);
+    USAssertEqualObjects(_.shuffle(emptyArray), _.array(emptyArray).shuffle);
 
     NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger i = 1; i < 100; i++) {
@@ -187,7 +187,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
      STAssertFalse([_.shuffle(array) isEqualToArray:array],
                   @"Can shuffle an array");
 
-     STAssertFalse([_.array(emptyArray).shuffle.unwrap isEqualToArray:array],
+     STAssertFalse([_.array(emptyArray).shuffle isEqualToArray:array],
                   @"Can shuffle an array");
 }
 
@@ -325,11 +325,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can map objects");
 
     USAssertEqualObjects(_.arrayMap(emptyArray, returnTest),
-                         _.array(emptyArray).map(returnTest).unwrap);
+                         _.array(emptyArray).map(returnTest));
     USAssertEqualObjects(_.arrayMap(threeObjects, returnNil),
-                         _.array(threeObjects).map(returnNil).unwrap);
+                         _.array(threeObjects).map(returnNil));
     USAssertEqualObjects(_.arrayMap(threeObjects, capitalize),
-                         _.array(threeObjects).map(capitalize).unwrap);
+                         _.array(threeObjects).map(capitalize));
 }
 
 - (void)testPluck
@@ -348,9 +348,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can extract values for the key path");
 
     USAssertEqualObjects(_.pluck(emptyArray, @"description"),
-                          _.array(emptyArray).pluck(@"description").unwrap);
+                          _.array(emptyArray).pluck(@"description"));
     USAssertEqualObjects(_.pluck(threeObjects, @"length"),
-                          _.array(threeObjects).pluck(@"length").unwrap);
+                          _.array(threeObjects).pluck(@"length"));
 }
 
 
@@ -392,12 +392,12 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Preserves order");
 
     USAssertEqualObjects(_.uniq(emptyArray),
-                         _.array(emptyArray).uniq.unwrap);
+                         _.array(emptyArray).uniq);
 
     USAssertEqualObjects(_.uniq(threeObjects),
-                         _.array(threeObjects).uniq.unwrap);
+                         _.array(threeObjects).uniq);
     USAssertEqualObjects(_.uniq(sameObjects),
-                         _.array(sameObjects).uniq.unwrap);
+                         _.array(sameObjects).uniq);
 }
 
 
@@ -450,13 +450,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can remove matching elements");
 
     USAssertEqualObjects(_.filter(emptyArray, allPass),
-                         _.array(emptyArray).filter(allPass).unwrap);
+                         _.array(emptyArray).filter(allPass));
     USAssertEqualObjects(_.filter(threeObjects, nonePass),
-                         _.array(threeObjects).filter(nonePass).unwrap);
+                         _.array(threeObjects).filter(nonePass));
     USAssertEqualObjects(_.filter(threeObjects, allPass),
-                         _.array(threeObjects).filter(allPass).unwrap);
+                         _.array(threeObjects).filter(allPass));
     USAssertEqualObjects(_.filter(threeObjects, startsWithB),
-                         _.array(threeObjects).filter(startsWithB).unwrap);
+                         _.array(threeObjects).filter(startsWithB));
 }
 
 - (void)testReject
@@ -482,13 +482,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can remove matching elements");
 
     USAssertEqualObjects(_.reject(emptyArray, allPass),
-                         _.array(emptyArray).reject(allPass).unwrap);
+                         _.array(emptyArray).reject(allPass));
     USAssertEqualObjects(_.reject(threeObjects, nonePass),
-                         _.array(threeObjects).reject(nonePass).unwrap);
+                         _.array(threeObjects).reject(nonePass));
     USAssertEqualObjects(_.reject(threeObjects, allPass),
-                         _.array(threeObjects).reject(allPass).unwrap);
+                         _.array(threeObjects).reject(allPass));
     USAssertEqualObjects(_.reject(threeObjects, startsWithB),
-                         _.array(threeObjects).reject(startsWithB).unwrap);
+                         _.array(threeObjects).reject(startsWithB));
 }
 
 - (void)testAll
@@ -561,7 +561,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          @"Can sort elements");
 
     USAssertEqualObjects(_.sort(notSorted, numericalSort),
-                         _.array(notSorted).sort(numericalSort).unwrap);
+                         _.array(notSorted).sort(numericalSort));
 }
 
 @end
