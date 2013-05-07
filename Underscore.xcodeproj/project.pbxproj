@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54182949173910D800BDF8B0 /* USDictionaryProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 54182947173910D800BDF8B0 /* USDictionaryProxy.h */; };
+		5418294A173910D800BDF8B0 /* USDictionaryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54182948173910D800BDF8B0 /* USDictionaryProxy.m */; };
 		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
 		541D18AA1561726C00599033 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A91561726C00599033 /* HelperTest.m */; };
 		544C6FC917390BD400AC87CB /* USArrayProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 544C6FC717390BD400AC87CB /* USArrayProxy.h */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		541829461739107D00BDF8B0 /* USDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USDictionary.h; sourceTree = "<group>"; };
+		54182947173910D800BDF8B0 /* USDictionaryProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDictionaryProxy.h; sourceTree = SOURCE_ROOT; };
+		54182948173910D800BDF8B0 /* USDictionaryProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USDictionaryProxy.m; sourceTree = SOURCE_ROOT; };
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				544C6FC717390BD400AC87CB /* USArrayProxy.h */,
 				544C6FC817390BD400AC87CB /* USArrayProxy.m */,
 				541829461739107D00BDF8B0 /* USDictionary.h */,
+				54182947173910D800BDF8B0 /* USDictionaryProxy.h */,
+				54182948173910D800BDF8B0 /* USDictionaryProxy.m */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
 				547C44DA15B30ADD004698B8 /* Underscore+Functional.m */,
 				54903D11155FF779006854CB /* USArrayWrapper.h */,
@@ -189,6 +195,7 @@
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
 				544C6FC917390BD400AC87CB /* USArrayProxy.h in Headers */,
+				54182949173910D800BDF8B0 /* USDictionaryProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +302,7 @@
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
 				544C6FCA17390BD400AC87CB /* USArrayProxy.m in Sources */,
+				5418294A173910D800BDF8B0 /* USDictionaryProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
