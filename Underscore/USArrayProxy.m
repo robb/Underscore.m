@@ -25,6 +25,25 @@
     return self;
 }
 
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object
+{
+    return [self.array isEqual:object];
+}
+
+#pragma mark - NSProxy
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    [invocation invokeWithTarget:self.array];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)sel
+{
+    return [self.array methodSignatureForSelector:sel];
+}
+
 #pragma mark - USArray
 
 - (id)first

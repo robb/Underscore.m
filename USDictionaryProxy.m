@@ -27,6 +27,25 @@
     return self;
 }
 
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object
+{
+    return [self.dictionary isEqual:object];
+}
+
+#pragma mark - NSProxy
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    [invocation invokeWithTarget:self.dictionary];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)sel
+{
+    return [self.dictionary methodSignatureForSelector:sel];
+}
+
 #pragma mark - USDictionary
 
 - (NSArray<USArray> *)keys
