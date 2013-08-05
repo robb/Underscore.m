@@ -78,4 +78,15 @@
                    @"Comparing objects that don't respond to compare: throws an exception");
 }
 
+- (void)testIsEmpty
+{
+    STAssertTrue(Underscore.isEmpty(@""), @"Returns true for empty strings");
+    STAssertTrue(Underscore.isEmpty(@[]), @"Returns true for empty arrays");
+    STAssertTrue(Underscore.isEmpty(@{}), @"Returns true for empty dictionaries");
+
+    STAssertFalse(Underscore.isEmpty(@"1"), @"Returns false for non-empty strings");
+    STAssertFalse(Underscore.isEmpty(@[ @2 ]), @"Returns false for non-empty arrays");
+    STAssertFalse(Underscore.isEmpty(@{ @3: @4 }), @"Returns false for non-empty dictionaries");
+}
+
 @end

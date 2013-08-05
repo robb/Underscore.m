@@ -92,6 +92,22 @@
     };
 }
 
++ (UnderscoreTestBlock)isEmpty
+{
+    return ^BOOL (id obj) {
+        if ([obj respondsToSelector:@selector(length)]) {
+            return [obj length] == 0;
+        }
+
+        if ([obj respondsToSelector:@selector(count)]) {
+            return [obj count] == 0;
+        }
+
+        NSCAssert(NO, @"%@ does not respond to -count or length", obj);
+        return NO;
+    };
+}
+
 - (id)init
 {
     return [super init];

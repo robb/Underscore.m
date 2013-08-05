@@ -40,6 +40,7 @@
 + (UnderscoreTestBlock)isNull;
 + (UnderscoreTestBlock)isNumber;
 + (UnderscoreTestBlock)isString;
++ (UnderscoreTestBlock)isEmpty;
 
 + (UnderscoreSortBlock)compare;
 
