@@ -57,6 +57,13 @@
     };
 }
 
++ (UnderscoreTestBlock)isBool
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[[NSNumber numberWithBool:YES] class]];
+    };
+}
+
 + (UnderscoreTestBlock)isDictionary
 {
     return ^BOOL (id obj) {

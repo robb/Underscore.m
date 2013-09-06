@@ -36,6 +36,7 @@
 + (UnderscoreTestBlock(^)(id obj))isEqual;
 
 + (UnderscoreTestBlock)isArray;
++ (UnderscoreTestBlock)isBool;
 + (UnderscoreTestBlock)isDictionary;
 + (UnderscoreTestBlock)isNull;
 + (UnderscoreTestBlock)isNumber;
