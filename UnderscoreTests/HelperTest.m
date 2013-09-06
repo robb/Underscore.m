@@ -47,6 +47,9 @@
 
     STAssertFalse(Underscore.isBool([NSNumber numberWithInteger:42]), @"Returns false for NSNumber");
     STAssertFalse(Underscore.isBool([[NSObject alloc] init]),         @"Returns false for NSObject");
+
+    STAssertFalse(Underscore.isBool([NSNumber numberWithInt:1]), @"Returns false for NSNumber with int: 1, as its type is int, not BOOL");
+    STAssertFalse(Underscore.isBool([NSNumber numberWithInt:0]), @"Returns false for NSNumber with int: 0, as its type is int, not BOOL");
 }
 
 - (void)testIsDictionary
