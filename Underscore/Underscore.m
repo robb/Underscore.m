@@ -57,6 +57,13 @@
     };
 }
 
++ (UnderscoreTestBlock)isBool
+{
+    return ^BOOL (id obj) {
+        return [obj isKindOfClass:[NSNumber class]] && strcmp([obj objCType], @encode(BOOL)) == 0;
+    };
+}
+
 + (UnderscoreTestBlock)isDictionary
 {
     return ^BOOL (id obj) {
