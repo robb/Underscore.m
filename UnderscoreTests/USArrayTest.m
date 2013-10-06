@@ -352,6 +352,65 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).map(capitalize).unwrap);
 }
 
+- (void)testZipWith
+{
+    UnderscoreArrayZipWithBlock addNumbers = ^id (NSNumber *one, NSNumber *two) {
+        return @(one.intValue + two.intValue);
+    };
+    UnderscoreArrayZipWithBlock multiplyStrings = ^id (NSString *string, NSNumber *times) {
+        return [@"" stringByPaddingToLength:times.intValue * string.length withString:string startingAtIndex:0];
+    };
+    UnderscoreArrayZipWithBlock addStrings = ^id (NSString *one, NSString *two) {
+        return [one stringByAppendingString:two];
+    };
+  
+    STAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
+                         emptyArray,
+                         @"Can handle empty arrays");
+    STAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
+                         emptyArray,
+                         @"Can handle empty arrays");
+    STAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
+                         emptyArray,
+                         @"Can handle empty arrays");
+    NSArray *appendedStrings = @[ @"foofoo" ];
+    STAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
+                         appendedStrings,
+                         @"Works when array sizes mis-match.");
+    STAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
+                         appendedStrings,
+                         @"Works when array sizes mis-match.");
+    NSArray *numbers = @[ @(1), @(2), @(3) ];
+    NSArray *expected = @[ @(2), @(4), @(6) ];
+    STAssertEqualObjects(_.arrayZipWith(numbers, numbers, addNumbers),
+                         expected,
+                         @"Correctly zips two arrays.");
+  
+    NSArray *expectedStrings = @[ @"foo", @"barbar", @"bazbazbaz" ];
+    STAssertEqualObjects(_.arrayZipWith(threeObjects, numbers, multiplyStrings),
+                         expectedStrings,
+                         @"Correctly zips two arrays of diferent types.");
+  
+    USAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
+                         _.array(emptyArray).zipWith(emptyArray, addNumbers).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
+                         _.array(emptyArray).zipWith(threeObjects, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
+                         _.array(threeObjects).zipWith(emptyArray, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
+                         _.array(singleObject).zipWith(threeObjects, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
+                         _.array(threeObjects).zipWith(singleObject, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addNumbers),
+                         _.array(singleObject).zipWith(threeObjects, addNumbers).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addNumbers),
+                         _.array(threeObjects).zipWith(singleObject, addNumbers).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(numbers, numbers, addNumbers),
+                         _.array(numbers).zipWith(numbers, addNumbers).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, numbers, multiplyStrings),
+                         _.array(threeObjects).zipWith(numbers, multiplyStrings).unwrap);
+}
+
 - (void)testPluck
 {
     STAssertEqualObjects(_.pluck(emptyArray, @"description"),
