@@ -229,10 +229,16 @@
 {
     return ^USArrayWrapper *(NSArray *array, UnderscoreArrayZipWithBlock block) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
-        if(self.array.count == array.count)
+        if(self.array.count <= array.count)
         {
             [self.array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 [result addObject:block(obj, array[idx])];
+            }];
+        }
+        else
+        {
+            [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [result addObject:block(self.array[idx], obj)]; 
             }];
         }
         return [[USArrayWrapper alloc] initWithArray:result];

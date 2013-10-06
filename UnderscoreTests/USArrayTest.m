@@ -360,16 +360,26 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     UnderscoreArrayZipWithBlock multiplyStrings = ^id (NSString *string, NSNumber *times) {
         return [@"" stringByPaddingToLength:times.intValue * string.length withString:string startingAtIndex:0];
     };
+    UnderscoreArrayZipWithBlock addStrings = ^id (NSString *one, NSString *two) {
+        return [one stringByAppendingString:two];
+    };
   
     STAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
                          emptyArray,
                          @"Can handle empty arrays");
-    STAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addNumbers),
+    STAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
                          emptyArray,
-                         @"Returns an empty array if array sizes mis-match.");
-    STAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addNumbers),
+                         @"Can handle empty arrays");
+    STAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
                          emptyArray,
-                         @"Returns an empty array if array sizes mis-match.");
+                         @"Can handle empty arrays");
+    NSArray *appendedStrings = @[ @"foofoo" ];
+    STAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
+                         appendedStrings,
+                         @"Works when array sizes mis-match.");
+    STAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
+                         appendedStrings,
+                         @"Works when array sizes mis-match.");
     NSArray *numbers = @[ @(1), @(2), @(3) ];
     NSArray *expected = @[ @(2), @(4), @(6) ];
     STAssertEqualObjects(_.arrayZipWith(numbers, numbers, addNumbers),
