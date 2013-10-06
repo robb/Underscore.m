@@ -41,6 +41,7 @@
 
 @property (readonly) USArrayWrapper *(^head)(NSUInteger n);
 @property (readonly) USArrayWrapper *(^tail)(NSUInteger n);
+@property (readonly) USArrayWrapper *(^drop)(NSUInteger n);
 
 @property (readonly) NSUInteger (^indexOf)(id obj);
 

@@ -108,6 +108,26 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
     USAssertEqualObjects(_.tail(threeObjects, 4), _.array(threeObjects).tail(4).unwrap);
 }
 
+- (void)testDrop
+{
+    STAssertEqualObjects(_.drop(emptyArray, 1),
+                         emptyArray,
+                         @"Returns an empty array for an empty array");
+  
+    NSArray *subrange = [NSArray arrayWithObjects:@"baz", nil];
+    STAssertEqualObjects(_.drop(threeObjects, 2),
+                         subrange,
+                         @"Correctly drops multiple objects");
+  
+    STAssertEqualObjects(_.drop(threeObjects, 4),
+                         emptyArray,
+                         @"Returns an empty array when dropping more objects than the target array has");
+  
+    USAssertEqualObjects(_.drop(emptyArray, 1),   _.array(emptyArray).drop(1).unwrap);
+    USAssertEqualObjects(_.drop(threeObjects, 2), _.array(threeObjects).drop(2).unwrap);
+    USAssertEqualObjects(_.drop(threeObjects, 4), _.array(threeObjects).drop(4).unwrap);
+}
+
 - (void)testIndexOf
 {
     STAssertTrue(_.indexOf(emptyArray, @1) == NSNotFound,

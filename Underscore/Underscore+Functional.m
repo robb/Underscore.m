@@ -65,6 +65,13 @@
     };
 }
 
++ (NSArray *(^)(NSArray *, NSUInteger))drop
+{
+    return ^(NSArray *array, NSUInteger n) {
+        return Underscore.array(array).drop(n).unwrap;
+    };
+}
+
 + (NSUInteger (^)(NSArray *, id))indexOf
 {
     return ^(NSArray *array, id obj) {
