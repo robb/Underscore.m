@@ -37,6 +37,7 @@
 
 + (NSArray *(^)(NSArray *array, NSUInteger n))head;
 + (NSArray *(^)(NSArray *array, NSUInteger n))tail;
++ (NSArray *(^)(NSArray *array, NSUInteger n))drop;
 
 + (NSUInteger (^)(NSArray *array, id obj))indexOf;
 

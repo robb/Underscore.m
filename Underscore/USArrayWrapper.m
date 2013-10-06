@@ -107,6 +107,17 @@
     };
 }
 
+- (USArrayWrapper *(^)(NSUInteger))drop
+{
+    return ^USArrayWrapper *(NSUInteger count) {
+        NSUInteger start     = MIN(count, self.array.count);
+        NSRange    range     = NSMakeRange(start, self.array.count - start);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        NSArray *result      = [self.array objectsAtIndexes:indexSet];
+        return [[USArrayWrapper alloc] initWithArray:result];
+    };
+}
+
 - (NSUInteger (^)(id))indexOf
 {
     return ^NSUInteger (id obj) {
