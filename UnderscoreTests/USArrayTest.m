@@ -393,6 +393,14 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
   
     USAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
                          _.array(emptyArray).zipWith(emptyArray, addNumbers).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
+                         _.array(emptyArray).zipWith(threeObjects, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
+                         _.array(threeObjects).zipWith(emptyArray, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
+                         _.array(singleObject).zipWith(threeObjects, addStrings).unwrap);
+    USAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
+                         _.array(threeObjects).zipWith(singleObject, addStrings).unwrap);
     USAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addNumbers),
                          _.array(singleObject).zipWith(threeObjects, addNumbers).unwrap);
     USAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addNumbers),
