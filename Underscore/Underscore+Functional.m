@@ -138,7 +138,7 @@
 + (NSArray *(^)(NSArray *firstArray, NSArray *secondArray, UnderscoreArrayZipWithBlock block))arrayZipWith
 {
     return ^(NSArray *firstArray, NSArray *secondArray, UnderscoreArrayZipWithBlock block) {
-      return Underscore.array(firstArray).zipWith(secondArray, block).unwrap;
+        return Underscore.array(firstArray).zipWith(secondArray, block).unwrap;
     };
 }
 

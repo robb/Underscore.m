@@ -232,7 +232,7 @@
         if(self.array.count == array.count)
         {
             [self.array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-              [result addObject:block(obj, array[idx])];
+                [result addObject:block(obj, array[idx])];
             }];
         }
         return [[USArrayWrapper alloc] initWithArray:result];
