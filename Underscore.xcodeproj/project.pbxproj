@@ -27,6 +27,11 @@
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
 		54DDBDDE1837AAB2002EAEB3 /* UnderscoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */; };
 		6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */; };
+		BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */; };
+		BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */; };
+		BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFF11837E77000A81EB5 /* USStringWrapper.h */; };
+		BCFADFF71837E77000A81EB5 /* USStringWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF21837E77000A81EB5 /* USStringWrapper.m */; };
+		BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderscoreSpec.m; sourceTree = "<group>"; };
 		54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnderscoreTests-Prefix.pch"; sourceTree = "<group>"; };
+		BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Strings.h"; path = "Strings/Underscore+Strings.h"; sourceTree = "<group>"; };
+		BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Strings.m"; path = "Strings/Underscore+Strings.m"; sourceTree = "<group>"; };
+		BCFADFF11837E77000A81EB5 /* USStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USStringWrapper.h; path = Strings/USStringWrapper.h; sourceTree = "<group>"; };
+		BCFADFF21837E77000A81EB5 /* USStringWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USStringWrapper.m; path = Strings/USStringWrapper.m; sourceTree = "<group>"; };
+		BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreStringsSpec.m; path = Strings/UnderscoreStringsSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 		54A3DCCA154DD4BF00387DE3 /* Underscore */ = {
 			isa = PBXGroup;
 			children = (
+				BCFADFE91837D5F700A81EB5 /* Strings */,
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
@@ -152,6 +163,7 @@
 		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCFADFFB1837EBC100A81EB5 /* Strings */,
 				54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */,
 				54903D1915600A45006854CB /* USArrayTest.h */,
 				54903D1A15600A45006854CB /* USArrayTest.m */,
@@ -174,6 +186,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BCFADFE91837D5F700A81EB5 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */,
+				BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */,
+				BCFADFF11837E77000A81EB5 /* USStringWrapper.h */,
+				BCFADFF21837E77000A81EB5 /* USStringWrapper.m */,
+			);
+			name = Strings;
+			sourceTree = "<group>";
+		};
+		BCFADFFB1837EBC100A81EB5 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */,
+			);
+			name = Strings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -182,9 +213,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
+				BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */,
 				54903D13155FF779006854CB /* USArrayWrapper.h in Headers */,
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
+				BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +355,8 @@
 				54903D14155FF779006854CB /* USArrayWrapper.m in Sources */,
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
+				BCFADFF71837E77000A81EB5 /* USStringWrapper.m in Sources */,
+				BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +367,10 @@
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
 				54DDBDDE1837AAB2002EAEB3 /* UnderscoreSpec.m in Sources */,
+				BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
+				BCFADFF81837E77000A81EB5 /* USStringWrapper.m in Sources */,
+				BCFADFF51837E77000A81EB5 /* Underscore+Strings.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
