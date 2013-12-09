@@ -81,8 +81,7 @@
 - (USStringWrapper *(^)())capitalize
 {
     return ^USStringWrapper *() {
-        NSString *capitalized = self.string ? nil : [self.string stringByReplacingCharactersInRange:NSMakeRange(0, 1)
-                                                                                         withString:[[self.string substringToIndex:1] uppercaseString]];
+        NSString *capitalized = [self.string capitalizedString];
         return [USStringWrapper wrap:capitalized];
     };
 }

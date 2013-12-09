@@ -8,8 +8,6 @@
 
 #import "Underscore+Strings.h"
 
-SpecBegin(UnderscoreStrings)
-
 static NSString *stringWithLeadingWhitespace = @"       underscore strings will be pretty useful";
 static NSString *stringWithTrailingWhitespace = @"underscore strings will be pretty useful       ";
 static NSString *stringWithWhitespaceInTheMiddle = @"underscore    strings     will   be      pretty     useful";
@@ -18,6 +16,8 @@ static NSString *stringWithoutWhitespace = @"underscorestringswillbeprettyuseful
 static NSString *goodString = @"underscore strings will be pretty useful";
 static NSString *onlyWhitespaceString = @"                               ";
 static NSString *emptyString = @"";
+
+SpecBegin(UnderscoreStrings)
 
 describe(@"trim: get rid of unneccessary whitespace characters.", ^{
     it(@"should behave with nil", ^{
@@ -56,7 +56,7 @@ describe(@"trim: get rid of unneccessary whitespace characters.", ^{
     });
 });
 
-describe(@"capitalize: uppercase the first letter of a strin.", ^{
+describe(@"capitalize: uppercase the first letter of a string.", ^{
     it(@"should behave with nil", ^{
         expect(Underscore.string(nil).capitalize()).to.beNil;
         expect(Underscore.stringCapitalize(nil)).to.beNil;
