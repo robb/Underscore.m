@@ -36,20 +36,38 @@
 
 @property (readonly) NSString *unwrap;
 
+/**
+ *  Removes any leading and trailing whitespace character.
+ */
 @property (readonly) USStringWrapper *(^trim)();
 
+/**
+ *  Capitalizes the first character in every word, all other characters are lowercase'd
+ */
 @property (readonly) USStringWrapper *(^capitalize)();
 
+/**
+ *  Lowercases all characters.
+ */
 @property (readonly) USStringWrapper *(^lowercase)();
 
+/**
+ *  Uppercases all characters.
+ */
 @property (readonly) USStringWrapper *(^uppercase)();
 
+/**
+ *  Splits the string at the given separator.
+ */
 @property (readonly) USArrayWrapper *(^split)(NSString *separator);
 
 @end
 
 @interface USArrayWrapper (USStrings)
 
+/**
+ *  Joins the elements in the array.
+ */
 @property (readonly) USStringWrapper *(^join)();
 
 @end

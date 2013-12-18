@@ -8,13 +8,12 @@
 
 #import "Underscore+Strings.h"
 
-static NSString *stringWithLeadingWhitespace = @"       underscore strings will be pretty useful";
-static NSString *stringWithTrailingWhitespace = @"underscore strings will be pretty useful       ";
-static NSString *stringWithWhitespaceInTheMiddle = @"underscore    strings     will   be      pretty     useful";
-static NSString *stringWithCrazyWhitespace = @"     underscore        strings          will      be     pretty          useful                   ";
+static NSString *stringWithLeadingWhitespace = @" underscore strings will be pretty useful";
+static NSString *stringWithTrailingWhitespace = @"underscore strings will be pretty useful ";
 static NSString *stringWithoutWhitespace = @"underscorestringswillbeprettyuseful";
 static NSString *goodString = @"underscore strings will be pretty useful";
 static NSString *onlyWhitespaceString = @"                               ";
+static NSString *trimmedWhitespaceString = @"                             ";
 static NSString *emptyString = @"";
 
 SpecBegin(UnderscoreStrings)
@@ -35,24 +34,14 @@ describe(@"trim: get rid of unneccessary whitespace characters.", ^{
         expect(Underscore.stringTrim(stringWithTrailingWhitespace)).to.equal(goodString);
     });
     
-    it(@"should work with whitespace in the middle of the string", ^{
-        expect(Underscore.string(stringWithWhitespaceInTheMiddle).trim().unwrap).equal(goodString);
-        expect(Underscore.stringTrim(stringWithWhitespaceInTheMiddle)).to.equal(goodString);
-    });
-    
-    it(@"should work with crazy whitespace", ^{
-        expect(Underscore.string(stringWithCrazyWhitespace).trim().unwrap).equal(goodString);
-        expect(Underscore.stringTrim(stringWithCrazyWhitespace)).to.equal(goodString);
-    });
-    
     it(@"should work without any whitespace", ^{
         expect(Underscore.string(stringWithoutWhitespace).trim().unwrap).equal(stringWithoutWhitespace);
         expect(Underscore.stringTrim(stringWithoutWhitespace)).to.equal(stringWithoutWhitespace);
     });
     
     it(@"should work with only whitespace", ^{
-        expect(Underscore.string(onlyWhitespaceString).trim().unwrap).equal(emptyString);
-        expect(Underscore.stringTrim(onlyWhitespaceString)).to.equal(emptyString);
+        expect(Underscore.string(onlyWhitespaceString).trim().unwrap).equal(trimmedWhitespaceString);
+        expect(Underscore.stringTrim(onlyWhitespaceString)).to.equal(trimmedWhitespaceString);
     });
 });
 

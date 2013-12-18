@@ -57,7 +57,7 @@
 
 - (NSString *)unwrap
 {
-    return self.string;
+    return [self.string copy];
 }
 
 #pragma mark - Underscore (Strings) Methods
@@ -65,15 +65,8 @@
 - (USStringWrapper *(^)())trim
 {
     return ^USStringWrapper *() {
-        // http://stackoverflow.com/questions/758212/collapse-sequences-of-white-space-into-a-single-character
-        // Replace spaces: @"[ ]+"
-        // Replace spaces & tabs: @"[ \\t]+"
-        // Replace spaces, tabs & newlines: @"\\s+"
-        NSString *squashed = [self.string stringByReplacingOccurrencesOfString:@"[ ]+"
-                                                                    withString:@" "
-                                                                       options:NSRegularExpressionSearch
-                                                                         range:NSMakeRange(0, self.string.length)];
-        NSString *final = [squashed stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *final = [self.string hasPrefix:@" "] ? [self.string substringFromIndex:1] : self.string;
+        final = [final hasSuffix:@" "] ? [final substringToIndex:final.length - 1] : final;
         return [USStringWrapper wrap:final];
     };
 }
