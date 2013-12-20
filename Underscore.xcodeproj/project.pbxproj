@@ -25,7 +25,6 @@
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
-		54DDBDDE1837AAB2002EAEB3 /* UnderscoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */; };
 		6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */; };
 		BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */; };
 		BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */; };
@@ -70,7 +69,6 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderscoreSpec.m; sourceTree = "<group>"; };
 		54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnderscoreTests-Prefix.pch"; sourceTree = "<group>"; };
 		BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Strings.h"; path = "Strings/Underscore+Strings.h"; sourceTree = "<group>"; };
 		BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Strings.m"; path = "Strings/Underscore+Strings.m"; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				BCFADFFB1837EBC100A81EB5 /* Strings */,
-				54DDBDDD1837AAB2002EAEB3 /* UnderscoreSpec.m */,
 				54903D1915600A45006854CB /* USArrayTest.h */,
 				54903D1A15600A45006854CB /* USArrayTest.m */,
 				54996B351561576D0016BE94 /* USDictionaryTest.h */,
@@ -366,11 +363,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
-				54DDBDDE1837AAB2002EAEB3 /* UnderscoreSpec.m in Sources */,
 				BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
-				BCFADFF81837E77000A81EB5 /* USStringWrapper.m in Sources */,
-				BCFADFF51837E77000A81EB5 /* Underscore+Strings.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
