@@ -57,9 +57,14 @@
 @property (readonly) USStringWrapper *(^uppercase)();
 
 /**
+ *  Splits the string using spaces as the separator.
+ */
+@property (readonly) USArrayWrapper *(^split)();
+
+/**
  *  Splits the string at the given separator.
  */
-@property (readonly) USArrayWrapper *(^split)(NSString *separator);
+@property (readonly) USArrayWrapper *(^splitAt)(NSString *separator);
 
 @end
 

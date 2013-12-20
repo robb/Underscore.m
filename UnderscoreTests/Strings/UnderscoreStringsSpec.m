@@ -35,20 +35,46 @@ describe(@"trim: get rid of unneccessary whitespace characters.", ^{
     });
     
     it(@"should work without any whitespace", ^{
-        expect(Underscore.string(stringWithoutWhitespace).trim().unwrap).equal(stringWithoutWhitespace);
+        expect(Underscore.string(stringWithoutWhitespace).trim().unwrap).to.equal(stringWithoutWhitespace);
         expect(Underscore.stringTrim(stringWithoutWhitespace)).to.equal(stringWithoutWhitespace);
     });
     
     it(@"should work with only whitespace", ^{
-        expect(Underscore.string(onlyWhitespaceString).trim().unwrap).equal(trimmedWhitespaceString);
+        expect(Underscore.string(onlyWhitespaceString).trim().unwrap).to.equal(trimmedWhitespaceString);
         expect(Underscore.stringTrim(onlyWhitespaceString)).to.equal(trimmedWhitespaceString);
     });
 });
 
+static NSString *uncapitalized = @"hello";
+static NSString *allCaps = @"HELLO";
+static NSString *capitalized = @"Hello";
+static NSString *multipleUncaps = @"hello there";
+static NSString *multipleCapitalized = @"Hello There";
+
 describe(@"capitalize: uppercase the first letter of a string.", ^{
     it(@"should behave with nil", ^{
-        expect(Underscore.string(nil).capitalize()).to.beNil;
+        expect(Underscore.string(nil).capitalize().unwrap).to.beNil;
         expect(Underscore.stringCapitalize(nil)).to.beNil;
+    });
+    
+    it(@"should behave with lowercase strings", ^{
+        expect(Underscore.string(uncapitalized).capitalize().unwrap).to.equal(capitalized);
+        expect(Underscore.stringCapitalize(uncapitalized)).to.equal(capitalized);
+    });
+    
+    it(@"should behave with capitalized strings", ^{
+        expect(Underscore.string(capitalized).capitalize().unwrap).to.equal(capitalized);
+        expect(Underscore.stringCapitalize(capitalized)).to.equal(capitalized);
+    });
+    
+    it(@"should behave with uppercase strings", ^{
+        expect(Underscore.string(allCaps).capitalize().unwrap).to.equal(capitalized);
+        expect(Underscore.stringCapitalize(allCaps)).to.equal(capitalized);
+    });
+    
+    it(@"should keep whitespace intact", ^{
+        expect(@(Underscore.string(stringWithLeadingWhitespace).capitalize().unwrap.length)).to.equal(@(stringWithLeadingWhitespace.length));
+        expect(@(Underscore.stringCapitalize(stringWithLeadingWhitespace).length)).to.equal(@(stringWithLeadingWhitespace.length));
     });
 });
 
@@ -57,6 +83,26 @@ describe(@"lowercase: make all characters in the string lowercase", ^{
         expect(Underscore.string(nil).lowercase()).to.beNil;
         expect(Underscore.stringLowercase(nil)).to.beNil;
     });
+    
+    it(@"should behave with lowercase strings", ^{
+        expect(Underscore.string(uncapitalized).lowercase().unwrap).to.equal(uncapitalized);
+        expect(Underscore.stringLowercase(uncapitalized)).to.equal(uncapitalized);
+    });
+    
+    it(@"should behave with capitalized strings", ^{
+        expect(Underscore.string(capitalized).lowercase().unwrap).to.equal(uncapitalized);
+        expect(Underscore.stringLowercase(capitalized)).to.equal(uncapitalized);
+    });
+    
+    it(@"should behave with uppercase strings", ^{
+        expect(Underscore.string(allCaps).lowercase().unwrap).to.equal(uncapitalized);
+        expect(Underscore.stringLowercase(allCaps)).to.equal(uncapitalized);
+    });
+    
+    it(@"should keep whitespace intact", ^{
+        expect(@(Underscore.string(stringWithLeadingWhitespace).lowercase().unwrap.length)).to.equal(@(stringWithLeadingWhitespace.length));
+        expect(@(Underscore.stringLowercase(stringWithLeadingWhitespace).length)).to.equal(@(stringWithLeadingWhitespace.length));
+    });
 });
 
 describe(@"uppercase: make all characters in the string uppercase", ^{
@@ -64,12 +110,39 @@ describe(@"uppercase: make all characters in the string uppercase", ^{
         expect(Underscore.string(nil).uppercase()).to.beNil;
         expect(Underscore.stringUppercase(nil)).to.beNil;
     });
+    
+    it(@"should behave with lowercase strings", ^{
+        expect(Underscore.string(uncapitalized).uppercase().unwrap).to.equal(allCaps);
+        expect(Underscore.stringUppercase(uncapitalized)).to.equal(allCaps);
+    });
+    
+    it(@"should behave with capitalized strings", ^{
+        expect(Underscore.string(capitalized).uppercase().unwrap).to.equal(allCaps);
+        expect(Underscore.stringUppercase(capitalized)).to.equal(allCaps);
+    });
+    
+    it(@"should behave with uppercase strings", ^{
+        expect(Underscore.string(allCaps).uppercase().unwrap).to.equal(allCaps);
+        expect(Underscore.stringUppercase(allCaps)).to.equal(allCaps);
+    });
+    
+    it(@"should keep whitespace intact", ^{
+        expect(@(Underscore.string(stringWithLeadingWhitespace).uppercase().unwrap.length)).to.equal(@(stringWithLeadingWhitespace.length));
+        expect(@(Underscore.stringUppercase(stringWithLeadingWhitespace).length)).to.equal(@(stringWithLeadingWhitespace.length));
+    });
 });
 
-describe(@"split: split the string into an array with the components separated by the given separator", ^{
+describe(@"split: split the string into an array with the components separated by the spaces", ^{
     it(@"should behave with nil", ^{
-        expect(Underscore.string(nil).split(nil)).to.beNil;
-        expect(Underscore.stringSplit(nil, nil)).to.beNil;
+        expect(Underscore.string(nil).split(nil).unwrap).to.beNil;
+        expect(Underscore.stringSplit(nil)).to.beNil;
+    });
+});
+
+describe(@"splitAt: split the string into an array with the components separated by the given string", ^{
+    it(@"should behave with nil", ^{
+        expect(Underscore.string(nil).splitAt(nil)).to.beNil;
+        expect(Underscore.stringSplitAt(nil, nil)).to.beNil;
     });
 });
 

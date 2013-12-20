@@ -40,7 +40,9 @@
 
 + (NSString *(^)(NSString *))stringUppercase;
 
-+ (NSArray *(^)(NSString *, NSString *))stringSplit;
++ (NSArray *(^)(NSString *))stringSplit;
+
++ (NSArray *(^)(NSString *, NSString *))stringSplitAt;
 
 + (NSString *(^)(NSArray *))stringJoin;
 

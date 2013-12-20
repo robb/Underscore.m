@@ -93,7 +93,14 @@
     };
 }
 
-- (USArrayWrapper *(^)(NSString *))split
+- (USArrayWrapper *(^)())split
+{
+    return ^USArrayWrapper *() {
+        return self.splitAt(@" ");
+    };
+}
+
+- (USArrayWrapper *(^)(NSString *))splitAt
 {
     return ^USArrayWrapper *(NSString *separator) {
         return Underscore.array([self.string componentsSeparatedByString:separator]);

@@ -63,7 +63,14 @@
     };
 }
 
-+ (NSArray *(^)(NSString *, NSString *))stringSplit
++ (NSArray *(^)(NSString *))stringSplit
+{
+    return ^NSArray *(NSString *string) {
+        return Underscore.string(string).split().unwrap;
+    };
+}
+
++ (NSArray *(^)(NSString *, NSString *))stringSplitAt
 {
     return ^NSArray *(NSString *string, NSString *separator) {
         return Underscore.string(string).split(separator).unwrap;
