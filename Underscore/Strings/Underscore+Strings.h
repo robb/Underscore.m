@@ -40,10 +40,10 @@
 
 + (NSString *(^)(NSString *))stringUppercase;
 
-+ (NSArray *(^)(NSString *))stringSplit;
++ (NSString *(^)(NSString *, NSString *))stringStrip;
 
-+ (NSArray *(^)(NSString *, NSString *))stringSplitAt;
++ (NSArray *(^)(NSString *, NSString *))stringSplit;
 
-+ (NSString *(^)(NSArray *))stringJoin;
++ (NSString *(^)(NSArray *, NSString *))arrayJoin;
 
 @end

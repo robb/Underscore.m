@@ -38,49 +38,49 @@
 + (NSString *(^)(NSString *))stringTrim
 {
     return ^NSString *(NSString *string) {
-        return Underscore.string(string).trim().unwrap;
+        return Underscore.string(string).trim.unwrap;
     };
 }
 
 + (NSString *(^)(NSString *))stringCapitalize
 {
     return ^NSString *(NSString *string) {
-        return Underscore.string(string).capitalize().unwrap;
+        return Underscore.string(string).capitalize.unwrap;
     };
 }
 
 + (NSString *(^)(NSString *))stringLowercase
 {
     return ^NSString *(NSString *string) {
-        return Underscore.string(string).lowercase().unwrap;
+        return Underscore.string(string).lowercase.unwrap;
     };
 }
 
 + (NSString *(^)(NSString *))stringUppercase
 {
     return ^NSString *(NSString *string) {
-        return Underscore.string(string).uppercase().unwrap;
+        return Underscore.string(string).uppercase.unwrap;
     };
 }
 
-+ (NSArray *(^)(NSString *))stringSplit
++ (NSString *(^)(NSString *, NSString *))stringStrip
 {
-    return ^NSArray *(NSString *string) {
-        return Underscore.string(string).split().unwrap;
+    return ^NSString *(NSString *string, NSString *strip) {
+        return Underscore.string(string).strip(strip).unwrap;
     };
 }
 
-+ (NSArray *(^)(NSString *, NSString *))stringSplitAt
++ (NSArray *(^)(NSString *, NSString *))stringSplit
 {
     return ^NSArray *(NSString *string, NSString *separator) {
         return Underscore.string(string).split(separator).unwrap;
     };
 }
 
-+ (NSString *(^)(NSArray *))stringJoin
++ (NSString *(^)(NSArray *, NSString *))arrayJoin
 {
-    return ^NSString *(NSArray *components) {
-        return Underscore.array(components).join().unwrap;
+    return ^NSString *(NSArray *components, NSString *joiner) {
+        return Underscore.array(components).join(joiner).unwrap;
     };
 }
 

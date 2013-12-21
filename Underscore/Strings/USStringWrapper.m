@@ -62,48 +62,40 @@
 
 #pragma mark - Underscore (Strings) Methods
 
-- (USStringWrapper *(^)())trim
+- (USStringWrapper *)trim
 {
-    return ^USStringWrapper *() {
-        NSString *final = [self.string hasPrefix:@" "] ? [self.string substringFromIndex:1] : self.string;
-        final = [final hasSuffix:@" "] ? [final substringToIndex:final.length - 1] : final;
-        return [USStringWrapper wrap:final];
+    NSString *final = [self.string hasPrefix:@" "] ? [self.string substringFromIndex:1] : self.string;
+    final = [final hasSuffix:@" "] ? [final substringToIndex:final.length - 1] : final;
+    return [USStringWrapper wrap:final];
+}
+
+- (USStringWrapper *)capitalize
+{
+    NSString *capitalized = [self.string capitalizedString];
+    return [USStringWrapper wrap:capitalized];
+}
+
+- (USStringWrapper *)lowercase
+{
+    return [USStringWrapper wrap:self.string.lowercaseString];
+}
+
+- (USStringWrapper *)uppercase
+{
+    return [USStringWrapper wrap:self.string.uppercaseString];
+}
+
+- (USStringWrapper *(^)(NSString *))strip
+{
+    return ^USStringWrapper *(NSString *strip) {
+        return [USStringWrapper wrap:strip ? [self.string stringByReplacingOccurrencesOfString:strip withString:@""] : nil];
     };
 }
 
-- (USStringWrapper *(^)())capitalize
-{
-    return ^USStringWrapper *() {
-        NSString *capitalized = [self.string capitalizedString];
-        return [USStringWrapper wrap:capitalized];
-    };
-}
-
-- (USStringWrapper *(^)())lowercase
-{
-    return ^USStringWrapper *() {
-        return [USStringWrapper wrap:self.string.lowercaseString];
-    };
-}
-
-- (USStringWrapper *(^)())uppercase
-{
-    return ^USStringWrapper *() {
-        return [USStringWrapper wrap:self.string.uppercaseString];
-    };
-}
-
-- (USArrayWrapper *(^)())split
-{
-    return ^USArrayWrapper *() {
-        return self.splitAt(@" ");
-    };
-}
-
-- (USArrayWrapper *(^)(NSString *))splitAt
+- (USArrayWrapper *(^)(NSString *))split
 {
     return ^USArrayWrapper *(NSString *separator) {
-        return Underscore.array([self.string componentsSeparatedByString:separator]);
+        return [USArrayWrapper wrap:separator ? [self.string componentsSeparatedByString:separator] : nil];
     };
 }
 
@@ -111,10 +103,10 @@
 
 @implementation USArrayWrapper (USStrings)
 
-- (USStringWrapper *(^)())join
+- (USStringWrapper *(^)(NSString *))join
 {
-    return ^USStringWrapper *() {
-        return [USStringWrapper wrap:[self.unwrap componentsJoinedByString:@" "]];
+    return ^USStringWrapper *(NSString *joiner) {
+        return [USStringWrapper wrap:[self.unwrap componentsJoinedByString:joiner]];
     };
 }
 

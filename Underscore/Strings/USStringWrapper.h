@@ -39,32 +39,32 @@
 /**
  *  Removes any leading and trailing whitespace character.
  */
-@property (readonly) USStringWrapper *(^trim)();
+@property (readonly) USStringWrapper *trim;
 
 /**
  *  Capitalizes the first character in every word, all other characters are lowercase'd
  */
-@property (readonly) USStringWrapper *(^capitalize)();
+@property (readonly) USStringWrapper *capitalize;
 
 /**
  *  Lowercases all characters.
  */
-@property (readonly) USStringWrapper *(^lowercase)();
+@property (readonly) USStringWrapper *lowercase;
 
 /**
  *  Uppercases all characters.
  */
-@property (readonly) USStringWrapper *(^uppercase)();
+@property (readonly) USStringWrapper *uppercase;
 
 /**
- *  Splits the string using spaces as the separator.
+ *  Removes occurences of the given string.
  */
-@property (readonly) USArrayWrapper *(^split)();
+@property (readonly) USStringWrapper *(^strip)(NSString *strip);
 
 /**
- *  Splits the string at the given separator.
+ *  Splits the string at the given separator. Returns a nil array if the separator is nil.
  */
-@property (readonly) USArrayWrapper *(^splitAt)(NSString *separator);
+@property (readonly) USArrayWrapper *(^split)(NSString *separator);
 
 @end
 
@@ -73,6 +73,6 @@
 /**
  *  Joins the elements in the array.
  */
-@property (readonly) USStringWrapper *(^join)();
+@property (readonly) USStringWrapper *(^join)(NSString *joiner);
 
 @end
