@@ -32,18 +32,18 @@
 
 + (USStringWrapper *(^)(NSString *))string;
 
-+ (NSString *(^)(NSString *))stringTrim;
++ (NSString *(^)(NSString *))trim;
 
-+ (NSString *(^)(NSString *))stringCapitalize;
++ (NSString *(^)(NSString *))capitalize;
 
-+ (NSString *(^)(NSString *))stringLowercase;
++ (NSString *(^)(NSString *))lowercase;
 
-+ (NSString *(^)(NSString *))stringUppercase;
++ (NSString *(^)(NSString *))uppercase;
 
-+ (NSString *(^)(NSString *, NSString *))stringStrip;
++ (NSString *(^)(NSString *, NSString *))strip;
 
-+ (NSArray *(^)(NSString *, NSString *))stringSplit;
++ (NSArray *(^)(NSString *, NSString *))split;
 
-+ (NSString *(^)(NSArray *, NSString *))arrayJoin;
++ (NSString *(^)(NSArray *, NSString *))join;
 
 @end
