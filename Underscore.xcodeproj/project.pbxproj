@@ -12,14 +12,11 @@
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 547C44D915B30ADC004698B8 /* Underscore+Functional.h */; };
 		547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Functional.m */; };
-		547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C44DA15B30ADD004698B8 /* Underscore+Functional.m */; };
 		54903D13155FF779006854CB /* USArrayWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54903D11155FF779006854CB /* USArrayWrapper.h */; };
 		54903D14155FF779006854CB /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArrayWrapper.m */; };
 		54903D1B15600A45006854CB /* USArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D1A15600A45006854CB /* USArrayTest.m */; };
-		54903D2115602003006854CB /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54903D12155FF779006854CB /* USArrayWrapper.m */; };
 		54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2115614B220016BE94 /* USDictionaryWrapper.h */; };
 		54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionaryWrapper.m */; };
-		54996B2515614B220016BE94 /* USDictionaryWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B2215614B220016BE94 /* USDictionaryWrapper.m */; };
 		54996B2D15614F900016BE94 /* USConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2C15614F900016BE94 /* USConstants.h */; };
 		54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B361561576D0016BE94 /* USDictionaryTest.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
@@ -28,6 +25,12 @@
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
+		6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */; };
+		BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */; };
+		BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */; };
+		BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFF11837E77000A81EB5 /* USStringWrapper.h */; };
+		BCFADFF71837E77000A81EB5 /* USStringWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF21837E77000A81EB5 /* USStringWrapper.m */; };
+		BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.xcconfig"; path = "Pods/Pods-UnderscoreTests.xcconfig"; sourceTree = "<group>"; };
+		44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
@@ -64,6 +69,12 @@
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnderscoreTests-Prefix.pch"; sourceTree = "<group>"; };
+		BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Strings.h"; path = "Strings/Underscore+Strings.h"; sourceTree = "<group>"; };
+		BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Strings.m"; path = "Strings/Underscore+Strings.m"; sourceTree = "<group>"; };
+		BCFADFF11837E77000A81EB5 /* USStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USStringWrapper.h; path = Strings/USStringWrapper.h; sourceTree = "<group>"; };
+		BCFADFF21837E77000A81EB5 /* USStringWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USStringWrapper.m; path = Strings/USStringWrapper.m; sourceTree = "<group>"; };
+		BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreStringsSpec.m; path = Strings/UnderscoreStringsSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,7 @@
 				54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */,
 				54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */,
 				54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */,
+				6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +108,7 @@
 				54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */,
 				54A3DCC7154DD4BF00387DE3 /* Frameworks */,
 				54A3DCC6154DD4BF00387DE3 /* Products */,
+				3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +127,7 @@
 				54A3DCC8154DD4BF00387DE3 /* Foundation.framework */,
 				54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */,
 				54A3DCD8154DD4BF00387DE3 /* UIKit.framework */,
+				44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +135,7 @@
 		54A3DCCA154DD4BF00387DE3 /* Underscore */ = {
 			isa = PBXGroup;
 			children = (
+				BCFADFE91837D5F700A81EB5 /* Strings */,
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
 				547C44D915B30ADC004698B8 /* Underscore+Functional.h */,
@@ -146,13 +161,14 @@
 		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
+				BCFADFFB1837EBC100A81EB5 /* Strings */,
 				54903D1915600A45006854CB /* USArrayTest.h */,
 				54903D1A15600A45006854CB /* USArrayTest.m */,
 				54996B351561576D0016BE94 /* USDictionaryTest.h */,
 				54996B361561576D0016BE94 /* USDictionaryTest.m */,
 				541D18A81561726C00599033 /* HelperTest.h */,
 				541D18A91561726C00599033 /* HelperTest.m */,
+				54A3DCDF154DD4BF00387DE3 /* Supporting Files */,
 			);
 			path = UnderscoreTests;
 			sourceTree = "<group>";
@@ -162,8 +178,28 @@
 			children = (
 				54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */,
 				54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */,
+				54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCFADFE91837D5F700A81EB5 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */,
+				BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */,
+				BCFADFF11837E77000A81EB5 /* USStringWrapper.h */,
+				BCFADFF21837E77000A81EB5 /* USStringWrapper.m */,
+			);
+			name = Strings;
+			sourceTree = "<group>";
+		};
+		BCFADFFB1837EBC100A81EB5 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */,
+			);
+			name = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
+				BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */,
 				54903D13155FF779006854CB /* USArrayWrapper.h in Headers */,
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
 				54996B2D15614F900016BE94 /* USConstants.h in Headers */,
+				BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */,
 				547C44DB15B30ADD004698B8 /* Underscore+Functional.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,10 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54A3DCEC154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "UnderscoreTests" */;
 			buildPhases = (
+				05E919BE37484386820D8966 /* Check Pods Manifest.lock */,
 				54A3DCD0154DD4BF00387DE3 /* Sources */,
 				54A3DCD1154DD4BF00387DE3 /* Frameworks */,
 				54A3DCD2154DD4BF00387DE3 /* Resources */,
 				54A3DCD3154DD4BF00387DE3 /* ShellScript */,
+				1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +299,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05E919BE37484386820D8966 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-UnderscoreTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		54A3DCD3154DD4BF00387DE3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +352,8 @@
 				54903D14155FF779006854CB /* USArrayWrapper.m in Sources */,
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
+				BCFADFF71837E77000A81EB5 /* USStringWrapper.m in Sources */,
+				BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */,
 				547C44DC15B30ADD004698B8 /* Underscore+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,11 +363,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
-				54903D2115602003006854CB /* USArrayWrapper.m in Sources */,
-				54996B2515614B220016BE94 /* USDictionaryWrapper.m in Sources */,
+				BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
 				541D18AA1561726C00599033 /* HelperTest.m in Sources */,
-				547C44DD15B30B8D004698B8 /* Underscore+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,13 +469,14 @@
 		};
 		54A3DCED154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -414,13 +485,14 @@
 		};
 		54A3DCEE154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
+				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
