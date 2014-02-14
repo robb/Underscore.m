@@ -179,13 +179,13 @@ NSDictionary *soundcloudRelated = Underscore.filterKeys(data, ^BOOL (NSString *k
 });
 {% endhighlight %}
 
-#### filterObjects `Underscore.filterObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### filterValues `Underscore.filterValues(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairse whose values pass
 `test`.
 
 {% highlight objectivec %}
-NSDictionary *numericValues = Underscore.filterObjects(data, Underscore.isNumber);
+NSDictionary *numericValues = Underscore.filterValues(data, Underscore.isNumber);
 {% endhighlight %}
 
 #### rejectKeys `Underscore.rejectKeys(NSDictionary *dictionary, UnderscoreTestBlock test)`
@@ -199,11 +199,11 @@ NSDictionary *safe = Underscore.rejectKeys(data, ^BOOL (NSString *key) {
 });
 {% endhighlight %}
 
-#### rejectObjects `Underscore.rejectObjects(NSDictionary *dictionary, UnderscoreTestBlock test)`
+#### rejectValues `Underscore.rejectValues(NSDictionary *dictionary, UnderscoreTestBlock test)`
 
 Returns a dictionary that only contains the key-value-pairs whose values fail
 `test`.
 
 {% highlight objectivec %}
-NSDictionary *noNulls = Underscore.rejectKeys(data, Underscore.isNull);
+NSDictionary *noNulls = Underscore.rejectValues(data, Underscore.isNull);
 {% endhighlight %}
