@@ -336,7 +336,7 @@
         NSMutableDictionary *result = [NSMutableDictionary dictionary];
         
         for(id obj in self.array) {
-            id <NSCopying> groupIdentifier = block(obj);
+            id<NSCopying> groupIdentifier = block(obj);
             NSArray *groupContents = result[groupIdentifier] ?: @[];
             groupContents = [groupContents arrayByAddingObject:obj];
             result[groupIdentifier] = groupContents;

@@ -38,4 +38,4 @@ typedef id   (^UnderscoreDictionaryMapBlock)(id key, id obj);
 
 typedef NSComparisonResult (^UnderscoreSortBlock)(id a, id b);
 
-typedef id <NSCopying> (^UnderscoreGroupingBlock)(id obj);
+typedef id<NSCopying> (^UnderscoreGroupingBlock)(id obj);
