@@ -643,4 +643,21 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(notSorted).sort(numericalSort).unwrap);
 }
 
+- (void)testGroupBy
+{
+    NSArray *numbers = @[ @1.3, @2.1, @2.4 ];
+    NSDictionary *grouped = @{ @1 : @[ @1.3 ], @2 : @[ @2.1, @2.4 ] };
+    
+    UnderscoreGroupingBlock intGroup = ^id <NSCopying> (NSNumber *number) {
+        return @((int)floor(number.doubleValue));
+    };
+
+    STAssertEqualObjects(_.groupBy(numbers, intGroup),
+                         grouped,
+                         @"Can group elements");
+    
+    USAssertEqualObjects(_.groupBy(numbers, intGroup),
+                         _.array(numbers).groupBy(intGroup).unwrap);
+}
+
 @end
