@@ -189,6 +189,13 @@
     };
 }
 
++ (NSDictionary *(^)(NSArray *, UnderscoreGroupingBlock))groupBy
+{
+    return ^(NSArray *array, UnderscoreGroupingBlock block) {
+        return Underscore.array(array).groupBy(block).unwrap;
+    };
+}
+
 #pragma mark NSDictionary shortcuts
 
 + (USDictionaryWrapper *(^)(NSDictionary *))dict

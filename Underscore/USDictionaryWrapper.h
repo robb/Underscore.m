@@ -27,7 +27,6 @@
 #import <Foundation/Foundation.h>
 
 #import "USArrayWrapper.h"
-
 #import "USConstants.h"
 
 @interface USDictionaryWrapper : NSObject

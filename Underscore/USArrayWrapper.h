@@ -28,6 +28,8 @@
 
 #import "USConstants.h"
 
+@class USDictionaryWrapper;
+
 @interface USArrayWrapper : NSObject
 
 + (USArrayWrapper *)wrap:(NSArray *)array;
@@ -70,5 +72,7 @@
 @property (readonly) BOOL (^any)(UnderscoreTestBlock block);
 
 @property (readonly) USArrayWrapper *(^sort)(UnderscoreSortBlock block);
+
+@property (readonly) USDictionaryWrapper *(^groupBy)(UnderscoreGroupingBlock block);
 
 @end

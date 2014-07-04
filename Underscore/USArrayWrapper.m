@@ -27,6 +27,7 @@
 #import "Underscore.h"
 
 #import "USArrayWrapper.h"
+#import "USDictionaryWrapper.h"
 
 @interface USArrayWrapper ()
 
@@ -326,6 +327,22 @@
     return ^USArrayWrapper *(UnderscoreSortBlock block) {
         NSArray *result = [self.array sortedArrayUsingComparator:block];
         return [[USArrayWrapper alloc] initWithArray:result];
+    };
+}
+
+- (USDictionaryWrapper *(^)(UnderscoreGroupingBlock))groupBy
+{
+    return ^USDictionaryWrapper *(UnderscoreGroupingBlock block) {
+        NSMutableDictionary *result = [NSMutableDictionary dictionary];
+        
+        for(id obj in self.array) {
+            id<NSCopying> groupIdentifier = block(obj);
+            NSArray *groupContents = result[groupIdentifier] ?: @[];
+            groupContents = [groupContents arrayByAddingObject:obj];
+            result[groupIdentifier] = groupContents;
+        }
+        
+        return [USDictionaryWrapper wrap:result];
     };
 }
 
