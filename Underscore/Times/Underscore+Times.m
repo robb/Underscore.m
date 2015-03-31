@@ -25,7 +25,6 @@
 //
 
 #import "Underscore+Times.h"
-#import "Underscore+Functional.h"
 
 @implementation Underscore (Times)
 
