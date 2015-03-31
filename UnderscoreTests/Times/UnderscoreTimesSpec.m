@@ -26,7 +26,7 @@ describe(@"times", ^{
     context(@"when negative number given", ^{
         it(@"should not call given block", ^{
             NSInteger __block count = 0;
-            NSInteger times = -10;
+            NSInteger times = -1;
             Underscore.times(times, ^(NSInteger n){
                 count++;
             });
