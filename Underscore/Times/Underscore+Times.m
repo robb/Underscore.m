@@ -31,6 +31,7 @@
 + (void (^)(NSInteger, UnderscoreIntegerIteratorBlock))times
 {
     return ^(NSInteger times, UnderscoreIntegerIteratorBlock block) {
+        NSCParameterAssert(times > 0);
         for (NSInteger count = 0; count < times; count++) {
             block(count);
         }

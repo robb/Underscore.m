@@ -23,13 +23,11 @@ describe(@"times", ^{
     });
 
     context(@"when negative number given", ^{
-        it(@"should not call given block", ^{
-            NSInteger __block count = 0;
-            NSInteger times = -1;
-            Underscore.times(times, ^(NSInteger n){
-                count++;
-            });
-            expect(count).to.equal(0);
+        it(@"should through Exeption", ^{
+            expect(^{
+                NSInteger times = -1;
+                Underscore.times(times, ^(NSInteger n){});
+            }).to.raise(@"NSInternalInconsistencyException");
         });
     });
 });
