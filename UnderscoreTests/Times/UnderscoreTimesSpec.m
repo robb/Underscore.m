@@ -15,7 +15,7 @@ describe(@"times", ^{
         it(@"should call given block specified times", ^{
             NSInteger __block count = 0;
             NSInteger times = 10;
-            Underscore.times(times, ^(NSUInteger n){
+            Underscore.times(times, ^(NSInteger n){
                 count++;
             });
             expect(count).to.equal(times);
@@ -26,7 +26,7 @@ describe(@"times", ^{
         it(@"should not call given block", ^{
             NSInteger __block count = 0;
             NSInteger times = -1;
-            Underscore.times(times, ^(NSUInteger n){
+            Underscore.times(times, ^(NSInteger n){
                 count++;
             });
             expect(count).to.equal(0);
