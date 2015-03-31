@@ -11,7 +11,6 @@
 SpecBegin(UnderscoreTimes)
 
 describe(@"times", ^{
-
     context(@"when positive number given", ^{
         it(@"should call given block specified times", ^{
             NSInteger __block count = 0;
