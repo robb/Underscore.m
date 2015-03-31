@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		437EE97C1AC9423D00BBB61A /* Underscore+Times.h in Headers */ = {isa = PBXBuildFile; fileRef = 437EE9781AC9423D00BBB61A /* Underscore+Times.h */; };
+		437EE97D1AC9423D00BBB61A /* Underscore+Times.m in Sources */ = {isa = PBXBuildFile; fileRef = 437EE9791AC9423D00BBB61A /* Underscore+Times.m */; };
+		437EE9811AC9427900BBB61A /* UnderscoreTimesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */; };
 		541D18A615616E2400599033 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A515616E2400599033 /* Underscore.m */; };
 		541D18AA1561726C00599033 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D18A91561726C00599033 /* HelperTest.m */; };
 		54567D99154DDED4000F38AC /* Underscore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A3DCCD154DD4BF00387DE3 /* Underscore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.xcconfig"; path = "Pods/Pods-UnderscoreTests.xcconfig"; sourceTree = "<group>"; };
+		437EE9781AC9423D00BBB61A /* Underscore+Times.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Times.h"; path = "Times/Underscore+Times.h"; sourceTree = "<group>"; };
+		437EE9791AC9423D00BBB61A /* Underscore+Times.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Times.m"; path = "Times/Underscore+Times.m"; sourceTree = "<group>"; };
+		437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreTimesSpec.m; path = Times/UnderscoreTimesSpec.m; sourceTree = "<group>"; };
 		44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
@@ -101,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		438870481ABCA40E008AA84C /* Times */ = {
+			isa = PBXGroup;
+			children = (
+				437EE9781AC9423D00BBB61A /* Underscore+Times.h */,
+				437EE9791AC9423D00BBB61A /* Underscore+Times.m */,
+			);
+			name = Times;
+			sourceTree = "<group>";
+		};
+		438870511ABCA4AC008AA84C /* Times */ = {
+			isa = PBXGroup;
+			children = (
+				437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */,
+			);
+			name = Times;
+			sourceTree = "<group>";
+		};
 		54A3DCBA154DD4BF00387DE3 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +158,7 @@
 		54A3DCCA154DD4BF00387DE3 /* Underscore */ = {
 			isa = PBXGroup;
 			children = (
+				438870481ABCA40E008AA84C /* Times */,
 				BCFADFE91837D5F700A81EB5 /* Strings */,
 				54A3DCCD154DD4BF00387DE3 /* Underscore.h */,
 				541D18A515616E2400599033 /* Underscore.m */,
@@ -161,6 +185,7 @@
 		54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				438870511ABCA4AC008AA84C /* Times */,
 				BCFADFFB1837EBC100A81EB5 /* Strings */,
 				54903D1915600A45006854CB /* USArrayTest.h */,
 				54903D1A15600A45006854CB /* USArrayTest.m */,
@@ -210,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54567D99154DDED4000F38AC /* Underscore.h in Headers */,
+				437EE97C1AC9423D00BBB61A /* Underscore+Times.h in Headers */,
 				BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */,
 				54903D13155FF779006854CB /* USArrayWrapper.h in Headers */,
 				54996B2315614B220016BE94 /* USDictionaryWrapper.h in Headers */,
@@ -258,7 +284,7 @@
 			name = UnderscoreTests;
 			productName = UnderscoreTests;
 			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -351,6 +377,7 @@
 			files = (
 				54903D14155FF779006854CB /* USArrayWrapper.m in Sources */,
 				54996B2415614B220016BE94 /* USDictionaryWrapper.m in Sources */,
+				437EE97D1AC9423D00BBB61A /* Underscore+Times.m in Sources */,
 				541D18A615616E2400599033 /* Underscore.m in Sources */,
 				BCFADFF71837E77000A81EB5 /* USStringWrapper.m in Sources */,
 				BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */,
@@ -362,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437EE9811AC9427900BBB61A /* UnderscoreTimesSpec.m in Sources */,
 				54903D1B15600A45006854CB /* USArrayTest.m in Sources */,
 				BCFADFFC1837EBE600A81EB5 /* UnderscoreStringsSpec.m in Sources */,
 				54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */,
@@ -444,6 +472,7 @@
 		54A3DCEA154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DSTROOT = /tmp/Underscore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
@@ -456,6 +485,7 @@
 		54A3DCEB154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DSTROOT = /tmp/Underscore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
@@ -469,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -485,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
