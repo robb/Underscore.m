@@ -284,7 +284,7 @@
 			name = UnderscoreTests;
 			productName = UnderscoreTests;
 			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -472,7 +472,6 @@
 		54A3DCEA154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				DSTROOT = /tmp/Underscore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
@@ -485,7 +484,6 @@
 		54A3DCEB154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				DSTROOT = /tmp/Underscore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Underscore/Underscore-Prefix.pch";
@@ -499,7 +497,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -516,7 +513,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
