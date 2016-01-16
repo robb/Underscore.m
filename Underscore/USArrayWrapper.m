@@ -169,8 +169,7 @@
     NSMutableArray *result = [self.array mutableCopy];
 
     for (NSInteger i = result.count - 1; i > 0; i--) {
-        [result exchangeObjectAtIndex:arc4random() % (i + 1)
-                    withObjectAtIndex:i];
+        [result exchangeObjectAtIndex:arc4random() % (i + 1) withObjectAtIndex:i];
     }
 
     return [[USArrayWrapper alloc] initWithArray:result];

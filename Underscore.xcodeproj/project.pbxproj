@@ -47,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.xcconfig"; path = "Pods/Pods-UnderscoreTests.xcconfig"; sourceTree = "<group>"; };
 		437EE9781AC9423D00BBB61A /* Underscore+Times.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Times.h"; path = "Times/Underscore+Times.h"; sourceTree = "<group>"; };
 		437EE9791AC9423D00BBB61A /* Underscore+Times.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Times.m"; path = "Times/Underscore+Times.m"; sourceTree = "<group>"; };
 		437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreTimesSpec.m; path = Times/UnderscoreTimesSpec.m; sourceTree = "<group>"; };
@@ -81,6 +80,8 @@
 		BCFADFF11837E77000A81EB5 /* USStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USStringWrapper.h; path = Strings/USStringWrapper.h; sourceTree = "<group>"; };
 		BCFADFF21837E77000A81EB5 /* USStringWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USStringWrapper.m; path = Strings/USStringWrapper.m; sourceTree = "<group>"; };
 		BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreStringsSpec.m; path = Strings/UnderscoreStringsSpec.m; sourceTree = "<group>"; };
+		EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +132,7 @@
 				54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */,
 				54A3DCC7154DD4BF00387DE3 /* Frameworks */,
 				54A3DCC6154DD4BF00387DE3 /* Products */,
-				3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */,
+				67B5CAD2CDC4735230C62292 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +207,15 @@
 				54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67B5CAD2CDC4735230C62292 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */,
+				EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BCFADFE91837D5F700A81EB5 /* Strings */ = {
@@ -284,7 +294,7 @@
 			name = UnderscoreTests;
 			productName = UnderscoreTests;
 			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -352,7 +362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-UnderscoreTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		54A3DCD3154DD4BF00387DE3 /* ShellScript */ = {
@@ -495,7 +505,7 @@
 		};
 		54A3DCED154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
+			baseConfigurationReference = F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -511,7 +521,7 @@
 		};
 		54A3DCEE154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
+			baseConfigurationReference = EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
