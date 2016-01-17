@@ -20,10 +20,10 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 #define _ Underscore
 
 #define USAssertEqualObjects(functional, wrapper) \
-        STAssertEqualObjects(functional, wrapper, @"Wrapper and Shortcut behave equally");
+        XCTAssertEqualObjects (functional, wrapper, @"Wrapper and Shortcut behave equally");
 
 #define USAssertEqualPrimitives(functional, wrapper) \
-        STAssertTrue(functional == wrapper, @"Wrapper and Shortcut behave equally");
+        XCTAssertTrue(functional == wrapper, @"Wrapper and Shortcut behave equally");
 
 @implementation USArrayTest
 
@@ -36,13 +36,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testFirst
 {
-    STAssertNil(_.first(emptyArray), @"Returns nil for empty array");
+    XCTAssertNil(_.first(emptyArray), @"Returns nil for empty array");
 
-    STAssertEqualObjects(_.first(singleObject),
+    XCTAssertEqualObjects(_.first(singleObject),
                          @"foo",
                          @"Can extract only object");
 
-    STAssertEqualObjects(_.first(threeObjects),
+    XCTAssertEqualObjects(_.first(threeObjects),
                          @"foo",
                          @"Can extract first object");
 
@@ -53,13 +53,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testLast
 {
-    STAssertNil(_.last(emptyArray), @"Returns nil for empty array");
+    XCTAssertNil(_.last(emptyArray), @"Returns nil for empty array");
 
-    STAssertEqualObjects(_.last(singleObject),
+    XCTAssertEqualObjects(_.last(singleObject),
                          @"foo",
                          @"Can extract only object");
 
-    STAssertEqualObjects(_.last(threeObjects),
+    XCTAssertEqualObjects(_.last(threeObjects),
                          @"baz",
                          @"Can extract last object");
 
@@ -70,16 +70,16 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testHead
 {
-    STAssertEqualObjects(_.head(emptyArray, 1),
+    XCTAssertEqualObjects(_.head(emptyArray, 1),
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
     NSArray *subrange = [NSArray arrayWithObjects:@"foo", @"bar", nil];
-    STAssertEqualObjects(_.head(threeObjects, 2),
+    XCTAssertEqualObjects(_.head(threeObjects, 2),
                          subrange,
                          @"Returns multiple elements if available");
 
-    STAssertEqualObjects(_.head(threeObjects, 4),
+    XCTAssertEqualObjects(_.head(threeObjects, 4),
                          threeObjects,
                          @"Does not return more elements than available");
 
@@ -90,16 +90,16 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testTail
 {
-    STAssertEqualObjects(_.tail(emptyArray, 1),
+    XCTAssertEqualObjects(_.tail(emptyArray, 1),
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
     NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
-    STAssertEqualObjects(_.tail(threeObjects, 2),
+    XCTAssertEqualObjects(_.tail(threeObjects, 2),
                          subrange,
                          @"Returns multiple elements if available");
 
-    STAssertEqualObjects(_.tail(threeObjects, 4),
+    XCTAssertEqualObjects(_.tail(threeObjects, 4),
                          threeObjects,
                          @"Does not return more elements than available");
 
@@ -110,16 +110,16 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testDrop
 {
-    STAssertEqualObjects(_.drop(emptyArray, 1),
+    XCTAssertEqualObjects(_.drop(emptyArray, 1),
                          emptyArray,
                          @"Returns an empty array for an empty array");
   
     NSArray *subrange = [NSArray arrayWithObjects:@"baz", nil];
-    STAssertEqualObjects(_.drop(threeObjects, 2),
+    XCTAssertEqualObjects(_.drop(threeObjects, 2),
                          subrange,
                          @"Correctly drops multiple objects");
   
-    STAssertEqualObjects(_.drop(threeObjects, 4),
+    XCTAssertEqualObjects(_.drop(threeObjects, 4),
                          emptyArray,
                          @"Returns an empty array when dropping more objects than the target array has");
   
@@ -130,33 +130,33 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testIndexOf
 {
-    STAssertTrue(_.indexOf(emptyArray, @1) == NSNotFound,
+    XCTAssertTrue(_.indexOf(emptyArray, @1) == NSNotFound,
                  @"Returns NSNotFound when searching in an empty array");
 
-    STAssertTrue(_.indexOf(threeObjects, @1) == NSNotFound,
+    XCTAssertTrue(_.indexOf(threeObjects, @1) == NSNotFound,
                  @"Returns NSNotFound when the element cannot be found");
 
-    STAssertTrue(_.indexOf(threeObjects, @"foo") == 0,
+    XCTAssertTrue(_.indexOf(threeObjects, @"foo") == 0,
                  @"Returns the index of the element");
 
     NSArray *arrayWithDuplicates = @[ @"foo", @"bar", @"baz", @"bar" ];
-    STAssertTrue(_.indexOf(arrayWithDuplicates, @"bar") == 1,
+    XCTAssertTrue(_.indexOf(arrayWithDuplicates, @"bar") == 1,
                  @"Returns the index of the first occurrence");
 }
 
 - (void)testFlatten
 {
-    STAssertEqualObjects(_.flatten(emptyArray),
+    XCTAssertEqualObjects(_.flatten(emptyArray),
                          emptyArray,
                          @"Returns an empty array for an empty array");
 
-    STAssertEqualObjects(_.flatten(threeObjects),
+    XCTAssertEqualObjects(_.flatten(threeObjects),
                          threeObjects,
                          @"Returns a copy for arrays not containing other arrays");
 
     NSArray *complicated = [NSArray arrayWithObjects:@"foo", threeObjects, nil];
     NSArray *flattened   = [NSArray arrayWithObjects:@"foo", @"foo", @"bar", @"baz", nil];
-    STAssertEqualObjects(_.flatten(complicated),
+    XCTAssertEqualObjects(_.flatten(complicated),
                          flattened,
                          @"Returns a flattened array when needed");
 
@@ -170,16 +170,16 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testWithout
 {
-    STAssertEqualObjects(_.without(threeObjects, emptyArray),
+    XCTAssertEqualObjects(_.without(threeObjects, emptyArray),
                          threeObjects,
                          @"Empty arrays have no effect");
 
-    STAssertEqualObjects(_.without(threeObjects, threeObjects),
+    XCTAssertEqualObjects(_.without(threeObjects, threeObjects),
                          emptyArray,
                          @"Removing the same array returns an empty array");
 
     NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
-    STAssertEqualObjects(_.without(threeObjects, singleObject),
+    XCTAssertEqualObjects(_.without(threeObjects, singleObject),
                          subrange,
                          @"Removing one object returns the rest");
 
@@ -193,7 +193,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testShuffle
 {
-    STAssertEqualObjects(_.shuffle(emptyArray),
+    XCTAssertEqualObjects(_.shuffle(emptyArray),
                          emptyArray,
                          @"Shuffling an empty array results in an empty array");
 
@@ -204,10 +204,10 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         [array addObject:[NSNumber numberWithUnsignedInteger:i]];
     }
 
-     STAssertFalse([_.shuffle(array) isEqualToArray:array],
+     XCTAssertFalse([_.shuffle(array) isEqualToArray:array],
                   @"Can shuffle an array");
 
-     STAssertFalse([_.array(emptyArray).shuffle.unwrap isEqualToArray:array],
+     XCTAssertFalse([_.array(emptyArray).shuffle.unwrap isEqualToArray:array],
                   @"Can shuffle an array");
 }
 
@@ -221,11 +221,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [memo stringByAppendingString:current];
     };
 
-    STAssertEqualObjects(_.reduce(emptyArray, @"test", block1),
+    XCTAssertEqualObjects(_.reduce(emptyArray, @"test", block1),
                          @"test",
                          @"Reducing an empty array yields the input value");
 
-    STAssertEqualObjects(_.reduce(threeObjects, @"the ", block2),
+    XCTAssertEqualObjects(_.reduce(threeObjects, @"the ", block2),
                          @"the foobarbaz",
                          @"Objects are reduced in the correct order");
 
@@ -245,11 +245,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [memo stringByAppendingString:current];
     };
 
-    STAssertEqualObjects(_.reduceRight(emptyArray, @"test", block1),
+    XCTAssertEqualObjects(_.reduceRight(emptyArray, @"test", block1),
                          @"test",
                          @"Reducing an empty array yields the input value");
 
-    STAssertEqualObjects(_.reduceRight(threeObjects, @"the ", block2),
+    XCTAssertEqualObjects(_.reduceRight(threeObjects, @"the ", block2),
                          @"the bazbarfoo",
                          @"Objects are reduced in the correct order");
 
@@ -266,28 +266,28 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
     _.arrayEach(threeObjects, ^(NSString *string) {
         if ([string isEqualToString:@"foo"]) {
-            STAssertFalse(checkedFoo, @"Did not check foo before");
+            XCTAssertFalse(checkedFoo, @"Did not check foo before");
             testRun++;
 
             checkedFoo = YES;
         }
 
         if ([string isEqualToString:@"bar"]) {
-            STAssertFalse(checkedBar, @"Did not check bar before");
+            XCTAssertFalse(checkedBar, @"Did not check bar before");
             testRun++;
 
             checkedBar = YES;
         }
 
         if ([string isEqualToString:@"baz"]) {
-            STAssertFalse(checkedBaz, @"Did not check baz before");
+            XCTAssertFalse(checkedBaz, @"Did not check baz before");
             testRun++;
 
             checkedBaz = YES;
         }
     });
 
-    STAssertEquals(testRun, 3, @"Ran 3 tests");
+    XCTAssertEqual(testRun, 3, @"Ran 3 tests");
 }
 
 - (void)testEachWrapping
@@ -297,28 +297,28 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
     _.array(threeObjects).each(^(NSString *string) {
         if ([string isEqualToString:@"foo"]) {
-            STAssertFalse(checkedFoo, @"Did not check foo before");
+            XCTAssertFalse(checkedFoo, @"Did not check foo before");
             testRun++;
 
             checkedFoo = YES;
         }
 
         if ([string isEqualToString:@"bar"]) {
-            STAssertFalse(checkedBar, @"Did not check bar before");
+            XCTAssertFalse(checkedBar, @"Did not check bar before");
             testRun++;
 
             checkedBar = YES;
         }
 
         if ([string isEqualToString:@"baz"]) {
-            STAssertFalse(checkedBaz, @"Did not check baz before");
+            XCTAssertFalse(checkedBaz, @"Did not check baz before");
             testRun++;
 
             checkedBaz = YES;
         }
     });
 
-    STAssertEquals(testRun, 3, @"Ran 3 tests");
+    XCTAssertEqual(testRun, 3, @"Ran 3 tests");
 }
 
 - (void)testMap
@@ -329,18 +329,18 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [string capitalizedString];
     };
 
-    STAssertEqualObjects(_.arrayMap(emptyArray, returnTest),
+    XCTAssertEqualObjects(_.arrayMap(emptyArray, returnTest),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.arrayMap(threeObjects, returnNil),
+    XCTAssertEqualObjects(_.arrayMap(threeObjects, returnNil),
                          emptyArray,
                          @"Returning nil in the map block removes the object pair");
 
     NSArray *capitalized = [NSArray arrayWithObjects:@"Foo", @"Bar", @"Baz", nil];
     NSArray *result      = _.arrayMap(threeObjects, capitalize);
 
-    STAssertEqualObjects(capitalized,
+    XCTAssertEqualObjects(capitalized,
                          result,
                          @"Can map objects");
 
@@ -364,30 +364,30 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [one stringByAppendingString:two];
     };
   
-    STAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
+    XCTAssertEqualObjects(_.arrayZipWith(emptyArray, emptyArray, addNumbers),
                          emptyArray,
                          @"Can handle empty arrays");
-    STAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
+    XCTAssertEqualObjects(_.arrayZipWith(emptyArray, threeObjects, addStrings),
                          emptyArray,
                          @"Can handle empty arrays");
-    STAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
+    XCTAssertEqualObjects(_.arrayZipWith(threeObjects, emptyArray, addStrings),
                          emptyArray,
                          @"Can handle empty arrays");
     NSArray *appendedStrings = @[ @"foofoo" ];
-    STAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
+    XCTAssertEqualObjects(_.arrayZipWith(singleObject, threeObjects, addStrings),
                          appendedStrings,
                          @"Works when array sizes mis-match.");
-    STAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
+    XCTAssertEqualObjects(_.arrayZipWith(threeObjects, singleObject, addStrings),
                          appendedStrings,
                          @"Works when array sizes mis-match.");
     NSArray *numbers = @[ @(1), @(2), @(3) ];
     NSArray *expected = @[ @(2), @(4), @(6) ];
-    STAssertEqualObjects(_.arrayZipWith(numbers, numbers, addNumbers),
+    XCTAssertEqualObjects(_.arrayZipWith(numbers, numbers, addNumbers),
                          expected,
                          @"Correctly zips two arrays.");
   
     NSArray *expectedStrings = @[ @"foo", @"barbar", @"bazbazbaz" ];
-    STAssertEqualObjects(_.arrayZipWith(threeObjects, numbers, multiplyStrings),
+    XCTAssertEqualObjects(_.arrayZipWith(threeObjects, numbers, multiplyStrings),
                          expectedStrings,
                          @"Correctly zips two arrays of diferent types.");
   
@@ -413,7 +413,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testPluck
 {
-    STAssertEqualObjects(_.pluck(emptyArray, @"description"),
+    XCTAssertEqualObjects(_.pluck(emptyArray, @"description"),
                          emptyArray,
                          @"Can handle empty arrays");
 
@@ -422,7 +422,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                  [NSNumber numberWithInt:3],
                                                  nil];
 
-    STAssertEqualObjects(_.pluck(threeObjects, @"length"),
+    XCTAssertEqualObjects(_.pluck(threeObjects, @"length"),
                          lengths,
                          @"Can extract values for the key path");
 
@@ -435,7 +435,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testUniq
 {
-    STAssertEqualObjects(_.uniq(emptyArray),
+    XCTAssertEqualObjects(_.uniq(emptyArray),
                          emptyArray,
                          @"Can handle empty arrays");
 
@@ -444,11 +444,11 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                      [NSNumber numberWithInt:3],
                                                      nil];
 
-    STAssertEquals(_.uniq(threeObjects).count,
+    XCTAssertEqual(_.uniq(threeObjects).count,
                    (NSUInteger)3,
                    @"Can extract 3 unique values");
 
-    STAssertEquals(_.uniq(sameObjects).count,
+    XCTAssertEqual(_.uniq(sameObjects).count,
                    (NSUInteger)1,
                    @"Can extract 1 unique value");
 
@@ -466,7 +466,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                    [NSNumber numberWithInt:4],
                                                    nil];
 
-    STAssertEqualObjects(_.uniq(ordered),
+    XCTAssertEqualObjects(_.uniq(ordered),
                          oneToFour,
                          @"Preserves order");
 
@@ -486,13 +486,13 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [string characterAtIndex:2] == 'z';
     };
 
-    STAssertNil(_.find(emptyArray, allPass),
+    XCTAssertNil(_.find(emptyArray, allPass),
                 @"Can handle empty arrays");
 
-    STAssertNil(_.find(threeObjects, nonePass),
+    XCTAssertNil(_.find(threeObjects, nonePass),
                 @"Returns nil if no object matches");
 
-    STAssertEqualObjects(_.find(threeObjects, endsOnZ),
+    XCTAssertEqualObjects(_.find(threeObjects, endsOnZ),
                          @"baz",
                          @"Can find objects");
 
@@ -510,21 +510,21 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [string characterAtIndex:0] == 'b';
     };
 
-    STAssertEqualObjects(_.filter(emptyArray, allPass),
+    XCTAssertEqualObjects(_.filter(emptyArray, allPass),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.filter(threeObjects, nonePass),
+    XCTAssertEqualObjects(_.filter(threeObjects, nonePass),
                          emptyArray,
                          @"Can remove all objects");
 
-    STAssertEqualObjects(_.filter(threeObjects, allPass),
+    XCTAssertEqualObjects(_.filter(threeObjects, allPass),
                          threeObjects,
                          @"Can keep all objects");
 
     NSArray *subrange = [NSArray arrayWithObjects:@"bar", @"baz", nil];
 
-    STAssertEqualObjects(_.filter(threeObjects, startsWithB),
+    XCTAssertEqualObjects(_.filter(threeObjects, startsWithB),
                          subrange,
                          @"Can remove matching elements");
 
@@ -544,19 +544,19 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [string characterAtIndex:0] == 'b';
     };
 
-    STAssertEqualObjects(_.reject(emptyArray, allPass),
+    XCTAssertEqualObjects(_.reject(emptyArray, allPass),
                          emptyArray,
                          @"Can handle empty arrays");
 
-    STAssertEqualObjects(_.reject(threeObjects, nonePass),
+    XCTAssertEqualObjects(_.reject(threeObjects, nonePass),
                          threeObjects,
                          @"Can remove all objects");
 
-    STAssertEqualObjects(_.reject(threeObjects, allPass),
+    XCTAssertEqualObjects(_.reject(threeObjects, allPass),
                          emptyArray,
                          @"Can keep all objects");
 
-    STAssertEqualObjects(_.reject(threeObjects, startsWithB),
+    XCTAssertEqualObjects(_.reject(threeObjects, startsWithB),
                          singleObject,
                          @"Can remove matching elements");
 
@@ -572,20 +572,20 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testAll
 {
-    STAssertFalse(_.all(emptyArray, _.isNull),
+    XCTAssertFalse(_.all(emptyArray, _.isNull),
                   @"Empty array never passes");
 
-    STAssertTrue(_.all(threeObjects, _.isString),
+    XCTAssertTrue(_.all(threeObjects, _.isString),
                  @"All elements pass");
 
     UnderscoreTestBlock startsWithB = ^BOOL (NSString *string){
         return [string characterAtIndex:0] == 'b';
     };
 
-    STAssertFalse(_.all(threeObjects, startsWithB),
+    XCTAssertFalse(_.all(threeObjects, startsWithB),
                   @"Not all elements pass");
 
-    STAssertFalse(_.all(threeObjects, _.isNumber),
+    XCTAssertFalse(_.all(threeObjects, _.isNumber),
                   @"No element passes");
 
     USAssertEqualPrimitives(_.all(emptyArray, _.isNull),
@@ -600,20 +600,20 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testAny
 {
-    STAssertFalse(_.any(emptyArray, _.isNull),
+    XCTAssertFalse(_.any(emptyArray, _.isNull),
                   @"Empty array never passes");
 
-    STAssertTrue(_.any(threeObjects, _.isString),
+    XCTAssertTrue(_.any(threeObjects, _.isString),
                  @"All elements pass");
 
     UnderscoreTestBlock startsWithB = ^BOOL (NSString *string){
         return [string characterAtIndex:0] == 'b';
     };
 
-    STAssertTrue(_.any(threeObjects, startsWithB),
+    XCTAssertTrue(_.any(threeObjects, startsWithB),
                  @"One element passes");
 
-    STAssertFalse(_.any(threeObjects, _.isNumber),
+    XCTAssertFalse(_.any(threeObjects, _.isNumber),
                   @"No element passes");
 
     USAssertEqualPrimitives(_.any(emptyArray, _.isNull),
@@ -635,7 +635,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [a compare:b];
     };
 
-    STAssertEqualObjects(_.sort(notSorted, numericalSort),
+    XCTAssertEqualObjects(_.sort(notSorted, numericalSort),
                          sorted,
                          @"Can sort elements");
 
@@ -652,7 +652,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return @((int)floor(number.doubleValue));
     };
 
-    STAssertEqualObjects(_.groupBy(numbers, intGroup),
+    XCTAssertEqualObjects(_.groupBy(numbers, intGroup),
                          grouped,
                          @"Can group elements");
     
