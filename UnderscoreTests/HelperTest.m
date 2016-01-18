@@ -36,7 +36,6 @@
 - (void)testIsArray
 {
     XCTAssertTrue(Underscore.isArray([NSArray array]), @"Returns true for NSArray");
-
     XCTAssertFalse(Underscore.isArray([[NSObject alloc] init]), @"Returns false for NSObject");
 }
 
