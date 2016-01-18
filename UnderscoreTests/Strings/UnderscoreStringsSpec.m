@@ -171,7 +171,6 @@ describe(@"strip: remove occurences of a substring from a string", ^{
         expect(Underscore.strip(@"It was the best of times, it was the worst of times", @"zzz")).to.equal(@"It was the best of times, it was the worst of times");
         expect(Underscore.string(@"aaabbbccc").strip(@"d").unwrap).to.equal(@"aaabbbccc");
         expect(Underscore.strip(@"aaabbbccc", @"d")).to.equal(@"aaabbbccc");
-
     });
 });
 
