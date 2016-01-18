@@ -144,7 +144,7 @@ describe(@"uppercase: make all characters in the string uppercase", ^{
 
 describe(@"strip: remove occurences of a substring from a string", ^{
     it(@"should behave with nil", ^{
-        expect(Underscore.string(nil).split(nil).unwrap).to.beNil;
+        expect(Underscore.string(nil).strip(nil).unwrap).to.beNil;
         expect(Underscore.strip(nil, nil)).to.beNil;
         expect(Underscore.string(@"hey").strip(nil).unwrap).to.beNil;
         expect(Underscore.strip(@"hey", nil)).to.beNil;
