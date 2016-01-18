@@ -49,7 +49,6 @@
 
 @property (readonly) USArrayWrapper *flatten;
 @property (readonly) USArrayWrapper *(^without)(NSArray *values);
-
 @property (readonly) USArrayWrapper *shuffle;
 
 @property (readonly) id (^reduce)(id memo, UnderscoreReduceBlock block);
@@ -59,7 +58,6 @@
 @property (readonly) USArrayWrapper *(^map)(UnderscoreArrayMapBlock block);
 @property (readonly) USArrayWrapper *(^zipWith)(NSArray *array, UnderscoreArrayZipWithBlock block);
 @property (readonly) USArrayWrapper *(^pluck)(NSString *keyPath);
-
 @property (readonly) USArrayWrapper *uniq;
 
 @property (readonly) id (^find)(UnderscoreTestBlock block);
@@ -71,7 +69,6 @@
 @property (readonly) BOOL (^any)(UnderscoreTestBlock block);
 
 @property (readonly) USArrayWrapper *(^sort)(UnderscoreSortBlock block);
-
 @property (readonly) USDictionaryWrapper *(^groupBy)(UnderscoreGroupingBlock block);
 
 @end

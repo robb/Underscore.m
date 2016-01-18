@@ -43,7 +43,6 @@
 
 + (NSArray *(^)(NSArray *array))flatten;
 + (NSArray *(^)(NSArray *array, NSArray *values))without;
-
 + (NSArray *(^)(NSArray *array))shuffle;
 
 + (id (^)(NSArray *array, id memo, UnderscoreReduceBlock block))reduce;
