@@ -60,7 +60,7 @@
 + (UnderscoreTestBlock)isBool
 {
     return ^BOOL (id obj) {
-        return [obj isKindOfClass:[NSNumber class]] && strcmp([obj objCType], @encode(BOOL)) == 0;
+        return [obj isKindOfClass:[NSNumber class]] && strcmp([obj objCType], @encode(char)) == 0;
     };
 }
 
