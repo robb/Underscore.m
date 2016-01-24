@@ -27,7 +27,7 @@
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
-		6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */; };
+		66E0383C61676615C01B38FF /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */; };
 		BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */; };
 		BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */; };
 		BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFF11837E77000A81EB5 /* USStringWrapper.h */; };
@@ -49,7 +49,6 @@
 		437EE9781AC9423D00BBB61A /* Underscore+Times.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Times.h"; path = "Times/Underscore+Times.h"; sourceTree = "<group>"; };
 		437EE9791AC9423D00BBB61A /* Underscore+Times.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Times.m"; path = "Times/Underscore+Times.m"; sourceTree = "<group>"; };
 		437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreTimesSpec.m; path = Times/UnderscoreTimesSpec.m; sourceTree = "<group>"; };
-		44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
@@ -73,13 +72,14 @@
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnderscoreTests-Prefix.pch"; sourceTree = "<group>"; };
+		7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Strings.h"; path = "Strings/Underscore+Strings.h"; sourceTree = "<group>"; };
 		BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Strings.m"; path = "Strings/Underscore+Strings.m"; sourceTree = "<group>"; };
 		BCFADFF11837E77000A81EB5 /* USStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USStringWrapper.h; path = Strings/USStringWrapper.h; sourceTree = "<group>"; };
 		BCFADFF21837E77000A81EB5 /* USStringWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USStringWrapper.m; path = Strings/USStringWrapper.m; sourceTree = "<group>"; };
 		BCFADFF91837EBA200A81EB5 /* UnderscoreStringsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreStringsSpec.m; path = Strings/UnderscoreStringsSpec.m; sourceTree = "<group>"; };
-		EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.release.xcconfig"; sourceTree = "<group>"; };
-		F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 				54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */,
 				54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */,
 				54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */,
-				6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */,
+				66E0383C61676615C01B38FF /* libPods-UnderscoreTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +122,15 @@
 			name = Times;
 			sourceTree = "<group>";
 		};
+		44F8768FEF368C9792C28DE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */,
+				817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		54A3DCBA154DD4BF00387DE3 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +138,7 @@
 				54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */,
 				54A3DCC7154DD4BF00387DE3 /* Frameworks */,
 				54A3DCC6154DD4BF00387DE3 /* Products */,
-				67B5CAD2CDC4735230C62292 /* Pods */,
+				44F8768FEF368C9792C28DE7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +156,7 @@
 			children = (
 				54A3DCC8154DD4BF00387DE3 /* Foundation.framework */,
 				54A3DCD8154DD4BF00387DE3 /* UIKit.framework */,
-				44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */,
+				8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,15 +212,6 @@
 				54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		67B5CAD2CDC4735230C62292 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */,
-				EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BCFADFE91837D5F700A81EB5 /* Strings */ = {
@@ -275,13 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54A3DCEC154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "UnderscoreTests" */;
 			buildPhases = (
-				05E919BE37484386820D8966 /* Check Pods Manifest.lock */,
+				B80FCBC105A04EB4D6BEE652 /* Check Pods Manifest.lock */,
 				54A3DCD0154DD4BF00387DE3 /* Sources */,
 				54A3DCD1154DD4BF00387DE3 /* Frameworks */,
 				54A3DCD2154DD4BF00387DE3 /* Resources */,
-				54A3DCD3154DD4BF00387DE3 /* ShellScript */,
-				1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */,
-				64756A7FD92D1C08DA81C5EA /* Embed Pods Frameworks */,
+				4D5C9F45CE924F7DEB2ACDC4 /* Embed Pods Frameworks */,
+				417F73DB9053CB27FBFFA6F5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,22 +331,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05E919BE37484386820D8966 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */ = {
+		417F73DB9053CB27FBFFA6F5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,20 +346,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54A3DCD3154DD4BF00387DE3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		64756A7FD92D1C08DA81C5EA /* Embed Pods Frameworks */ = {
+		4D5C9F45CE924F7DEB2ACDC4 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,6 +359,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B80FCBC105A04EB4D6BEE652 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -517,7 +503,7 @@
 		};
 		54A3DCED154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F81F470EEC8C5DCAC1CAC8F9 /* Pods-UnderscoreTests.debug.xcconfig */;
+			baseConfigurationReference = 7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -527,13 +513,13 @@
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		54A3DCEE154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEA50AF902932FAE23E3B926 /* Pods-UnderscoreTests.release.xcconfig */;
+			baseConfigurationReference = 817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -543,7 +529,7 @@
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
