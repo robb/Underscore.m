@@ -505,10 +505,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
@@ -521,10 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
