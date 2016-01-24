@@ -168,8 +168,9 @@
 {
     NSMutableArray *result = [self.array mutableCopy];
 
+    NSInteger max = result.count;
     for (NSInteger i = result.count - 1; i > 0; i--) {
-        [result exchangeObjectAtIndex:arc4random() % (i + 1) withObjectAtIndex:i];
+        [result exchangeObjectAtIndex:arc4random_uniform((u_int32_t)max) withObjectAtIndex:i];
     }
 
     return [[USArrayWrapper alloc] initWithArray:result];
