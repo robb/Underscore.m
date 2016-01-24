@@ -510,7 +510,7 @@
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s x386 x86_64";
 			};
 			name = Debug;
 		};
@@ -523,7 +523,7 @@
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s x386 x86_64";
 			};
 			name = Release;
 		};
