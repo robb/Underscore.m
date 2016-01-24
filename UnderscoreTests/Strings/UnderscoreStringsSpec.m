@@ -216,23 +216,16 @@ describe(@"split: split the string into an array with the components separated b
     it(@"should behave with diferent separators", ^{
         expect(Underscore.string(@"hello underscore strings").split(@"n").unwrap).to.equal((@[ @"hello u", @"derscore stri", @"gs"]));
         expect(Underscore.split(@"hello underscore strings", @"n")).to.equal((@[ @"hello u", @"derscore stri", @"gs"]));
-        expect(Underscore.string(@"It was the best of times, it was the worst of times")
-               .split(@"t")
-               .unwrap).to.equal((@[ @"I", @" was ", @"he bes", @" of ", @"imes, i", @" was ", @"he wors", @" of ", @"imes"]));
-        expect(Underscore.split(@"It was the best of times, it was the worst of times"
-                                , @"t")).to.equal((@[ @"I",
-                                                      @" was ",
-                                                      @"he bes",
-                                                      @" of ",
-                                                      @"imes, i",
-                                                      @" was ",
-                                                      @"he wors",
-                                                      @" of ",
-                                                      @"imes"]));
-        expect(Underscore.string(@"hey this is another string hey yeah")
-               .split(@"hey").unwrap).to.equal((@[ @"", @" this is another string ", @" yeah" ]));
-        expect(Underscore.split(@"hey this is another string hey yeah"
-                                , @"hey")).to.equal((@[ @"", @" this is another string ", @" yeah" ]));
+        
+        NSString *bestWorstTestString = @"It was the best of times, it was the worst of times";
+        NSArray *bestWorstSplit = @[ @"I", @" was ", @"he bes", @" of ", @"imes, i", @" was ", @"he wors", @" of ", @"imes"];
+        expect(Underscore.string(bestWorstTestString).split(@"t").unwrap).to.equal(bestWorstSplit);
+        expect(Underscore.split(bestWorstTestString , @"t")).to.equal(bestWorstSplit);
+        
+        NSString *heyTestString = @"hey this is another string hey yeah";
+        NSArray *heyAnotherStringSplit = @[ @"", @" this is another string ", @" yeah" ];
+        expect(Underscore.string(heyTestString) .split(@"hey").unwrap).to.equal(heyAnotherStringSplit);
+        expect(Underscore.split(heyTestString , @"hey")).to.equal(heyAnotherStringSplit);
     });
 });
 
