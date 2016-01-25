@@ -168,9 +168,10 @@
 {
     NSMutableArray *result = [self.array mutableCopy];
 
-    NSInteger max = result.count;
+    u_int32_t max = (u_int32_t)result.count;
+    NSAssert(result.count <= INT32_MAX , @"Precision lost in the downcast.");
     for (NSInteger i = result.count - 1; i > 0; i--) {
-        [result exchangeObjectAtIndex:arc4random_uniform((u_int32_t)max) withObjectAtIndex:i];
+        [result exchangeObjectAtIndex:arc4random_uniform(max) withObjectAtIndex:i];
     }
 
     return [[USArrayWrapper alloc] initWithArray:result];
