@@ -1,5 +1,5 @@
 language: objective-c
-xcode_workspace: Underscore.xcodeproj # path to your xcodeproj folder
+xcode_workspace: Underscore.xcworkspace   # path to your xcodeproj folder
 xcode_scheme: Underscore
 osx_image: xcode7.2
 xcode_sdk: iphonesimulator
