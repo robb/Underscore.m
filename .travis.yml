@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: Underscore.xcodeproj # path to your xcodeproj folder
+xcode_scheme: Underscore
+osx_image: xcode7.2
