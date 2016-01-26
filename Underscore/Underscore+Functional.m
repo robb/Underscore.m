@@ -28,6 +28,7 @@
 
 @implementation Underscore (Functional)
 
+#pragma mark -
 #pragma mark NSArray shortcuts
 
 + (USArrayWrapper *(^)(NSArray *))array
@@ -196,6 +197,7 @@
     };
 }
 
+#pragma mark -
 #pragma mark NSDictionary shortcuts
 
 + (USDictionaryWrapper *(^)(NSDictionary *))dict

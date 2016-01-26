@@ -43,7 +43,6 @@
 
 + (NSArray *(^)(NSArray *array))flatten;
 + (NSArray *(^)(NSArray *array, NSArray *values))without;
-
 + (NSArray *(^)(NSArray *array))shuffle;
 
 + (id (^)(NSArray *array, id memo, UnderscoreReduceBlock block))reduce;
@@ -52,9 +51,7 @@
 + (void (^)(NSArray *array, UnderscoreArrayIteratorBlock block))arrayEach;
 + (NSArray *(^)(NSArray *array, UnderscoreArrayMapBlock block))arrayMap;
 + (NSArray *(^)(NSArray *firstArray, NSArray *secondArray, UnderscoreArrayZipWithBlock block))arrayZipWith;
-
 + (NSArray *(^)(NSArray *array, NSString *keyPath))pluck;
-
 + (NSArray *(^)(NSArray *array))uniq;
 
 + (id (^)(NSArray *array, UnderscoreTestBlock block))find;

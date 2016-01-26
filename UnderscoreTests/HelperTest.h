@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Robert Böhnke. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface HelperTest : SenTestCase
+@interface HelperTest : XCTestCase
 
 @end

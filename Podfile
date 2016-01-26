@@ -1,4 +1,4 @@
 target :UnderscoreTests, :exclusive => true do
-  pod 'Specta', '0.1.11'
-  pod 'Expecta', '0.2.2'
+  pod 'Specta', '~> 1.0'
+  pod 'Expecta', '~> 1.0'
 end

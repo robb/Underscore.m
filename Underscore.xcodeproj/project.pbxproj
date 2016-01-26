@@ -23,12 +23,11 @@
 		54996B2D15614F900016BE94 /* USConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54996B2C15614F900016BE94 /* USConstants.h */; };
 		54996B371561576D0016BE94 /* USDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996B361561576D0016BE94 /* USDictionaryTest.m */; };
 		54A3DCC9154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
-		54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */; };
 		54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCD8154DD4BF00387DE3 /* UIKit.framework */; };
 		54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC8154DD4BF00387DE3 /* Foundation.framework */; };
 		54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */; };
 		54A3DCE3154DD4BF00387DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A3DCE1154DD4BF00387DE3 /* InfoPlist.strings */; };
-		6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */; };
+		66E0383C61676615C01B38FF /* libPods-UnderscoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */; };
 		BCFADFF31837E77000A81EB5 /* Underscore+Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */; };
 		BCFADFF41837E77000A81EB5 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */; };
 		BCFADFF61837E77000A81EB5 /* USStringWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFADFF11837E77000A81EB5 /* USStringWrapper.h */; };
@@ -47,11 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.xcconfig"; path = "Pods/Pods-UnderscoreTests.xcconfig"; sourceTree = "<group>"; };
 		437EE9781AC9423D00BBB61A /* Underscore+Times.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Times.h"; path = "Times/Underscore+Times.h"; sourceTree = "<group>"; };
 		437EE9791AC9423D00BBB61A /* Underscore+Times.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Times.m"; path = "Times/Underscore+Times.m"; sourceTree = "<group>"; };
 		437EE9801AC9427900BBB61A /* UnderscoreTimesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderscoreTimesSpec.m; path = Times/UnderscoreTimesSpec.m; sourceTree = "<group>"; };
-		44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541D18A515616E2400599033 /* Underscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Underscore.m; sourceTree = "<group>"; };
 		541D18A81561726C00599033 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		541D18A91561726C00599033 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
@@ -70,12 +67,14 @@
 		54A3DCC8154DD4BF00387DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54A3DCCC154DD4BF00387DE3 /* Underscore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Underscore-Prefix.pch"; sourceTree = "<group>"; };
 		54A3DCCD154DD4BF00387DE3 /* Underscore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Underscore.h; sourceTree = "<group>"; };
-		54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderscoreTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderscoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A3DCD8154DD4BF00387DE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		54A3DCE0154DD4BF00387DE3 /* UnderscoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnderscoreTests-Info.plist"; sourceTree = "<group>"; };
 		54A3DCE2154DD4BF00387DE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54DDBDDF1837AAEB002EAEB3 /* UnderscoreTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnderscoreTests-Prefix.pch"; sourceTree = "<group>"; };
+		7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderscoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnderscoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFADFEF1837E77000A81EB5 /* Underscore+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Underscore+Strings.h"; path = "Strings/Underscore+Strings.h"; sourceTree = "<group>"; };
 		BCFADFF01837E77000A81EB5 /* Underscore+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Underscore+Strings.m"; path = "Strings/Underscore+Strings.m"; sourceTree = "<group>"; };
 		BCFADFF11837E77000A81EB5 /* USStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USStringWrapper.h; path = Strings/USStringWrapper.h; sourceTree = "<group>"; };
@@ -96,11 +95,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54A3DCD7154DD4BF00387DE3 /* SenTestingKit.framework in Frameworks */,
 				54A3DCD9154DD4BF00387DE3 /* UIKit.framework in Frameworks */,
 				54A3DCDA154DD4BF00387DE3 /* Foundation.framework in Frameworks */,
 				54A3DCDD154DD4BF00387DE3 /* libUnderscore.a in Frameworks */,
-				6775CC96B4B74AF283884A0A /* libPods-UnderscoreTests.a in Frameworks */,
+				66E0383C61676615C01B38FF /* libPods-UnderscoreTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +122,15 @@
 			name = Times;
 			sourceTree = "<group>";
 		};
+		44F8768FEF368C9792C28DE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */,
+				817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		54A3DCBA154DD4BF00387DE3 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +138,7 @@
 				54A3DCDE154DD4BF00387DE3 /* UnderscoreTests */,
 				54A3DCC7154DD4BF00387DE3 /* Frameworks */,
 				54A3DCC6154DD4BF00387DE3 /* Products */,
-				3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */,
+				44F8768FEF368C9792C28DE7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				54A3DCC5154DD4BF00387DE3 /* libUnderscore.a */,
-				54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */,
+				54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,9 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				54A3DCC8154DD4BF00387DE3 /* Foundation.framework */,
-				54A3DCD6154DD4BF00387DE3 /* SenTestingKit.framework */,
 				54A3DCD8154DD4BF00387DE3 /* UIKit.framework */,
-				44D4915E525F41A183CA3B1D /* libPods-UnderscoreTests.a */,
+				8B6349A4572B62F977C6E386 /* libPods-UnderscoreTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,12 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54A3DCEC154DD4BF00387DE3 /* Build configuration list for PBXNativeTarget "UnderscoreTests" */;
 			buildPhases = (
-				05E919BE37484386820D8966 /* Check Pods Manifest.lock */,
+				B80FCBC105A04EB4D6BEE652 /* Check Pods Manifest.lock */,
 				54A3DCD0154DD4BF00387DE3 /* Sources */,
 				54A3DCD1154DD4BF00387DE3 /* Frameworks */,
 				54A3DCD2154DD4BF00387DE3 /* Resources */,
-				54A3DCD3154DD4BF00387DE3 /* ShellScript */,
-				1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */,
+				4D5C9F45CE924F7DEB2ACDC4 /* Embed Pods Frameworks */,
+				417F73DB9053CB27FBFFA6F5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,8 +289,8 @@
 			);
 			name = UnderscoreTests;
 			productName = UnderscoreTests;
-			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 54A3DCD5154DD4BF00387DE3 /* UnderscoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -292,7 +298,7 @@
 		54A3DCBC154DD4BF00387DE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Robert Böhnke";
 			};
 			buildConfigurationList = 54A3DCBF154DD4BF00387DE3 /* Build configuration list for PBXProject "Underscore" */;
@@ -325,7 +331,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05E919BE37484386820D8966 /* Check Pods Manifest.lock */ = {
+		417F73DB9053CB27FBFFA6F5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D5C9F45CE924F7DEB2ACDC4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderscoreTests/Pods-UnderscoreTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B80FCBC105A04EB4D6BEE652 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,34 +375,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		1F2BDAFB2B734AC0A0FF4000 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-UnderscoreTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54A3DCD3154DD4BF00387DE3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -424,13 +432,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -438,11 +452,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -452,18 +470,26 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -495,33 +521,31 @@
 		};
 		54A3DCED154DD4BF00387DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
+			baseConfigurationReference = 7AE9E4877F4455A24A6A2C1F /* Pods-UnderscoreTests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robertboehnke.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				VALID_ARCHS = "arm64 armv7 armv7s x386 x86_64";
 			};
 			name = Debug;
 		};
 		54A3DCEE154DD4BF00387DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3074062DBA9E4660841E3D0A /* Pods-UnderscoreTests.xcconfig */;
+			baseConfigurationReference = 817F18D820AA3ECDEE8E33F6 /* Pods-UnderscoreTests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnderscoreTests/UnderscoreTests-Prefix.pch";
 				INFOPLIST_FILE = "UnderscoreTests/UnderscoreTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robertboehnke.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				VALID_ARCHS = "arm64 armv7 armv7s x386 x86_64";
 			};
 			name = Release;
 		};
