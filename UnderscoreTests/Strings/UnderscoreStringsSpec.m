@@ -22,12 +22,16 @@ describe(@"trim: get rid of unneccessary whitespace characters.", ^{
     });
     
     it(@"should work with leading whitespace", ^{
-        expect(Underscore.string(@" underscore strings will be pretty useful").trim.unwrap).to.equal(@"underscore strings will be pretty useful");
+        expect(Underscore.string(@" underscore strings will be pretty useful")
+               .trim
+               .unwrap).to.equal(@"underscore strings will be pretty useful");
         expect(Underscore.trim(@" underscore strings will be pretty useful")).to.equal(@"underscore strings will be pretty useful");
     });
     
     it(@"should work with trailing whitespace", ^{
-        expect(Underscore.string(@"underscore strings will be pretty useful ").trim.unwrap).to.equal(@"underscore strings will be pretty useful");
+        expect(Underscore.string(@"underscore strings will be pretty useful ")
+               .trim
+               .unwrap).to.equal(@"underscore strings will be pretty useful");
         expect(Underscore.trim(@"underscore strings will be pretty useful ")).to.equal(@"underscore strings will be pretty useful");
     });
     
@@ -144,7 +148,7 @@ describe(@"uppercase: make all characters in the string uppercase", ^{
 
 describe(@"strip: remove occurences of a substring from a string", ^{
     it(@"should behave with nil", ^{
-        expect(Underscore.string(nil).split(nil).unwrap).to.beNil;
+        expect(Underscore.string(nil).strip(nil).unwrap).to.beNil;
         expect(Underscore.strip(nil, nil)).to.beNil;
         expect(Underscore.string(@"hey").strip(nil).unwrap).to.beNil;
         expect(Underscore.strip(@"hey", nil)).to.beNil;
@@ -158,8 +162,11 @@ describe(@"strip: remove occurences of a substring from a string", ^{
     });
     
     it(@"should remove substrings correctly", ^{
-        expect(Underscore.string(@"It was the best of times, it was the worst of times").strip(@",").unwrap).to.equal(@"It was the best of times it was the worst of times");
-        expect(Underscore.strip(@"It was the best of times, it was the worst of times", @",")).to.equal(@"It was the best of times it was the worst of times");
+        expect(Underscore.string(@"It was the best of times, it was the worst of times")
+               .strip(@",")
+               .unwrap).to.equal(@"It was the best of times it was the worst of times");
+        expect(Underscore.strip(@"It was the best of times, it was the worst of times"
+                                , @",")).to.equal(@"It was the best of times it was the worst of times");
         expect(Underscore.string(@"aaabbbccc").strip(@"b").unwrap).to.equal(@"aaaccc");
         expect(Underscore.strip(@"aaabbbccc", @"b")).to.equal(@"aaaccc");
         expect(Underscore.string(@"aaabbbccc").strip(@"bb").unwrap).to.equal(@"aaabccc");
@@ -167,11 +174,13 @@ describe(@"strip: remove occurences of a substring from a string", ^{
     });
     
     it(@"should behave when the substring doesn't exist", ^{
-        expect(Underscore.string(@"It was the best of times, it was the worst of times").strip(@"zzz").unwrap).to.equal(@"It was the best of times, it was the worst of times");
-        expect(Underscore.strip(@"It was the best of times, it was the worst of times", @"zzz")).to.equal(@"It was the best of times, it was the worst of times");
+        expect(Underscore.string(@"It was the best of times, it was the worst of times")
+               .strip(@"zzz")
+               .unwrap).to.equal(@"It was the best of times, it was the worst of times");
+        expect(Underscore.strip(@"It was the best of times, it was the worst of times",
+                                @"zzz")).to.equal(@"It was the best of times, it was the worst of times");
         expect(Underscore.string(@"aaabbbccc").strip(@"d").unwrap).to.equal(@"aaabbbccc");
         expect(Underscore.strip(@"aaabbbccc", @"d")).to.equal(@"aaabbbccc");
-
     });
 });
 
@@ -198,17 +207,25 @@ describe(@"split: split the string into an array with the components separated b
     it(@"should behave with multiple words", ^{
         expect(Underscore.string(@"hello underscore strings").split(@" ").unwrap).to.equal((@[ @"hello", @"underscore", @"strings" ]));
         expect(Underscore.split(@"hello underscore strings", @" ")).to.equal((@[ @"hello", @"underscore", @"strings" ]));
-        expect(Underscore.string(@" hello  underscore strings ").split(@" ").unwrap).to.equal((@[ @"", @"hello", @"", @"underscore", @"strings", @"" ]));
+        expect(Underscore.string(@" hello  underscore strings ")
+               .split(@" ")
+               .unwrap).to.equal((@[ @"", @"hello", @"", @"underscore", @"strings", @"" ]));
         expect(Underscore.split(@" hello  underscore strings ", @" ")).to.equal((@[ @"", @"hello", @"", @"underscore", @"strings", @"" ]));
     });
     
     it(@"should behave with diferent separators", ^{
         expect(Underscore.string(@"hello underscore strings").split(@"n").unwrap).to.equal((@[ @"hello u", @"derscore stri", @"gs"]));
         expect(Underscore.split(@"hello underscore strings", @"n")).to.equal((@[ @"hello u", @"derscore stri", @"gs"]));
-        expect(Underscore.string(@"It was the best of times, it was the worst of times").split(@"t").unwrap).to.equal((@[ @"I", @" was ", @"he bes", @" of ", @"imes, i", @" was ", @"he wors", @" of ", @"imes"]));
-        expect(Underscore.split(@"It was the best of times, it was the worst of times", @"t")).to.equal((@[ @"I", @" was ", @"he bes", @" of ", @"imes, i", @" was ", @"he wors", @" of ", @"imes"]));
-        expect(Underscore.string(@"hey this is another string hey yeah").split(@"hey").unwrap).to.equal((@[ @"", @" this is another string ", @" yeah" ]));
-        expect(Underscore.split(@"hey this is another string hey yeah", @"hey")).to.equal((@[ @"", @" this is another string ", @" yeah" ]));
+        
+        NSString *bestWorstTestString = @"It was the best of times, it was the worst of times";
+        NSArray *bestWorstSplit = @[ @"I", @" was ", @"he bes", @" of ", @"imes, i", @" was ", @"he wors", @" of ", @"imes"];
+        expect(Underscore.string(bestWorstTestString).split(@"t").unwrap).to.equal(bestWorstSplit);
+        expect(Underscore.split(bestWorstTestString , @"t")).to.equal(bestWorstSplit);
+        
+        NSString *heyTestString = @"hey this is another string hey yeah";
+        NSArray *heyAnotherStringSplit = @[ @"", @" this is another string ", @" yeah" ];
+        expect(Underscore.string(heyTestString) .split(@"hey").unwrap).to.equal(heyAnotherStringSplit);
+        expect(Underscore.split(heyTestString , @"hey")).to.equal(heyAnotherStringSplit);
     });
 });
 

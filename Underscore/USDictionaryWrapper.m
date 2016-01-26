@@ -59,7 +59,6 @@
     }
     return self;
 }
-@synthesize dictionary = _dictionary;
 
 - (NSDictionary *)unwrap
 {
@@ -93,13 +92,10 @@
 {
     return ^USDictionaryWrapper *(UnderscoreDictionaryMapBlock block) {
         NSMutableDictionary *result = [NSMutableDictionary dictionary];
-
         [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             id mapped = block(key, obj);
-
             if (mapped) {
-                [result setObject:mapped
-                           forKey:key];
+                result[key] = mapped;
             }
         }];
 
@@ -114,8 +110,7 @@
 
         [self.dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             if ([keys containsObject:key]) {
-                [result setObject:obj
-                           forKey:key];
+                result[key] = obj;
             }
         }];
 
@@ -129,8 +124,7 @@
         __block NSMutableDictionary *result = [self.dictionary mutableCopy];
 
         [source enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [result setObject:obj
-                       forKey:key];
+            result[key] = obj;
         }];
 
         return [[USDictionaryWrapper alloc] initWithDictionary:result];
@@ -144,8 +138,7 @@
 
         [source enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             if (![result valueForKey:key]) {
-                [result setObject:obj
-                           forKey:key];
+                result[key] = obj;
             }
         }];
 

@@ -23,7 +23,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 #define _ Underscore
 
 #define USAssertEqualObjects(functional, wrapper) \
-        STAssertEqualObjects(functional, wrapper, @"Wrapper and Shortcut behave equally");
+        XCTAssertEqualObjects(functional, wrapper, @"Wrapper and Shortcut behave equally");
 
 @implementation USDictionaryTest
 
@@ -42,15 +42,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testKeys
 {
-    STAssertEqualObjects(_.keys(emptyDictionary),
+    XCTAssertEqualObjects(_.keys(emptyDictionary),
                          emptyArray,
                          @"An empty dictionary returns an empty keys array");
 
     NSArray *result = _.keys(simpleDictionary);
 
-    STAssertTrue([result containsObject:@"key1"], @"Can extract key 'key1'");
-    STAssertTrue([result containsObject:@"key2"], @"Can extract key 'key2'");
-    STAssertTrue([result containsObject:@"key3"], @"Can extract key 'key3'");
+    XCTAssertTrue([result containsObject:@"key1"], @"Can extract key 'key1'");
+    XCTAssertTrue([result containsObject:@"key2"], @"Can extract key 'key2'");
+    XCTAssertTrue([result containsObject:@"key3"], @"Can extract key 'key3'");
 
     USAssertEqualObjects(_.keys(emptyDictionary) ,
                          _.dict(emptyDictionary).keys.unwrap);
@@ -60,15 +60,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testValues
 {
-    STAssertEqualObjects(_.values(emptyDictionary),
+    XCTAssertEqualObjects(_.values(emptyDictionary),
                          emptyArray,
                          @"An empty dictionary returns an empty values array");
 
     NSArray *result = _.values(simpleDictionary);
 
-    STAssertTrue([result containsObject:@"object1"], @"Can extract object 'object1'");
-    STAssertTrue([result containsObject:@"object2"], @"Can extract object 'object2'");
-    STAssertTrue([result containsObject:@"object3"], @"Can extract object 'object3'");
+    XCTAssertTrue([result containsObject:@"object1"], @"Can extract object 'object1'");
+    XCTAssertTrue([result containsObject:@"object2"], @"Can extract object 'object2'");
+    XCTAssertTrue([result containsObject:@"object3"], @"Can extract object 'object3'");
 
     USAssertEqualObjects(_.values(emptyDictionary) ,
                          _.dict(emptyDictionary).values.unwrap);
@@ -84,29 +84,29 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         zero++;
     });
 
-    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+    XCTAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
     __block NSUInteger runs = 0;
     __block BOOL checked1 = NO, checked2 = NO, checked3 = NO;
 
     _.dictEach(simpleDictionary, ^(NSString *key, NSString *obj) {
         if ([key isEqualToString:@"key1"]) {
-            STAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
-            STAssertFalse(checked1, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
+            XCTAssertFalse(checked1, @"Calls the block only once");
 
             checked1 = YES;
         }
 
         if ([key isEqualToString:@"key2"]) {
-            STAssertEqualObjects(obj, @"object2", @"Calls the block with the correct value");
-            STAssertFalse(checked2, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object2", @"Calls the block with the correct value");
+            XCTAssertFalse(checked2, @"Calls the block only once");
 
             checked2 = YES;
         }
 
         if ([key isEqualToString:@"key3"]) {
-            STAssertEqualObjects(obj, @"object3", @"Calls the block with the correct value");
-            STAssertFalse(checked3, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object3", @"Calls the block with the correct value");
+            XCTAssertFalse(checked3, @"Calls the block only once");
 
             checked3 = YES;
         }
@@ -114,7 +114,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         runs++;
     });
 
-    STAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
+    XCTAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
 }
 
 
@@ -126,29 +126,29 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         zero++;
     });
 
-    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+    XCTAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
     __block NSUInteger runs = 0;
     __block BOOL checked1 = NO, checked2 = NO, checked3 = NO;
 
     _.dict(simpleDictionary).each(^(NSString *key, NSString *obj) {
         if ([key isEqualToString:@"key1"]) {
-            STAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
-            STAssertFalse(checked1, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object1", @"Calls the block with the correct value");
+            XCTAssertFalse(checked1, @"Calls the block only once");
 
             checked1 = YES;
         }
 
         if ([key isEqualToString:@"key2"]) {
-            STAssertEqualObjects(obj, @"object2", @"Calls the block with the correct value");
-            STAssertFalse(checked2, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object2", @"Calls the block with the correct value");
+            XCTAssertFalse(checked2, @"Calls the block only once");
 
             checked2 = YES;
         }
 
         if ([key isEqualToString:@"key3"]) {
-            STAssertEqualObjects(obj, @"object3", @"Calls the block with the correct value");
-            STAssertFalse(checked3, @"Calls the block only once");
+            XCTAssertEqualObjects(obj, @"object3", @"Calls the block with the correct value");
+            XCTAssertFalse(checked3, @"Calls the block only once");
 
             checked3 = YES;
         }
@@ -156,7 +156,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         runs++;
     });
 
-    STAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
+    XCTAssertTrue(runs == 3, @"Triggers the block once for each key-value-pair");
 }
 
 - (void)testMapFunctional
@@ -168,9 +168,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return obj;
     });
 
-    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+    XCTAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
-    STAssertEqualObjects(_.dictMap(simpleDictionary, ^id (id key, id obj) {return nil;}),
+    XCTAssertEqualObjects(_.dictMap(simpleDictionary, ^id (id key, id obj) {return nil;}),
                          emptyDictionary,
                          @"Returning nil in the map block removes the key value pair");
 
@@ -183,7 +183,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                            @"Object3", @"key3",
                                                                            nil];
 
-    STAssertEqualObjects(result,
+    XCTAssertEqualObjects(result,
                          capitalized,
                          @"Can map objects");
 }
@@ -197,9 +197,9 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return obj;
     });
 
-    STAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
+    XCTAssertTrue(zero == 0, @"An empty dictionary never triggers the block");
 
-    STAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
+    XCTAssertEqualObjects(_.dict(simpleDictionary).map(^id (id key, id obj) {return nil;}).unwrap,
                          emptyDictionary,
                          @"Returning nil in the map block removes the key value pair");
 
@@ -214,28 +214,28 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                            @"Object3", @"key3",
                                                                            nil];
 
-    STAssertEqualObjects(result,
+    XCTAssertEqualObjects(result,
                          capitalized,
                          @"Can map objects");
 }
 
 - (void)testPick
 {
-    STAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
+    XCTAssertEqualObjects(_.pick(emptyDictionary, threeObjects),
                          emptyDictionary,
                          @"Picking from empty dictionary results in empty dictionary");
 
-    STAssertEqualObjects(_.pick(simpleDictionary, emptyArray),
+    XCTAssertEqualObjects(_.pick(simpleDictionary, emptyArray),
                          emptyDictionary,
                          @"Picking with empty array results in empty dictionary");
 
-    STAssertEqualObjects(_.pick(simpleDictionary, threeObjects),
+    XCTAssertEqualObjects(_.pick(simpleDictionary, threeObjects),
                          emptyDictionary,
                          @"Picking with array that not contains common keys results in empty dictionary");
 
     NSArray *key1 = [NSArray arrayWithObject:@"key1"];
 
-    STAssertEqualObjects(_.pick(simpleDictionary, key1),
+    XCTAssertEqualObjects(_.pick(simpleDictionary, key1),
                          [NSDictionary dictionaryWithObject:@"object1" forKey:@"key1"],
                          @"Can pick keys");
 
@@ -251,15 +251,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testExtend
 {
-    STAssertEqualObjects(_.extend(emptyDictionary, emptyDictionary),
+    XCTAssertEqualObjects(_.extend(emptyDictionary, emptyDictionary),
                          emptyDictionary,
                          @"Extending empty dictionary with empty dictionary results in empty dictionary");
 
-    STAssertEqualObjects(_.extend(emptyDictionary, simpleDictionary),
+    XCTAssertEqualObjects(_.extend(emptyDictionary, simpleDictionary),
                          simpleDictionary,
                          @"Extending empty dictionary with non-empty dictionary copies over all key-values pairs");
 
-    STAssertEqualObjects(_.extend(simpleDictionary, emptyDictionary),
+    XCTAssertEqualObjects(_.extend(simpleDictionary, emptyDictionary),
                          simpleDictionary,
                          @"Extending non-empty dictionary with empty dictionary leaves all key-values pairs unchanged");
 
@@ -271,7 +271,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                            @"object3", @"key3",
                                                                            nil];
 
-    STAssertEqualObjects(_.extend(dictionary1, dictionary2),
+    XCTAssertEqualObjects(_.extend(dictionary1, dictionary2),
                          simpleDictionary,
                          @"Extending non-empty dictionary with non-empty dictionary overwrites keys where necessary");
 
@@ -287,15 +287,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
 
 - (void)testDefaults
 {
-    STAssertEqualObjects(_.defaults(emptyDictionary, emptyDictionary),
+    XCTAssertEqualObjects(_.defaults(emptyDictionary, emptyDictionary),
                          emptyDictionary,
                          @"Applying defaults from an empty dictionary to an empty dictionary results in an empty dictionary");
 
-    STAssertEqualObjects(_.defaults(emptyDictionary, simpleDictionary),
+    XCTAssertEqualObjects(_.defaults(emptyDictionary, simpleDictionary),
                          simpleDictionary,
                          @"Applying defaults from a non-empty dictionary to an empty dictionary copies over all key-values pairs");
 
-    STAssertEqualObjects(_.defaults(simpleDictionary, emptyDictionary),
+    XCTAssertEqualObjects(_.defaults(simpleDictionary, emptyDictionary),
                          simpleDictionary,
                          @"Applying defaults from an empty dictionary to a non-empty dictionary copies over all key-values pairs");
 
@@ -309,7 +309,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                         @"object4", @"key4",
                                                                         nil];
 
-    STAssertEqualObjects(_.defaults(simpleDictionary, defaults),
+    XCTAssertEqualObjects(_.defaults(simpleDictionary, defaults),
                          fourKeys,
                          @"Applying defaults from a non-empty dictionary to a non-empty dictionary copies over all key-values pairs not existant in the latter");
 
@@ -329,19 +329,19 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [key isEqualToString:@"key2"];
     };
 
-    STAssertEqualObjects(_.filterKeys(emptyDictionary, allPass),
+    XCTAssertEqualObjects(_.filterKeys(emptyDictionary, allPass),
                          emptyDictionary,
                          @"Filtering an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_.filterKeys(simpleDictionary, allPass),
+    XCTAssertEqualObjects(_.filterKeys(simpleDictionary, allPass),
                          simpleDictionary,
                          @"Filtering everything results in the original dictionary");
 
-    STAssertEqualObjects(_.filterKeys(simpleDictionary, nonePass),
+    XCTAssertEqualObjects(_.filterKeys(simpleDictionary, nonePass),
                          emptyDictionary,
                          @"Filtering nothing results in the original dictionary");
 
-    STAssertEqualObjects(_.filterKeys(simpleDictionary, key2Passes),
+    XCTAssertEqualObjects(_.filterKeys(simpleDictionary, key2Passes),
                          [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
                          @"Can filter only specific keys");
 
@@ -361,19 +361,19 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [obj isEqualToString:@"object2"];
     };
 
-    STAssertEqualObjects(_.filterValues(emptyDictionary, allPass),
+    XCTAssertEqualObjects(_.filterValues(emptyDictionary, allPass),
                          emptyDictionary,
                          @"Filtering an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_.filterValues(simpleDictionary, allPass),
+    XCTAssertEqualObjects(_.filterValues(simpleDictionary, allPass),
                          simpleDictionary,
                          @"Filtering everything results in the original dictionary");
 
-    STAssertEqualObjects(_.filterValues(simpleDictionary, nonePass),
+    XCTAssertEqualObjects(_.filterValues(simpleDictionary, nonePass),
                          emptyDictionary,
                          @"Filtering nothing results in the original dictionary");
 
-    STAssertEqualObjects(_.filterValues(simpleDictionary, object2Passes),
+    XCTAssertEqualObjects(_.filterValues(simpleDictionary, object2Passes),
                          [NSDictionary dictionaryWithObject:@"object2" forKey:@"key2"],
                          @"Can filter only specific values");
 
@@ -393,15 +393,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [obj isEqualToString:@"key2"];
     };
 
-    STAssertEqualObjects(_.rejectKeys(emptyDictionary, allPass),
+    XCTAssertEqualObjects(_.rejectKeys(emptyDictionary, allPass),
                          emptyDictionary,
                          @"Rejecting keys of an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_.rejectKeys(simpleDictionary, allPass),
+    XCTAssertEqualObjects(_.rejectKeys(simpleDictionary, allPass),
                          emptyDictionary,
                          @"Rejecting everything results in an empty dictionary");
 
-    STAssertEqualObjects(_.rejectKeys(simpleDictionary, nonePass),
+    XCTAssertEqualObjects(_.rejectKeys(simpleDictionary, nonePass),
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
@@ -409,7 +409,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                         @"object3", @"key3",
                                                                         nil];
 
-    STAssertEqualObjects(_.rejectKeys(simpleDictionary, key2Passes),
+    XCTAssertEqualObjects(_.rejectKeys(simpleDictionary, key2Passes),
                          expected,
                          @"Can reject only specific keys");
 
@@ -429,15 +429,15 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
         return [obj isEqualToString:@"object2"];
     };
 
-    STAssertEqualObjects(_.rejectValues(emptyDictionary, allPass),
+    XCTAssertEqualObjects(_.rejectValues(emptyDictionary, allPass),
                          emptyDictionary,
                          @"Rejecting values of an empty dictionary returns an empty dictionary");
 
-    STAssertEqualObjects(_.rejectValues(simpleDictionary, allPass),
+    XCTAssertEqualObjects(_.rejectValues(simpleDictionary, allPass),
                          emptyDictionary,
                          @"Rejecting everything results in an empty dictionary");
 
-    STAssertEqualObjects(_.rejectValues(simpleDictionary, nonePass),
+    XCTAssertEqualObjects(_.rejectValues(simpleDictionary, nonePass),
                          simpleDictionary,
                          @"Rejecting nothing results in the original dictionary");
 
@@ -445,7 +445,7 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                                                                         @"object3", @"key3",
                                                                         nil];
 
-    STAssertEqualObjects(_.rejectValues(simpleDictionary, object2Passes),
+    XCTAssertEqualObjects(_.rejectValues(simpleDictionary, object2Passes),
                          expected,
                          @"Can reject only specific values");
 
