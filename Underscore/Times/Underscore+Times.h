@@ -24,7 +24,7 @@
 //  IN THE SOFTWARE.
 //
 
-#import <Underscore/Underscore.h>
+#import "Underscore.h"
 
 @interface Underscore (Times)
 
