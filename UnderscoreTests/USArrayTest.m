@@ -352,6 +352,41 @@ static UnderscoreTestBlock nonePass = ^BOOL(id any) {return NO; };
                          _.array(threeObjects).map(capitalize).unwrap);
 }
 
+- (void)testIndexedMap
+{
+    UnderscoreIndexedArrayMapBlock returnTest = ^id (id any, NSUInteger idx) {
+        return [NSString stringWithFormat:@"%ld %@", idx, @"test"];
+    };
+    UnderscoreIndexedArrayMapBlock returnNil  = ^id (id any, NSUInteger idx) {
+        return nil;
+    };
+    UnderscoreIndexedArrayMapBlock capitalize = ^NSString *(NSString *string, NSUInteger idx) {
+        return [NSString stringWithFormat:@"%ld %@", idx, [string capitalizedString]];
+    };
+
+    XCTAssertEqualObjects(_.arrayIndexedMap(emptyArray, returnTest),
+                         emptyArray,
+                         @"Can handle empty arrays");
+
+    XCTAssertEqualObjects(_.arrayIndexedMap(threeObjects, returnNil),
+                         emptyArray,
+                         @"Returning nil in the map block removes the object pair");
+
+    NSArray *capitalized = [NSArray arrayWithObjects:@"0 Foo", @"1 Bar", @"2 Baz", nil];
+    NSArray *result      = _.arrayIndexedMap(threeObjects, capitalize);
+
+    XCTAssertEqualObjects(capitalized,
+                         result,
+                         @"Can map objects");
+
+    USAssertEqualObjects(_.arrayIndexedMap(emptyArray, returnTest),
+                         _.array(emptyArray).indexedMap(returnTest).unwrap);
+    USAssertEqualObjects(_.arrayIndexedMap(threeObjects, returnNil),
+                         _.array(threeObjects).indexedMap(returnNil).unwrap);
+    USAssertEqualObjects(_.arrayIndexedMap(threeObjects, capitalize),
+                         _.array(threeObjects).indexedMap(capitalize).unwrap);
+}
+
 - (void)testZipWith
 {
     UnderscoreArrayZipWithBlock addNumbers = ^id (NSNumber *one, NSNumber *two) {
