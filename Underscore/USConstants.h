@@ -31,6 +31,7 @@ typedef id   (^UnderscoreReduceBlock)(id memo, id obj);
 
 typedef void (^UnderscoreArrayIteratorBlock)(id obj);
 typedef id   (^UnderscoreArrayMapBlock)(id obj);
+typedef id   (^UnderscoreIndexedArrayMapBlock)(id obj, NSUInteger idx);
 typedef id   (^UnderscoreArrayZipWithBlock)(id objectFromFirstArray, id objectFromSecondArray);
 typedef void (^UnderscoreIntegerIteratorBlock)(NSInteger n);
 
