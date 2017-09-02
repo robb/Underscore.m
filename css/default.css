@@ -7,11 +7,13 @@
   margin:  0;
 }
 
+html {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 body {
   background: #33AB90;
   color:      #33AB90;
-
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
   font-size:   1.2rem;
   line-height: 2rem;
