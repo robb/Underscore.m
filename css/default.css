@@ -11,7 +11,7 @@ body {
   background: #33AB90;
   color:      #33AB90;
 
-  font-family: "ff-meta-web-pro", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
   font-size:   1.2rem;
   line-height: 2rem;
@@ -45,7 +45,6 @@ header .inner, section .inner, footer .inner {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "brandon-grotesque";
   color: rgba(255, 255, 255, 0.8);
 }
 
