@@ -45,4 +45,4 @@ NSArray *processed = _array(tweets)
 
 ## Documentation
 
-Documentation for Underscore.m can be found on [the website](http://underscorem.org).
+Documentation for Underscore.m can be found on [the website](https://robb.github.io/Underscore.m/).
